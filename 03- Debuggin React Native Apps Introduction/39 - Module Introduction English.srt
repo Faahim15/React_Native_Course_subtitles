@@ -1,0 +1,123 @@
+1
+00:00:02,190 --> 00:00:04,620
+In the previous course section,
+2
+
+2
+00:00:04,620 --> 00:00:07,650
+we got started with key React Native
+3
+
+3
+00:00:07,650 --> 00:00:09,650
+fundamentals and basics.
+4
+
+4
+00:00:09,650 --> 00:00:12,770
+In this course section we are going to explore
+5
+
+5
+00:00:12,770 --> 00:00:15,680
+how we can debug React Native apps
+6
+
+6
+00:00:15,680 --> 00:00:18,760
+because things go wrong, errors happen,
+7
+
+7
+00:00:18,760 --> 00:00:22,920
+and you must be able to fix errors on your own
+8
+
+8
+00:00:22,920 --> 00:00:26,130
+and you must be able to understand your app
+9
+
+9
+00:00:26,130 --> 00:00:29,370
+and dig into your app and the UI you built
+10
+
+10
+00:00:29,370 --> 00:00:31,180
+whilst you're building it.
+11
+
+11
+00:00:31,180 --> 00:00:33,380
+Therefore, in this course section
+12
+
+12
+00:00:33,380 --> 00:00:37,320
+we are going to take a look at an example error message
+13
+
+13
+00:00:37,320 --> 00:00:40,760
+and see what we can make of such error messages,
+14
+
+14
+00:00:40,760 --> 00:00:43,560
+which hints we can get out of error messages,
+15
+
+15
+00:00:43,560 --> 00:00:47,580
+and how we should treat and handle error messages.
+16
+
+16
+00:00:47,580 --> 00:00:52,140
+Before we then also take a look at some DevTools
+17
+
+17
+00:00:52,140 --> 00:00:57,070
+and some additions we get by using React Native and Expo
+18
+
+18
+00:00:57,070 --> 00:01:00,010
+that also help us when it comes to debugging
+19
+
+19
+00:01:00,010 --> 00:01:01,690
+React Native apps.
+20
+
+20
+00:01:01,690 --> 00:01:04,020
+Now, for this course section,
+21
+
+21
+00:01:04,020 --> 00:01:05,910
+I'm going to use this app we built
+22
+
+22
+00:01:05,910 --> 00:01:07,960
+in the previous course section.
+23
+
+23
+00:01:07,960 --> 00:01:10,860
+In case you skipped that section, you'll find it attached
+24
+
+24
+00:01:10,860 --> 00:01:13,320
+so that you can follow along just fine.
+25
+
+25
+00:01:13,320 --> 00:01:15,823
+And with that, let's dive into debugging.

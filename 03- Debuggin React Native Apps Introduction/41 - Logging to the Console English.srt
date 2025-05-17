@@ -1,0 +1,173 @@
+1
+00:00:02,490 --> 00:00:04,870
+Now we had a look at an error message.
+2
+
+2
+00:00:04,870 --> 00:00:08,330
+Sometimes you don't have an error necessarily
+3
+
+3
+00:00:08,330 --> 00:00:13,330
+but you want to get deeper insights into your application.
+4
+
+4
+00:00:13,680 --> 00:00:16,611
+Now one thing you can do to get insights
+5
+
+5
+00:00:16,611 --> 00:00:19,430
+is you can log things.
+6
+
+6
+00:00:19,430 --> 00:00:22,640
+You can add simple console log statements to your job,
+7
+
+7
+00:00:22,640 --> 00:00:25,490
+a script code, as you might be doing it in the browser
+8
+
+8
+00:00:26,330 --> 00:00:30,853
+and then log something like, goal input component rendered.
+9
+
+9
+00:00:32,090 --> 00:00:35,610
+And when you do that, when you add log messages like this,
+10
+
+10
+00:00:35,610 --> 00:00:38,750
+as a result, you will see them here in your terminal
+11
+
+11
+00:00:38,750 --> 00:00:42,200
+where you started this MPM start process.
+12
+
+12
+00:00:42,200 --> 00:00:44,860
+So here, if by expand this,
+13
+
+13
+00:00:44,860 --> 00:00:47,620
+we see that this is being output here.
+14
+
+14
+00:00:47,620 --> 00:00:50,670
+And we see it twice because I'm running the app twice
+15
+
+15
+00:00:50,670 --> 00:00:52,473
+on two different emulators.
+16
+
+16
+00:00:53,720 --> 00:00:56,090
+So that can of course also sometimes be useful
+17
+
+17
+00:00:56,090 --> 00:00:59,140
+to understand the flow of your application.
+18
+
+18
+00:00:59,140 --> 00:01:01,350
+By adding this into different places,
+19
+
+19
+00:01:01,350 --> 00:01:04,420
+into some functions, into some component functions,
+20
+
+20
+00:01:04,420 --> 00:01:06,220
+maybe in some other places
+21
+
+21
+00:01:06,220 --> 00:01:08,680
+you understand which code gets executed
+22
+
+22
+00:01:08,680 --> 00:01:10,310
+at which point of time.
+23
+
+23
+00:01:10,310 --> 00:01:13,500
+And of course, you can also console log
+24
+
+24
+00:01:13,500 --> 00:01:16,960
+things like the entered goal text here
+25
+
+25
+00:01:16,960 --> 00:01:20,430
+to print the value or to print some value
+26
+
+26
+00:01:20,430 --> 00:01:22,870
+of some variable or state.
+27
+
+27
+00:01:22,870 --> 00:01:27,870
+So that if I save this and I now go here and I start typing.
+28
+
+28
+00:01:28,800 --> 00:01:32,600
+We actually see that this text is being output here.
+29
+
+29
+00:01:32,600 --> 00:01:36,360
+So that again, we understand when this code executes,
+30
+
+30
+00:01:36,360 --> 00:01:38,700
+when it logs something to the console
+31
+
+31
+00:01:38,700 --> 00:01:41,560
+and which concrete value we might be storing
+32
+
+32
+00:01:41,560 --> 00:01:44,800
+in some variable at a given point of time.
+33
+
+33
+00:01:44,800 --> 00:01:47,280
+So console log can be very useful
+34
+
+34
+00:01:47,280 --> 00:01:49,540
+and you get the log messages delivered
+35
+
+35
+00:01:49,540 --> 00:01:51,003
+to your terminal here.

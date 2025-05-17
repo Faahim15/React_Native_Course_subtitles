@@ -1,0 +1,43 @@
+1
+00:00:02,060 --> 00:00:06,020
+So that's it for these core debugging tools you have.
+2
+
+2
+00:00:06,020 --> 00:00:10,140
+On reactnative.dev, if you dive into the guides there,
+3
+
+3
+00:00:10,140 --> 00:00:14,360
+under workflow, you also find debugging documentation.
+4
+
+4
+00:00:14,360 --> 00:00:16,700
+This can also be useful to go through.
+5
+
+5
+00:00:16,700 --> 00:00:20,160
+You find some additional ideas and aspects there,
+6
+
+6
+00:00:20,160 --> 00:00:22,490
+but the tools and approaches I showed you
+7
+
+7
+00:00:22,490 --> 00:00:25,750
+should already get you pretty far and should help you
+8
+
+8
+00:00:25,750 --> 00:00:28,870
+understand your React Native apps a bit better,
+9
+
+9
+00:00:28,870 --> 00:00:32,363
+and understand and solve errors a bit better.

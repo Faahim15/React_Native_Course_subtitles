@@ -1,0 +1,478 @@
+1
+00:00:02,480 --> 00:00:04,190
+[Maximilian Schwarzmuller] Now, let's start this section
+2
+
+2
+00:00:04,190 --> 00:00:06,440
+by exploring error messages.
+3
+
+3
+00:00:06,440 --> 00:00:10,100
+And at the moment this app has no error,
+4
+
+4
+00:00:10,100 --> 00:00:11,880
+but we can force one.
+5
+
+5
+00:00:11,880 --> 00:00:15,380
+Tor this I'll go to the GoalInput.js file
+6
+
+6
+00:00:15,380 --> 00:00:19,780
+and in there, I will simply force an error
+7
+
+7
+00:00:19,780 --> 00:00:23,720
+by actually setting this image source
+8
+
+8
+00:00:23,720 --> 00:00:25,730
+not to the correct source.
+9
+
+9
+00:00:25,730 --> 00:00:27,230
+I will comment this out.
+10
+
+10
+00:00:27,230 --> 00:00:31,700
+Instead, I will set the source to just a string,
+11
+
+11
+00:00:31,700 --> 00:00:34,550
+some path to image.
+12
+
+12
+00:00:34,550 --> 00:00:37,890
+Now this path doesn't exist, but this doesn't matter
+13
+
+13
+00:00:37,890 --> 00:00:41,993
+because that's also not a good way of defining such a path.
+14
+
+14
+00:00:43,370 --> 00:00:47,180
+If I save this, we now get an error here,
+15
+
+15
+00:00:47,180 --> 00:00:50,760
+when we have a look at our emulators at the bottom,
+16
+
+16
+00:00:50,760 --> 00:00:54,420
+and we also get one here in the terminal.
+17
+
+17
+00:00:54,420 --> 00:00:56,600
+And the error message we're getting here
+18
+
+18
+00:00:56,600 --> 00:01:00,160
+is that we provided an invalid prop,
+19
+
+19
+00:01:00,160 --> 00:01:03,260
+to be precise that the source prop is the problem,
+20
+
+20
+00:01:03,260 --> 00:01:08,260
+to the image, and that it expected one of type number.
+21
+
+21
+00:01:08,620 --> 00:01:09,790
+Now I will be honest.
+22
+
+22
+00:01:09,790 --> 00:01:14,720
+This last part is a bit confusing and you will often have
+23
+
+23
+00:01:14,720 --> 00:01:19,720
+confusing elements in error messages, they are not perfect.
+24
+
+24
+00:01:20,110 --> 00:01:21,700
+But what is important is that
+25
+
+25
+00:01:21,700 --> 00:01:24,300
+you read the message because often it gives you
+26
+
+26
+00:01:24,300 --> 00:01:28,540
+a first hint at what's wrong and what could be the problem.
+27
+
+27
+00:01:28,540 --> 00:01:31,920
+Here the hint is relatively clear that it is related
+28
+
+28
+00:01:31,920 --> 00:01:34,480
+to the source prop of the image component.
+29
+
+29
+00:01:34,480 --> 00:01:36,680
+But even if it's a bit more abstract,
+30
+
+30
+00:01:36,680 --> 00:01:38,500
+you might at least get a first idea
+31
+
+31
+00:01:38,500 --> 00:01:40,920
+of where to look for the problem
+32
+
+32
+00:01:40,920 --> 00:01:42,953
+and where you could maybe fix it.
+33
+
+33
+00:01:43,890 --> 00:01:46,450
+Now, in addition, what's also very useful
+34
+
+34
+00:01:46,450 --> 00:01:50,840
+when getting error messages, is this stack trace down here.
+35
+
+35
+00:01:50,840 --> 00:01:54,220
+This tells you where the error occurred.
+36
+
+36
+00:01:54,220 --> 00:01:57,490
+The first line isn't too useful
+37
+
+37
+00:01:57,490 --> 00:01:59,590
+because here it points at an image component
+38
+
+38
+00:01:59,590 --> 00:02:01,800
+in some weird path,
+39
+
+39
+00:02:01,800 --> 00:02:04,080
+because that in the end is the bundled code
+40
+
+40
+00:02:04,080 --> 00:02:05,340
+to which it's pointing here
+41
+
+41
+00:02:05,340 --> 00:02:07,520
+and that's not helping us too much.
+42
+
+42
+00:02:07,520 --> 00:02:09,860
+But if you have a look at the parts down here,
+43
+
+43
+00:02:09,860 --> 00:02:11,470
+it becomes more useful.
+44
+
+44
+00:02:11,470 --> 00:02:15,340
+Here we learn that it's in the GoalInput component,
+45
+
+45
+00:02:15,340 --> 00:02:18,110
+which is created by the App component.
+46
+
+46
+00:02:18,110 --> 00:02:20,550
+This can be useful if you have the same component
+47
+
+47
+00:02:20,550 --> 00:02:22,530
+being used in multiple components,
+48
+
+48
+00:02:22,530 --> 00:02:25,040
+then you know which instance being used
+49
+
+49
+00:02:25,040 --> 00:02:27,930
+by which other component is causing this.
+50
+
+50
+00:02:27,930 --> 00:02:29,690
+And therefore now it's pretty clear
+51
+
+51
+00:02:29,690 --> 00:02:32,540
+that we should dive into the GoalInput component
+52
+
+52
+00:02:32,540 --> 00:02:35,120
+and that in there we might wanna look for
+53
+
+53
+00:02:35,120 --> 00:02:37,310
+the users of the image component,
+54
+
+54
+00:02:37,310 --> 00:02:39,803
+and then take a closer look at the source prop.
+55
+
+55
+00:02:40,660 --> 00:02:44,330
+And if we're not sure of what should be provided here
+56
+
+56
+00:02:44,330 --> 00:02:47,460
+then of course it's always a good idea
+57
+
+57
+00:02:47,460 --> 00:02:50,150
+to look into the official documentation.
+58
+
+58
+00:02:50,150 --> 00:02:52,250
+If you search for react native image,
+59
+
+59
+00:02:52,250 --> 00:02:53,910
+you should get a direct link
+60
+
+60
+00:02:53,910 --> 00:02:57,060
+to the official documentation for this image component.
+61
+
+61
+00:02:57,060 --> 00:03:01,060
+But you can also just go to the React Native main page
+62
+
+62
+00:03:01,060 --> 00:03:05,260
+and then to Components, and then find the image there.
+63
+
+63
+00:03:05,260 --> 00:03:06,950
+And here you then learn more
+64
+
+64
+00:03:06,950 --> 00:03:08,960
+about the usage of this component,
+65
+
+65
+00:03:08,960 --> 00:03:13,093
+and which kind of value can be passed to the source prop.
+66
+
+66
+00:03:14,210 --> 00:03:16,560
+Now, here we forced this error, of course.
+67
+
+67
+00:03:16,560 --> 00:03:18,830
+So it is rather simple to fix,
+68
+
+68
+00:03:18,830 --> 00:03:20,570
+but I wanted to show you
+69
+
+69
+00:03:20,570 --> 00:03:23,530
+what you can make of such error messages.
+70
+
+70
+00:03:23,530 --> 00:03:26,230
+And before I save this fixed code
+71
+
+71
+00:03:26,230 --> 00:03:30,190
+let's also have a closer look at the emulator again.
+72
+
+72
+00:03:30,190 --> 00:03:33,370
+There, we also got a error message at the bottom here.
+73
+
+73
+00:03:33,370 --> 00:03:35,160
+And you will sometimes get warnings
+74
+
+74
+00:03:35,160 --> 00:03:36,680
+or error messages down here
+75
+
+75
+00:03:36,680 --> 00:03:40,000
+and you can click on them to see more details.
+76
+
+76
+00:03:40,000 --> 00:03:42,600
+Indeed, you see that here it's actually not an error
+77
+
+77
+00:03:42,600 --> 00:03:44,410
+but a warning, which means,
+78
+
+78
+00:03:44,410 --> 00:03:47,810
+yeah, the app still runs but not as intended,
+79
+
+79
+00:03:47,810 --> 00:03:50,450
+in this case no image would be displayed
+80
+
+80
+00:03:50,450 --> 00:03:53,140
+and you get a similar output as before.
+81
+
+81
+00:03:53,140 --> 00:03:55,570
+You get basically the same error
+82
+
+82
+00:03:55,570 --> 00:03:57,880
+or warning message up here.
+83
+
+83
+00:03:57,880 --> 00:04:00,490
+And then you got a stack trace down here,
+84
+
+84
+00:04:00,490 --> 00:04:03,150
+though I will say that this output here
+85
+
+85
+00:04:03,150 --> 00:04:06,850
+is not that useful compared to what we had
+86
+
+86
+00:04:06,850 --> 00:04:08,440
+here in the terminal.
+87
+
+87
+00:04:08,440 --> 00:04:11,960
+Here in the terminal it was pretty clear pretty quickly
+88
+
+88
+00:04:11,960 --> 00:04:14,300
+which component, the image component,
+89
+
+89
+00:04:14,300 --> 00:04:17,500
+in which component built by us causes the problem.
+90
+
+90
+00:04:17,500 --> 00:04:20,490
+Here it's not immediately clear.
+91
+
+91
+00:04:20,490 --> 00:04:22,060
+Nonetheless, taking a look
+92
+
+92
+00:04:22,060 --> 00:04:23,910
+at this output can also be helpful.
+93
+
+93
+00:04:23,910 --> 00:04:25,430
+At least here we also learned
+94
+
+94
+00:04:25,430 --> 00:04:27,333
+that it is related to an image.
+95
+
+95
+00:04:28,330 --> 00:04:31,730
+Now with that I will of course save the fixed code.
+96
+
+96
+00:04:31,730 --> 00:04:35,663
+And with that, the apps update and the error goes away.

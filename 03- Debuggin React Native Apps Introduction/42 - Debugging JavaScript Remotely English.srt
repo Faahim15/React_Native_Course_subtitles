@@ -1,0 +1,344 @@
+1
+00:00:02,240 --> 00:00:03,073
+Now sometimes,
+2
+
+2
+00:00:03,073 --> 00:00:05,060
+you want more detailed insights.
+3
+
+3
+00:00:05,060 --> 00:00:08,500
+You don't just want to console lock something.
+4
+
+4
+00:00:08,500 --> 00:00:10,230
+When using React Native,
+5
+
+5
+00:00:10,230 --> 00:00:12,300
+especially also with Expo,
+6
+
+6
+00:00:12,300 --> 00:00:14,520
+you get some additional tools.
+7
+
+7
+00:00:14,520 --> 00:00:18,340
+Now for this let's press question mark here,
+8
+
+8
+00:00:18,340 --> 00:00:19,680
+in our terminal
+9
+
+9
+00:00:19,680 --> 00:00:21,680
+where we started npm-start
+10
+
+10
+00:00:21,680 --> 00:00:25,170
+to see a full list of available shortcuts we can use
+11
+
+11
+00:00:25,170 --> 00:00:28,370
+whilst this npm-start process is running.
+12
+
+12
+00:00:28,370 --> 00:00:31,610
+So you just need to activate this terminal, this console
+13
+
+13
+00:00:31,610 --> 00:00:32,640
+by clicking into it,
+14
+
+14
+00:00:32,640 --> 00:00:34,970
+and then you can use the shortcuts you see here
+15
+
+15
+00:00:34,970 --> 00:00:36,910
+to trigger certain things.
+16
+
+16
+00:00:36,910 --> 00:00:40,010
+For example, we did press A, to open the app on Android
+17
+
+17
+00:00:40,010 --> 00:00:42,640
+or I, to open it on iOS before.
+18
+
+18
+00:00:42,640 --> 00:00:45,820
+You can for example, also press R, to force a reload,
+19
+
+19
+00:00:45,820 --> 00:00:47,940
+I also did that before.
+20
+
+20
+00:00:47,940 --> 00:00:49,810
+Now, what's quite interesting
+21
+
+21
+00:00:49,810 --> 00:00:52,070
+is that you can also
+22
+
+22
+00:00:52,070 --> 00:00:55,500
+press M, to toggle a menu,
+23
+
+23
+00:00:55,500 --> 00:00:58,530
+to be precise a developer menu.
+24
+
+24
+00:00:58,530 --> 00:01:00,250
+If you press M here,
+25
+
+25
+00:01:00,250 --> 00:01:04,380
+this menu opens up on one of the two emulators
+26
+
+26
+00:01:04,380 --> 00:01:08,890
+which you can also open by pressing Command-D on iOS
+27
+
+27
+00:01:08,890 --> 00:01:12,370
+or Command or Control-M on Android.
+28
+
+28
+00:01:12,370 --> 00:01:14,500
+Alternatively, press M here,
+29
+
+29
+00:01:14,500 --> 00:01:16,860
+in the terminal to open it as you saw.
+30
+
+30
+00:01:16,860 --> 00:01:19,020
+And then in this developer menu,
+31
+
+31
+00:01:19,020 --> 00:01:20,850
+you can also force a reload.
+32
+
+32
+00:01:20,850 --> 00:01:24,600
+You can go back to the homepage of your app here
+33
+
+33
+00:01:24,600 --> 00:01:27,560
+but you can also do a couple of other things.
+34
+
+34
+00:01:27,560 --> 00:01:30,813
+For example, you can debug JavaScript remotely.
+35
+
+35
+00:01:31,720 --> 00:01:33,240
+If you click on this,
+36
+
+36
+00:01:33,240 --> 00:01:36,490
+a new tab in Chrome should open up,
+37
+
+37
+00:01:36,490 --> 00:01:37,860
+and in that tab,
+38
+
+38
+00:01:37,860 --> 00:01:41,160
+you can open up the Chrome Developer Tools
+39
+
+39
+00:01:41,160 --> 00:01:43,720
+and in those developer tools, you can, for example,
+40
+
+40
+00:01:43,720 --> 00:01:46,980
+see network requests made by your app.
+41
+
+41
+00:01:46,980 --> 00:01:50,480
+At the moment our app isn't making any network requests
+42
+
+42
+00:01:50,480 --> 00:01:53,730
+but you could see network requests made by your app here
+43
+
+43
+00:01:53,730 --> 00:01:56,520
+if it's reaching out to some backend or anything like this.
+44
+
+44
+00:01:56,520 --> 00:02:00,350
+Here, we just see some development and debugging assets,
+45
+
+45
+00:02:00,350 --> 00:02:02,150
+which are downloaded.
+(alert chiming)
+46
+
+46
+00:02:02,150 --> 00:02:03,950
+And you also see a console
+47
+
+47
+00:02:03,950 --> 00:02:06,710
+where you can see the log messages
+48
+
+48
+00:02:06,710 --> 00:02:09,310
+your app might be generating.
+49
+
+49
+00:02:09,310 --> 00:02:11,980
+For example, if I go back to my code here,
+50
+
+50
+00:02:11,980 --> 00:02:15,293
+and I re-add console.log "GoalInput"
+51
+
+51
+00:02:16,440 --> 00:02:19,280
+here in the goal input component and I save this.
+52
+
+52
+00:02:19,280 --> 00:02:22,280
+In that console, you should also see output generated
+53
+
+53
+00:02:22,280 --> 00:02:24,680
+by the running app.
+54
+
+54
+00:02:24,680 --> 00:02:26,010
+If you don't see it here,
+55
+
+55
+00:02:26,010 --> 00:02:28,270
+you might need to force a reload
+56
+
+56
+00:02:28,270 --> 00:02:30,710
+or even restart the iOS app.
+57
+
+57
+00:02:30,710 --> 00:02:32,650
+I did have problems with that before,
+58
+
+58
+00:02:32,650 --> 00:02:34,200
+it can be a bit clunky
+59
+
+59
+00:02:34,200 --> 00:02:37,770
+but ultimately you should see some output here as well.
+60
+
+60
+00:02:37,770 --> 00:02:41,370
+Now, this is just an additional way of looking into your app
+61
+
+61
+00:02:41,370 --> 00:02:44,300
+and especially having a look at the network requests
+62
+
+62
+00:02:44,300 --> 00:02:47,230
+could be something that is interesting.
+63
+
+63
+00:02:47,230 --> 00:02:50,200
+Now you can at any time, of course,
+64
+
+64
+00:02:50,200 --> 00:02:52,040
+stop remote debugging
+65
+
+65
+00:02:52,040 --> 00:02:56,450
+to go back to the old state, like this.
+66
+
+66
+00:02:56,450 --> 00:02:57,480
+It's just an addition,
+67
+
+67
+00:02:57,480 --> 00:02:59,500
+not something you have to use all the time,
+68
+
+68
+00:02:59,500 --> 00:03:00,640
+and probably not something
+69
+
+69
+00:03:00,640 --> 00:03:02,983
+you want to use all the time.
