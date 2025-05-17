@@ -1,0 +1,608 @@
+1
+00:00:02,070 --> 00:00:04,410
+So we got our list here.
+2
+
+2
+00:00:04,410 --> 00:00:08,470
+Now, one thing you will notice about this list
+3
+
+3
+00:00:08,470 --> 00:00:12,080
+is that if I add more and more items here
+4
+
+4
+00:00:12,996 --> 00:00:16,130
+and I just add exclamation marks to make them unique,
+5
+
+5
+00:00:16,130 --> 00:00:20,483
+at some point we will go beyond the available space.
+6
+
+6
+00:00:21,400 --> 00:00:23,940
+Now you would expect that you simply scroll now,
+7
+
+7
+00:00:23,940 --> 00:00:26,060
+but it turns out you can't scroll.
+8
+
+8
+00:00:26,060 --> 00:00:29,430
+No matter how you try, this is not scrollable.
+9
+
+9
+00:00:29,430 --> 00:00:33,940
+Because by default the view generated here,
+10
+
+10
+00:00:33,940 --> 00:00:37,440
+this view that holds everything in our app component
+11
+
+11
+00:00:37,440 --> 00:00:39,450
+is not scrollable.
+12
+
+12
+00:00:39,450 --> 00:00:43,230
+That's also a difference compared to the browser.
+13
+
+13
+00:00:43,230 --> 00:00:46,260
+On a website, if you exceed the available space
+14
+
+14
+00:00:46,260 --> 00:00:48,900
+by default scrolling bars will appear,
+15
+
+15
+00:00:48,900 --> 00:00:50,653
+and you can scroll the website.
+16
+
+16
+00:00:51,880 --> 00:00:54,240
+This is not the case here in mobile apps.
+17
+
+17
+00:00:54,240 --> 00:00:55,620
+If you want to scroll,
+18
+
+18
+00:00:55,620 --> 00:00:58,880
+you have to explicitly tell React Native
+19
+
+19
+00:00:58,880 --> 00:01:00,713
+and the native platforms.
+20
+
+20
+00:01:01,770 --> 00:01:02,710
+Now, of course,
+21
+
+21
+00:01:02,710 --> 00:01:05,200
+this is a common problem and scenario though,
+22
+
+22
+00:01:05,200 --> 00:01:06,750
+and, therefore, making lists,
+23
+
+23
+00:01:06,750 --> 00:01:11,040
+or content in general, scrollable, is very easy.
+24
+
+24
+00:01:11,040 --> 00:01:14,710
+There is a dedicated component provided by React Native
+25
+
+25
+00:01:14,710 --> 00:01:15,653
+that helps you.
+26
+
+26
+00:01:16,500 --> 00:01:18,410
+And that's the ScrollView.
+27
+
+27
+00:01:18,410 --> 00:01:22,080
+We import ScrollView from React Native just
+28
+
+28
+00:01:22,080 --> 00:01:24,803
+as we imported text input button and so on.
+29
+
+29
+00:01:26,160 --> 00:01:28,710
+And ScrollView does what the name implies,
+30
+
+30
+00:01:28,710 --> 00:01:31,740
+It gives you a view so such a container element,
+31
+
+31
+00:01:31,740 --> 00:01:33,123
+which will be scrollable.
+32
+
+32
+00:01:34,890 --> 00:01:37,280
+And therefore we can now use this ScrollView
+33
+
+33
+00:01:38,320 --> 00:01:39,983
+around our goals here.
+34
+
+34
+00:01:41,080 --> 00:01:43,930
+So let's try replacing this view here
+35
+
+35
+00:01:43,930 --> 00:01:46,000
+with our ScrollView, simply.
+36
+
+36
+00:01:46,000 --> 00:01:48,610
+We add ScrollView here instead of view
+37
+
+37
+00:01:48,610 --> 00:01:50,930
+around our list of goals.
+38
+
+38
+00:01:50,930 --> 00:01:54,160
+And I leave my style on this ScrollView.
+39
+
+39
+00:01:54,160 --> 00:01:57,410
+Keep in mind this style here controls
+40
+
+40
+00:01:57,410 --> 00:02:00,163
+that this container takes up a lot of space.
+41
+
+41
+00:02:01,970 --> 00:02:06,970
+If we save this, this doesn't look too good.
+42
+
+42
+00:02:07,130 --> 00:02:09,930
+This now is indeed scrollable, as you see,
+43
+
+43
+00:02:09,930 --> 00:02:13,100
+but the space is different than it was before,
+44
+
+44
+00:02:13,100 --> 00:02:14,840
+we have way more space for the input
+45
+
+45
+00:02:14,840 --> 00:02:16,853
+and way less space for the list.
+46
+
+46
+00:02:18,120 --> 00:02:21,260
+The reason for that is that the ScrollView has the job
+47
+
+47
+00:02:21,260 --> 00:02:25,320
+of making something scrollable, but the area
+48
+
+48
+00:02:25,320 --> 00:02:30,040
+that's scrollable is in the end determined by the current,
+49
+
+49
+00:02:30,040 --> 00:02:32,600
+the container that holds the ScrollView.
+50
+
+50
+00:02:33,510 --> 00:02:36,980
+So what you should do here is add another normal view,
+51
+
+51
+00:02:36,980 --> 00:02:39,800
+which restricts the available height,
+52
+
+52
+00:02:39,800 --> 00:02:41,490
+to which you then apply the style
+53
+
+53
+00:02:41,490 --> 00:02:44,963
+that sets the height that will be taken up by that view.
+54
+
+54
+00:02:45,900 --> 00:02:48,930
+So that is the setup we had before, but now we
+55
+
+55
+00:02:48,930 --> 00:02:51,363
+have a ScrollView inside of that view.
+56
+
+56
+00:02:53,200 --> 00:02:56,790
+So the outer view, controls how much space this area
+57
+
+57
+00:02:56,790 --> 00:02:59,020
+of the screen should take up.
+58
+
+58
+00:02:59,020 --> 00:03:01,920
+And the inner ScrollView then makes sure that this
+59
+
+59
+00:03:01,920 --> 00:03:05,420
+space, and the items in that space, to be precise,
+60
+
+60
+00:03:05,420 --> 00:03:09,223
+will be scrollable inside that overall space.
+61
+
+61
+00:03:10,240 --> 00:03:12,260
+That's how we set up such a ScrollView,
+62
+
+62
+00:03:12,260 --> 00:03:15,923
+and how we let it interact with the surrounding container.
+63
+
+63
+00:03:17,190 --> 00:03:19,760
+If we set it up like this and we save everything,
+64
+
+64
+00:03:19,760 --> 00:03:22,090
+we get the same proportions as before,
+65
+
+65
+00:03:22,090 --> 00:03:26,313
+but now, indeed, as you see, this list is scrollable here.
+66
+
+66
+00:03:27,360 --> 00:03:28,650
+And that's, of course, what we want,
+67
+
+67
+00:03:28,650 --> 00:03:30,180
+because now we have a list
+68
+
+68
+00:03:30,180 --> 00:03:33,060
+where we can add more and more items
+69
+
+69
+00:03:33,060 --> 00:03:37,123
+and it stays scrollable as we exceed the available space.
+70
+
+70
+00:03:38,010 --> 00:03:40,860
+Of course, if I force a reload,
+71
+
+71
+00:03:40,860 --> 00:03:43,940
+by pressing R here in the terminal.
+72
+
+72
+00:03:43,940 --> 00:03:46,220
+And I then go back, all the data is lost,
+73
+
+73
+00:03:46,220 --> 00:03:49,260
+and now you see, nothing seems to be scrollable here.
+74
+
+74
+00:03:49,260 --> 00:03:51,963
+If I add a single goal here,
+75
+
+75
+00:03:53,460 --> 00:03:54,660
+we do see, though,
+76
+
+76
+00:03:54,660 --> 00:03:56,440
+that this is indeed scrollable,
+77
+
+77
+00:03:56,440 --> 00:03:58,860
+but of course it's not really scrollable,
+78
+
+78
+00:03:58,860 --> 00:04:01,110
+It always jumps back to the top because
+79
+
+79
+00:04:01,110 --> 00:04:03,063
+we don't exceed the available height.
+80
+
+80
+00:04:04,390 --> 00:04:08,370
+So, ScrollView is super useful because it does allow you
+81
+
+81
+00:04:08,370 --> 00:04:12,663
+to make lists, or content in general, scrollable.
+82
+
+82
+00:04:14,060 --> 00:04:16,470
+Now you can learn more about ScrollView
+83
+
+83
+00:04:16,470 --> 00:04:19,383
+and the props it supports in the official docs.
+84
+
+84
+00:04:20,440 --> 00:04:23,950
+I wanna draw your attention to those props here,
+85
+
+85
+00:04:23,950 --> 00:04:26,170
+because there is a lot you can configure,
+86
+
+86
+00:04:26,170 --> 00:04:27,710
+about the ScrollView.
+87
+
+87
+00:04:27,710 --> 00:04:31,113
+You can, for example, configure how it bounces,
+88
+
+88
+00:04:32,150 --> 00:04:35,890
+and you'll also see that some props are specific to iOS.
+89
+
+89
+00:04:35,890 --> 00:04:38,570
+And others specific to Android,
+90
+
+90
+00:04:38,570 --> 00:04:42,293
+whilst yet others are available for both platforms.
+91
+
+91
+00:04:43,130 --> 00:04:45,880
+And again, these are some of these platform differences,
+92
+
+92
+00:04:45,880 --> 00:04:47,380
+which we will encounter here
+93
+
+93
+00:04:47,380 --> 00:04:49,360
+and then throughout this course.
+94
+
+94
+00:04:49,360 --> 00:04:51,340
+For example, you will notice
+95
+
+95
+00:04:51,340 --> 00:04:53,990
+that in our app here, I can scroll
+96
+
+96
+00:04:53,990 --> 00:04:56,770
+and I have this bouncing effect.
+97
+
+97
+00:04:56,770 --> 00:04:58,860
+If I would want to disable this,
+98
+
+98
+00:04:58,860 --> 00:05:01,960
+I could set always bounce vertical,
+99
+
+99
+00:05:01,960 --> 00:05:05,803
+which is true by default, to false.
+100
+
+100
+00:05:08,261 --> 00:05:09,740
+So if I go to ScrollView,
+101
+
+101
+00:05:09,740 --> 00:05:13,170
+and I set always bounce vertical to false,
+102
+
+102
+00:05:13,170 --> 00:05:17,220
+and I then save this, you will notice that here in iOS,
+103
+
+103
+00:05:17,220 --> 00:05:18,440
+if I now try to scroll,
+104
+
+104
+00:05:18,440 --> 00:05:21,393
+this bouncing effect, which we had before, is gone.
+105
+
+105
+00:05:22,690 --> 00:05:25,110
+Now, if I add more and more goals to make sure
+106
+
+106
+00:05:25,110 --> 00:05:29,260
+that I exceed the available space here, at some point,
+107
+
+107
+00:05:29,260 --> 00:05:30,930
+it still is scrollable,
+108
+
+108
+00:05:30,930 --> 00:05:33,810
+and now it also bounces, but it didn't bounce,
+109
+
+109
+00:05:33,810 --> 00:05:37,810
+if there was not enough content to fill the available space,
+110
+
+110
+00:05:37,810 --> 00:05:39,313
+the available height here.
+111
+
+111
+00:05:40,540 --> 00:05:43,750
+If you do want to set this or not as totally up to you and
+112
+
+112
+00:05:43,750 --> 00:05:46,560
+which look and feel you want, but it is important to
+113
+
+113
+00:05:46,560 --> 00:05:50,310
+be aware of the vast configuration options you have here.
+114
+
+114
+00:05:50,310 --> 00:05:54,260
+And therefore taking a look at those props here,
+115
+
+115
+00:05:54,260 --> 00:05:56,370
+and understanding what you can set
+116
+
+116
+00:05:56,370 --> 00:05:58,700
+and how you can use this view is definitely
+117
+
+117
+00:05:58,700 --> 00:06:00,600
+something I would encourage you to do
+118
+
+118
+00:06:00,600 --> 00:06:03,150
+because every app you're building will be different
+119
+
+119
+00:06:03,150 --> 00:06:07,040
+and every app needs slightly different configuration.
+120
+
+120
+00:06:07,040 --> 00:06:08,860
+And therefore the official docs are always
+121
+
+121
+00:06:08,860 --> 00:06:11,690
+a great place where you can find all kinds
+122
+
+122
+00:06:11,690 --> 00:06:13,963
+of supported configuration settings.

@@ -1,0 +1,488 @@
+1
+00:00:02,340 --> 00:00:03,570
+So back in our code,
+2
+
+2
+00:00:03,570 --> 00:00:06,750
+this means that we can use flex box on this view,
+3
+
+3
+00:00:06,750 --> 00:00:09,460
+which is the container of text input and button,
+4
+
+4
+00:00:09,460 --> 00:00:12,433
+to control how these two elements are positioned,
+5
+
+5
+00:00:13,340 --> 00:00:16,060
+because you learned flex box is a concept
+6
+
+6
+00:00:16,060 --> 00:00:18,620
+that is applied to container elements
+7
+
+7
+00:00:18,620 --> 00:00:21,400
+to control how much space the container takes up.
+8
+
+8
+00:00:21,400 --> 00:00:23,320
+That's something we'll do in a second.
+9
+
+9
+00:00:23,320 --> 00:00:25,340
+And then how the elements inside
+10
+
+10
+00:00:25,340 --> 00:00:27,110
+of the container are positioned.
+11
+
+11
+00:00:27,110 --> 00:00:28,743
+That is what we'll do right now.
+12
+
+12
+00:00:29,770 --> 00:00:34,630
+For this, I'll add a number, style property here
+13
+
+13
+00:00:34,630 --> 00:00:36,610
+in my style sheet object,
+14
+
+14
+00:00:36,610 --> 00:00:39,993
+and I will name it Input Container.
+15
+
+15
+00:00:41,460 --> 00:00:46,460
+Now on this element, we can now set flex direction to row,
+16
+
+16
+00:00:47,620 --> 00:00:50,740
+and then we can apply this input container styling
+17
+
+17
+00:00:50,740 --> 00:00:52,780
+to this view.
+18
+
+18
+00:00:52,780 --> 00:00:54,970
+So here we add the style prop,
+19
+
+19
+00:00:54,970 --> 00:00:57,853
+and then refer to styles dot input container.
+20
+
+20
+00:00:59,730 --> 00:01:01,830
+If we save that,
+21
+
+21
+00:01:01,830 --> 00:01:05,300
+you will see the button is now next to the input element.
+22
+
+22
+00:01:05,300 --> 00:01:08,730
+So this already utilizes flex box because by default
+23
+
+23
+00:01:08,730 --> 00:01:11,620
+flex box is enabled on all those views.
+24
+
+24
+00:01:11,620 --> 00:01:15,003
+You can start using those flex properties right away.
+25
+
+25
+00:01:16,040 --> 00:01:20,053
+The default setting was that flex direction was column,
+26
+
+26
+00:01:21,080 --> 00:01:23,770
+which is why the elements were beneath each other.
+27
+
+27
+00:01:23,770 --> 00:01:26,330
+But if we switched to row, as I just did,
+28
+
+28
+00:01:26,330 --> 00:01:28,580
+they sit next to each other in the same row,
+29
+
+29
+00:01:28,580 --> 00:01:30,233
+which hopefully makes sense.
+30
+
+30
+00:01:31,440 --> 00:01:34,490
+Now we might want to control how they are laid out,
+31
+
+31
+00:01:34,490 --> 00:01:35,410
+and for this,
+32
+
+32
+00:01:35,410 --> 00:01:38,390
+we can add another property to the input container,
+33
+
+33
+00:01:38,390 --> 00:01:42,070
+and that is the justify content property.
+34
+
+34
+00:01:42,070 --> 00:01:45,050
+You will learn more about all these flex box properties
+35
+
+35
+00:01:45,050 --> 00:01:46,940
+in depth in the next lecture,
+36
+
+36
+00:01:46,940 --> 00:01:49,820
+but justify content basically controls
+37
+
+37
+00:01:49,820 --> 00:01:54,190
+how these elements are distributed in the row or column
+38
+
+38
+00:01:54,190 --> 00:01:57,623
+depending on what the value here is that they are part of.
+39
+
+39
+00:01:58,500 --> 00:01:59,550
+So here, for example,
+40
+
+40
+00:01:59,550 --> 00:02:02,890
+space between is one of the allowed values,
+41
+
+41
+00:02:02,890 --> 00:02:05,450
+and as you set this to space between,
+42
+
+42
+00:02:05,450 --> 00:02:08,453
+you see there now is more space between these elements.
+43
+
+43
+00:02:09,380 --> 00:02:12,483
+Now we can also still control the width of those elements.
+44
+
+44
+00:02:13,670 --> 00:02:18,670
+For example, here, we could add a text input style object
+45
+
+45
+00:02:18,670 --> 00:02:20,900
+in our style sheet object,
+46
+
+46
+00:02:20,900 --> 00:02:24,430
+and I will add this to the text input here.
+47
+
+47
+00:02:24,430 --> 00:02:29,430
+And here I then wanna add a border with a width of one
+48
+
+48
+00:02:29,720 --> 00:02:34,720
+and a border color of CCCCCC, which is a light gray.
+49
+
+49
+00:02:37,010 --> 00:02:39,010
+By the way, I get a color picker here
+50
+
+50
+00:02:39,010 --> 00:02:41,740
+because of an extra extension, which I installed.
+51
+
+51
+00:02:41,740 --> 00:02:43,433
+You don't need that though.
+52
+
+52
+00:02:44,670 --> 00:02:46,900
+And now, in addition,
+53
+
+53
+00:02:46,900 --> 00:02:51,900
+I will give this text input a width of, let's say, 80%.
+54
+
+54
+00:02:52,560 --> 00:02:54,670
+And this is all the new.
+55
+
+55
+00:02:54,670 --> 00:02:59,070
+Now in most places where you can set a size as pixels,
+56
+
+56
+00:02:59,070 --> 00:03:02,900
+so as numbers, you can also set sizes in percentage,
+57
+
+57
+00:03:02,900 --> 00:03:05,500
+though you need to wrap that in quotes
+58
+
+58
+00:03:05,500 --> 00:03:08,290
+so you set a string in the end.
+59
+
+59
+00:03:08,290 --> 00:03:10,170
+But then you add the percentage sign
+60
+
+60
+00:03:10,170 --> 00:03:14,790
+and your percentage number to set a certain percentage.
+61
+
+61
+00:03:14,790 --> 00:03:17,410
+And with this, I'm saying that I want this element,
+62
+
+62
+00:03:17,410 --> 00:03:18,810
+which has this style,
+63
+
+63
+00:03:18,810 --> 00:03:23,040
+to take up 80% off the available width.
+64
+
+64
+00:03:23,040 --> 00:03:26,800
+The available width will be defined by the container
+65
+
+65
+00:03:26,800 --> 00:03:28,100
+in which the element sits,
+66
+
+66
+00:03:28,100 --> 00:03:30,940
+but then the element which receives this style
+67
+
+67
+00:03:30,940 --> 00:03:34,223
+will take 80% of that container's width.
+68
+
+68
+00:03:35,600 --> 00:03:38,540
+So therefore, now I want to add this text input style here
+69
+
+69
+00:03:38,540 --> 00:03:41,090
+on this text input element,
+70
+
+70
+00:03:41,090 --> 00:03:43,530
+and we do this by adding the style prop
+71
+
+71
+00:03:43,530 --> 00:03:45,683
+and then its styles, text input.
+72
+
+72
+00:03:47,090 --> 00:03:49,090
+If we do this and save that,
+73
+
+73
+00:03:49,090 --> 00:03:53,723
+now we got this border, and this looks like 80% width.
+74
+
+74
+00:03:55,040 --> 00:03:57,960
+Maybe we also want a little bit of margin to the right
+75
+
+75
+00:03:57,960 --> 00:04:00,660
+so that there is some spacing here.
+76
+
+76
+00:04:00,660 --> 00:04:04,800
+There is no spacing right now, despite having space between,
+77
+
+77
+00:04:04,800 --> 00:04:07,600
+because this takes 80% of the width
+78
+
+78
+00:04:07,600 --> 00:04:10,410
+and the button automatically takes the rest.
+79
+
+79
+00:04:10,410 --> 00:04:12,360
+And therefore to add some spacing here,
+80
+
+80
+00:04:13,580 --> 00:04:16,930
+we'll add a margin to the right on the text input
+81
+
+81
+00:04:16,930 --> 00:04:19,053
+of, let's say, eight pixels.
+82
+
+82
+00:04:20,000 --> 00:04:22,583
+With that, there is some spacing again.
+83
+
+83
+00:04:23,440 --> 00:04:25,960
+We could also add a little bit of padding maybe
+84
+
+84
+00:04:25,960 --> 00:04:29,140
+so that the text isn't directly on the edge.
+85
+
+85
+00:04:29,140 --> 00:04:34,020
+So, therefore, I'll also add padding eight here
+86
+
+86
+00:04:34,020 --> 00:04:35,963
+on the text input object.
+87
+
+87
+00:04:37,420 --> 00:04:40,470
+So with that, we get some padding as well.
+88
+
+88
+00:04:40,470 --> 00:04:45,220
+Now that's it for this basic introduction to flex box.
+89
+
+89
+00:04:45,220 --> 00:04:46,750
+This is an not all we'll do.
+90
+
+90
+00:04:46,750 --> 00:04:48,390
+This is not the finished layout.
+91
+
+91
+00:04:48,390 --> 00:04:51,140
+I do see that the spacing is a bit off here
+92
+
+92
+00:04:51,140 --> 00:04:52,380
+on the right and the left.
+93
+
+93
+00:04:52,380 --> 00:04:54,890
+I do see that the button doesn't look that great
+94
+
+94
+00:04:54,890 --> 00:04:56,330
+here on Android.
+95
+
+95
+00:04:56,330 --> 00:04:57,660
+And we will work on this,
+96
+
+96
+00:04:57,660 --> 00:05:01,710
+but first let's dive a little bit deeper into flex box
+97
+
+97
+00:05:01,710 --> 00:05:04,170
+and the different things we can do with it
+98
+
+98
+00:05:04,170 --> 00:05:06,603
+before we then continue working on this app.

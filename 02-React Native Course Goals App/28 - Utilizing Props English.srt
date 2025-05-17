@@ -1,0 +1,238 @@
+1
+00:00:01,439 --> 00:00:04,350
+Now of course we will need to pass some data
+2
+
+2
+00:00:04,350 --> 00:00:08,340
+to goal item though, because we got the item data here
+3
+
+3
+00:00:08,340 --> 00:00:12,023
+in the app component and we need it here.
+4
+
+4
+00:00:13,070 --> 00:00:16,660
+And this is a problem solved With props.
+5
+
+5
+00:00:16,660 --> 00:00:19,130
+Again, just as we do it in any react app
+6
+
+6
+00:00:19,130 --> 00:00:22,290
+because we are building a regular react app here,
+7
+
+7
+00:00:22,290 --> 00:00:24,340
+we have a regular react component
+8
+
+8
+00:00:24,340 --> 00:00:26,453
+and we can use props therefore.
+9
+
+9
+00:00:27,320 --> 00:00:29,970
+And we can expect and use any props we want,
+10
+
+10
+00:00:29,970 --> 00:00:31,990
+because it's our component.
+11
+
+11
+00:00:31,990 --> 00:00:34,020
+So here for example, we could expect
+12
+
+12
+00:00:34,020 --> 00:00:37,860
+that on this props object, we get a text property,
+13
+
+13
+00:00:37,860 --> 00:00:40,930
+or a value property whatever you want.
+14
+
+14
+00:00:40,930 --> 00:00:42,653
+I will go with text here.
+15
+
+15
+00:00:44,270 --> 00:00:47,930
+And now we just have to make sure that in the place where
+16
+
+16
+00:00:47,930 --> 00:00:51,730
+we use this component, so in the app component here,
+17
+
+17
+00:00:51,730 --> 00:00:55,670
+We pass this prop so that we set a text prop here,
+18
+
+18
+00:00:55,670 --> 00:00:58,840
+on goal item in the app component.
+19
+
+19
+00:00:58,840 --> 00:01:01,120
+And then here we have to pass in
+20
+
+20
+00:01:01,120 --> 00:01:06,120
+item data dot item dot text.
+21
+
+21
+00:01:06,510 --> 00:01:08,980
+Because again, text is the property that holds
+22
+
+22
+00:01:08,980 --> 00:01:12,580
+the actual text and I wanna pass this text as a value
+23
+
+23
+00:01:12,580 --> 00:01:15,053
+to the text prop in my goal item.
+24
+
+24
+00:01:16,220 --> 00:01:19,653
+And with that if we save this and I reload everything,
+25
+
+25
+00:01:20,560 --> 00:01:25,560
+if I go back and I learn React Native here, this crashes.
+26
+
+26
+00:01:26,620 --> 00:01:30,380
+Because of this error, can't find variable view.
+27
+
+27
+00:01:30,380 --> 00:01:32,010
+What's wrong here?
+28
+
+28
+00:01:32,010 --> 00:01:35,410
+Well, what's wrong is that in the goal item component,
+29
+
+29
+00:01:35,410 --> 00:01:38,200
+I'm using the view and the text components
+30
+
+30
+00:01:38,200 --> 00:01:40,260
+but I'm not importing them.
+31
+
+31
+00:01:40,260 --> 00:01:42,300
+And I showed this on purpose,
+32
+
+32
+00:01:42,300 --> 00:01:45,453
+because this is important to understand.
+33
+
+33
+00:01:46,290 --> 00:01:48,650
+If you are working with a react for the WAP,
+34
+
+34
+00:01:48,650 --> 00:01:52,230
+you can use DVs and h2 elements just like this.
+35
+
+35
+00:01:52,230 --> 00:01:54,420
+You don't need to import them.
+36
+
+36
+00:01:54,420 --> 00:01:56,400
+That's different in React Native.
+37
+
+37
+00:01:56,400 --> 00:02:00,020
+There, all these components are provided by react native,
+38
+
+38
+00:02:00,020 --> 00:02:03,370
+and you have to import them in order to use them.
+39
+
+39
+00:02:03,370 --> 00:02:05,680
+So besides importing the style sheet here,
+40
+
+40
+00:02:05,680 --> 00:02:08,340
+we also have to import view and text,
+41
+
+41
+00:02:08,340 --> 00:02:11,543
+because we are using these two components in this JSX code.
+42
+
+42
+00:02:12,520 --> 00:02:16,950
+And once we import them, if we now reload our apps again,
+43
+
+43
+00:02:16,950 --> 00:02:20,550
+you will see that now of course if I do learn React Native,
+44
+
+44
+00:02:20,550 --> 00:02:22,290
+this works again.
+45
+
+45
+00:02:22,290 --> 00:02:24,830
+And now it's looking the same way as before,
+46
+
+46
+00:02:24,830 --> 00:02:27,490
+Because in the end we get the same UI as before,
+47
+
+47
+00:02:27,490 --> 00:02:29,240
+but we're achieving this with help
+48
+
+48
+00:02:29,240 --> 00:02:31,453
+of another custom component.

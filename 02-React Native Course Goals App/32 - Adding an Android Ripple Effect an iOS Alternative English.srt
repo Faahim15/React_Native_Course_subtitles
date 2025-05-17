@@ -1,0 +1,453 @@
+1
+00:00:02,020 --> 00:00:04,360
+So let's now work on the styling
+2
+
+2
+00:00:04,360 --> 00:00:07,900
+of this pressable component or of this component
+3
+
+3
+00:00:07,900 --> 00:00:10,110
+if the item is currently pressed
+4
+
+4
+00:00:10,110 --> 00:00:12,943
+because at the moment we got no visual feedback.
+5
+
+5
+00:00:14,200 --> 00:00:16,260
+Now, adding some nice styling here
+6
+
+6
+00:00:16,260 --> 00:00:18,780
+is fairly easy for Android
+7
+
+7
+00:00:19,820 --> 00:00:23,410
+because there is a dedicated android_ripple prop
+8
+
+8
+00:00:23,410 --> 00:00:25,720
+which you you can set to an object
+9
+
+9
+00:00:25,720 --> 00:00:28,940
+where you can set the color of the ripple effect.
+10
+
+10
+00:00:28,940 --> 00:00:30,600
+And for example here,
+11
+
+11
+00:00:30,600 --> 00:00:34,340
+I could set this color to some dark gray
+12
+
+12
+00:00:34,340 --> 00:00:38,310
+by adding six Ds here, this hex code.
+13
+
+13
+00:00:38,310 --> 00:00:41,300
+And if I do that, if I set this value
+14
+
+14
+00:00:41,300 --> 00:00:45,793
+for the android_ripple prop here on Android,
+15
+
+15
+00:00:47,060 --> 00:00:48,710
+if I add a goal
+16
+
+16
+00:00:50,180 --> 00:00:51,770
+and I press this,
+17
+
+17
+00:00:51,770 --> 00:00:54,120
+there is a slight ripple effect.
+18
+
+18
+00:00:54,120 --> 00:00:55,450
+Let me show this again.
+19
+
+19
+00:00:55,450 --> 00:00:56,753
+Here,
+20
+
+20
+00:00:58,430 --> 00:01:00,690
+if I then press this.
+21
+
+21
+00:01:00,690 --> 00:01:01,523
+You see?
+22
+
+22
+00:01:01,523 --> 00:01:04,403
+There is this ripple effect around this item.
+23
+
+23
+00:01:06,160 --> 00:01:07,760
+Now, if you wanna have the ripple effect
+24
+
+24
+00:01:07,760 --> 00:01:10,210
+inside of that item instead,
+25
+
+25
+00:01:10,210 --> 00:01:14,520
+what we have to do is move pressable into our view here
+26
+
+26
+00:01:14,520 --> 00:01:17,600
+like this so that it only surrounds the text
+27
+
+27
+00:01:17,600 --> 00:01:19,803
+instead of the view box as well.
+28
+
+28
+00:01:21,420 --> 00:01:23,950
+If we do that and we reload all apps
+29
+
+29
+00:01:23,950 --> 00:01:26,840
+to make sure these changes get applied.
+30
+
+30
+00:01:26,840 --> 00:01:29,883
+Now, if we do this again on Android here,
+31
+
+31
+00:01:31,460 --> 00:01:35,123
+you will see there is a slight ripple effect on the item.
+32
+
+32
+00:01:36,310 --> 00:01:38,850
+Now, that ripple effect is now only on the text.
+33
+
+33
+00:01:38,850 --> 00:01:40,770
+Not on the overall container.
+34
+
+34
+00:01:40,770 --> 00:01:45,220
+And to fix this, what we can do is move our padding
+35
+
+35
+00:01:45,220 --> 00:01:49,180
+from the goal item which is the view, which is the container
+36
+
+36
+00:01:49,180 --> 00:01:52,870
+to the text because then the padding is part of the text
+37
+
+37
+00:01:52,870 --> 00:01:55,370
+and the ripple effect will take this padding
+38
+
+38
+00:01:55,370 --> 00:01:56,763
+into account as well.
+39
+
+39
+00:01:58,130 --> 00:02:01,040
+So now with that, if we set this up
+40
+
+40
+00:02:02,240 --> 00:02:04,290
+we got this ripple effect here.
+41
+
+41
+00:02:04,290 --> 00:02:07,020
+And of course, you can play around with the ripple color
+42
+
+42
+00:02:07,020 --> 00:02:08,403
+to get the look you want.
+43
+
+43
+00:02:09,510 --> 00:02:14,353
+You could, for example, also take this purple color here.
+44
+
+44
+00:02:15,920 --> 00:02:20,920
+And maybe choose a very dark purple as a color,
+45
+
+45
+00:02:21,370 --> 00:02:24,560
+and now we have this, which maybe looks a bit nicer.
+46
+
+46
+00:02:24,560 --> 00:02:26,763
+So, this is pretty easy on Android.
+47
+
+47
+00:02:27,630 --> 00:02:32,360
+Now on iOS, this doesn't have any effect though.
+48
+
+48
+00:02:32,360 --> 00:02:35,410
+Here, if I press this and keep it pressed
+49
+
+49
+00:02:35,410 --> 00:02:37,750
+so that we could see a potential effect,
+50
+
+50
+00:02:37,750 --> 00:02:39,803
+we don't see any effect at all.
+51
+
+51
+00:02:40,660 --> 00:02:43,360
+Now for iOS to add some styling,
+52
+
+52
+00:02:43,360 --> 00:02:46,470
+we can add the style prop to pressable
+53
+
+53
+00:02:46,470 --> 00:02:49,740
+which generally works like all your style props.
+54
+
+54
+00:02:49,740 --> 00:02:52,330
+It takes such a styling object
+55
+
+55
+00:02:52,330 --> 00:02:57,330
+but it also takes a function as an alternative.
+56
+
+56
+00:02:57,550 --> 00:03:01,694
+And this function will be called automatically by pressable
+57
+
+57
+00:03:01,694 --> 00:03:05,980
+whenever the press state changes.
+58
+
+58
+00:03:05,980 --> 00:03:09,330
+You will get a argument here, a parameter,
+59
+
+59
+00:03:09,330 --> 00:03:12,330
+with information about the current press state
+60
+
+60
+00:03:12,330 --> 00:03:15,820
+and you can use object destructuring to get hold
+61
+
+61
+00:03:15,820 --> 00:03:20,650
+of the pressed property that's part of this object you get.
+62
+
+62
+00:03:20,650 --> 00:03:23,580
+You could also name the overall parameter pressData
+63
+
+63
+00:03:23,580 --> 00:03:26,680
+and access pressData.pressed in that function.
+64
+
+64
+00:03:26,680 --> 00:03:28,370
+It's up to you.
+65
+
+65
+00:03:28,370 --> 00:03:30,500
+Here, I will use object destructuring
+66
+
+66
+00:03:30,500 --> 00:03:33,860
+to directly get that pressed property.
+67
+
+67
+00:03:33,860 --> 00:03:36,852
+So, that's provided by pressable.
+68
+
+68
+00:03:36,852 --> 00:03:39,530
+And now we can return different style objects
+69
+
+69
+00:03:39,530 --> 00:03:42,460
+based on the pressed state.
+70
+
+70
+00:03:42,460 --> 00:03:45,520
+We can define them down here of course.
+71
+
+71
+00:03:45,520 --> 00:03:48,380
+We could have our pressed item here.
+72
+
+72
+00:03:48,380 --> 00:03:50,180
+And there, we could say
+73
+
+73
+00:03:50,180 --> 00:03:53,830
+that we wanna set the opacity to 0.5, for example,
+74
+
+74
+00:03:53,830 --> 00:03:56,000
+to make it slightly transparent.
+75
+
+75
+00:03:56,000 --> 00:03:59,860
+With that up here, we can check pressed
+76
+
+76
+00:03:59,860 --> 00:04:03,673
+and if it's true, we return styles.pressedItem.
+77
+
+77
+00:04:04,980 --> 00:04:07,513
+Otherwise, we return no special styling.
+78
+
+78
+00:04:08,610 --> 00:04:09,920
+If we save this
+79
+
+79
+00:04:11,070 --> 00:04:15,030
+and I now do learn react native again,
+80
+
+80
+00:04:15,030 --> 00:04:17,760
+you'll notice that if I press this
+81
+
+81
+00:04:17,760 --> 00:04:21,670
+we also get some feedback here on iOS.
+82
+
+82
+00:04:21,670 --> 00:04:25,760
+Now of course, you could go for all kinds of feedback.
+83
+
+83
+00:04:25,760 --> 00:04:27,700
+You could also bring this view back
+84
+
+84
+00:04:27,700 --> 00:04:30,560
+into the pressable component here
+85
+
+85
+00:04:30,560 --> 00:04:32,650
+and add another surrounding view
+86
+
+86
+00:04:32,650 --> 00:04:35,780
+so that you can influence the style in greater detail,
+87
+
+87
+00:04:35,780 --> 00:04:38,720
+and you can, for example, also change the background color.
+88
+
+88
+00:04:38,720 --> 00:04:40,210
+Whatever you want.
+89
+
+89
+00:04:40,210 --> 00:04:42,750
+Here, I'll keep this simple feedback
+90
+
+90
+00:04:42,750 --> 00:04:46,330
+but now we also do have some feedback with help
+91
+
+91
+00:04:46,330 --> 00:04:50,723
+of this function form of this style property here.

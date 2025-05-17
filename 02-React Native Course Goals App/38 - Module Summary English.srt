@@ -1,0 +1,368 @@
+1
+00:00:02,040 --> 00:00:05,370
+So, that's it for this course section.
+2
+
+2
+00:00:05,370 --> 00:00:08,490
+We learned a lot about React Native.
+3
+
+3
+00:00:08,490 --> 00:00:12,240
+We built the first basic application here,
+4
+
+4
+00:00:12,240 --> 00:00:15,510
+where we can add our course goals,
+5
+
+5
+00:00:15,510 --> 00:00:17,800
+and whilst building this application,
+6
+
+6
+00:00:17,800 --> 00:00:20,410
+we learned a lot about building user interfaces
+7
+
+7
+00:00:20,410 --> 00:00:22,253
+with React Native, in general.
+8
+
+8
+00:00:23,220 --> 00:00:25,140
+You learned that you must use these
+9
+
+9
+00:00:25,140 --> 00:00:27,940
+built-in core components, for example.
+10
+
+10
+00:00:27,940 --> 00:00:31,100
+You are not allowed to use HTML elements
+11
+
+11
+00:00:31,100 --> 00:00:33,820
+like div's or anything like that.
+12
+
+12
+00:00:33,820 --> 00:00:36,760
+Instead, you build the entire user interface
+13
+
+13
+00:00:36,760 --> 00:00:38,840
+and all your custom components
+14
+
+14
+00:00:38,840 --> 00:00:40,893
+from those built-in components.
+15
+
+15
+00:00:41,780 --> 00:00:43,150
+But then you can combine them
+16
+
+16
+00:00:43,150 --> 00:00:47,053
+as you need to, to build your own elements and features.
+17
+
+17
+00:00:48,010 --> 00:00:50,240
+You also learned how styling works,
+18
+
+18
+00:00:50,240 --> 00:00:52,959
+that you create such style sheet objects
+19
+
+19
+00:00:52,959 --> 00:00:55,330
+which hold nested objects,
+20
+
+20
+00:00:55,330 --> 00:00:56,490
+which you can then assign
+21
+
+21
+00:00:56,490 --> 00:00:58,913
+to different elements in your JSX code.
+22
+
+22
+00:00:59,860 --> 00:01:04,560
+In those nested objects, we have CSS-like properties,
+23
+
+23
+00:01:04,560 --> 00:01:07,850
+which allow us to set margins, paddings, colors,
+24
+
+24
+00:01:07,850 --> 00:01:10,490
+and all these things.
+25
+
+25
+00:01:10,490 --> 00:01:13,170
+Now even though it looks a bit like CSS,
+26
+
+26
+00:01:13,170 --> 00:01:17,083
+or the names are similar, it isn't CSS.
+27
+
+27
+00:01:17,950 --> 00:01:20,170
+We have no inheritance and in general,
+28
+
+28
+00:01:20,170 --> 00:01:22,950
+it's just not CSS, it's JavaScript
+29
+
+29
+00:01:22,950 --> 00:01:25,670
+and under the hood, React Native translates
+30
+
+30
+00:01:25,670 --> 00:01:29,750
+our style settings to the Native style instructions
+31
+
+31
+00:01:29,750 --> 00:01:31,573
+for the different platforms.
+32
+
+32
+00:01:32,860 --> 00:01:34,970
+We, for example, saw that we had problems
+33
+
+33
+00:01:34,970 --> 00:01:38,380
+assigning rounded corners to these elements on iOS,
+34
+
+34
+00:01:38,380 --> 00:01:40,940
+whereas it worked without issues on Android
+35
+
+35
+00:01:40,940 --> 00:01:42,560
+and therefore, its really important
+36
+
+36
+00:01:42,560 --> 00:01:45,507
+to keep in mind that we have two different platforms
+37
+
+37
+00:01:45,507 --> 00:01:48,220
+and React Native just does its best
+38
+
+38
+00:01:48,220 --> 00:01:50,210
+to talk to both platforms
+39
+
+39
+00:01:50,210 --> 00:01:52,653
+and transform our instructions for them.
+40
+
+40
+00:01:53,890 --> 00:01:56,020
+Now, what we also of course learned,
+41
+
+41
+00:01:56,020 --> 00:01:58,689
+is that besides the components and the styling,
+42
+
+42
+00:01:58,689 --> 00:02:02,620
+we write regular React applications.
+43
+
+43
+00:02:02,620 --> 00:02:06,320
+We can still use state, we can react to events,
+44
+
+44
+00:02:06,320 --> 00:02:09,300
+those events are just not called onclick,
+45
+
+45
+00:02:09,300 --> 00:02:11,500
+but instead onpress.
+46
+
+46
+00:02:11,500 --> 00:02:14,400
+But then we can react to them, we can change state,
+47
+
+47
+00:02:14,400 --> 00:02:17,200
+we can output state and we can do all these things
+48
+
+48
+00:02:17,200 --> 00:02:20,590
+and this part, works exactly as you're used to.
+49
+
+49
+00:02:20,590 --> 00:02:22,520
+There's nothing special about this.
+50
+
+50
+00:02:22,520 --> 00:02:27,520
+React Native Plus React is exactly as React Web Plus React
+51
+
+51
+00:02:27,730 --> 00:02:30,403
+when it comes to managing state and so on.
+52
+
+52
+00:02:31,580 --> 00:02:33,070
+Now, we saw differences
+53
+
+53
+00:02:33,070 --> 00:02:35,263
+when it came to outputting lists though.
+54
+
+54
+00:02:36,170 --> 00:02:38,210
+We did this with a scroll view,
+55
+
+55
+00:02:38,210 --> 00:02:41,830
+but then we switched to flat list for better performance.
+56
+
+56
+00:02:41,830 --> 00:02:45,140
+Which is another built-in core component.
+57
+
+57
+00:02:45,140 --> 00:02:47,960
+And you will see cases like this from time-to-time
+58
+
+58
+00:02:47,960 --> 00:02:51,100
+throughout the course, where we have a special solution
+59
+
+59
+00:02:51,100 --> 00:02:54,220
+for the Native platforms for better performance
+60
+
+60
+00:02:54,220 --> 00:02:56,603
+or a Native look and feel.
+61
+
+61
+00:02:57,600 --> 00:02:59,980
+But that's it for the basics for now.
+62
+
+62
+00:02:59,980 --> 00:03:02,360
+In the end it's not too complex,
+63
+
+63
+00:03:02,360 --> 00:03:06,440
+it's a React app, just with a different target platform,
+64
+
+64
+00:03:06,440 --> 00:03:09,320
+but of course it is something you must get used to.
+65
+
+65
+00:03:09,320 --> 00:03:11,470
+Working with those built-in components,
+66
+
+66
+00:03:11,470 --> 00:03:13,300
+setting up styling like this.
+67
+
+67
+00:03:13,300 --> 00:03:16,370
+It takes practice to get used to that.
+68
+
+68
+00:03:16,370 --> 00:03:19,350
+And thankfully we'll have plenty of practice
+69
+
+69
+00:03:19,350 --> 00:03:20,360
+throughout this course,
+70
+
+70
+00:03:20,360 --> 00:03:23,490
+because this was just the first real section
+71
+
+71
+00:03:23,490 --> 00:03:25,310
+and just the first app.
+72
+
+72
+00:03:25,310 --> 00:03:27,320
+We're going to build way more
+73
+
+73
+00:03:27,320 --> 00:03:29,240
+and we're going to learn way more
+74
+
+74
+00:03:29,240 --> 00:03:30,990
+throughout the rest of this course.

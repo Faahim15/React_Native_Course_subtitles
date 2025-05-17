@@ -1,0 +1,1443 @@
+1
+00:00:02,180 --> 00:00:03,013
+In this lecture,
+2
+
+2
+00:00:03,013 --> 00:00:07,030
+I wanna dive a bit deeper into Flexbox especially regarding
+3
+
+3
+00:00:07,030 --> 00:00:08,670
+how you use it in React Native apps.
+4
+
+4
+00:00:08,670 --> 00:00:10,010
+If you know all about that already,
+5
+
+5
+00:00:10,010 --> 00:00:12,290
+you can of course skip this lecture.
+6
+
+6
+00:00:12,290 --> 00:00:14,890
+So for this, I prepared a simple dummy application
+7
+
+7
+00:00:14,890 --> 00:00:16,740
+and of course, you find data attached.
+8
+
+8
+00:00:16,740 --> 00:00:19,390
+It's a normal React Native app built with Expo.
+9
+
+9
+00:00:19,390 --> 00:00:21,141
+And in the App.js file here,
+10
+
+10
+00:00:21,141 --> 00:00:25,450
+what I have in the end, is just a view with three views
+11
+
+11
+00:00:25,450 --> 00:00:27,300
+in there where each view then has a text
+12
+
+12
+00:00:27,300 --> 00:00:29,123
+with text one, two, three.
+13
+
+13
+00:00:29,980 --> 00:00:31,870
+This simply creates some boxes
+14
+
+14
+00:00:31,870 --> 00:00:34,600
+with different colors, red, blue, and green.
+15
+
+15
+00:00:34,600 --> 00:00:38,090
+And now we'll use Flexbox to move these boxes around
+16
+
+16
+00:00:38,090 --> 00:00:40,610
+so that you can get a feeling for how Flexbox works,
+17
+
+17
+00:00:40,610 --> 00:00:42,440
+because it's so important.
+18
+
+18
+00:00:42,440 --> 00:00:46,580
+Now, first things first, by default,
+19
+
+19
+00:00:46,580 --> 00:00:49,050
+every view in React Native,
+20
+
+20
+00:00:49,050 --> 00:00:52,707
+even if you assign no special styles, uses Flexbox.
+21
+
+21
+00:00:52,707 --> 00:00:55,070
+And that's different to the web, for example.
+22
+
+22
+00:00:55,070 --> 00:00:57,670
+There, if you have a div, which would be your equivalent
+23
+
+23
+00:00:57,670 --> 00:00:59,300
+to a view kind of,
+24
+
+24
+00:00:59,300 --> 00:01:01,400
+it doesn't use Flexbox by default.
+25
+
+25
+00:01:01,400 --> 00:01:03,030
+In React Native, it does.
+26
+
+26
+00:01:03,030 --> 00:01:06,220
+Every view by default organizes its children
+27
+
+27
+00:01:06,220 --> 00:01:09,689
+with the help of this Flexbox thing.
+28
+
+28
+00:01:09,689 --> 00:01:11,500
+Flexbox simply is, is a term,
+29
+
+29
+00:01:11,500 --> 00:01:13,330
+It's simply a concept from CSS
+30
+
+30
+00:01:13,330 --> 00:01:16,030
+that is all about organizing child elements
+31
+
+31
+00:01:16,030 --> 00:01:17,410
+in a one dimensional space.
+32
+
+32
+00:01:17,410 --> 00:01:19,353
+So here, for example, in a column.
+33
+
+33
+00:01:20,310 --> 00:01:21,930
+That's also in every default,
+34
+
+34
+00:01:21,930 --> 00:01:25,430
+not only does every view by default you use Flexbox,
+35
+
+35
+00:01:25,430 --> 00:01:29,310
+it also by default organizes children in a column,
+36
+
+36
+00:01:29,310 --> 00:01:31,340
+so from top to bottom.
+37
+
+37
+00:01:31,340 --> 00:01:32,960
+That's all the difference to the web
+38
+
+38
+00:01:32,960 --> 00:01:35,119
+and I don't wanna emphasize these differences too much
+39
+
+39
+00:01:35,119 --> 00:01:37,840
+because of course you don't need to be a web developer
+40
+
+40
+00:01:37,840 --> 00:01:39,540
+to build React Native apps.
+41
+
+41
+00:01:39,540 --> 00:01:42,390
+But I think a lot of people do know web development,
+42
+
+42
+00:01:42,390 --> 00:01:44,680
+do know a CSS Flexbox, and therefore it makes sense
+43
+
+43
+00:01:44,680 --> 00:01:47,040
+to all the talk about the differences.
+44
+
+44
+00:01:47,040 --> 00:01:48,820
+So in the web, when you use Flexbox
+45
+
+45
+00:01:48,820 --> 00:01:51,160
+not only is it not turned on by default,
+46
+
+46
+00:01:51,160 --> 00:01:52,337
+in addition if you do turn it on,
+47
+
+47
+00:01:52,337 --> 00:01:55,900
+the default is to organize all child elements in a row.
+48
+
+48
+00:01:55,900 --> 00:01:58,940
+And here, the default is to organize them in a column.
+49
+
+49
+00:01:58,940 --> 00:02:00,500
+You can change that default though.
+50
+
+50
+00:02:00,500 --> 00:02:04,290
+So in this case, on the view, which holds my boxes
+51
+
+51
+00:02:04,290 --> 00:02:06,727
+by adding flexDirection here,
+52
+
+52
+00:02:06,727 --> 00:02:09,400
+and setting this to row, for example.
+53
+
+53
+00:02:09,400 --> 00:02:12,560
+Now, you will see that these three boxes are organized
+54
+
+54
+00:02:12,560 --> 00:02:14,870
+in a row from left to right.
+55
+
+55
+00:02:14,870 --> 00:02:16,500
+Now besides row and column,
+56
+
+56
+00:02:16,500 --> 00:02:19,030
+you also have row reverse and column reverse.
+57
+
+57
+00:02:19,030 --> 00:02:21,680
+And this simply also, well does what the name implies,
+58
+
+58
+00:02:21,680 --> 00:02:23,140
+now we still have a row,
+59
+
+59
+00:02:23,140 --> 00:02:27,110
+but the first element, the red box, actually is on the right
+60
+
+60
+00:02:27,110 --> 00:02:28,970
+and not on the left anymore.
+61
+
+61
+00:02:28,970 --> 00:02:30,810
+So that's also something you can do.
+62
+
+62
+00:02:30,810 --> 00:02:32,183
+Let me go back to row view.
+63
+
+63
+00:02:33,180 --> 00:02:36,166
+So that's the first thing you can do.
+64
+
+64
+00:02:36,166 --> 00:02:38,320
+Another important thing about Flexbox
+65
+
+65
+00:02:38,320 --> 00:02:41,960
+is how child elements are sized.
+66
+
+66
+00:02:41,960 --> 00:02:44,490
+Here, I gave every child element
+67
+
+67
+00:02:44,490 --> 00:02:47,050
+a width and a height of 100.
+68
+
+68
+00:02:47,050 --> 00:02:50,500
+Now, if we would remove that width and height thing
+69
+
+69
+00:02:50,500 --> 00:02:53,596
+on every child element, then you will see
+70
+
+70
+00:02:53,596 --> 00:02:57,430
+that now we have a very, very small row here
+71
+
+71
+00:02:57,430 --> 00:03:00,100
+because every box now is only as wide
+72
+
+72
+00:03:00,100 --> 00:03:02,320
+as its child requires it to be.
+73
+
+73
+00:03:02,320 --> 00:03:05,640
+And only as tall as its child requires it to be.
+74
+
+74
+00:03:05,640 --> 00:03:07,530
+So every box here which holds a number
+75
+
+75
+00:03:07,530 --> 00:03:11,310
+is only as wide and tall as the number it's containing.
+76
+
+76
+00:03:11,310 --> 00:03:12,790
+Now, you can change that
+77
+
+77
+00:03:12,790 --> 00:03:15,520
+with the surrounding Flexbox container 2.
+78
+
+78
+00:03:15,520 --> 00:03:19,670
+Let's give that width of let's say 300 pixels
+79
+
+79
+00:03:19,670 --> 00:03:22,700
+or of 80% of the parent width.
+80
+
+80
+00:03:22,700 --> 00:03:23,900
+So in this case,
+81
+
+81
+00:03:23,900 --> 00:03:27,180
+since it's the root element of the device width,
+82
+
+82
+00:03:27,180 --> 00:03:30,400
+and let's give it a height of, let's say 300.
+83
+
+83
+00:03:30,400 --> 00:03:32,810
+If we do that, and now really important,
+84
+
+84
+00:03:32,810 --> 00:03:34,672
+I'm doing this on the view, which holds all these boxes.
+85
+
+85
+00:03:34,672 --> 00:03:39,440
+I'm not doing it on the boxes themselves.
+86
+
+86
+00:03:39,440 --> 00:03:41,270
+So if we assign this width and height
+87
+
+87
+00:03:41,270 --> 00:03:45,100
+on the surrounding box, you see something interesting.
+88
+
+88
+00:03:45,100 --> 00:03:48,230
+The height is assumed for all the elements.
+89
+
+89
+00:03:48,230 --> 00:03:49,063
+Now, all the views
+90
+
+90
+00:03:49,063 --> 00:03:52,000
+in the Flexbox take the height of the parent.
+91
+
+91
+00:03:52,000 --> 00:03:54,840
+The width has no impact here.
+92
+
+92
+00:03:54,840 --> 00:03:57,490
+That's also a default behavior you got here,
+93
+
+93
+00:03:57,490 --> 00:03:59,750
+obviously since we haven't changed anything.
+94
+
+94
+00:03:59,750 --> 00:04:04,750
+The default behavior here indeed, is that the child elements
+95
+
+95
+00:04:05,810 --> 00:04:08,950
+in a Flexbox, so in this outer view here,
+96
+
+96
+00:04:08,950 --> 00:04:12,380
+are organized such that they align themselves
+97
+
+97
+00:04:12,380 --> 00:04:15,410
+along the cross axis by stretching.
+98
+
+98
+00:04:15,410 --> 00:04:16,630
+Okay, that were a lot of terms,
+99
+
+99
+00:04:16,630 --> 00:04:18,020
+what does this mean?
+100
+
+100
+00:04:18,020 --> 00:04:20,480
+Now, when working with Flexbox,
+101
+
+101
+00:04:20,480 --> 00:04:23,010
+we have two important axis.
+102
+
+102
+00:04:23,010 --> 00:04:26,950
+The main axis depends on your flex direction.
+103
+
+103
+00:04:26,950 --> 00:04:30,500
+For row, which we have here, flex direction row.
+104
+
+104
+00:04:30,500 --> 00:04:34,180
+the main axis is from left to right.
+105
+
+105
+00:04:34,180 --> 00:04:37,440
+For a row reverse, it would be right to left.
+106
+
+106
+00:04:37,440 --> 00:04:40,180
+For column, it would be top to bottom
+107
+
+107
+00:04:40,180 --> 00:04:42,540
+and for column reverse it would be bottom to top.
+108
+
+108
+00:04:42,540 --> 00:04:44,400
+So that's the main axis.
+109
+
+109
+00:04:44,400 --> 00:04:46,230
+And then you also have a cross axis
+110
+
+110
+00:04:46,230 --> 00:04:48,600
+and that's simply the opposite of the main axis.
+111
+
+111
+00:04:48,600 --> 00:04:52,320
+So for a row where the main axis is from left to right
+112
+
+112
+00:04:52,320 --> 00:04:54,933
+the cross axis would be from top to bottom.
+113
+
+113
+00:04:55,790 --> 00:04:58,460
+If the main axis is from right to left
+114
+
+114
+00:04:58,460 --> 00:05:00,650
+which would be the case for row reverse
+115
+
+115
+00:05:00,650 --> 00:05:03,270
+then the cross axis would be from bottom to top.
+116
+
+116
+00:05:03,270 --> 00:05:06,435
+Okay, so that's the main axis and cross axis concept.
+117
+
+117
+00:05:06,435 --> 00:05:09,790
+Now, you can organize your child elements.
+118
+
+118
+00:05:09,790 --> 00:05:11,960
+So in this view where we have the free boxes
+119
+
+119
+00:05:11,960 --> 00:05:13,310
+as child elements,
+120
+
+120
+00:05:13,310 --> 00:05:16,770
+you can organize these child elements along these axis.
+121
+
+121
+00:05:16,770 --> 00:05:20,180
+You use justifyContent to organize elements
+122
+
+122
+00:05:20,180 --> 00:05:21,870
+along the main axis.
+123
+
+123
+00:05:21,870 --> 00:05:25,000
+And you have alignItems to organize elements
+124
+
+124
+00:05:25,000 --> 00:05:27,740
+around the cross axis.
+125
+
+125
+00:05:27,740 --> 00:05:30,680
+Now you see the values you got for justifyContent here.
+126
+
+126
+00:05:30,680 --> 00:05:32,350
+If you add these quotes
+127
+
+127
+00:05:32,350 --> 00:05:34,340
+or if you place your cursor in there
+128
+
+128
+00:05:34,340 --> 00:05:35,893
+and you hit control+space.
+129
+
+129
+00:05:36,730 --> 00:05:39,830
+You see you can center elements, you can position them
+130
+
+130
+00:05:39,830 --> 00:05:43,040
+at the end or at the start of that container
+131
+
+131
+00:05:43,040 --> 00:05:45,260
+or you can add some space in between.
+132
+
+132
+00:05:45,260 --> 00:05:48,080
+For example, if we use space between here
+133
+
+133
+00:05:48,080 --> 00:05:52,450
+and we use alignItems center, then things will change.
+134
+
+134
+00:05:52,450 --> 00:05:56,150
+Now, you will see they're taking the width
+135
+
+135
+00:05:56,150 --> 00:05:57,500
+of the surrounding container,
+136
+
+136
+00:05:57,500 --> 00:06:00,220
+every box itself still is pretty small
+137
+
+137
+00:06:00,220 --> 00:06:02,520
+but they're split or they're distributed
+138
+
+138
+00:06:02,520 --> 00:06:04,550
+across the width of the parent container.
+139
+
+139
+00:06:04,550 --> 00:06:06,470
+And they're no longer taking the height
+140
+
+140
+00:06:06,470 --> 00:06:08,910
+because along the cross axis,
+141
+
+141
+00:06:08,910 --> 00:06:10,890
+we're aligning them with align items.
+142
+
+142
+00:06:10,890 --> 00:06:12,960
+And there I set this to center.
+143
+
+143
+00:06:12,960 --> 00:06:15,000
+The default here is stretch.
+144
+
+144
+00:06:15,000 --> 00:06:16,940
+And if I set it back to stretch,
+145
+
+145
+00:06:16,940 --> 00:06:20,360
+then unsurprisingly they do stretch for the entire height.
+146
+
+146
+00:06:20,360 --> 00:06:21,910
+Now, if you want to make sure
+147
+
+147
+00:06:21,910 --> 00:06:23,630
+that they take the available width,
+148
+
+148
+00:06:23,630 --> 00:06:27,170
+you can set stretch here on justify content
+149
+
+149
+00:06:27,170 --> 00:06:29,970
+which is your main axis positioning vehicle.
+150
+
+150
+00:06:29,970 --> 00:06:32,083
+So you can set stretch here.
+151
+
+151
+00:06:32,960 --> 00:06:35,830
+So what can you do regarding that then?
+152
+
+152
+00:06:35,830 --> 00:06:38,760
+Well, that is something you now configure
+153
+
+153
+00:06:38,760 --> 00:06:40,780
+on every child item itself.
+154
+
+154
+00:06:40,780 --> 00:06:45,780
+You can tell a child item how much space it should take
+155
+
+155
+00:06:46,720 --> 00:06:49,620
+off the space it's potentially getting.
+156
+
+156
+00:06:49,620 --> 00:06:52,060
+Stretch here is kind of a special case,
+157
+
+157
+00:06:52,060 --> 00:06:54,170
+there you set this up on the parent item.
+158
+
+158
+00:06:54,170 --> 00:06:56,640
+Normally, you set this up on the child item.
+159
+
+159
+00:06:56,640 --> 00:06:58,960
+So for example, if I set this to center now
+160
+
+160
+00:06:58,960 --> 00:07:01,490
+so that the parent doesn't tell the child
+161
+
+161
+00:07:01,490 --> 00:07:03,110
+how much space it should take.
+162
+
+162
+00:07:03,110 --> 00:07:05,509
+then we can fully control the space a child takes
+163
+
+163
+00:07:05,509 --> 00:07:07,938
+by going to the child style.
+164
+
+164
+00:07:07,938 --> 00:07:12,370
+And there you can add flex, the flex property.
+165
+
+165
+00:07:12,370 --> 00:07:14,390
+The flex property is applied
+166
+
+166
+00:07:14,390 --> 00:07:17,360
+to items that are inside of a Flexbox,
+167
+
+167
+00:07:17,360 --> 00:07:20,820
+so that are inside of a view in this case here.
+168
+
+168
+00:07:20,820 --> 00:07:22,670
+And that can be a view itself
+169
+
+169
+00:07:22,670 --> 00:07:24,940
+but that could also be another component
+170
+
+170
+00:07:24,940 --> 00:07:27,110
+like a text, for example.
+171
+
+171
+00:07:27,110 --> 00:07:29,030
+So now here you can add flex
+172
+
+172
+00:07:29,030 --> 00:07:30,828
+and you can set this to a value of one, for example.
+173
+
+173
+00:07:30,828 --> 00:07:33,420
+So flex needs to be a number.
+174
+
+174
+00:07:33,420 --> 00:07:34,560
+If you set this to one,
+175
+
+175
+00:07:34,560 --> 00:07:37,279
+what you will see is that now the red container
+176
+
+176
+00:07:37,279 --> 00:07:39,567
+where I did set flex to one,
+177
+
+177
+00:07:39,567 --> 00:07:42,487
+takes all the available width it can get
+178
+
+178
+00:07:42,487 --> 00:07:45,580
+just so much that it leaves enough space
+179
+
+179
+00:07:45,580 --> 00:07:47,367
+for the blue and the green container
+180
+
+180
+00:07:47,367 --> 00:07:50,550
+so that they can squeeze their content
+181
+
+181
+00:07:50,550 --> 00:07:52,420
+into the surrounding Flexbox.
+182
+
+182
+00:07:52,420 --> 00:07:54,020
+Now, we can't see the boundaries
+183
+
+183
+00:07:54,020 --> 00:07:55,338
+of the surrounding container
+184
+
+184
+00:07:55,338 --> 00:07:58,550
+but the boundaries would essentially be where
+185
+
+185
+00:07:58,550 --> 00:08:00,020
+the red item starts
+186
+
+186
+00:08:00,020 --> 00:08:03,203
+and the green item ends on the horizontal axis here.
+187
+
+187
+00:08:04,670 --> 00:08:06,279
+So now flex 1 makes sure
+188
+
+188
+00:08:06,279 --> 00:08:11,130
+that the red item gets as big as it can get,
+189
+
+189
+00:08:11,130 --> 00:08:13,370
+So it takes as much space as it can get.
+190
+
+190
+00:08:13,370 --> 00:08:16,020
+but default views only take as much space
+191
+
+191
+00:08:16,020 --> 00:08:17,670
+as their child elements require.
+192
+
+192
+00:08:17,670 --> 00:08:19,920
+So as this one character required,
+193
+
+193
+00:08:19,920 --> 00:08:21,720
+but with flex one you change this
+194
+
+194
+00:08:21,720 --> 00:08:25,100
+and they now take as much space along the main axis.
+195
+
+195
+00:08:25,100 --> 00:08:27,770
+So along the width here, as they can get.
+196
+
+196
+00:08:27,770 --> 00:08:30,587
+For the cross axis, again, that's a special case,
+197
+
+197
+00:08:30,587 --> 00:08:32,690
+You have to do this on the parent.
+198
+
+198
+00:08:32,690 --> 00:08:35,670
+For the main axis, and since we have row here,
+199
+
+199
+00:08:35,670 --> 00:08:38,750
+the main axis is a horizontal axis from left to right,
+200
+
+200
+00:08:38,750 --> 00:08:42,284
+you do this with the flex property on a child.
+201
+
+201
+00:08:42,284 --> 00:08:43,810
+Now, of course you can add flex
+202
+
+202
+00:08:43,810 --> 00:08:46,100
+to other child elements as well.
+203
+
+203
+00:08:46,100 --> 00:08:48,530
+Like to the second, to the blue container,
+204
+
+204
+00:08:48,530 --> 00:08:50,220
+with the two in there.
+205
+
+205
+00:08:50,220 --> 00:08:52,370
+You can add flex 1 there as well.
+206
+
+206
+00:08:52,370 --> 00:08:54,570
+So now I have flex 1 on the red container
+207
+
+207
+00:08:54,570 --> 00:08:56,337
+and flex 1 on the blue container.
+208
+
+208
+00:08:56,337 --> 00:08:59,010
+And what now happens is that both of them
+209
+
+209
+00:08:59,010 --> 00:09:03,131
+take the available free space, and amongst these two boxes,
+210
+
+210
+00:09:03,131 --> 00:09:05,803
+the space is distributed evenly.
+211
+
+211
+00:09:06,770 --> 00:09:08,870
+And that's what this number here indicates.
+212
+
+212
+00:09:08,870 --> 00:09:11,170
+This number is a relative number.
+213
+
+213
+00:09:11,170 --> 00:09:13,260
+All items in the same Flexbox
+214
+
+214
+00:09:13,260 --> 00:09:16,711
+with the flex property distribute the available space
+215
+
+215
+00:09:16,711 --> 00:09:20,053
+by considering the number you assign here.
+216
+
+216
+00:09:21,040 --> 00:09:23,500
+And these numbers are relative to each other,
+217
+
+217
+00:09:23,500 --> 00:09:26,080
+so if I give the blue container flex 2 here,
+218
+
+218
+00:09:26,080 --> 00:09:29,910
+then this means that of the available space you have
+219
+
+219
+00:09:29,910 --> 00:09:31,870
+in that surrounding container.
+220
+
+220
+00:09:31,870 --> 00:09:33,520
+After deducting the space,
+221
+
+221
+00:09:33,520 --> 00:09:36,301
+every element needs to squeeze its content in there.
+222
+
+222
+00:09:36,301 --> 00:09:40,210
+The blue container will take twice as much space
+223
+
+223
+00:09:40,210 --> 00:09:42,011
+as this one, because here we have flex 1,
+224
+
+224
+00:09:42,011 --> 00:09:43,730
+here we have flex 2.
+225
+
+225
+00:09:43,730 --> 00:09:45,980
+If we had flex 3 here,
+226
+
+226
+00:09:45,980 --> 00:09:48,580
+then this would take three fifths
+227
+
+227
+00:09:48,580 --> 00:09:50,040
+of the available free space,
+228
+
+228
+00:09:50,040 --> 00:09:52,170
+because we have three plus two,
+229
+
+229
+00:09:52,170 --> 00:09:55,180
+so we have five available segments, so to say.
+230
+
+230
+00:09:55,180 --> 00:09:57,670
+And here the red container would take three segments,
+231
+
+231
+00:09:57,670 --> 00:09:59,870
+blue container would take two segments.
+232
+
+232
+00:09:59,870 --> 00:10:01,640
+If we have one and two,
+233
+
+233
+00:10:01,640 --> 00:10:04,090
+then we have three available segments,
+234
+
+234
+00:10:04,090 --> 00:10:05,711
+and the blue container takes two of them,
+235
+
+235
+00:10:05,711 --> 00:10:07,220
+red takes one.
+236
+
+236
+00:10:07,220 --> 00:10:10,470
+So you always add up these flex numbers
+237
+
+237
+00:10:10,470 --> 00:10:13,842
+and then distribute or that's automatically done, of course
+238
+
+238
+00:10:13,842 --> 00:10:17,620
+but then the available space is distributed accordingly.
+239
+
+239
+00:10:17,620 --> 00:10:18,500
+So now here we'll see
+240
+
+240
+00:10:18,500 --> 00:10:21,360
+that the blue container is twice as big as the red one
+241
+
+241
+00:10:21,360 --> 00:10:24,453
+or it takes twice as much free space as the red one.
+242
+
+242
+00:10:24,453 --> 00:10:26,591
+So this is how you can work with flex.
+243
+
+243
+00:10:26,591 --> 00:10:30,680
+You can organize how items are positioned
+244
+
+244
+00:10:30,680 --> 00:10:33,140
+with flex-direction, with justify content
+245
+
+245
+00:10:33,140 --> 00:10:34,800
+and with align items.
+246
+
+246
+00:10:34,800 --> 00:10:36,780
+And you can also make your items grow
+247
+
+247
+00:10:36,780 --> 00:10:39,011
+and shrink the help of flex.
+248
+
+248
+00:10:39,011 --> 00:10:43,170
+So now that's our brief introduction to Flexbox
+249
+
+249
+00:10:43,170 --> 00:10:44,500
+in React Native.
+250
+
+250
+00:10:44,500 --> 00:10:47,110
+As I said, inspired by Flexbox for CSS.
+251
+
+251
+00:10:47,110 --> 00:10:48,336
+So if you knew that,
+252
+
+252
+00:10:48,336 --> 00:10:52,410
+all of what I explained here is probably not new to you.
+253
+
+253
+00:10:52,410 --> 00:10:54,580
+We'll work with Flexbox throughout this course,
+254
+
+254
+00:10:54,580 --> 00:10:56,530
+so there're things also will become clearer
+255
+
+255
+00:10:56,530 --> 00:10:57,740
+and we'll work a lot with it.
+256
+
+256
+00:10:57,740 --> 00:10:59,450
+And you'll see you how you can create beautiful
+257
+
+257
+00:10:59,450 --> 00:11:01,227
+user interfaces with Flexbox.
+258
+
+258
+00:11:01,227 --> 00:11:03,460
+Flexbox in the end is the tool
+259
+
+259
+00:11:03,460 --> 00:11:05,860
+in React Native to structure your content
+260
+
+260
+00:11:05,860 --> 00:11:08,140
+on a page, to organize your content.
+261
+
+261
+00:11:08,140 --> 00:11:10,390
+And you would typically work with a lot of views
+262
+
+262
+00:11:10,390 --> 00:11:12,180
+which you also nest into each other
+263
+
+263
+00:11:12,180 --> 00:11:14,380
+so that you can position elements the way you want.
+264
+
+264
+00:11:14,380 --> 00:11:16,448
+Because of course, and that's also important,
+265
+
+265
+00:11:16,448 --> 00:11:20,170
+you don't just have to have one view in your app
+266
+
+266
+00:11:20,170 --> 00:11:21,680
+which uses Flexbox.
+267
+
+267
+00:11:21,680 --> 00:11:22,670
+You could have another view
+268
+
+268
+00:11:22,670 --> 00:11:24,780
+in there which also uses Flexbox.
+269
+
+269
+00:11:24,780 --> 00:11:25,730
+And actually, as I mentioned
+270
+
+270
+00:11:25,730 --> 00:11:27,990
+every view by default uses Flexbox
+271
+
+271
+00:11:27,990 --> 00:11:30,190
+and you can then nest these views into each other
+272
+
+272
+00:11:30,190 --> 00:11:32,810
+so that you position everything the way you want.
+273
+
+273
+00:11:32,810 --> 00:11:34,640
+And you'll also see this in this module already.
+274
+
+274
+00:11:34,640 --> 00:11:38,410
+And actually I'm already doing it here in my views here
+275
+
+275
+00:11:38,410 --> 00:11:40,090
+which are in the surrounding view.
+276
+
+276
+00:11:40,090 --> 00:11:43,588
+So my boxes here, there I also use justifyContent
+277
+
+277
+00:11:43,588 --> 00:11:47,370
+and alignItems to center my numbers in these boxes.
+278
+
+278
+00:11:47,370 --> 00:11:49,410
+So that one, two and three are centered there
+279
+
+279
+00:11:49,410 --> 00:11:50,950
+horizontally and vertically.
+280
+
+280
+00:11:50,950 --> 00:11:54,030
+And that works because we have Flexbox turned
+281
+
+281
+00:11:54,030 --> 00:11:57,058
+on by default and we can't turn it off by the way.
+282
+
+282
+00:11:57,058 --> 00:12:00,710
+And therefore, I just use these two properties here
+283
+
+283
+00:12:00,710 --> 00:12:03,030
+to align my content of this view
+284
+
+284
+00:12:03,030 --> 00:12:05,810
+along the main and the cross axis.
+285
+
+285
+00:12:05,810 --> 00:12:08,790
+And here, since I have set no special flex direction
+286
+
+286
+00:12:08,790 --> 00:12:11,790
+for this view, the main axis is top to bottom
+287
+
+287
+00:12:11,790 --> 00:12:14,340
+because the default flex direction is column
+288
+
+288
+00:12:14,340 --> 00:12:16,380
+and the cross axis is left to right.
+289
+
+289
+00:12:16,380 --> 00:12:17,580
+That's just a side note.

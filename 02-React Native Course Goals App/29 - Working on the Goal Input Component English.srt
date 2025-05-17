@@ -1,0 +1,943 @@
+1
+00:00:02,130 --> 00:00:04,830
+So now we got this custom component.
+2
+
+2
+00:00:04,830 --> 00:00:07,880
+But we got another custom component, which I wanna build.
+3
+
+3
+00:00:07,880 --> 00:00:10,930
+And this component should hold the input
+4
+
+4
+00:00:10,930 --> 00:00:13,870
+related markup and logic.
+5
+
+5
+00:00:13,870 --> 00:00:17,870
+Now, definitely feel free to extract the appropriate code
+6
+
+6
+00:00:17,870 --> 00:00:21,320
+from App.js into GoalInput.js on your own
+7
+
+7
+00:00:21,320 --> 00:00:23,450
+and build your own GoalInput component,
+8
+
+8
+00:00:23,450 --> 00:00:24,980
+which you use in App.js.
+9
+
+9
+00:00:24,980 --> 00:00:28,550
+In a couple of seconds, which I give you to pause the video.
+10
+
+10
+00:00:28,550 --> 00:00:29,800
+We will do this together.
+11
+
+11
+00:00:32,070 --> 00:00:34,750
+So, did you succeed?
+12
+
+12
+00:00:34,750 --> 00:00:36,013
+Let's try this together.
+13
+
+13
+00:00:37,120 --> 00:00:41,090
+Now here, I want to extract some markup into GoalInput.
+14
+
+14
+00:00:41,090 --> 00:00:42,220
+For this, I'll First of all,
+15
+
+15
+00:00:42,220 --> 00:00:45,010
+create a GoalInput component here,
+16
+
+16
+00:00:45,010 --> 00:00:49,003
+in the GoalInput.js file and export this.
+17
+
+17
+00:00:50,180 --> 00:00:53,790
+and then we wanna return some JSX code in here.
+18
+
+18
+00:00:53,790 --> 00:00:56,650
+The JSX code that should be returned is the TextInput
+19
+
+19
+00:00:56,650 --> 00:00:59,420
+and the Button, but I will also grab the View
+20
+
+20
+00:00:59,420 --> 00:01:01,760
+that holds these elements as the container,
+21
+
+21
+00:01:01,760 --> 00:01:03,040
+Because that View holds
+22
+
+22
+00:01:03,040 --> 00:01:05,190
+the input related container styling.
+23
+
+23
+00:01:05,190 --> 00:01:07,413
+And I wanna outsource this well.
+24
+
+24
+00:01:08,260 --> 00:01:12,240
+So here, I will add this container with the TextInput
+25
+
+25
+00:01:12,240 --> 00:01:16,400
+and the Button to my GoalInput.js file.
+26
+
+26
+00:01:16,400 --> 00:01:20,070
+Now, just as before, we need to do a couple of things.
+27
+
+27
+00:01:20,070 --> 00:01:23,430
+We need to import View, TextInput, and Button
+28
+
+28
+00:01:23,430 --> 00:01:27,070
+and we need to bring over our style sheet objects.
+29
+
+29
+00:01:27,070 --> 00:01:28,780
+Now, I'll start by importing,
+30
+
+30
+00:01:28,780 --> 00:01:33,780
+and I will import View, TextInput, and Button
+31
+
+31
+00:01:33,900 --> 00:01:38,900
+from react-native, so that we can use these components here.
+32
+
+32
+00:01:39,860 --> 00:01:42,860
+And it will also import StyleSheet,
+33
+
+33
+00:01:42,860 --> 00:01:45,920
+because, of course, I will create a style sheet.
+34
+
+34
+00:01:45,920 --> 00:01:48,420
+I will create such a styles object here
+35
+
+35
+00:01:48,420 --> 00:01:51,179
+with StyleSheet.create, so that we can set up the styles
+36
+
+36
+00:01:51,179 --> 00:01:56,179
+that belong to this component in this component file.
+37
+
+37
+00:01:56,530 --> 00:01:57,390
+And in our case,
+38
+
+38
+00:01:57,390 --> 00:02:01,063
+that would be the inputContainer and TextInput styles.
+39
+
+39
+00:02:02,440 --> 00:02:07,440
+So in App.js here, I will grab the inputContainer
+40
+
+40
+00:02:07,571 --> 00:02:10,063
+and TextInput style objects,
+41
+
+41
+00:02:11,320 --> 00:02:14,760
+and cut them, so that our style definitions
+42
+
+42
+00:02:14,760 --> 00:02:17,600
+in App.js are now much leaner.
+43
+
+43
+00:02:17,600 --> 00:02:18,860
+And it will move them over
+44
+
+44
+00:02:18,860 --> 00:02:21,290
+into the GoalInput component file.
+45
+
+45
+00:02:21,290 --> 00:02:23,860
+So here in this object, I'll now paste them in,
+46
+
+46
+00:02:23,860 --> 00:02:26,473
+and that makes sure our styles are there.
+47
+
+47
+00:02:27,560 --> 00:02:29,980
+But now we're not done.
+48
+
+48
+00:02:29,980 --> 00:02:32,400
+We also are handling some state here.
+49
+
+49
+00:02:32,400 --> 00:02:35,860
+We're getting the user input and we're interacting
+50
+
+50
+00:02:35,860 --> 00:02:40,520
+with the main courseGoals state with help of this Button.
+51
+
+51
+00:02:40,520 --> 00:02:41,890
+But now the problem, of course,
+52
+
+52
+00:02:41,890 --> 00:02:43,700
+is that the courseGoals state
+53
+
+53
+00:02:43,700 --> 00:02:45,800
+is managed in the App component,
+54
+
+54
+00:02:45,800 --> 00:02:49,110
+whereas, the inputs are in a different component.
+55
+
+55
+00:02:49,110 --> 00:02:51,920
+But that's a common problem in react apps
+56
+
+56
+00:02:51,920 --> 00:02:54,400
+and not specific to react-native,
+57
+
+57
+00:02:54,400 --> 00:02:57,840
+and we can solve it as we solve it in all react apps.
+58
+
+58
+00:02:57,840 --> 00:03:01,090
+We can also talk to the parent component
+59
+
+59
+00:03:01,090 --> 00:03:05,173
+by passing event handler functions via props.
+60
+
+60
+00:03:06,120 --> 00:03:09,080
+So here, for example, we can accept props on GoalInput
+61
+
+61
+00:03:10,250 --> 00:03:15,250
+and expect a special prop which could be named, onAddGoal,
+62
+
+62
+00:03:16,000 --> 00:03:19,180
+to be provided by the parent component,
+63
+
+63
+00:03:19,180 --> 00:03:21,740
+which actually holds a function as a value
+64
+
+64
+00:03:21,740 --> 00:03:23,893
+that will be executed upon a press.
+65
+
+65
+00:03:24,990 --> 00:03:26,890
+So now in the App component,
+66
+
+66
+00:03:26,890 --> 00:03:30,620
+we can use the GoalInput component We just added,
+67
+
+67
+00:03:30,620 --> 00:03:35,433
+we can import GoalInput from ./components/GoalInput.
+68
+
+68
+00:03:38,680 --> 00:03:41,880
+And we can use this component here in that place,
+69
+
+69
+00:03:41,880 --> 00:03:45,670
+where we had all the input related markup before.
+70
+
+70
+00:03:45,670 --> 00:03:49,040
+And set this onAddGoal prop,
+71
+
+71
+00:03:49,040 --> 00:03:53,700
+which we expect to get here in our GoalInput component.
+72
+
+72
+00:03:53,700 --> 00:03:56,590
+And now, since we set this prop's value
+73
+
+73
+00:03:56,590 --> 00:03:59,210
+as a value for the onPress prop,
+74
+
+74
+00:03:59,210 --> 00:04:02,800
+and that prop wants a function to be executed,
+75
+
+75
+00:04:02,800 --> 00:04:07,013
+we should pass a function to onAddGoal in the App component.
+76
+
+76
+00:04:08,249 --> 00:04:12,340
+And we still pass our addGoalHandler here, just like this.
+77
+
+77
+00:04:13,400 --> 00:04:15,190
+Now what does change though
+78
+
+78
+00:04:15,190 --> 00:04:16,930
+is how we handle the user input.
+79
+
+79
+00:04:16,930 --> 00:04:18,583
+How we fetch the user input?
+80
+
+80
+00:04:19,640 --> 00:04:22,490
+Because this GoalInputHandler and the state
+81
+
+81
+00:04:22,490 --> 00:04:25,810
+that manages the entered input is in the wrong place now.
+82
+
+82
+00:04:25,810 --> 00:04:28,450
+We don't do this in the App component anymore.
+83
+
+83
+00:04:28,450 --> 00:04:32,103
+Because the TextInput element is in the GoalInput component.
+84
+
+84
+00:04:33,270 --> 00:04:35,830
+What we should do therefore is grab that state,
+85
+
+85
+00:04:35,830 --> 00:04:37,733
+and cut it from the App component,
+86
+
+86
+00:04:39,030 --> 00:04:43,883
+and move it into the GoalInput component, like this.
+87
+
+87
+00:04:45,340 --> 00:04:48,870
+For this, of course, we must make sure that we import
+88
+
+88
+00:04:48,870 --> 00:04:53,840
+useState from react, in this GoalInput component.
+89
+
+89
+00:04:53,840 --> 00:04:55,793
+So that we can use this function here.
+90
+
+90
+00:04:57,140 --> 00:04:58,400
+Now we got this state.
+91
+
+91
+00:04:58,400 --> 00:05:01,070
+We also need this GoalInputHandler function,
+92
+
+92
+00:05:01,070 --> 00:05:02,723
+which updates the state though.
+93
+
+93
+00:05:03,690 --> 00:05:07,270
+So that in the App component, only the courseGoals state
+94
+
+94
+00:05:07,270 --> 00:05:09,870
+and the addGoalHandler function is left.
+95
+
+95
+00:05:09,870 --> 00:05:12,520
+We will treat this function as second as well though.
+96
+
+96
+00:05:13,480 --> 00:05:15,550
+In GoalInput.js, we can now paste in
+97
+
+97
+00:05:15,550 --> 00:05:17,753
+that GoalInputHandler function.
+98
+
+98
+00:05:18,720 --> 00:05:19,620
+And therefore this is now,
+99
+
+99
+00:05:19,620 --> 00:05:21,970
+again, connected to onChangeText,
+100
+
+100
+00:05:21,970 --> 00:05:24,010
+where we point at this function.
+101
+
+101
+00:05:24,010 --> 00:05:28,030
+So this enteredGoalText is still being handled here.
+102
+
+102
+00:05:28,030 --> 00:05:31,530
+Now, the only problem is that this enteredGoalText
+103
+
+103
+00:05:31,530 --> 00:05:34,000
+is eventually needed in the App component,
+104
+
+104
+00:05:34,000 --> 00:05:35,983
+when we add a new goal.
+105
+
+105
+00:05:37,040 --> 00:05:39,040
+and therefore we also need to make sure
+106
+
+106
+00:05:39,040 --> 00:05:42,793
+that this data arrives here in addGoalHandler.
+107
+
+107
+00:05:43,930 --> 00:05:47,167
+The easiest way of ensuring this would be
+108
+
+108
+00:05:47,167 --> 00:05:51,493
+to expect the enteredGoalText as a parameter.
+109
+
+109
+00:05:52,480 --> 00:05:55,060
+So that whenever addGoalHandler is called,
+110
+
+110
+00:05:55,060 --> 00:05:58,550
+we get this text and we can use it in here.
+111
+
+111
+00:05:58,550 --> 00:06:00,720
+Now, this function is fine.
+112
+
+112
+00:06:00,720 --> 00:06:03,540
+But right now this text wouldn't be provided.
+113
+
+113
+00:06:03,540 --> 00:06:07,010
+addGoalHandler is passed as a value
+114
+
+114
+00:06:07,010 --> 00:06:08,880
+to onAddGoal on the GoalInput,
+115
+
+115
+00:06:10,910 --> 00:06:14,130
+and onAddGoal is forwarded to onPress,
+116
+
+116
+00:06:14,130 --> 00:06:17,760
+and onPress which ultimately calls this function
+117
+
+117
+00:06:17,760 --> 00:06:21,550
+does not provide this enteredGoalText.
+118
+
+118
+00:06:21,550 --> 00:06:23,460
+To make sure that it does,
+119
+
+119
+00:06:23,460 --> 00:06:27,140
+we have to change something in our code here.
+120
+
+120
+00:06:27,140 --> 00:06:30,060
+For example, we can add another function here
+121
+
+121
+00:06:30,060 --> 00:06:33,170
+in our GoalInput component file
+122
+
+122
+00:06:33,170 --> 00:06:37,130
+and name this function addGoalHandler, again.
+123
+
+123
+00:06:37,130 --> 00:06:40,670
+So now we have this function or a function with this name
+124
+
+124
+00:06:40,670 --> 00:06:43,390
+in both GoalInput and App, but that's no problem
+125
+
+125
+00:06:43,390 --> 00:06:45,160
+because we're in different components here.
+126
+
+126
+00:06:45,160 --> 00:06:47,610
+Hence, we have no name clash.
+127
+
+127
+00:06:47,610 --> 00:06:49,220
+Now in this function,
+128
+
+128
+00:06:49,220 --> 00:06:53,170
+I actually want to execute props onAddGoal.
+129
+
+129
+00:06:53,170 --> 00:06:55,730
+So I want to call this onAddGoal function,
+130
+
+130
+00:06:55,730 --> 00:06:57,800
+which we receive here manually
+131
+
+131
+00:06:58,820 --> 00:07:00,650
+And then, onPress is connected
+132
+
+132
+00:07:00,650 --> 00:07:03,453
+to this addGoalHandler function which I just added.
+133
+
+133
+00:07:04,680 --> 00:07:07,030
+By calling this function manually,
+134
+
+134
+00:07:07,030 --> 00:07:12,030
+I can now make sure that I forward my enteredGoalText.
+135
+
+135
+00:07:12,560 --> 00:07:16,510
+So this state, I passed this as a value to the function
+136
+
+136
+00:07:16,510 --> 00:07:19,870
+I receive on this onAddGoal prop.
+137
+
+137
+00:07:19,870 --> 00:07:22,750
+And therefore, since function is the addGoalHandler
+138
+
+138
+00:07:22,750 --> 00:07:24,120
+in the App component.
+139
+
+139
+00:07:24,120 --> 00:07:25,810
+That addGoalHandler function
+140
+
+140
+00:07:25,810 --> 00:07:28,160
+will receive the enteredGoalText
+141
+
+141
+00:07:28,160 --> 00:07:30,443
+because I'm passing it manually here.
+142
+
+142
+00:07:31,610 --> 00:07:34,290
+And again, this is nothing react-native specific.
+143
+
+143
+00:07:34,290 --> 00:07:36,560
+This is standard react.
+144
+
+144
+00:07:36,560 --> 00:07:38,250
+Now as extra bonus,
+145
+
+145
+00:07:38,250 --> 00:07:41,940
+we could also set our enteredGoalText to an empty string
+146
+
+146
+00:07:41,940 --> 00:07:45,360
+to clear it, whenever we added a new goal.
+147
+
+147
+00:07:45,360 --> 00:07:48,230
+We didn't do that before but we can do it now.
+148
+
+148
+00:07:48,230 --> 00:07:50,670
+And I think it is a change that makes sense.
+149
+
+149
+00:07:50,670 --> 00:07:51,680
+But of course, it's up to you
+150
+
+150
+00:07:51,680 --> 00:07:53,120
+whether you want to do that or not.
+151
+
+151
+00:07:53,120 --> 00:07:54,380
+Here, I will do it
+152
+
+152
+00:07:54,380 --> 00:07:57,330
+by setting the state back to an empty string.
+153
+
+153
+00:07:57,330 --> 00:08:00,380
+With all of that, back in App component,
+154
+
+154
+00:08:00,380 --> 00:08:02,160
+this should all work.
+155
+
+155
+00:08:02,160 --> 00:08:05,060
+We can now get rid of some unused imports again,
+156
+
+156
+00:08:05,060 --> 00:08:06,623
+which we don't need anymore.
+157
+
+157
+00:08:07,460 --> 00:08:09,280
+And if we now save everything,
+158
+
+158
+00:08:09,280 --> 00:08:12,600
+and reload the app on both devices,
+159
+
+159
+00:08:12,600 --> 00:08:17,513
+if I now learn react-native, this goal still gets added.
+160
+
+160
+00:08:18,380 --> 00:08:20,700
+Now what's not happening is that the input
+161
+
+161
+00:08:20,700 --> 00:08:22,480
+would be reset though.
+162
+
+162
+00:08:22,480 --> 00:08:24,010
+Actually internally it is.
+163
+
+163
+00:08:24,010 --> 00:08:27,070
+If I click add goal, you see there was no text.
+164
+
+164
+00:08:27,070 --> 00:08:30,490
+But it's not reflected here in the input element.
+165
+
+165
+00:08:30,490 --> 00:08:32,670
+The reason for that is that I'm resetting
+166
+
+166
+00:08:32,670 --> 00:08:34,883
+the state here in GoalInput,
+167
+
+167
+00:08:36,249 --> 00:08:38,410
+but I'm not binding the state to TextInput.
+168
+
+168
+00:08:38,410 --> 00:08:41,220
+We don't have any proper two way binding here.
+169
+
+169
+00:08:41,220 --> 00:08:42,863
+We just have one way binding.
+170
+
+170
+00:08:44,240 --> 00:08:46,000
+In the past, this didn't matter,
+171
+
+171
+00:08:46,000 --> 00:08:47,830
+because as we never changed the text
+172
+
+172
+00:08:47,830 --> 00:08:50,890
+besides typing into the TextInput field.
+173
+
+173
+00:08:50,890 --> 00:08:53,740
+But now since we're also changing the state here,
+174
+
+174
+00:08:53,740 --> 00:08:55,460
+like this by resetting it,
+175
+
+175
+00:08:55,460 --> 00:08:58,320
+we should add a value prop to TextInput,
+176
+
+176
+00:08:58,320 --> 00:09:00,853
+and bind this to the enteredGoalText.
+177
+
+177
+00:09:01,770 --> 00:09:04,170
+So that whenever this goal text changes,
+178
+
+178
+00:09:04,170 --> 00:09:06,170
+because we for example, reset it,
+179
+
+179
+00:09:06,170 --> 00:09:09,450
+this is reflected in the TextInput.
+180
+
+180
+00:09:09,450 --> 00:09:11,810
+If we now save this, and reload everything,
+181
+
+181
+00:09:11,810 --> 00:09:14,810
+I can, again, learn, react-native.
+182
+
+182
+00:09:14,810 --> 00:09:16,033
+Now it's reset.
+183
+
+183
+00:09:17,110 --> 00:09:18,260
+And I can add my goals.
+184
+
+184
+00:09:20,010 --> 00:09:21,820
+So this is now working.
+185
+
+185
+00:09:21,820 --> 00:09:25,250
+And now, we split this into multiple components.
+186
+
+186
+00:09:25,250 --> 00:09:26,900
+And in the end, as you see,
+187
+
+187
+00:09:26,900 --> 00:09:31,040
+here we had absolutely nothing react-native specific.
+188
+
+188
+00:09:31,040 --> 00:09:35,180
+Splitting our app and passing data and functions around,
+189
+
+189
+00:09:35,180 --> 00:09:38,473
+that all works just as you know it from react.

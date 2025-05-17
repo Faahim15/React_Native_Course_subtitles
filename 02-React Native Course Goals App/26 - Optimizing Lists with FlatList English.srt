@@ -1,0 +1,1358 @@
+1
+00:00:02,070 --> 00:00:04,680
+So we got our scrollable list here,
+2
+
+2
+00:00:04,680 --> 00:00:07,513
+and this is implemented with this ScrollView.
+3
+
+3
+00:00:08,470 --> 00:00:10,670
+Now, this solution has one downside,
+4
+
+4
+00:00:10,670 --> 00:00:13,187
+one disadvantage though.
+5
+
+5
+00:00:13,187 --> 00:00:14,510
+ScrollView is great,
+6
+
+6
+00:00:14,510 --> 00:00:18,020
+if you wanna add scrolling around some content.
+7
+
+7
+00:00:18,020 --> 00:00:19,990
+For example, if you had an article,
+8
+
+8
+00:00:19,990 --> 00:00:22,410
+which would be too long to fit on a screen
+9
+
+9
+00:00:22,410 --> 00:00:23,790
+or you simply don't know
+10
+
+10
+00:00:23,790 --> 00:00:26,630
+which device sizes your users will be using
+11
+
+11
+00:00:26,630 --> 00:00:29,480
+and you wanna make sure that an article for example,
+12
+
+12
+00:00:29,480 --> 00:00:30,970
+is scrollable.
+13
+
+13
+00:00:30,970 --> 00:00:34,600
+In such situations, ScrollView is perfect.
+14
+
+14
+00:00:34,600 --> 00:00:39,120
+For lists as we have it here, it's not perfect though.
+15
+
+15
+00:00:39,120 --> 00:00:40,660
+The reason for that is,
+16
+
+16
+00:00:40,660 --> 00:00:44,620
+that lists like this could become very long.
+17
+
+17
+00:00:44,620 --> 00:00:49,430
+Sure, you might only have like 10 or 20 items on there.
+18
+
+18
+00:00:49,430 --> 00:00:51,520
+And especially for such a goal list,
+19
+
+19
+00:00:51,520 --> 00:00:54,870
+it's very likely that you have around that size
+20
+
+20
+00:00:54,870 --> 00:00:57,350
+or around that amount of items.
+21
+
+21
+00:00:57,350 --> 00:00:59,040
+But you could also have lists
+22
+
+22
+00:00:59,040 --> 00:01:02,203
+with hundreds or thousands of items.
+23
+
+23
+00:01:03,180 --> 00:01:05,610
+Now, what ScrollView does is,
+24
+
+24
+00:01:05,610 --> 00:01:09,690
+it always renders all the items that are inside of it
+25
+
+25
+00:01:09,690 --> 00:01:12,620
+whenever the overall UI is rendered.
+26
+
+26
+00:01:12,620 --> 00:01:15,670
+So even if an item is not currently on the screen
+27
+
+27
+00:01:15,670 --> 00:01:17,720
+like this last list item here,
+28
+
+28
+00:01:17,720 --> 00:01:21,120
+this item is still rendered behind the scenes
+29
+
+29
+00:01:21,120 --> 00:01:23,790
+even though it's not visible yet.
+30
+
+30
+00:01:23,790 --> 00:01:27,870
+Because ScrollView renders all its child items,
+31
+
+31
+00:01:27,870 --> 00:01:32,870
+no matter if we're talking about 10, 20, or 10,000 items.
+32
+
+32
+00:01:33,910 --> 00:01:38,580
+And for very long list, this can become a performance issue.
+33
+
+33
+00:01:38,580 --> 00:01:40,230
+If you have a long list
+34
+
+34
+00:01:40,230 --> 00:01:43,620
+with dozens or hundreds or thousands of items,
+35
+
+35
+00:01:43,620 --> 00:01:45,770
+rendering them all at the beginning
+36
+
+36
+00:01:45,770 --> 00:01:49,870
+even though vast majority is not even visible to the user,
+37
+
+37
+00:01:49,870 --> 00:01:51,790
+will slow down the app.
+38
+
+38
+00:01:51,790 --> 00:01:54,620
+And of course, that's not something we want.
+39
+
+39
+00:01:54,620 --> 00:01:58,710
+Therefore ScrollView is great for limited amounts of content
+40
+
+40
+00:01:58,710 --> 00:02:02,550
+like an article which has a fixed end at some point.
+41
+
+41
+00:02:02,550 --> 00:02:06,260
+But for dynamic lists, which could become super long.
+42
+
+42
+00:02:06,260 --> 00:02:08,670
+We typical don't wanna use ScrollView.
+43
+
+43
+00:02:08,670 --> 00:02:11,340
+We can, but we typically don't want to,
+44
+
+44
+00:02:11,340 --> 00:02:14,890
+to avoid possible performance issues.
+45
+
+45
+00:02:14,890 --> 00:02:17,680
+A better solution for such scenarios
+46
+
+46
+00:02:17,680 --> 00:02:22,230
+is another built-in component that ships with React Native,
+47
+
+47
+00:02:22,230 --> 00:02:24,433
+the FlatList component,
+48
+
+48
+00:02:25,430 --> 00:02:29,740
+this is another component that will help scrolling.
+49
+
+49
+00:02:29,740 --> 00:02:31,610
+But as the name suggests,
+50
+
+50
+00:02:31,610 --> 00:02:35,180
+it's specifically built for scrollable lists.
+51
+
+51
+00:02:35,180 --> 00:02:38,150
+And internally, it will only render the items
+52
+
+52
+00:02:38,150 --> 00:02:39,770
+that are actually visible.
+53
+
+53
+00:02:39,770 --> 00:02:42,630
+And all the items that are off screen
+54
+
+54
+00:02:42,630 --> 00:02:46,210
+will only be loaded and rendered lazily
+55
+
+55
+00:02:46,210 --> 00:02:49,563
+as they are needed because the user is scrolling.
+56
+
+56
+00:02:50,890 --> 00:02:55,260
+Now, internally, FlatList will have a small threshold
+57
+
+57
+00:02:55,260 --> 00:02:59,050
+to make sure it already starts loading and rendering items
+58
+
+58
+00:02:59,050 --> 00:03:01,260
+before they are visible.
+59
+
+59
+00:03:01,260 --> 00:03:05,160
+But it will only render them as the user gets closer to them
+60
+
+60
+00:03:05,160 --> 00:03:08,130
+as he or she is scrolling the list.
+61
+
+61
+00:03:08,130 --> 00:03:10,560
+If you have 1000 items in your list
+62
+
+62
+00:03:10,560 --> 00:03:13,650
+the vast majority of items will not be loaded
+63
+
+63
+00:03:13,650 --> 00:03:16,663
+and will not be rendered when using FlatList.
+64
+
+64
+00:03:18,020 --> 00:03:20,653
+So how do we with FlatList then?
+65
+
+65
+00:03:21,900 --> 00:03:26,900
+Well, you do use it by replacing ScrollView with it.
+66
+
+66
+00:03:27,440 --> 00:03:30,603
+So we replace ScrollView with FlatList.
+67
+
+67
+00:03:32,580 --> 00:03:37,290
+Now, regarding this alwaysBounceVertical prop here,
+68
+
+68
+00:03:37,290 --> 00:03:38,770
+this is still supported.
+69
+
+69
+00:03:38,770 --> 00:03:42,910
+So you can leave it there because FlatList actually supports
+70
+
+70
+00:03:42,910 --> 00:03:46,860
+pretty much all of the props ScrollView supports.
+71
+
+71
+00:03:46,860 --> 00:03:50,900
+Because internally it kind of has a similar implementation
+72
+
+72
+00:03:50,900 --> 00:03:52,620
+but with this optimization
+73
+
+73
+00:03:52,620 --> 00:03:54,823
+of only loading data when it's needed.
+74
+
+74
+00:03:56,010 --> 00:03:58,990
+So this is a first step, but we're not finished yet.
+75
+
+75
+00:03:58,990 --> 00:04:01,803
+We replace ScrollView with FlatList.
+76
+
+76
+00:04:02,860 --> 00:04:06,110
+The next step is that we get rid of our custom
+77
+
+77
+00:04:06,110 --> 00:04:08,750
+mapping code here, we remove that,
+78
+
+78
+00:04:08,750 --> 00:04:11,623
+we no longer map our data manually.
+79
+
+79
+00:04:12,760 --> 00:04:16,660
+Instead, we now have to pass this task to FlatList
+80
+
+80
+00:04:16,660 --> 00:04:20,040
+so that it can render this list efficiently
+81
+
+81
+00:04:20,040 --> 00:04:22,780
+by only rendering what's needed.
+82
+
+82
+00:04:22,780 --> 00:04:24,590
+FlatList is now in charge of this
+83
+
+83
+00:04:24,590 --> 00:04:27,920
+hence we need to let FlatList do that.
+84
+
+84
+00:04:27,920 --> 00:04:32,920
+And this is done by giving FlatList two important props.
+85
+
+85
+00:04:33,950 --> 00:04:37,363
+The first one is the data prop, which is a required prop.
+86
+
+86
+00:04:38,210 --> 00:04:41,050
+This is a prop that points at the data
+87
+
+87
+00:04:41,050 --> 00:04:42,943
+that should be output in this list.
+88
+
+88
+00:04:44,260 --> 00:04:48,480
+In our example here, that would be the courseGoals array.
+89
+
+89
+00:04:48,480 --> 00:04:50,930
+That's the data that should be output as a list
+90
+
+90
+00:04:50,930 --> 00:04:53,643
+so we pass this as a value to data.
+91
+
+91
+00:04:54,720 --> 00:04:56,630
+But that doesn't tell FlatList
+92
+
+92
+00:04:56,630 --> 00:04:58,820
+how the data should be rendered.
+93
+
+93
+00:04:58,820 --> 00:05:02,320
+You don't tell FlatList by passing content like this,
+94
+
+94
+00:05:02,320 --> 00:05:04,410
+between the opening and closing text,
+95
+
+95
+00:05:04,410 --> 00:05:06,403
+that's not how we use FlatList.
+96
+
+96
+00:05:07,860 --> 00:05:09,950
+Instead, we should cut this
+97
+
+97
+00:05:09,950 --> 00:05:13,403
+and we can turn FlatList into a self-closing component.
+98
+
+98
+00:05:14,420 --> 00:05:16,970
+And we add another key prop now,
+99
+
+99
+00:05:16,970 --> 00:05:21,253
+and that's another required prop, the renderItem prop.
+100
+
+100
+00:05:22,320 --> 00:05:25,550
+This is a prop that wants a function as a value,
+101
+
+101
+00:05:25,550 --> 00:05:28,160
+a function that will tell FlatList
+102
+
+102
+00:05:28,160 --> 00:05:31,093
+how to render the individual data items.
+103
+
+103
+00:05:32,270 --> 00:05:33,800
+Therefore it is a function
+104
+
+104
+00:05:33,800 --> 00:05:35,730
+that will receive the individual item
+105
+
+105
+00:05:35,730 --> 00:05:38,063
+as a parameter, automatically.
+106
+
+106
+00:05:38,940 --> 00:05:41,300
+FlatList will pass in this item
+107
+
+107
+00:05:41,300 --> 00:05:43,160
+whenever it calls this function,
+108
+
+108
+00:05:43,160 --> 00:05:44,690
+and it will call this function
+109
+
+109
+00:05:44,690 --> 00:05:48,150
+whenever it determines that a new item must be rendered
+110
+
+110
+00:05:48,150 --> 00:05:50,070
+because the user is scrolling
+111
+
+111
+00:05:50,070 --> 00:05:52,313
+and a new item should be made visible.
+112
+
+112
+00:05:53,200 --> 00:05:54,920
+And therefore, in this function,
+113
+
+113
+00:05:54,920 --> 00:05:57,440
+in this array function which I defined here,
+114
+
+114
+00:05:57,440 --> 00:06:00,190
+you then return to JSX code that should be rendered
+115
+
+115
+00:06:00,190 --> 00:06:02,180
+for a given item.
+116
+
+116
+00:06:02,180 --> 00:06:05,470
+Now, of course, we wanna output our item data
+117
+
+117
+00:06:05,470 --> 00:06:08,100
+and we received this item parameter value
+118
+
+118
+00:06:08,100 --> 00:06:10,690
+automatically by FlatList.
+119
+
+119
+00:06:10,690 --> 00:06:12,600
+But this item which we get here
+120
+
+120
+00:06:12,600 --> 00:06:17,090
+is actually an object generated by FlatList internally.
+121
+
+121
+00:06:17,090 --> 00:06:21,020
+An object that is wrapped around the individual data items
+122
+
+122
+00:06:21,020 --> 00:06:23,460
+we have in our data array.
+123
+
+123
+00:06:23,460 --> 00:06:25,640
+And therefore I will actually name this itemData
+124
+
+124
+00:06:25,640 --> 00:06:27,400
+because it's actually an object
+125
+
+125
+00:06:27,400 --> 00:06:30,580
+that does not just contain our values,
+126
+
+126
+00:06:30,580 --> 00:06:32,063
+but also some metadata.
+127
+
+127
+00:06:33,300 --> 00:06:35,610
+Now, itemData does for example,
+128
+
+128
+00:06:35,610 --> 00:06:38,460
+also give us access to a index property.
+129
+
+129
+00:06:38,460 --> 00:06:40,590
+Again, this object with this property
+130
+
+130
+00:06:40,590 --> 00:06:42,880
+is generated by FlatList.
+131
+
+131
+00:06:42,880 --> 00:06:44,010
+And this holds the index
+132
+
+132
+00:06:44,010 --> 00:06:46,590
+of the different items that are rendered.
+133
+
+133
+00:06:46,590 --> 00:06:48,840
+First item here has an index of zero,
+134
+
+134
+00:06:48,840 --> 00:06:51,603
+the second item has an index of one and so on.
+135
+
+135
+00:06:52,480 --> 00:06:54,870
+But itemData also holds another property
+136
+
+136
+00:06:54,870 --> 00:06:56,870
+that's very important for us
+137
+
+137
+00:06:56,870 --> 00:06:59,240
+and that's the property I will output here,
+138
+
+138
+00:06:59,240 --> 00:07:01,453
+the item property.
+139
+
+139
+00:07:02,500 --> 00:07:05,080
+This will hold the actual data items,
+140
+
+140
+00:07:05,080 --> 00:07:07,970
+one, for each list item that's being rendered.
+141
+
+141
+00:07:07,970 --> 00:07:10,040
+So with itemData.item,
+142
+
+142
+00:07:10,040 --> 00:07:14,280
+we get access to the different data items we have here.
+143
+
+143
+00:07:14,280 --> 00:07:16,720
+Now, with that, we can get rid of this key prop
+144
+
+144
+00:07:16,720 --> 00:07:19,510
+because we're no longer mapping this list manually
+145
+
+145
+00:07:19,510 --> 00:07:22,303
+and hence keys are no longer managed like this.
+146
+
+146
+00:07:23,260 --> 00:07:25,240
+We will come back to keys in a second
+147
+
+147
+00:07:25,240 --> 00:07:27,420
+but for the moment we'll remove it.
+148
+
+148
+00:07:27,420 --> 00:07:30,480
+And now I will reload the apps by pressing R here,
+149
+
+149
+00:07:30,480 --> 00:07:32,893
+in the terminal with the terminal selected.
+150
+
+150
+00:07:34,500 --> 00:07:38,360
+And if I now add another new item here,
+151
+
+151
+00:07:38,360 --> 00:07:42,940
+you will see it shows up and I can add multiple items here.
+152
+
+152
+00:07:42,940 --> 00:07:46,880
+And if I add enough items to exceed this screen height.
+153
+
+153
+00:07:46,880 --> 00:07:50,340
+So if I add more and more items here,
+154
+
+154
+00:07:50,340 --> 00:07:54,980
+you will see that this list also is scrollable,
+155
+
+155
+00:07:54,980 --> 00:07:56,660
+I can scroll here.
+156
+
+156
+00:07:56,660 --> 00:07:58,990
+But you also see of course that I'm getting a warning,
+157
+
+157
+00:07:58,990 --> 00:08:01,860
+I did get it right from the start actually.
+158
+
+158
+00:08:01,860 --> 00:08:06,190
+And the warning is the end, that I'm missing some keys here.
+159
+
+159
+00:08:06,190 --> 00:08:07,023
+Because it's still a list
+160
+
+160
+00:08:07,023 --> 00:08:09,630
+and therefore we still should add keys,
+161
+
+161
+00:08:09,630 --> 00:08:12,383
+but we don't add them as we added them before.
+162
+
+162
+00:08:13,630 --> 00:08:15,520
+Instead when using FlatList,
+163
+
+163
+00:08:15,520 --> 00:08:20,090
+there are two main ways of adding keys to these list items.
+164
+
+164
+00:08:20,090 --> 00:08:23,490
+The first approach is to turn your data values
+165
+
+165
+00:08:23,490 --> 00:08:26,840
+from primitive values like strings as we have it here,
+166
+
+166
+00:08:26,840 --> 00:08:30,360
+into objects that have a key property.
+167
+
+167
+00:08:30,360 --> 00:08:31,810
+And that's what I'll do here.
+168
+
+168
+00:08:32,960 --> 00:08:34,750
+When I add a new courseGoal,
+169
+
+169
+00:08:34,750 --> 00:08:38,300
+instead of just adding the entered text like this as a goal
+170
+
+170
+00:08:38,300 --> 00:08:42,700
+so as a plain string, I will wrap this into a object.
+171
+
+171
+00:08:42,700 --> 00:08:45,330
+Where I, for example have a text property
+172
+
+172
+00:08:45,330 --> 00:08:47,860
+that the actual goal text,
+173
+
+173
+00:08:47,860 --> 00:08:51,400
+but where I actually also add a key property
+174
+
+174
+00:08:51,400 --> 00:08:53,313
+which I set to a unique key.
+175
+
+175
+00:08:54,550 --> 00:08:57,230
+Now, to generate a unique key here,
+176
+
+176
+00:08:57,230 --> 00:09:02,150
+I will actually use Math.random toString like this.
+177
+
+177
+00:09:02,150 --> 00:09:04,860
+Which is not really a unique key.
+178
+
+178
+00:09:04,860 --> 00:09:07,740
+I could generate the same number twice
+179
+
+179
+00:09:07,740 --> 00:09:09,973
+but it's good enough for this demo here.
+180
+
+180
+00:09:11,320 --> 00:09:14,160
+And now with that every item in my course goals array
+181
+
+181
+00:09:14,160 --> 00:09:15,900
+is actually an object,
+182
+
+182
+00:09:15,900 --> 00:09:19,283
+an object with a text property and with a key property.
+183
+
+183
+00:09:20,120 --> 00:09:22,640
+And the special thing is that FlatList
+184
+
+184
+00:09:22,640 --> 00:09:26,350
+will automatically look for such a key property.
+185
+
+185
+00:09:26,350 --> 00:09:29,520
+So FlatList does work with primitive values
+186
+
+186
+00:09:29,520 --> 00:09:31,040
+in the data array as well
+187
+
+187
+00:09:31,040 --> 00:09:33,270
+as you saw a couple of minutes ago.
+188
+
+188
+00:09:33,270 --> 00:09:34,710
+But it works even better,
+189
+
+189
+00:09:34,710 --> 00:09:39,080
+if your data in this data array is a list of objects.
+190
+
+190
+00:09:39,080 --> 00:09:41,360
+So if you have a list of objects as data
+191
+
+191
+00:09:41,360 --> 00:09:43,850
+and every object has a key property,
+192
+
+192
+00:09:43,850 --> 00:09:45,640
+because then this key property
+193
+
+193
+00:09:45,640 --> 00:09:47,610
+will automatically be used as a key
+194
+
+194
+00:09:47,610 --> 00:09:49,253
+for the items that are rendered.
+195
+
+195
+00:09:50,670 --> 00:09:53,660
+Now, that we turned our items into objects here though,
+196
+
+196
+00:09:53,660 --> 00:09:56,730
+we have to make sure that when we access the data
+197
+
+197
+00:09:56,730 --> 00:09:58,920
+that belongs to a single item,
+198
+
+198
+00:09:58,920 --> 00:10:02,393
+we dive into the text property here on the item.
+199
+
+199
+00:10:03,300 --> 00:10:05,620
+Because every item is now an object
+200
+
+200
+00:10:05,620 --> 00:10:08,810
+with a text property, that's what we set up here.
+201
+
+201
+00:10:08,810 --> 00:10:11,833
+Hence we have to access this text property down here.
+202
+
+202
+00:10:13,566 --> 00:10:14,440
+And then with that,
+203
+
+203
+00:10:14,440 --> 00:10:17,950
+if we save this and again reload this
+204
+
+204
+00:10:19,070 --> 00:10:22,760
+and I now start adding items here,
+205
+
+205
+00:10:22,760 --> 00:10:27,300
+you will see that now I can add items as many as I want
+206
+
+206
+00:10:27,300 --> 00:10:29,330
+and I don't get this warning anymore.
+207
+
+207
+00:10:29,330 --> 00:10:31,330
+And I got this strollable list.
+208
+
+208
+00:10:31,330 --> 00:10:33,240
+And under the hood,
+209
+
+209
+00:10:33,240 --> 00:10:36,110
+only the items that are needed are being rendered
+210
+
+210
+00:10:36,110 --> 00:10:38,870
+and the other items will be loaded lazily
+211
+
+211
+00:10:38,870 --> 00:10:41,180
+as we scroll closer to them.
+212
+
+212
+00:10:41,180 --> 00:10:43,593
+That's how this FlatList works now.
+213
+
+213
+00:10:44,920 --> 00:10:47,680
+Now, if you don't have a property named key
+214
+
+214
+00:10:47,680 --> 00:10:50,320
+because you're maybe getting data from an API
+215
+
+215
+00:10:50,320 --> 00:10:52,320
+and you can't influence its shape,
+216
+
+216
+00:10:52,320 --> 00:10:54,020
+and you don't wanna transform it
+217
+
+217
+00:10:54,020 --> 00:10:57,290
+just because flat list needs that key property.
+218
+
+218
+00:10:57,290 --> 00:10:59,050
+You also got an alternative
+219
+
+219
+00:10:59,050 --> 00:11:02,353
+to setting up such a key property in the input data.
+220
+
+220
+00:11:03,620 --> 00:11:05,880
+Let's say this would be named ID,
+221
+
+221
+00:11:05,880 --> 00:11:08,320
+this would be a reasonable property name
+222
+
+222
+00:11:08,320 --> 00:11:10,960
+because this could be a unique ID.
+223
+
+223
+00:11:10,960 --> 00:11:12,670
+But it would be the wrong name
+224
+
+224
+00:11:12,670 --> 00:11:17,550
+because this list is not looking for an ID property
+225
+
+225
+00:11:17,550 --> 00:11:19,283
+but for a key property.
+226
+
+226
+00:11:20,510 --> 00:11:22,120
+Now, of course we could transform it
+227
+
+227
+00:11:22,120 --> 00:11:25,530
+but if you don't wanna do that, you can go to your FlatList
+228
+
+228
+00:11:25,530 --> 00:11:28,800
+and you can add another prop to the FlatList component.
+229
+
+229
+00:11:28,800 --> 00:11:32,860
+And that would be the keyExtractor prop.
+230
+
+230
+00:11:32,860 --> 00:11:37,860
+The keyExtractor prop wants a function as a value,
+231
+
+231
+00:11:39,330 --> 00:11:41,750
+for example, an inline arrow function.
+232
+
+232
+00:11:41,750 --> 00:11:43,910
+But you could also define a function somewhere else
+233
+
+233
+00:11:43,910 --> 00:11:46,053
+and pass up a point or edit here.
+234
+
+234
+00:11:47,490 --> 00:11:48,530
+And this is a function
+235
+
+235
+00:11:48,530 --> 00:11:52,430
+which will automatically receive two parameter values,
+236
+
+236
+00:11:52,430 --> 00:11:54,093
+item and index.
+237
+
+237
+00:11:55,060 --> 00:11:58,300
+These two values will be provided by FlatList
+238
+
+238
+00:11:58,300 --> 00:12:00,370
+when it calls this function for you.
+239
+
+239
+00:12:00,370 --> 00:12:02,460
+And it will call this function for you,
+240
+
+240
+00:12:02,460 --> 00:12:04,593
+for every list item that's being rendered.
+241
+
+241
+00:12:05,740 --> 00:12:07,340
+Now, the renderItem function
+242
+
+242
+00:12:07,340 --> 00:12:10,220
+is also called for every list item that's rendered.
+243
+
+243
+00:12:10,220 --> 00:12:11,670
+But the renderItem function
+244
+
+244
+00:12:11,670 --> 00:12:14,800
+is responsible for generating in the JSX code
+245
+
+245
+00:12:14,800 --> 00:12:16,903
+that should be rendered for every item.
+246
+
+246
+00:12:18,116 --> 00:12:19,860
+KeyExtractor on the other hand,
+247
+
+247
+00:12:19,860 --> 00:12:23,950
+this function is simply called to get a key
+248
+
+248
+00:12:23,950 --> 00:12:25,040
+out of every item,
+249
+
+249
+00:12:25,040 --> 00:12:27,150
+which then under the hood will be attached
+250
+
+250
+00:12:27,150 --> 00:12:29,327
+to the item by the FlatList.
+251
+
+251
+00:12:30,230 --> 00:12:32,950
+And therefore here you should return the key.
+252
+
+252
+00:12:32,950 --> 00:12:36,640
+And since you get the item as the first parameter value,
+253
+
+253
+00:12:36,640 --> 00:12:40,110
+and since I know that every item for me is an object
+254
+
+254
+00:12:40,110 --> 00:12:41,800
+with an ID property.
+255
+
+255
+00:12:41,800 --> 00:12:45,580
+And since I know that the ID property makes for a great key
+256
+
+256
+00:12:45,580 --> 00:12:49,563
+since it will be unique, I can return item.id here.
+257
+
+257
+00:12:50,800 --> 00:12:52,920
+And with that, I simply tell FlatList
+258
+
+258
+00:12:52,920 --> 00:12:57,090
+how it gets to a unique key for every item it outputs.
+259
+
+259
+00:12:57,090 --> 00:12:58,470
+So with that, if I save this
+260
+
+260
+00:12:58,470 --> 00:13:01,563
+and I then again, reload everything here.
+261
+
+261
+00:13:02,580 --> 00:13:07,580
+If I again, learn React Native here, this works as before.
+262
+
+262
+00:13:09,050 --> 00:13:10,693
+And I don't get any warnings.
+263
+
+263
+00:13:12,830 --> 00:13:16,320
+This off course, all the works here on Android
+264
+
+264
+00:13:16,320 --> 00:13:17,633
+if you wanna see it there.
+265
+
+265
+00:13:18,740 --> 00:13:21,310
+I can add multiple goals there as well
+266
+
+266
+00:13:21,310 --> 00:13:23,353
+and there it's also scrollable.
+267
+
+267
+00:13:24,500 --> 00:13:28,000
+So that's FlatList and action, and you should use FlatList
+268
+
+268
+00:13:28,000 --> 00:13:30,650
+whenever you have lists with dynamic data
+269
+
+269
+00:13:30,650 --> 00:13:31,890
+that should be scrollable.
+270
+
+270
+00:13:31,890 --> 00:13:35,280
+And especially if you have lists that could be super long.
+271
+
+271
+00:13:35,280 --> 00:13:37,060
+Then, for performance reasons
+272
+
+272
+00:13:37,060 --> 00:13:39,173
+FlatList is better than ScrollView.

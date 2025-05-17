@@ -1,0 +1,493 @@
+1
+00:00:02,040 --> 00:00:02,980
+As a next step,
+2
+
+2
+00:00:02,980 --> 00:00:07,450
+we can now make sure that an item actually does get deleted.
+3
+
+3
+00:00:07,450 --> 00:00:09,380
+And for this, in the app component,
+4
+
+4
+00:00:09,380 --> 00:00:11,330
+in the deleteGoalHandler,
+5
+
+5
+00:00:11,330 --> 00:00:15,270
+it would be convenient if in this handler function,
+6
+
+6
+00:00:15,270 --> 00:00:19,370
+we would receive the ID of the to be deleted item.
+7
+
+7
+00:00:19,370 --> 00:00:21,900
+Because that allows us to uniquely identify
+8
+
+8
+00:00:21,900 --> 00:00:23,313
+and remove an item.
+9
+
+9
+00:00:24,960 --> 00:00:26,810
+So here in this function,
+10
+
+10
+00:00:26,810 --> 00:00:28,990
+we could then set our course goals again,
+11
+
+11
+00:00:28,990 --> 00:00:31,840
+to update this course goals state.
+12
+
+12
+00:00:31,840 --> 00:00:35,340
+And now the new state should be based on the old state
+13
+
+13
+00:00:35,340 --> 00:00:38,300
+where we wanna take the old state, but remove a item,
+14
+
+14
+00:00:38,300 --> 00:00:40,370
+and therefore we pass a function
+15
+
+15
+00:00:40,370 --> 00:00:42,390
+to this state updating function.
+16
+
+16
+00:00:42,390 --> 00:00:44,200
+'Cause that's how we should update state
+17
+
+17
+00:00:44,200 --> 00:00:47,033
+in React if it's based on the previous state.
+18
+
+18
+00:00:48,180 --> 00:00:50,890
+So here, I again, get my current course goals
+19
+
+19
+00:00:50,890 --> 00:00:53,470
+as I did here, when we added a goal
+20
+
+20
+00:00:55,000 --> 00:00:57,950
+and I return the updated state.
+21
+
+21
+00:00:57,950 --> 00:01:01,400
+And the updated state which I return is current course goals
+22
+
+22
+00:01:01,400 --> 00:01:03,363
+which is in Array, dot filter.
+23
+
+23
+00:01:04,840 --> 00:01:08,100
+Filter is a built-in method in JavaScript,
+24
+
+24
+00:01:08,100 --> 00:01:10,840
+just as map was built-in method,
+25
+
+25
+00:01:10,840 --> 00:01:12,793
+which we can call on in Array.
+26
+
+26
+00:01:13,700 --> 00:01:17,710
+And filter will return a new Array, which is the old Array
+27
+
+27
+00:01:17,710 --> 00:01:21,220
+minus all the items we filtered out.
+28
+
+28
+00:01:21,220 --> 00:01:23,640
+Now filter itself takes a function,
+29
+
+29
+00:01:23,640 --> 00:01:25,850
+which has to return true or false
+30
+
+30
+00:01:25,850 --> 00:01:29,500
+and if this inner function returns true, an item is kept,
+31
+
+31
+00:01:29,500 --> 00:01:32,203
+if it returns false, our item is dropped.
+32
+
+32
+00:01:33,610 --> 00:01:37,410
+Now this inner function is executed by JavaScript
+33
+
+33
+00:01:37,410 --> 00:01:40,200
+for every item in this array and therefore,
+34
+
+34
+00:01:40,200 --> 00:01:43,920
+it receives these items as inputs, as parameters.
+35
+
+35
+00:01:43,920 --> 00:01:45,993
+In my case, these individual goals.
+36
+
+36
+00:01:47,080 --> 00:01:52,080
+And I wanna return false, if my goal has this ID here.
+37
+
+37
+00:01:53,950 --> 00:01:56,100
+So I will check if the goal ID,
+38
+
+38
+00:01:56,100 --> 00:01:58,650
+so this ID property on my goal object
+39
+
+39
+00:01:58,650 --> 00:02:02,103
+is not equal to the ID I'm receiving here.
+40
+
+40
+00:02:03,460 --> 00:02:06,000
+This will return true if there is no match,
+41
+
+41
+00:02:06,000 --> 00:02:08,420
+which is good because I want to keep items
+42
+
+42
+00:02:08,420 --> 00:02:12,560
+where there is no match, but if there is a match,
+43
+
+43
+00:02:12,560 --> 00:02:15,450
+if a item has the idea I'm looking to remove,
+44
+
+44
+00:02:15,450 --> 00:02:20,090
+this will return false because then the IDs are equal
+45
+
+45
+00:02:20,090 --> 00:02:23,140
+and then this item will be dropped and the new array
+46
+
+46
+00:02:23,140 --> 00:02:25,750
+will no longer contain it.
+47
+
+47
+00:02:25,750 --> 00:02:28,203
+That's how we can delete a course goal.
+48
+
+48
+00:02:29,210 --> 00:02:31,210
+Of course, we have one problem though,
+49
+
+49
+00:02:31,210 --> 00:02:33,510
+the ID which we expect to get here
+50
+
+50
+00:02:33,510 --> 00:02:35,970
+is currently not provided.
+51
+
+51
+00:02:35,970 --> 00:02:39,690
+In goal item, where I'm binding
+52
+
+52
+00:02:39,690 --> 00:02:44,453
+on the lead item to onpress, onpress won't give me that ID.
+53
+
+53
+00:02:45,370 --> 00:02:47,959
+Now to make sure that idea is provided,
+54
+
+54
+00:02:47,959 --> 00:02:51,700
+we could, again, define a little helper function here
+55
+
+55
+00:02:52,730 --> 00:02:56,900
+as we did it in goal input, where we added addGoalHandler,
+56
+
+56
+00:02:56,900 --> 00:03:00,080
+where we then manually called the function
+57
+
+57
+00:03:00,080 --> 00:03:01,790
+and passed our own parameter
+58
+
+58
+00:03:02,740 --> 00:03:05,210
+and that would be absolutely fine.
+59
+
+59
+00:03:05,210 --> 00:03:10,130
+But alternatively, we can also call the built in bind method
+60
+
+60
+00:03:10,130 --> 00:03:12,865
+on the function which we get through that
+61
+
+61
+00:03:12,865 --> 00:03:14,365
+onDeleteItem prop.
+62
+
+62
+00:03:15,590 --> 00:03:17,980
+Bind is a standard JavaScript function
+63
+
+63
+00:03:17,980 --> 00:03:21,330
+which basically allows you pre-configure a function
+64
+
+64
+00:03:21,330 --> 00:03:23,083
+for future execution.
+65
+
+65
+00:03:24,240 --> 00:03:27,080
+Now, the first value you pass to bind
+66
+
+66
+00:03:27,080 --> 00:03:31,220
+sets the this keyword in the to be executed function
+67
+
+67
+00:03:31,220 --> 00:03:33,000
+and we don't care about that here,
+68
+
+68
+00:03:33,000 --> 00:03:36,870
+so I'll just set it to this, but it doesn't matter.
+69
+
+69
+00:03:36,870 --> 00:03:40,867
+The second value, the second argument you pass to bind
+70
+
+70
+00:03:40,867 --> 00:03:44,090
+will be the first parameter received
+71
+
+71
+00:03:44,090 --> 00:03:46,610
+by the to be called function.
+72
+
+72
+00:03:46,610 --> 00:03:49,820
+And in my case, that should be the ID of the goal item
+73
+
+73
+00:03:49,820 --> 00:03:51,360
+that should be removed.
+74
+
+74
+00:03:51,360 --> 00:03:54,040
+So here I'll set this to props.id,
+75
+
+75
+00:03:54,040 --> 00:03:57,100
+so that the ID which I get through props
+76
+
+76
+00:03:57,100 --> 00:04:02,100
+on this goal item component is sent as a parameter value,
+77
+
+77
+00:04:02,240 --> 00:04:04,200
+queue the function that we receive
+78
+
+78
+00:04:04,200 --> 00:04:06,950
+on this onDeleteItem prop
+79
+
+79
+00:04:06,950 --> 00:04:09,913
+which is this delete goal handler function.
+80
+
+80
+00:04:11,050 --> 00:04:13,210
+Of course, for this to work, we must make sure
+81
+
+81
+00:04:13,210 --> 00:04:17,603
+that we do get an ID prop on the goal item component though.
+82
+
+82
+00:04:18,510 --> 00:04:20,370
+And currently that's not the case
+83
+
+83
+00:04:20,370 --> 00:04:22,230
+but we can update our code here
+84
+
+84
+00:04:22,230 --> 00:04:26,180
+and make sure at an ID prop is set on goal item
+85
+
+85
+00:04:26,180 --> 00:04:30,943
+and that would be itemdata.item.id.
+86
+
+86
+00:04:32,860 --> 00:04:35,730
+Now there would be other ways of solving this as well,
+87
+
+87
+00:04:35,730 --> 00:04:39,580
+but this will work and if we save this now
+88
+
+88
+00:04:39,580 --> 00:04:42,760
+and we tap a item, it is removed.
+89
+
+89
+00:04:42,760 --> 00:04:47,620
+So now I can add items, multiple items
+90
+
+90
+00:04:47,620 --> 00:04:50,960
+and I can then tap them to remove them.
+91
+
+91
+00:04:50,960 --> 00:04:53,290
+By the way, you could also add validation
+92
+
+92
+00:04:53,290 --> 00:04:56,160
+to make sure that empty items can't be added
+93
+
+93
+00:04:56,160 --> 00:05:00,600
+but here I will not do that to keep this app a bit simpler.
+94
+
+94
+00:05:00,600 --> 00:05:03,030
+But with that, we can remove items.
+95
+
+95
+00:05:03,030 --> 00:05:05,590
+Now what's missing though, is some styling,
+96
+
+96
+00:05:05,590 --> 00:05:07,630
+some visual feedback.
+97
+
+97
+00:05:07,630 --> 00:05:09,990
+At the moment, when I tap this item
+98
+
+98
+00:05:09,990 --> 00:05:14,020
+I get no visual feedback other than its disappearance.
+99
+
+99
+00:05:14,020 --> 00:05:16,083
+So let's focus on the styling next.

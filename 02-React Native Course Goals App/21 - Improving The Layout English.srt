@@ -1,0 +1,628 @@
+1
+00:00:02,290 --> 00:00:04,750
+So now after this deep dive, let's use
+2
+
+2
+00:00:04,750 --> 00:00:08,700
+our newly gained knowledge to improve this overall layout.
+3
+
+3
+00:00:08,700 --> 00:00:10,590
+One thing I will do for example,
+4
+
+4
+00:00:10,590 --> 00:00:12,970
+is work on this app container padding.
+5
+
+5
+00:00:12,970 --> 00:00:15,970
+This actually doesn't use any of the new knowledge
+6
+
+6
+00:00:15,970 --> 00:00:19,103
+but I need to do this to make this look a bit prettier.
+7
+
+7
+00:00:20,270 --> 00:00:24,340
+I basically just want to have a padding to the top of 50
+8
+
+8
+00:00:24,340 --> 00:00:27,610
+and then I wanna have a padding horizontal,
+9
+
+9
+00:00:27,610 --> 00:00:30,360
+so left and right of 16.
+10
+
+10
+00:00:30,360 --> 00:00:32,363
+So not of 50 but of 16.
+11
+
+11
+00:00:34,240 --> 00:00:37,910
+With that I'd say, this generally looks better,
+12
+
+12
+00:00:37,910 --> 00:00:41,840
+though we can see that this padding is kind of ignored
+13
+
+13
+00:00:41,840 --> 00:00:45,993
+and our button here is going off the screen.
+14
+
+14
+00:00:47,520 --> 00:00:50,830
+This can be fixed by decreasing the amount of width
+15
+
+15
+00:00:50,830 --> 00:00:55,150
+our text input has to 70% maybe.
+16
+
+16
+00:00:55,150 --> 00:00:57,350
+Now this looks better.
+17
+
+17
+00:00:57,350 --> 00:01:01,320
+What doesn't look better though is where this text is
+18
+
+18
+00:01:01,320 --> 00:01:02,640
+in this button.
+19
+
+19
+00:01:02,640 --> 00:01:06,480
+This is something we can improve with align items
+20
+
+20
+00:01:06,480 --> 00:01:08,063
+on the input container though.
+21
+
+21
+00:01:09,210 --> 00:01:12,110
+At the moment, the problem is that basically this button
+22
+
+22
+00:01:12,110 --> 00:01:16,650
+is stretched to be as high as this text input.
+23
+
+23
+00:01:16,650 --> 00:01:18,870
+And the text is then not centered in the button
+24
+
+24
+00:01:18,870 --> 00:01:20,990
+because the button doesn't have any styles
+25
+
+25
+00:01:20,990 --> 00:01:23,090
+that would center the text.
+26
+
+26
+00:01:23,090 --> 00:01:25,650
+Now you could think that maybe we can add some styling
+27
+
+27
+00:01:25,650 --> 00:01:28,780
+to the button but it turned out that the button
+28
+
+28
+00:01:28,780 --> 00:01:32,530
+is a component that doesn't have a style prop.
+29
+
+29
+00:01:32,530 --> 00:01:34,760
+It might look like it has because I'm getting
+30
+
+30
+00:01:34,760 --> 00:01:37,930
+some auto completion here but that's actually only some
+31
+
+31
+00:01:37,930 --> 00:01:41,800
+auto completion I get here because I typed the word style
+32
+
+32
+00:01:41,800 --> 00:01:43,333
+before in this code file.
+33
+
+33
+00:01:44,190 --> 00:01:47,570
+The proper auto completion that tells me that a certain prop
+34
+
+34
+00:01:47,570 --> 00:01:51,380
+is supported looks like this with this kind of icon
+35
+
+35
+00:01:51,380 --> 00:01:52,660
+next to it.
+36
+
+36
+00:01:52,660 --> 00:01:54,780
+So the button doesn't have a style prop
+37
+
+37
+00:01:54,780 --> 00:01:57,173
+because indeed it doesn't support styling.
+38
+
+38
+00:01:58,670 --> 00:02:01,740
+You can always check out the official docs and dive into
+39
+
+39
+00:02:01,740 --> 00:02:05,163
+an element there to see which props it supports.
+40
+
+40
+00:02:06,250 --> 00:02:09,000
+And for example, on the button, there is no style prop.
+41
+
+41
+00:02:10,240 --> 00:02:14,593
+Whereas on the view, for example, you do find a style prop.
+42
+
+42
+00:02:16,040 --> 00:02:18,730
+But that's just a side note, that's why we have to fix it
+43
+
+43
+00:02:18,730 --> 00:02:22,890
+differently and we can fix it by not stretching this button.
+44
+
+44
+00:02:22,890 --> 00:02:25,690
+That would be one way of achieving this.
+45
+
+45
+00:02:25,690 --> 00:02:28,980
+So we can set a line items here on input container
+46
+
+46
+00:02:28,980 --> 00:02:33,183
+and set this to center instead of stretch.
+47
+
+47
+00:02:34,730 --> 00:02:38,760
+With that, the button is now centered and looks better.
+48
+
+48
+00:02:38,760 --> 00:02:40,700
+We could also build our own button
+49
+
+49
+00:02:40,700 --> 00:02:42,850
+but that is something you will learn later.
+50
+
+50
+00:02:43,860 --> 00:02:46,240
+So now this looks better.
+51
+
+51
+00:02:46,240 --> 00:02:50,160
+I also wanna change how much space this input area takes up
+52
+
+52
+00:02:50,160 --> 00:02:53,490
+though and how much space the list of goals takes up.
+53
+
+53
+00:02:53,490 --> 00:02:56,350
+To achieve this, I'll do a couple of things.
+54
+
+54
+00:02:56,350 --> 00:03:00,690
+For example, I wanna add some padding to the bottom
+55
+
+55
+00:03:00,690 --> 00:03:04,670
+on this input container of let's say 24.
+56
+
+56
+00:03:04,670 --> 00:03:08,130
+so that there is some space between the view that holds
+57
+
+57
+00:03:08,130 --> 00:03:11,330
+the text input and the button and the view that will hold
+58
+
+58
+00:03:11,330 --> 00:03:12,663
+the list of goals later.
+59
+
+59
+00:03:14,220 --> 00:03:16,143
+You can see that spacing here now.
+60
+
+60
+00:03:17,640 --> 00:03:21,150
+We also could add a little border here,
+61
+
+61
+00:03:21,150 --> 00:03:23,100
+so we could add a border to the bottom
+62
+
+62
+00:03:23,100 --> 00:03:27,833
+and give it a width by setting border bottom width of one.
+63
+
+63
+00:03:28,990 --> 00:03:31,890
+And then adding a border to the bottom and giving it a color
+64
+
+64
+00:03:31,890 --> 00:03:35,323
+of let's say, maybe this gray again.
+65
+
+65
+00:03:36,730 --> 00:03:39,030
+But of course you can pick any color you want.
+66
+
+66
+00:03:39,950 --> 00:03:43,083
+Now we got this border and below that to the list of goals.
+67
+
+67
+00:03:44,150 --> 00:03:47,010
+But now I want to make sure that my text input area
+68
+
+68
+00:03:47,010 --> 00:03:52,010
+takes up one fourth, so 1/4 of the overall available height.
+69
+
+69
+00:03:53,190 --> 00:03:56,380
+And this can be done with the flex property
+70
+
+70
+00:03:56,380 --> 00:03:57,940
+as you learned.
+71
+
+71
+00:03:57,940 --> 00:04:02,940
+We can set this to one and then add a styling object
+72
+
+72
+00:04:03,960 --> 00:04:06,900
+to this view that holds the list of goals
+73
+
+73
+00:04:06,900 --> 00:04:11,140
+that takes up three quarters of the available space,
+74
+
+74
+00:04:11,140 --> 00:04:15,143
+which can be achieved by adding flex three to this view.
+75
+
+75
+00:04:16,200 --> 00:04:18,460
+So therefore I'll add another styling object
+76
+
+76
+00:04:18,460 --> 00:04:23,070
+in my style sheet here and name it, the goals container.
+77
+
+77
+00:04:23,070 --> 00:04:25,393
+And here I'll set flex three.
+78
+
+78
+00:04:26,750 --> 00:04:31,750
+As you learned, all the flex values are added together
+79
+
+79
+00:04:32,720 --> 00:04:35,260
+as long as the containers to which they are added
+80
+
+80
+00:04:35,260 --> 00:04:38,640
+are siblings to each other and are part
+81
+
+81
+00:04:38,640 --> 00:04:41,830
+of the same surrounding parent element which is the case
+82
+
+82
+00:04:41,830 --> 00:04:43,580
+for these two views
+83
+
+83
+00:04:43,580 --> 00:04:47,250
+and then the space is distributed accordingly.
+84
+
+84
+00:04:47,250 --> 00:04:51,300
+So one plus three is four and therefore this takes
+85
+
+85
+00:04:51,300 --> 00:04:54,343
+one fourth and this will take three quarters.
+86
+
+86
+00:04:55,220 --> 00:04:59,140
+We just have to add this here, so I will add a style prop
+87
+
+87
+00:04:59,140 --> 00:05:03,643
+to this view and set this equal to styles goals container.
+88
+
+88
+00:05:04,810 --> 00:05:07,760
+With that, it will look horrible.
+89
+
+89
+00:05:07,760 --> 00:05:09,930
+And the reason for this is that we also need to work
+90
+
+90
+00:05:09,930 --> 00:05:11,740
+on the outer container now.
+91
+
+91
+00:05:11,740 --> 00:05:14,360
+The container that holds these two containers
+92
+
+92
+00:05:14,360 --> 00:05:17,023
+on which we just set the flex properties.
+93
+
+93
+00:05:18,110 --> 00:05:21,570
+This outer container needs to take up the entire height
+94
+
+94
+00:05:21,570 --> 00:05:24,320
+of the app so that the inner containers
+95
+
+95
+00:05:24,320 --> 00:05:26,223
+can then distribute this space.
+96
+
+96
+00:05:27,120 --> 00:05:30,420
+By default, without the flex property,
+97
+
+97
+00:05:30,420 --> 00:05:34,150
+this container will only take as much space as it needs
+98
+
+98
+00:05:34,150 --> 00:05:36,710
+and that's only defined by the space
+99
+
+99
+00:05:36,710 --> 00:05:39,470
+the content in the container takes up.
+100
+
+100
+00:05:39,470 --> 00:05:42,640
+But now that we're setting flex on those containers
+101
+
+101
+00:05:42,640 --> 00:05:45,550
+in the container, this doesn't work anymore.
+102
+
+102
+00:05:45,550 --> 00:05:48,470
+And to fix this, we need to force this container to take
+103
+
+103
+00:05:48,470 --> 00:05:52,890
+all the available height and we do this by simply adding
+104
+
+104
+00:05:52,890 --> 00:05:57,670
+flex one to the app container so that the outer container
+105
+
+105
+00:05:57,670 --> 00:06:00,920
+takes all the height because it's the only container here.
+106
+
+106
+00:06:00,920 --> 00:06:03,580
+So flex one will give it all the space
+107
+
+107
+00:06:03,580 --> 00:06:06,590
+and then the inner containers can divide
+108
+
+108
+00:06:06,590 --> 00:06:08,053
+that available space.
+109
+
+109
+00:06:09,470 --> 00:06:13,960
+So by adding flex one to the app container and saving this,
+110
+
+110
+00:06:13,960 --> 00:06:15,370
+this now looks better.
+111
+
+111
+00:06:15,370 --> 00:06:20,223
+And now this is a quarter and that here are three quarters.
+112
+
+112
+00:06:21,860 --> 00:06:23,580
+Now if I look at it like this,
+113
+
+113
+00:06:23,580 --> 00:06:26,910
+this still doesn't look perfect so what we might wanna do
+114
+
+114
+00:06:26,910 --> 00:06:31,910
+is actually give that list here 4/5 of the available space,
+115
+
+115
+00:06:32,280 --> 00:06:34,720
+so that goals container will get four
+116
+
+116
+00:06:34,720 --> 00:06:36,963
+and the input container stays at one.
+117
+
+117
+00:06:38,090 --> 00:06:40,890
+And instead of setting a padding bottom,
+118
+
+118
+00:06:40,890 --> 00:06:45,623
+I will set a margin bottom here on the input container.
+119
+
+119
+00:06:47,460 --> 00:06:49,310
+And with that, that looks better.
+120
+
+120
+00:06:49,310 --> 00:06:54,310
+We could maybe even go to flex five down there
+121
+
+121
+00:06:54,430 --> 00:06:55,760
+and leave it like this.
+122
+
+122
+00:06:55,760 --> 00:06:57,950
+Feel free to experiment with this
+123
+
+123
+00:06:57,950 --> 00:06:59,610
+and choose your own values.
+124
+
+124
+00:06:59,610 --> 00:07:03,590
+But this will work for me and this is now flex box in action
+125
+
+125
+00:07:03,590 --> 00:07:06,900
+to achieve a first basic layout.
+126
+
+126
+00:07:06,900 --> 00:07:10,273
+Of course, this is not the final layout we will have though.

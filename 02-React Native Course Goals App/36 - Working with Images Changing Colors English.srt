@@ -1,0 +1,613 @@
+1
+00:00:02,180 --> 00:00:04,790
+Now to finally finish this app here.
+2
+
+2
+00:00:04,790 --> 00:00:07,590
+I wanna improve the overall look and feel,
+3
+
+3
+00:00:07,590 --> 00:00:11,060
+by changing some colors and by adding an image.
+4
+
+4
+00:00:11,060 --> 00:00:13,480
+Which is something we haven't done yet.
+5
+
+5
+00:00:13,480 --> 00:00:15,710
+But which is of course, something you will often do.
+6
+
+6
+00:00:15,710 --> 00:00:17,710
+And you should therefore know how to do.
+7
+
+7
+00:00:18,790 --> 00:00:21,170
+Now, adding an image, thankfully is easy.
+8
+
+8
+00:00:21,170 --> 00:00:23,603
+Because React Native has a component for it.
+9
+
+9
+00:00:24,780 --> 00:00:27,120
+There is an "image" component,
+10
+
+10
+00:00:27,120 --> 00:00:29,533
+which you can import from React Native.
+11
+
+11
+00:00:30,440 --> 00:00:31,840
+And just as you have,
+12
+
+12
+00:00:31,840 --> 00:00:35,590
+the "image" element for the web, in HTML.
+13
+
+13
+00:00:35,590 --> 00:00:39,263
+This is a component that helps with displaying an image.
+14
+
+14
+00:00:40,640 --> 00:00:43,420
+This "image" component is used in your JSX Code.
+15
+
+15
+00:00:43,420 --> 00:00:45,410
+And here I wanna display an image,
+16
+
+16
+00:00:45,410 --> 00:00:47,083
+right above the text input.
+17
+
+17
+00:00:48,360 --> 00:00:50,023
+So, I will add my image here.
+18
+
+18
+00:00:51,090 --> 00:00:54,210
+On this image, you can then add some style.
+19
+
+19
+00:00:54,210 --> 00:00:55,770
+Which we'll do in a second.
+20
+
+20
+00:00:55,770 --> 00:00:59,523
+But most importantly, you can also add a "source" prop.
+21
+
+21
+00:01:00,450 --> 00:01:03,310
+And this should point at the image you want to add.
+22
+
+22
+00:01:03,310 --> 00:01:05,200
+Now, when it comes to that image,
+23
+
+23
+00:01:05,200 --> 00:01:08,223
+you do find an example image attached.
+24
+
+24
+00:01:09,200 --> 00:01:11,550
+And you should download that image
+25
+
+25
+00:01:11,550 --> 00:01:14,370
+and move it into your "assets" folder.
+26
+
+26
+00:01:14,370 --> 00:01:17,760
+Or to be precise create an "images" folder
+27
+
+27
+00:01:17,760 --> 00:01:19,840
+in that "assets" folder.
+28
+
+28
+00:01:19,840 --> 00:01:22,040
+Because that "assets" folder is generally,
+29
+
+29
+00:01:22,040 --> 00:01:26,760
+the folder where static assets like images should be stored.
+30
+
+30
+00:01:26,760 --> 00:01:29,060
+And then move that attached image,
+31
+
+31
+00:01:29,060 --> 00:01:32,420
+into that "images" folder in the "assets" folder.
+32
+
+32
+00:01:32,420 --> 00:01:35,563
+And it's this "goal image", which you got attached.
+33
+
+33
+00:01:37,060 --> 00:01:40,410
+And now when it comes to linking to that image.
+34
+
+34
+00:01:40,410 --> 00:01:44,340
+It works differently than what you're used to from the web.
+35
+
+35
+00:01:44,340 --> 00:01:48,987
+We won't create some link here, which points to
+36
+
+36
+00:01:48,987 --> 00:01:52,750
+"assets/images/goal.png"
+37
+
+37
+00:01:52,750 --> 00:01:55,090
+at least not quite.
+38
+
+38
+00:01:55,090 --> 00:01:58,600
+It's not too wrong, but it wouldn't work like this.
+39
+
+39
+00:01:58,600 --> 00:02:02,480
+If I save this, you see, I get a warning.
+40
+
+40
+00:02:02,480 --> 00:02:04,333
+I get an error, this doesn't work.
+41
+
+41
+00:02:05,760 --> 00:02:08,620
+Instead, you have to import the image here
+42
+
+42
+00:02:08,620 --> 00:02:11,003
+with a special import syntax.
+43
+
+43
+00:02:12,230 --> 00:02:14,930
+You should use a "require" function.
+44
+
+44
+00:02:14,930 --> 00:02:17,150
+Which you might know from Node.js,
+45
+
+45
+00:02:17,150 --> 00:02:18,363
+if you worked with that.
+46
+
+46
+00:02:19,260 --> 00:02:21,130
+And to that "require" function,
+47
+
+47
+00:02:21,130 --> 00:02:24,020
+you pass the path to the image.
+48
+
+48
+00:02:24,020 --> 00:02:28,290
+However, the path is a relative path from the file
+49
+
+49
+00:02:28,290 --> 00:02:30,590
+in which you're using this "require" function.
+50
+
+50
+00:02:31,590 --> 00:02:34,820
+So, seen relatively from that goal input file,
+51
+
+51
+00:02:34,820 --> 00:02:36,230
+which is that file,
+52
+
+52
+00:02:36,230 --> 00:02:38,580
+where this "required" function gets used.
+53
+
+53
+00:02:38,580 --> 00:02:40,800
+We have to go up one level,
+54
+
+54
+00:02:40,800 --> 00:02:42,763
+to leave the "components" folder.
+55
+
+55
+00:02:43,840 --> 00:02:46,533
+And then dive into images and select the image.
+56
+
+56
+00:02:47,390 --> 00:02:51,762
+Now to go up one level we type ../,
+57
+
+57
+00:02:51,762 --> 00:02:53,863
+this means go to the parent folder.
+58
+
+58
+00:02:54,700 --> 00:02:59,090
+And then we dive into assets, images, goal.png.
+59
+
+59
+00:02:59,090 --> 00:03:00,763
+This is how we add an image.
+60
+
+60
+00:03:01,780 --> 00:03:04,450
+Now let's also add some styling to it.
+61
+
+61
+00:03:04,450 --> 00:03:07,840
+And for this, I'll add an "image styling" object
+62
+
+62
+00:03:07,840 --> 00:03:09,980
+in my style sheet here.
+63
+
+63
+00:03:09,980 --> 00:03:13,500
+And here we could set a width of let's say 100 pixels.
+64
+
+64
+00:03:13,500 --> 00:03:16,033
+And a height of 100 pixels.
+65
+
+65
+00:03:17,330 --> 00:03:20,450
+And give this a margin of 20 in all directions,
+66
+
+66
+00:03:20,450 --> 00:03:22,820
+to have some spacing around the image.
+67
+
+67
+00:03:22,820 --> 00:03:24,540
+As always, you can play around with
+68
+
+68
+00:03:24,540 --> 00:03:27,113
+the styling, to find your favorite styles.
+69
+
+69
+00:03:28,160 --> 00:03:30,950
+Now I wanna apply that style to my image.
+70
+
+70
+00:03:30,950 --> 00:03:33,380
+And thankfully the "image" element,
+71
+
+71
+00:03:33,380 --> 00:03:37,670
+the "image" Component, does support the style prop.
+72
+
+72
+00:03:37,670 --> 00:03:40,040
+And we can set "styles.image",
+73
+
+73
+00:03:40,040 --> 00:03:42,073
+as a value on that style prop.
+74
+
+74
+00:03:43,290 --> 00:03:47,360
+And with that, if we reload the app by pressing R here
+75
+
+75
+00:03:47,360 --> 00:03:48,790
+in the terminal.
+76
+
+76
+00:03:48,790 --> 00:03:51,810
+You will see nothing.
+77
+
+77
+00:03:51,810 --> 00:03:53,440
+As it seems.
+78
+
+78
+00:03:53,440 --> 00:03:56,110
+The reason for that is that the image is white.
+79
+
+79
+00:03:56,110 --> 00:03:57,490
+And we can't see that,
+80
+
+80
+00:03:57,490 --> 00:03:59,950
+because the background is also white.
+81
+
+81
+00:03:59,950 --> 00:04:01,350
+That's no problem because,
+82
+
+82
+00:04:01,350 --> 00:04:04,120
+I wanted to changed the background as well.
+83
+
+83
+00:04:04,120 --> 00:04:05,810
+And since we're in the modal here.
+84
+
+84
+00:04:05,810 --> 00:04:07,880
+This background can be changed.
+85
+
+85
+00:04:07,880 --> 00:04:11,090
+By setting a different background on this input container.
+86
+
+86
+00:04:11,090 --> 00:04:13,760
+Because that is our root element in the modal.
+87
+
+87
+00:04:13,760 --> 00:04:17,313
+And it defines the overall modal container look therefore.
+88
+
+88
+00:04:18,320 --> 00:04:21,140
+The modal itself does support the style prop.
+89
+
+89
+00:04:21,140 --> 00:04:24,080
+But for styling the overall modal background,
+90
+
+90
+00:04:24,080 --> 00:04:27,483
+you should use a nested view, as we are doing it here.
+91
+
+91
+00:04:29,110 --> 00:04:31,960
+And now here on this input container.
+92
+
+92
+00:04:31,960 --> 00:04:35,863
+We can add a background color.
+93
+
+93
+00:04:37,590 --> 00:04:39,960
+And I prepared a nice dark purple,
+94
+
+94
+00:04:39,960 --> 00:04:41,410
+which I'd like to use here.
+95
+
+95
+00:04:41,410 --> 00:04:45,513
+Which has to hex code 311b6b.
+96
+
+96
+00:04:46,950 --> 00:04:47,860
+And whilst we're here,
+97
+
+97
+00:04:47,860 --> 00:04:49,680
+I also wanna change some other styles.
+98
+
+98
+00:04:49,680 --> 00:04:51,500
+For example, we don't need the border
+99
+
+99
+00:04:51,500 --> 00:04:52,850
+at the bottom anymore.
+100
+
+100
+00:04:52,850 --> 00:04:55,180
+Because there is nothing below that.
+101
+
+101
+00:04:55,180 --> 00:04:58,670
+And that border here looks really strange.
+102
+
+102
+00:04:58,670 --> 00:05:00,910
+So I will remove that border.
+103
+
+103
+00:05:00,910 --> 00:05:05,910
+And I will also remove that margin to the bottom
+104
+
+104
+00:05:06,530 --> 00:05:07,543
+which I have here.
+105
+
+105
+00:05:08,900 --> 00:05:12,400
+So that these are the remaining styles that I have here.
+106
+
+106
+00:05:12,400 --> 00:05:14,410
+And with this, now we can see the image.
+107
+
+107
+00:05:14,410 --> 00:05:17,483
+Because now we got this nice purple background.
+108
+
+108
+00:05:18,770 --> 00:05:20,260
+Only in the modal though.
+109
+
+109
+00:05:20,260 --> 00:05:22,720
+We will work on the other background later.
+110
+
+110
+00:05:22,720 --> 00:05:25,270
+But here in the model, we got that.
+111
+
+111
+00:05:25,270 --> 00:05:28,090
+Of course, we now also might want to,
+112
+
+112
+00:05:28,090 --> 00:05:30,570
+tweak the text color here.
+113
+
+113
+00:05:30,570 --> 00:05:33,280
+When we enter something into this input field.
+114
+
+114
+00:05:33,280 --> 00:05:36,790
+And we might wanna tweak the buttons here as well.
+115
+
+115
+00:05:36,790 --> 00:05:39,110
+To make those look a bit prettier as well.
+116
+
+116
+00:05:39,110 --> 00:05:42,330
+Because currently they don't fit the background.
+117
+
+117
+00:05:42,330 --> 00:05:45,240
+But most importantly, we did now add the image.
+118
+
+118
+00:05:45,240 --> 00:05:47,660
+Which was the main task for this lecture.
+119
+
+119
+00:05:47,660 --> 00:05:50,800
+And as you saw, adding an image is super simple.
+120
+
+120
+00:05:50,800 --> 00:05:54,903
+With that "image" Component and this way of adding a source.
+121
+
+121
+00:05:55,850 --> 00:05:58,340
+So let's next improve the overall styling
+122
+
+122
+00:05:58,340 --> 00:06:00,230
+of those modal elements.
+123
+
+123
+00:06:00,230 --> 00:06:02,363
+The other elements, I mean.

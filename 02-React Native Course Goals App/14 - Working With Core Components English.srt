@@ -1,0 +1,683 @@
+1
+00:00:02,120 --> 00:00:03,720
+So let's start by diving deeper
+2
+
+2
+00:00:03,720 --> 00:00:06,453
+into core components like Text and View.
+3
+
+3
+00:00:07,430 --> 00:00:11,430
+And for this I'll actually delete this status bar component
+4
+
+4
+00:00:11,430 --> 00:00:12,823
+and also this import.
+5
+
+5
+00:00:13,950 --> 00:00:18,160
+If I save that, this is updated here on those devices
+6
+
+6
+00:00:18,160 --> 00:00:21,963
+and not much change here, so we don't need this right now.
+7
+
+7
+00:00:23,400 --> 00:00:28,170
+I also will delete this Text component and save that,
+8
+
+8
+00:00:28,170 --> 00:00:30,253
+so that for now we have a blank screen.
+9
+
+9
+00:00:31,400 --> 00:00:34,517
+And now let's try re adding the text like this,
+10
+
+10
+00:00:34,517 --> 00:00:36,670
+"Hello World" between the View,
+11
+
+11
+00:00:36,670 --> 00:00:38,823
+without the surrounding text.
+12
+
+12
+00:00:40,070 --> 00:00:44,223
+If we do that, we notice that we get an error down here.
+13
+
+13
+00:00:45,060 --> 00:00:46,167
+We get an error that
+14
+
+14
+00:00:46,167 --> 00:00:49,943
+"Text strengths must be rendered within a Text component"
+15
+
+15
+00:00:50,780 --> 00:00:54,200
+which is actually a quite helpful error message
+16
+
+16
+00:00:54,200 --> 00:00:58,310
+which tells us in a pretty clear way, what's wrong.
+17
+
+17
+00:00:58,310 --> 00:00:59,920
+And before we fix this,
+18
+
+18
+00:00:59,920 --> 00:01:02,020
+let's also take a look at those devices,
+19
+
+19
+00:01:02,020 --> 00:01:03,660
+those simulators,
+20
+
+20
+00:01:03,660 --> 00:01:06,303
+and here we also get the same error message.
+21
+
+21
+00:01:07,420 --> 00:01:09,780
+And this is actually something important
+22
+
+22
+00:01:09,780 --> 00:01:11,750
+which is why I'm showing this.
+23
+
+23
+00:01:11,750 --> 00:01:13,970
+It's different than what you might know
+24
+
+24
+00:01:13,970 --> 00:01:15,750
+from web development.
+25
+
+25
+00:01:15,750 --> 00:01:17,950
+If you would build a web app,
+26
+
+26
+00:01:17,950 --> 00:01:20,350
+and this would be react for the web
+27
+
+27
+00:01:20,350 --> 00:01:23,610
+and this would maybe be a div instead of a View,
+28
+
+28
+00:01:23,610 --> 00:01:25,770
+then this kind of code would be fine.
+29
+
+29
+00:01:25,770 --> 00:01:28,603
+We could put text inside of a div there.
+30
+
+30
+00:01:29,820 --> 00:01:34,270
+React Native and native platforms to be precise
+31
+
+31
+00:01:34,270 --> 00:01:36,760
+are stricter than that.
+32
+
+32
+00:01:36,760 --> 00:01:40,200
+You can't put a Text into a View
+33
+
+33
+00:01:40,200 --> 00:01:44,080
+which is pretty much the equivalent to a div
+34
+
+34
+00:01:44,080 --> 00:01:45,853
+because it's not meant for that.
+35
+
+35
+00:01:46,840 --> 00:01:51,840
+Instead Views, so the of to divs in the web world,
+36
+
+36
+00:01:51,850 --> 00:01:56,140
+Views are meant to generally build boxes
+37
+
+37
+00:01:56,140 --> 00:02:00,690
+and containers that hold other content.
+38
+
+38
+00:02:00,690 --> 00:02:05,430
+A View could hold some text wrapped into a Text component.
+39
+
+39
+00:02:05,430 --> 00:02:08,500
+It could also hold a TextInput or a button
+40
+
+40
+00:02:08,500 --> 00:02:11,153
+or an image, or anything like this,
+41
+
+41
+00:02:12,040 --> 00:02:14,890
+but you have to put the content
+42
+
+42
+00:02:14,890 --> 00:02:19,010
+into an element that is able to display it.
+43
+
+43
+00:02:19,010 --> 00:02:22,660
+And the View is only able to hold other components,
+44
+
+44
+00:02:22,660 --> 00:02:25,050
+It's not able to display text,
+45
+
+45
+00:02:25,050 --> 00:02:28,920
+and that is something really important to understand.
+46
+
+46
+00:02:28,920 --> 00:02:31,800
+If you wanna display a text, for example,
+47
+
+47
+00:02:31,800 --> 00:02:34,350
+you have to use this Text component
+48
+
+48
+00:02:34,350 --> 00:02:39,350
+and wrap the text opening and closing text around your text.
+49
+
+49
+00:02:39,390 --> 00:02:42,810
+And if you do this and save, then this updates
+50
+
+50
+00:02:42,810 --> 00:02:47,730
+and works again, but that's a first important takeaway
+51
+
+51
+00:02:47,730 --> 00:02:52,730
+even though we can kind of compare those component to HTML.
+52
+
+52
+00:02:52,980 --> 00:02:55,460
+And even though it looks kind of similar,
+53
+
+53
+00:02:55,460 --> 00:02:58,350
+there are important differences.
+54
+
+54
+00:02:58,350 --> 00:03:01,640
+Now, what you will often do when building React Native apps
+55
+
+55
+00:03:01,640 --> 00:03:04,960
+is you will build more complex user interfaces
+56
+
+56
+00:03:04,960 --> 00:03:08,640
+that don't just have one piece of text inside of them.
+57
+
+57
+00:03:08,640 --> 00:03:10,940
+And what's important to understand then
+58
+
+58
+00:03:10,940 --> 00:03:13,530
+is that those different core components
+59
+
+59
+00:03:13,530 --> 00:03:15,113
+have different roles.
+60
+
+60
+00:03:16,160 --> 00:03:19,630
+The Text is a component that's used for, guess what?
+61
+
+61
+00:03:19,630 --> 00:03:20,993
+Displaying text.
+62
+
+62
+00:03:22,010 --> 00:03:25,370
+The View is a component that's meant to hold
+63
+
+63
+00:03:25,370 --> 00:03:29,240
+and lay out other components.
+64
+
+64
+00:03:29,240 --> 00:03:31,640
+Now, we will learn more about laying things out
+65
+
+65
+00:03:31,640 --> 00:03:34,180
+with help of styling in a couple of minutes,
+66
+
+66
+00:03:34,180 --> 00:03:36,360
+but the idea behind the View component is that
+67
+
+67
+00:03:36,360 --> 00:03:39,580
+you typically have multiple child components in there.
+68
+
+68
+00:03:39,580 --> 00:03:42,057
+For example, another text,
+69
+
+69
+00:03:42,057 --> 00:03:45,107
+"Another piece of text".
+70
+
+70
+00:03:46,260 --> 00:03:48,340
+In a Text component, as you learned,
+71
+
+71
+00:03:48,340 --> 00:03:50,340
+but now we got two of them.
+72
+
+72
+00:03:50,340 --> 00:03:52,440
+And we grouped them together in a View
+73
+
+73
+00:03:52,440 --> 00:03:55,060
+just as we might group them together in a div
+74
+
+74
+00:03:55,060 --> 00:03:56,513
+if this would be for the web.
+75
+
+75
+00:03:57,500 --> 00:04:01,210
+Now, in the web, we also have other components like section
+76
+
+76
+00:04:01,210 --> 00:04:04,940
+or article, here in React Native world,
+77
+
+77
+00:04:04,940 --> 00:04:06,690
+it's just the View.
+78
+
+78
+00:04:06,690 --> 00:04:09,010
+This is our container component
+79
+
+79
+00:04:09,010 --> 00:04:12,010
+that we use for holding our components.
+80
+
+80
+00:04:12,010 --> 00:04:15,350
+And of course, those other components also can be nested.
+81
+
+81
+00:04:15,350 --> 00:04:16,890
+We could have another View
+82
+
+82
+00:04:16,890 --> 00:04:20,280
+which actually holds this inner text.
+83
+
+83
+00:04:20,280 --> 00:04:22,740
+So this is all something that's totally fine,
+84
+
+84
+00:04:22,740 --> 00:04:24,793
+something you will typically build when building
+85
+
+85
+00:04:24,793 --> 00:04:28,853
+more complex user interfaces with React Native.
+86
+
+86
+00:04:29,700 --> 00:04:33,310
+The View then makes it very easy to use styling
+87
+
+87
+00:04:33,310 --> 00:04:36,100
+into which we'll dive in a second to control
+88
+
+88
+00:04:36,100 --> 00:04:39,913
+where which of its child elements should be positioned.
+89
+
+89
+00:04:40,890 --> 00:04:44,950
+Of course, we don't just have a View and Text to though.
+90
+
+90
+00:04:44,950 --> 00:04:47,530
+If you take a look at the official website,
+91
+
+91
+00:04:47,530 --> 00:04:50,380
+the official React Native documentation site
+92
+
+92
+00:04:50,380 --> 00:04:52,120
+you'll learn that there are more
+93
+
+93
+00:04:52,120 --> 00:04:54,110
+React Native core components
+94
+
+94
+00:04:54,110 --> 00:04:57,290
+and those components fulfill different purposes.
+95
+
+95
+00:04:57,290 --> 00:05:00,690
+We got View and Text, which are two of the most important
+96
+
+96
+00:05:00,690 --> 00:05:02,700
+and commonly used components,
+97
+
+97
+00:05:02,700 --> 00:05:06,270
+but we also could display a image, add some scrolling,
+98
+
+98
+00:05:06,270 --> 00:05:08,210
+something will do later as well,
+99
+
+99
+00:05:08,210 --> 00:05:13,050
+or add a TextInput which allows users to enter some text.
+100
+
+100
+00:05:13,050 --> 00:05:15,053
+We could also add a button,
+101
+
+101
+00:05:16,380 --> 00:05:18,520
+and indeed, that is what I'll do here.
+102
+
+102
+00:05:18,520 --> 00:05:21,950
+Below this text, I'll add a button,
+103
+
+103
+00:05:21,950 --> 00:05:24,650
+but for this, we need to import it.
+104
+
+104
+00:05:24,650 --> 00:05:26,300
+And that is also important
+105
+
+105
+00:05:26,300 --> 00:05:30,630
+and an important difference compared to react for the web.
+106
+
+106
+00:05:30,630 --> 00:05:34,050
+With react for the web, you don't need to import
+107
+
+107
+00:05:34,050 --> 00:05:36,640
+the HTL elements you might be using,
+108
+
+108
+00:05:36,640 --> 00:05:38,520
+with React Native, you do.
+109
+
+109
+00:05:38,520 --> 00:05:40,320
+If you wanna display a button,
+110
+
+110
+00:05:40,320 --> 00:05:44,270
+you have to import this core component from React Native,
+111
+
+111
+00:05:44,270 --> 00:05:45,920
+and then you can add your button.
+112
+
+112
+00:05:46,830 --> 00:05:50,150
+And number important difference is that unlike for the web,
+113
+
+113
+00:05:50,150 --> 00:05:52,850
+you don't build a button like this
+114
+
+114
+00:05:52,850 --> 00:05:56,350
+by adding the caption between the opening and closing tags.
+115
+
+115
+00:05:56,350 --> 00:05:58,890
+Instead, it's a self-closing element
+116
+
+116
+00:05:58,890 --> 00:06:01,440
+where you add a title prop,
+117
+
+117
+00:06:01,440 --> 00:06:04,063
+and then you add your title here.
+118
+
+118
+00:06:05,960 --> 00:06:08,570
+This would now display a button as well
+119
+
+119
+00:06:08,570 --> 00:06:10,440
+with the kind of default styling
+120
+
+120
+00:06:10,440 --> 00:06:13,210
+and tap effects you would expect
+121
+
+121
+00:06:13,210 --> 00:06:15,350
+for the different platforms.
+122
+
+122
+00:06:15,350 --> 00:06:17,350
+And you see that the look adjusts
+123
+
+123
+00:06:17,350 --> 00:06:19,110
+to the underlying platform.
+124
+
+124
+00:06:19,110 --> 00:06:21,410
+It looks like an iOS button on iOS,
+125
+
+125
+00:06:21,410 --> 00:06:23,610
+and like an Android button on Android.
+126
+
+126
+00:06:23,610 --> 00:06:26,000
+But of course the button doesn't do anything yet
+127
+
+127
+00:06:26,000 --> 00:06:28,640
+because I have added any listener.
+128
+
+128
+00:06:28,640 --> 00:06:30,710
+Now, we will add interactivity,
+129
+
+129
+00:06:30,710 --> 00:06:32,870
+and learn how that works later.
+130
+
+130
+00:06:32,870 --> 00:06:35,210
+For the moment, let's just add the button here
+131
+
+131
+00:06:35,210 --> 00:06:38,240
+and let's understand that we always work
+132
+
+132
+00:06:38,240 --> 00:06:40,130
+with core components like this
+133
+
+133
+00:06:40,130 --> 00:06:44,630
+where every component has its clearly defined purpose,
+134
+
+134
+00:06:44,630 --> 00:06:49,400
+and you build your overall UI by combining those components.
+135
+
+135
+00:06:49,400 --> 00:06:53,510
+But of course a UI is not just about combining components,
+136
+
+136
+00:06:53,510 --> 00:06:55,890
+it's also about styling them,
+137
+
+137
+00:06:55,890 --> 00:06:58,103
+and that's therefore what will explore next.

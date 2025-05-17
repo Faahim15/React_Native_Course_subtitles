@@ -1,0 +1,888 @@
+1
+00:00:02,082 --> 00:00:03,690
+Outputting the data in a list
+2
+
+2
+00:00:03,690 --> 00:00:05,840
+as we're doing it here is nice
+3
+
+3
+00:00:05,840 --> 00:00:08,700
+but it would also be nice to have some styling
+4
+
+4
+00:00:08,700 --> 00:00:10,770
+on those list items.
+5
+
+5
+00:00:10,770 --> 00:00:12,580
+And therefore, that's what I wanna do next,
+6
+
+6
+00:00:12,580 --> 00:00:15,600
+of course feel free to also pause the video here
+7
+
+7
+00:00:15,600 --> 00:00:17,730
+and practice this on your own.
+8
+
+8
+00:00:17,730 --> 00:00:20,650
+Apply some styling, any styling of your choice
+9
+
+9
+00:00:20,650 --> 00:00:23,800
+to these individual list items,
+10
+
+10
+00:00:23,800 --> 00:00:25,330
+and then compare your solution
+11
+
+11
+00:00:25,330 --> 00:00:27,583
+to mine to see how I style this.
+12
+
+12
+00:00:28,890 --> 00:00:30,710
+Now, here's what I will do.
+13
+
+13
+00:00:30,710 --> 00:00:33,550
+I will create a new object that keeps
+14
+
+14
+00:00:33,550 --> 00:00:36,780
+or that holds the styles for those list items.
+15
+
+15
+00:00:36,780 --> 00:00:39,230
+And I'll name it, goal item.
+16
+
+16
+00:00:39,230 --> 00:00:40,820
+The name is up to you though,
+17
+
+17
+00:00:40,820 --> 00:00:44,720
+here in this style sheet object, and then in this object
+18
+
+18
+00:00:44,720 --> 00:00:48,180
+which defines the styles for this identifier, you can set up
+19
+
+19
+00:00:48,180 --> 00:00:52,350
+any styles you want, and I'll give every goal item
+20
+
+20
+00:00:52,350 --> 00:00:54,100
+a little bit of margin, for example
+21
+
+21
+00:00:54,100 --> 00:00:58,193
+so that we have some spacing around it, maybe eight pixels.
+22
+
+22
+00:00:59,500 --> 00:01:03,730
+I also wanna add a border radius here
+23
+
+23
+00:01:03,730 --> 00:01:06,140
+so that we have rounded corners
+24
+
+24
+00:01:06,140 --> 00:01:10,760
+and this also wants a value, that's defined as a number.
+25
+
+25
+00:01:10,760 --> 00:01:12,863
+And here I'll set this to six pixels.
+26
+
+26
+00:01:14,210 --> 00:01:16,990
+Now to make sure that we can see this radius,
+27
+
+27
+00:01:16,990 --> 00:01:20,660
+I will give this a background color
+28
+
+28
+00:01:20,660 --> 00:01:24,395
+so that this item has an overall background color
+29
+
+29
+00:01:24,395 --> 00:01:28,750
+of a specific hex code that I prepared ahead of time
+30
+
+30
+00:01:28,750 --> 00:01:33,593
+which is five E zero A C C, which is a nice purple color.
+31
+
+31
+00:01:35,810 --> 00:01:38,220
+I also wanna have some padding in here
+32
+
+32
+00:01:38,220 --> 00:01:41,200
+so I'll actually add it next to the margin
+33
+
+33
+00:01:41,200 --> 00:01:42,510
+not because it's required
+34
+
+34
+00:01:42,510 --> 00:01:44,703
+but to keep those related values together.
+35
+
+35
+00:01:45,680 --> 00:01:49,110
+And I'll add a padding of, let's say eight pixels as well.
+36
+
+36
+00:01:49,110 --> 00:01:51,513
+So that we have some inner spacing as well.
+37
+
+37
+00:01:52,460 --> 00:01:55,840
+And last but not least, I also want to add a color here
+38
+
+38
+00:01:55,840 --> 00:01:59,570
+and I'll set this to white and this will be the text color.
+39
+
+39
+00:01:59,570 --> 00:02:02,610
+So again, you see the property names are pretty similar
+40
+
+40
+00:02:02,610 --> 00:02:04,600
+to what you know from CSS.
+41
+
+41
+00:02:04,600 --> 00:02:08,120
+We of course have this camel casing instead of using dashes
+42
+
+42
+00:02:08,120 --> 00:02:10,910
+because dashes are not supported in JavaScript
+43
+
+43
+00:02:10,910 --> 00:02:14,123
+but besides that, the names should look familiar.
+44
+
+44
+00:02:15,190 --> 00:02:17,870
+Now we can assign this goal item style
+45
+
+45
+00:02:17,870 --> 00:02:20,030
+to our text items here.
+46
+
+46
+00:02:20,030 --> 00:02:22,540
+So here we can add the style prop
+47
+
+47
+00:02:22,540 --> 00:02:24,673
+and set this equal to styles.goalItem.
+48
+
+48
+00:02:26,370 --> 00:02:29,120
+And I'll reformat this to make it a bit easier to read.
+49
+
+49
+00:02:30,130 --> 00:02:31,710
+With that, if we save this,
+50
+
+50
+00:02:31,710 --> 00:02:34,163
+this updates and we see our items here.
+51
+
+51
+00:02:35,170 --> 00:02:40,080
+What you will see is that we got this changed styling
+52
+
+52
+00:02:40,080 --> 00:02:43,940
+but actually on iOS, the rounded corners are missing.
+53
+
+53
+00:02:43,940 --> 00:02:45,543
+We only have them on Android.
+54
+
+54
+00:02:46,610 --> 00:02:48,770
+Now, why are they missing here?
+55
+
+55
+00:02:48,770 --> 00:02:52,720
+And what can we do to fix the styling there as well?
+56
+
+56
+00:02:52,720 --> 00:02:54,390
+This is a good time to talk
+57
+
+57
+00:02:54,390 --> 00:02:58,120
+about the differences between the two platforms.
+58
+
+58
+00:02:58,120 --> 00:03:01,430
+The idea behind React Native is that you can write code
+59
+
+59
+00:03:01,430 --> 00:03:05,750
+with React that will actually give you native mobile apps
+60
+
+60
+00:03:05,750 --> 00:03:08,200
+for multiple target platforms.
+61
+
+61
+00:03:08,200 --> 00:03:10,430
+So you don't need to write different code
+62
+
+62
+00:03:10,430 --> 00:03:13,200
+to target different platforms,
+63
+
+63
+00:03:13,200 --> 00:03:16,000
+but one of the same code base can get you there.
+64
+
+64
+00:03:16,000 --> 00:03:17,900
+Now this is generally true,
+65
+
+65
+00:03:17,900 --> 00:03:20,620
+but as you will also learn later in the course,
+66
+
+66
+00:03:20,620 --> 00:03:22,660
+sometimes there are differences
+67
+
+67
+00:03:22,660 --> 00:03:25,560
+and sometimes you need to make tiny code adjustments
+68
+
+68
+00:03:25,560 --> 00:03:29,200
+to target all platforms in the right way.
+69
+
+69
+00:03:29,200 --> 00:03:31,090
+And for example, here, we got a difference.
+70
+
+70
+00:03:31,090 --> 00:03:32,900
+The rounded corners are missing
+71
+
+71
+00:03:32,900 --> 00:03:36,720
+on iOS because we added our styling here
+72
+
+72
+00:03:36,720 --> 00:03:39,460
+that applies the rounded corners directly
+73
+
+73
+00:03:39,460 --> 00:03:41,720
+on this text component.
+74
+
+74
+00:03:41,720 --> 00:03:42,910
+Now it turns out
+75
+
+75
+00:03:42,910 --> 00:03:47,670
+that this text component is translated by React Native
+76
+
+76
+00:03:47,670 --> 00:03:52,113
+to a fitting native widget, a native UI element.
+77
+
+77
+00:03:53,070 --> 00:03:55,730
+And the element to which it is translated
+78
+
+78
+00:03:55,730 --> 00:03:58,980
+in case of Android seems to be an element
+79
+
+79
+00:03:58,980 --> 00:04:01,470
+where corners can be rounded.
+80
+
+80
+00:04:01,470 --> 00:04:02,610
+But in case of iOS,
+81
+
+81
+00:04:02,610 --> 00:04:06,690
+it looks like the underlying native text output element
+82
+
+82
+00:04:06,690 --> 00:04:09,770
+does not support rounded corners.
+83
+
+83
+00:04:09,770 --> 00:04:12,760
+And that's why border radius has no effect
+84
+
+84
+00:04:12,760 --> 00:04:14,453
+on the text elements on iOS.
+85
+
+85
+00:04:15,580 --> 00:04:17,190
+Now to work around that,
+86
+
+86
+00:04:17,190 --> 00:04:20,713
+we can wrap our text here in a view.
+87
+
+87
+00:04:21,690 --> 00:04:25,290
+So in this more generic container element,
+88
+
+88
+00:04:25,290 --> 00:04:29,020
+this is also translated to a fitting underlying element.
+89
+
+89
+00:04:29,020 --> 00:04:32,150
+And it turns out that the underlying element
+90
+
+90
+00:04:32,150 --> 00:04:36,200
+to which view is compiled by React Native is an element
+91
+
+91
+00:04:36,200 --> 00:04:40,520
+that supports surrounded corners on both platforms.
+92
+
+92
+00:04:40,520 --> 00:04:41,690
+How do I know that?
+93
+
+93
+00:04:41,690 --> 00:04:43,940
+From the official docs and experience
+94
+
+94
+00:04:43,940 --> 00:04:46,090
+and I'm explaining it to you in this course
+95
+
+95
+00:04:46,090 --> 00:04:48,803
+so that you don't have to find it out the hard way.
+96
+
+96
+00:04:49,900 --> 00:04:51,570
+So what we can do now is
+97
+
+97
+00:04:51,570 --> 00:04:54,360
+we can grab our style assignment here
+98
+
+98
+00:04:54,360 --> 00:04:56,110
+and add this on this view
+99
+
+99
+00:04:56,110 --> 00:04:58,960
+and also add the key here on this view,
+100
+
+100
+00:04:58,960 --> 00:05:01,280
+because now the view is the main element
+101
+
+101
+00:05:01,280 --> 00:05:03,560
+that's output here in the list.
+102
+
+102
+00:05:03,560 --> 00:05:06,400
+The text now is a nested element.
+103
+
+103
+00:05:06,400 --> 00:05:08,110
+We still need the text
+104
+
+104
+00:05:08,110 --> 00:05:10,580
+because we still have some text to output.
+105
+
+105
+00:05:10,580 --> 00:05:14,190
+And as you learned before, text must go between text text
+106
+
+106
+00:05:15,050 --> 00:05:16,780
+but the styling is now applied
+107
+
+107
+00:05:16,780 --> 00:05:20,490
+to the more versatile view element.
+108
+
+108
+00:05:20,490 --> 00:05:22,960
+If we do that and we save everything
+109
+
+109
+00:05:22,960 --> 00:05:26,870
+we now see the rounded corners on iOS as well.
+110
+
+110
+00:05:26,870 --> 00:05:28,460
+What we also see though
+111
+
+111
+00:05:28,460 --> 00:05:31,550
+is that the text is no longer white.
+112
+
+112
+00:05:31,550 --> 00:05:35,430
+Now we still have the color white setting here
+113
+
+113
+00:05:35,430 --> 00:05:38,900
+but this is part of the goal item, which now
+114
+
+114
+00:05:38,900 --> 00:05:43,350
+is actually assigned to this view here, not to the text
+115
+
+115
+00:05:44,320 --> 00:05:49,320
+and unlike in CSS for the web, the styles don't cascade.
+116
+
+116
+00:05:49,670 --> 00:05:52,090
+That's another important learning here.
+117
+
+117
+00:05:52,090 --> 00:05:56,870
+We do have this CSS like property language here
+118
+
+118
+00:05:56,870 --> 00:05:58,460
+if you wanna call it like that,
+119
+
+119
+00:05:58,460 --> 00:06:02,290
+these CSS like property names, but it's not CSS.
+120
+
+120
+00:06:02,290 --> 00:06:04,110
+It never was.
+121
+
+121
+00:06:04,110 --> 00:06:07,420
+So therefore core CSS characteristics
+122
+
+122
+00:06:07,420 --> 00:06:11,990
+like the cascading nature of CSS, where child elements
+123
+
+123
+00:06:11,990 --> 00:06:15,740
+and descendant elements, inherit styles from parent
+124
+
+124
+00:06:15,740 --> 00:06:18,380
+and ancestor elements is not part
+125
+
+125
+00:06:18,380 --> 00:06:20,690
+of React Native's styling approach.
+126
+
+126
+00:06:20,690 --> 00:06:23,810
+We don't have style inheritance here.
+127
+
+127
+00:06:23,810 --> 00:06:26,210
+So if we assign a text color to the view,
+128
+
+128
+00:06:26,210 --> 00:06:28,740
+this does not affect this text
+129
+
+129
+00:06:28,740 --> 00:06:31,940
+or the text inside this text text to be precise
+130
+
+130
+00:06:31,940 --> 00:06:35,030
+because that's a totally standalone element.
+131
+
+131
+00:06:35,030 --> 00:06:36,850
+It is not related to this view.
+132
+
+132
+00:06:36,850 --> 00:06:39,690
+It does not inherit any styles from that view.
+133
+
+133
+00:06:39,690 --> 00:06:42,810
+So setting the text color on this view does nothing
+134
+
+134
+00:06:42,810 --> 00:06:46,437
+to the text inside that text element.
+135
+
+135
+00:06:46,437 --> 00:06:47,570
+Therefore, what we need to do
+136
+
+136
+00:06:47,570 --> 00:06:50,760
+is add another style object here,
+137
+
+137
+00:06:50,760 --> 00:06:54,120
+the goal text, that sounds like a fitting name.
+138
+
+138
+00:06:54,120 --> 00:06:56,390
+And we set our text color on that
+139
+
+139
+00:06:56,390 --> 00:06:59,280
+and remove it from goal item on the view.
+140
+
+140
+00:06:59,280 --> 00:07:00,240
+We could leave it there,
+141
+
+141
+00:07:00,240 --> 00:07:03,140
+but it doesn't have any effect, anyways.
+142
+
+142
+00:07:03,140 --> 00:07:06,380
+With that, we now set our text color here
+143
+
+143
+00:07:06,380 --> 00:07:11,380
+and now we can add this goal text style to this text here.
+144
+
+144
+00:07:11,380 --> 00:07:13,040
+So we add the style prop
+145
+
+145
+00:07:13,940 --> 00:07:16,173
+and set this equal to styles.goalText.
+146
+
+146
+00:07:17,900 --> 00:07:19,960
+And with this, if we save this now,
+147
+
+147
+00:07:19,960 --> 00:07:21,970
+we now have the white text back
+148
+
+148
+00:07:21,970 --> 00:07:23,753
+and we have the rounded corners.
+149
+
+149
+00:07:24,940 --> 00:07:26,360
+And this is really important.
+150
+
+150
+00:07:26,360 --> 00:07:28,180
+This is something you must understand
+151
+
+151
+00:07:28,180 --> 00:07:32,590
+about styling and about targeting different platforms.
+152
+
+152
+00:07:32,590 --> 00:07:35,920
+The general idea is that you have one code base
+153
+
+153
+00:07:35,920 --> 00:07:38,040
+that targets both platforms
+154
+
+154
+00:07:38,040 --> 00:07:40,920
+but still there are differences under the hood.
+155
+
+155
+00:07:40,920 --> 00:07:43,640
+And some differences can simply be solved like this
+156
+
+156
+00:07:43,640 --> 00:07:45,970
+by adding an extra wrapper.
+157
+
+157
+00:07:45,970 --> 00:07:46,890
+Later in the course,
+158
+
+158
+00:07:46,890 --> 00:07:48,660
+you will also learn that sometimes you need
+159
+
+159
+00:07:48,660 --> 00:07:51,830
+to write totally different code for different platforms
+160
+
+160
+00:07:51,830 --> 00:07:54,670
+and you will learn how that works as well.
+161
+
+161
+00:07:54,670 --> 00:07:55,800
+And you also learned
+162
+
+162
+00:07:55,800 --> 00:07:58,970
+that styling is a bit different than in the browser.
+163
+
+163
+00:07:58,970 --> 00:08:02,130
+It looks like CSS, at least a bit
+164
+
+164
+00:08:02,130 --> 00:08:06,310
+but there is no inheritance and no cascading going on.
+165
+
+165
+00:08:06,310 --> 00:08:08,680
+That's why you really have to set the styles
+166
+
+166
+00:08:08,680 --> 00:08:11,990
+on the elements where they are supported instead
+167
+
+167
+00:08:11,990 --> 00:08:14,340
+of some global parent element,
+168
+
+168
+00:08:14,340 --> 00:08:18,010
+just as the rounded corners couldn't be applied to the text,
+169
+
+169
+00:08:18,010 --> 00:08:22,180
+the text color applied to this view didn't have any effect
+170
+
+170
+00:08:22,180 --> 00:08:24,360
+to the internal text here.
+171
+
+171
+00:08:24,360 --> 00:08:27,923
+We need to set that on the appropriate text element.
+172
+
+172
+00:08:28,780 --> 00:08:32,620
+And these are these tiny details, which you will see over
+173
+
+173
+00:08:32,620 --> 00:08:34,280
+and over again throughout this course
+174
+
+174
+00:08:34,280 --> 00:08:37,010
+and which are super important when you are working
+175
+
+175
+00:08:37,010 --> 00:08:38,223
+with React Native.
+176
+
+176
+00:08:39,840 --> 00:08:43,080
+But with this, we now got the look we want here
+177
+
+177
+00:08:43,080 --> 00:08:45,860
+and hence, we can now move on and dive a bit deeper
+178
+
+178
+00:08:45,860 --> 00:08:49,173
+into how we can and should output lists like this.

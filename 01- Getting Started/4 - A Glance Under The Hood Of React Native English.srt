@@ -1,0 +1,628 @@
+1
+00:00:02,170 --> 00:00:04,480
+Now, how does React Native work
+2
+
+2
+00:00:04,480 --> 00:00:06,330
+Under The Hood though?
+3
+
+3
+00:00:06,330 --> 00:00:09,570
+If you're building a React and React Native app,
+4
+
+4
+00:00:09,570 --> 00:00:12,860
+then you are typically writing code like this
+5
+
+5
+00:00:12,860 --> 00:00:15,560
+which should look very familiar,
+6
+
+6
+00:00:15,560 --> 00:00:18,520
+if you worked with React.js before
+7
+
+7
+00:00:18,520 --> 00:00:20,790
+maybe, or most likely
+8
+
+8
+00:00:20,790 --> 00:00:23,710
+for building browser based apps.
+9
+
+9
+00:00:23,710 --> 00:00:25,620
+This is a React Component
+10
+
+10
+00:00:25,620 --> 00:00:26,860
+what you see here.
+11
+
+11
+00:00:26,860 --> 00:00:28,110
+And it's just one way
+12
+
+12
+00:00:28,110 --> 00:00:29,840
+of writing such a Component.
+13
+
+13
+00:00:29,840 --> 00:00:32,840
+We could also use the function keyword instead
+14
+
+14
+00:00:32,840 --> 00:00:34,870
+of defining an arrow function.
+15
+
+15
+00:00:34,870 --> 00:00:37,683
+And we could also use a class based Component.
+16
+
+16
+00:00:38,560 --> 00:00:39,840
+But it's code like this,
+17
+
+17
+00:00:39,840 --> 00:00:40,840
+which you will write
+18
+
+18
+00:00:40,840 --> 00:00:42,040
+for React Native
+19
+
+19
+00:00:42,040 --> 00:00:43,163
+and it's code like this
+20
+
+20
+00:00:43,163 --> 00:00:46,930
+that will be compiled to Real Native App code.
+21
+
+21
+00:00:46,930 --> 00:00:48,580
+So which will be bundled
+22
+
+22
+00:00:48,580 --> 00:00:51,033
+into a Real Native App in the end.
+23
+
+23
+00:00:52,050 --> 00:00:53,640
+Now, if you take a closer look
+24
+
+24
+00:00:53,640 --> 00:00:56,530
+at the code snippet on the left here,
+25
+
+25
+00:00:56,530 --> 00:00:59,240
+you will see two Components
+26
+
+26
+00:00:59,240 --> 00:01:01,740
+two JSX elements in there,
+27
+
+27
+00:01:01,740 --> 00:01:03,310
+which you don't know
+28
+
+28
+00:01:03,310 --> 00:01:04,960
+from web development,
+29
+
+29
+00:01:04,960 --> 00:01:08,270
+the View and the Text element.
+30
+
+30
+00:01:08,270 --> 00:01:11,570
+These are some of these special Components
+31
+
+31
+00:01:11,570 --> 00:01:14,090
+that are exposed by React Native,
+32
+
+32
+00:01:14,090 --> 00:01:17,880
+which will be compiled by React Native.
+33
+
+33
+00:01:17,880 --> 00:01:19,410
+It is worth noting though,
+34
+
+34
+00:01:19,410 --> 00:01:21,600
+that it's really just the Views.
+35
+
+35
+00:01:21,600 --> 00:01:23,580
+Just this JSX code
+36
+
+36
+00:01:23,580 --> 00:01:24,870
+that is compiled
+37
+
+37
+00:01:24,870 --> 00:01:27,750
+not the JavaScript logic itself.
+38
+
+38
+00:01:27,750 --> 00:01:29,743
+I will come back to that in a second.
+39
+
+39
+00:01:30,600 --> 00:01:31,940
+So the Components,
+40
+
+40
+00:01:31,940 --> 00:01:34,960
+the JSX elements you use are compiled
+41
+
+41
+00:01:34,960 --> 00:01:38,920
+to native elements for the respective platforms.
+42
+
+42
+00:01:38,920 --> 00:01:41,260
+And to make this a bit easier to understand,
+43
+
+43
+00:01:41,260 --> 00:01:44,090
+take a look at this comparison table here,
+44
+
+44
+00:01:44,090 --> 00:01:46,860
+here we got a bunch of elements,
+45
+
+45
+00:01:46,860 --> 00:01:49,130
+as we would use them in the browser
+46
+
+46
+00:01:49,130 --> 00:01:51,510
+if we would be using react-dom
+47
+
+47
+00:01:51,510 --> 00:01:53,400
+and then the equivalence
+48
+
+48
+00:01:53,400 --> 00:01:55,070
+for the native platforms,
+49
+
+49
+00:01:55,070 --> 00:01:57,040
+and then the Components exposed
+50
+
+50
+00:01:57,040 --> 00:02:00,243
+by React Native to target those equivalence.
+51
+
+51
+00:02:01,140 --> 00:02:02,010
+So for example
+52
+
+52
+00:02:02,010 --> 00:02:05,280
+if you want to display an input element
+53
+
+53
+00:02:05,280 --> 00:02:08,330
+where users can enter some text,
+54
+
+54
+00:02:08,330 --> 00:02:10,350
+then when building a web app
+55
+
+55
+00:02:10,350 --> 00:02:13,180
+we would use the HTML input element
+56
+
+56
+00:02:13,180 --> 00:02:15,460
+which is available in JSX
+57
+
+57
+00:02:15,460 --> 00:02:17,633
+when we're using react-dom.
+58
+
+58
+00:02:18,690 --> 00:02:21,730
+If we would be building a native Android app
+59
+
+59
+00:02:21,730 --> 00:02:24,010
+with Java or Kotlin
+60
+
+60
+00:02:24,010 --> 00:02:27,580
+then it would be the built in added text widget
+61
+
+61
+00:02:27,580 --> 00:02:29,610
+that is provided by Android,
+62
+
+62
+00:02:29,610 --> 00:02:31,580
+which we need to build.
+63
+
+63
+00:02:31,580 --> 00:02:32,413
+For iOS
+64
+
+64
+00:02:32,413 --> 00:02:34,820
+it would be the UITextField element
+65
+
+65
+00:02:35,660 --> 00:02:37,410
+and with React Native
+66
+
+66
+00:02:37,410 --> 00:02:40,800
+we would use the built in TextInput Component
+67
+
+67
+00:02:40,800 --> 00:02:43,108
+which is provided by React Native
+68
+
+68
+00:02:43,108 --> 00:02:46,760
+and which will then be compiled to added text
+69
+
+69
+00:02:46,760 --> 00:02:51,013
+for Android or to UITextField for iOS.
+70
+
+70
+00:02:51,890 --> 00:02:56,190
+So React Native maps and compiles reusable Components
+71
+
+71
+00:02:56,190 --> 00:02:58,210
+like TextInput or View
+72
+
+72
+00:02:58,210 --> 00:03:00,180
+or many other Components
+73
+
+73
+00:03:00,180 --> 00:03:02,360
+about which you will learn throughout the course
+74
+
+74
+00:03:02,360 --> 00:03:05,590
+to their respective platform equivalents.
+75
+
+75
+00:03:05,590 --> 00:03:07,310
+That's one of the main jobs
+76
+
+76
+00:03:07,310 --> 00:03:09,053
+React Native will take care of.
+77
+
+77
+00:03:10,390 --> 00:03:12,410
+But what about the logic?
+78
+
+78
+00:03:12,410 --> 00:03:14,510
+I mentioned that those Views
+79
+
+79
+00:03:14,510 --> 00:03:17,800
+the JSX elements are compiled
+80
+
+80
+00:03:17,800 --> 00:03:20,300
+to their native equivalence.
+81
+
+81
+00:03:20,300 --> 00:03:22,150
+But what about the JavaScript code
+82
+
+82
+00:03:22,150 --> 00:03:24,810
+you write outside of JSX?
+83
+
+83
+00:03:24,810 --> 00:03:26,570
+What about all these functions?
+84
+
+84
+00:03:26,570 --> 00:03:27,710
+If statements?
+85
+
+85
+00:03:27,710 --> 00:03:29,060
+State management?
+86
+
+86
+00:03:29,060 --> 00:03:30,153
+What about that?
+87
+
+87
+00:03:31,360 --> 00:03:33,520
+Well, unlike the UI elements,
+88
+
+88
+00:03:33,520 --> 00:03:36,120
+the logic is not compiled.
+89
+
+89
+00:03:36,120 --> 00:03:37,290
+The UI elements
+90
+
+90
+00:03:37,290 --> 00:03:38,500
+which are those Components
+91
+
+91
+00:03:38,500 --> 00:03:39,670
+exposed by React Native
+92
+
+92
+00:03:39,670 --> 00:03:41,790
+are compiled as you learned,
+93
+
+93
+00:03:41,790 --> 00:03:43,280
+but the logic which you write
+94
+
+94
+00:03:43,280 --> 00:03:46,160
+in JavaScript is actually not compiled
+95
+
+95
+00:03:46,160 --> 00:03:49,770
+but instead it's running on a JavaScript thread
+96
+
+96
+00:03:49,770 --> 00:03:51,802
+that's hosted by React Native
+97
+
+97
+00:03:51,802 --> 00:03:55,090
+in the native app that was built.
+98
+
+98
+00:03:55,090 --> 00:03:57,330
+So React Native basically
+99
+
+99
+00:03:57,330 --> 00:04:01,310
+spins up a simple JavaScript process
+100
+
+100
+00:04:01,310 --> 00:04:03,560
+as part of your native app
+101
+
+101
+00:04:03,560 --> 00:04:04,440
+that's being built.
+102
+
+102
+00:04:04,440 --> 00:04:07,270
+And it manages this process for you.
+103
+
+103
+00:04:07,270 --> 00:04:09,810
+And it allows this process to talk
+104
+
+104
+00:04:09,810 --> 00:04:12,720
+to the underlying native platform
+105
+
+105
+00:04:12,720 --> 00:04:14,850
+and therefore your JavaScript code
+106
+
+106
+00:04:14,850 --> 00:04:17,050
+will run as JavaScript
+107
+
+107
+00:04:17,050 --> 00:04:19,460
+in the native app that's being built
+108
+
+108
+00:04:19,460 --> 00:04:22,890
+but it will then talk to the underlying Android
+109
+
+109
+00:04:22,890 --> 00:04:24,740
+or iOS platform,
+110
+
+110
+00:04:24,740 --> 00:04:27,980
+through a basic translation bridge.
+111
+
+111
+00:04:27,980 --> 00:04:30,210
+You could say that is provided
+112
+
+112
+00:04:30,210 --> 00:04:31,650
+by React Native
+113
+
+113
+00:04:31,650 --> 00:04:34,240
+as part of your native app.
+114
+
+114
+00:04:34,240 --> 00:04:36,383
+That's how you can think about this.
+115
+
+115
+00:04:37,320 --> 00:04:39,470
+And that is it for now.
+116
+
+116
+00:04:39,470 --> 00:04:41,890
+That's how React Native works
+117
+
+117
+00:04:41,890 --> 00:04:44,570
+Under The Hood and what it does for you.
+118
+
+118
+00:04:44,570 --> 00:04:46,370
+You don't need to know more.
+119
+
+119
+00:04:46,370 --> 00:04:47,730
+You can of course dive
+120
+
+120
+00:04:47,730 --> 00:04:48,810
+into the official docs
+121
+
+121
+00:04:48,810 --> 00:04:50,630
+if you do want to learn more
+122
+
+122
+00:04:50,630 --> 00:04:52,380
+but that is what you should know
+123
+
+123
+00:04:52,380 --> 00:04:54,920
+in order to work with React Native,
+124
+
+124
+00:04:54,920 --> 00:04:57,315
+because I believe it's always important
+125
+
+125
+00:04:57,315 --> 00:05:01,290
+to have a basic understanding of how a tool works.
+126
+
+126
+00:05:01,290 --> 00:05:03,793
+And this is how React Native works.

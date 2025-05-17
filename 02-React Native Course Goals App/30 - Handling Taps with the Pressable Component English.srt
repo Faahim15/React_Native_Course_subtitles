@@ -1,0 +1,358 @@
+1
+00:00:02,130 --> 00:00:04,540
+We're making good progress.
+2
+
+2
+00:00:04,540 --> 00:00:06,970
+We're now able to add items to our list here,
+3
+
+3
+00:00:06,970 --> 00:00:10,200
+and we're managing this list in an efficient way.
+4
+
+4
+00:00:10,200 --> 00:00:12,490
+Now, what we're not able to do yet though,
+5
+
+5
+00:00:12,490 --> 00:00:14,620
+is remove items,
+6
+
+6
+00:00:14,620 --> 00:00:17,730
+and it would be nice if you could simply tap those items
+7
+
+7
+00:00:17,730 --> 00:00:19,063
+and they would be deleted.
+8
+
+8
+00:00:20,850 --> 00:00:24,450
+Now to make them tappable, if this would be a web app,
+9
+
+9
+00:00:24,450 --> 00:00:29,080
+all you have to do would be that you add an "onClick" prop
+10
+
+10
+00:00:29,080 --> 00:00:30,150
+to the item.
+11
+
+11
+00:00:30,150 --> 00:00:32,073
+That's how you would do it in the web.
+12
+
+12
+00:00:33,160 --> 00:00:36,740
+But this is not how it works in React Native.
+13
+
+13
+00:00:36,740 --> 00:00:40,570
+Instead here, if you wanna make an item pressable,
+14
+
+14
+00:00:40,570 --> 00:00:42,980
+you have to let React Native know.
+15
+
+15
+00:00:42,980 --> 00:00:46,430
+And you let React Native know by wrapping the item
+16
+
+16
+00:00:46,430 --> 00:00:49,780
+that should be pressable into a specific component
+17
+
+17
+00:00:49,780 --> 00:00:51,593
+provided by React Native.
+18
+
+18
+00:00:52,670 --> 00:00:55,593
+And that would be the "Pressable" component.
+19
+
+19
+00:00:57,310 --> 00:01:01,230
+React native also knows a component named "Touchable"
+20
+
+20
+00:01:01,230 --> 00:01:05,401
+and various related components like "TouchableHighlight,"
+21
+
+21
+00:01:05,401 --> 00:01:07,907
+and "TouchableNativeFeedback,"
+22
+
+22
+00:01:07,907 --> 00:01:10,100
+and "TouchableOpacity,"
+23
+
+23
+00:01:10,100 --> 00:01:13,160
+but those are components that are
+24
+
+24
+00:01:13,160 --> 00:01:16,200
+not deprecated, but that should be replaced
+25
+
+25
+00:01:16,200 --> 00:01:17,890
+by "Pressable" now.
+26
+
+26
+00:01:17,890 --> 00:01:19,870
+So these "Touchable" components
+27
+
+27
+00:01:19,870 --> 00:01:22,517
+are the old React Native way.
+28
+
+28
+00:01:22,517 --> 00:01:25,113
+"Pressable" is the way forward.
+29
+
+29
+00:01:26,410 --> 00:01:29,370
+So we use "Pressable" by simply wrapping the item
+30
+
+30
+00:01:29,370 --> 00:01:31,623
+that should be pressable with it.
+31
+
+31
+00:01:32,630 --> 00:01:33,463
+Like This.
+32
+
+32
+00:01:33,463 --> 00:01:35,760
+In my "GoalItem," I wrap my view
+33
+
+33
+00:01:35,760 --> 00:01:37,400
+with "Pressable," and with that,
+34
+
+34
+00:01:37,400 --> 00:01:39,577
+this item becomes pressable.
+35
+
+35
+00:01:40,650 --> 00:01:44,010
+And whenever we press any item inside of "Pressable,"
+36
+
+36
+00:01:44,010 --> 00:01:46,570
+so in this case, this view with this text,
+37
+
+37
+00:01:46,570 --> 00:01:49,570
+this "onPress" prop will trigger the function
+38
+
+38
+00:01:49,570 --> 00:01:51,053
+that we provide to it.
+39
+
+39
+00:01:52,230 --> 00:01:55,060
+So we should provide a function to "onPress"
+40
+
+40
+00:01:55,060 --> 00:01:58,670
+and since I plan on deleting items in the future,
+41
+
+41
+00:01:58,670 --> 00:02:01,230
+I will define this function in App.js,
+42
+
+42
+00:02:01,230 --> 00:02:04,150
+because here, I'm managing my "courseGoals" state,
+43
+
+43
+00:02:04,150 --> 00:02:07,023
+and here, I will have to delete items in the future.
+44
+
+44
+00:02:07,890 --> 00:02:12,890
+So I will add a "deleteGoalHandler" function here in App.js.
+45
+
+45
+00:02:14,780 --> 00:02:18,900
+And for the moment, I'll just "console.log('DELETE')" here
+46
+
+46
+00:02:18,900 --> 00:02:20,670
+in this function.
+47
+
+47
+00:02:20,670 --> 00:02:24,780
+We will of course replace this with proper code later.
+48
+
+48
+00:02:24,780 --> 00:02:27,520
+Now, "deleteGoalHandler" should be provided
+49
+
+49
+00:02:27,520 --> 00:02:28,800
+to the goal item,
+50
+
+50
+00:02:28,800 --> 00:02:30,880
+In the infer, I'll add a prop here,
+51
+
+51
+00:02:30,880 --> 00:02:32,310
+and since it's my component,
+52
+
+52
+00:02:32,310 --> 00:02:35,170
+it's my choice how this prop should be named,
+53
+
+53
+00:02:35,170 --> 00:02:37,290
+and I'll name it "onDeleteItem"
+54
+
+54
+00:02:38,500 --> 00:02:43,130
+and pass my "deleteGoalHanlder" function to that.
+55
+
+55
+00:02:43,130 --> 00:02:46,630
+A pointer to this "deleteGoalHandler" function
+56
+
+56
+00:02:46,630 --> 00:02:50,396
+is passed as a value to "onDeleteItem"
+57
+
+57
+00:02:50,396 --> 00:02:52,453
+on my "GoalItem" component.
+58
+
+58
+00:02:53,730 --> 00:02:56,780
+And now this "onDeleteItem" prop can be used
+59
+
+59
+00:02:56,780 --> 00:02:58,220
+in that component.
+60
+
+60
+00:02:58,220 --> 00:03:00,210
+And here, I can for example,
+61
+
+61
+00:03:00,210 --> 00:03:01,790
+simply forward it.
+62
+
+62
+00:03:01,790 --> 00:03:03,400
+Like that.
+63
+
+63
+00:03:03,400 --> 00:03:05,500
+We might tweak it later but for the moment,
+64
+
+64
+00:03:05,500 --> 00:03:06,913
+we can just do it like this.
+65
+
+65
+00:03:08,140 --> 00:03:09,900
+Now, if I save this,
+66
+
+66
+00:03:10,930 --> 00:03:15,930
+If I tap on one of these items, I get no visual feedback,
+67
+
+67
+00:03:16,800 --> 00:03:19,940
+but if I go back, you see the that "DELETE" was locked
+68
+
+68
+00:03:19,940 --> 00:03:21,630
+to the terminal.
+69
+
+69
+00:03:21,630 --> 00:03:23,793
+So indeed, this already works.
+70
+
+70
+00:03:24,650 --> 00:03:27,530
+'Course, some visual feedback would be nice
+71
+
+71
+00:03:27,530 --> 00:03:29,200
+and we will add it in a second,
+72
+
+72
+00:03:29,200 --> 00:03:32,093
+but for the moment, it's great that this works.

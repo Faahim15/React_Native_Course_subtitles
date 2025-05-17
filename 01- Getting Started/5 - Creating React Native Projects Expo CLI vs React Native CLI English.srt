@@ -1,0 +1,579 @@
+1
+00:00:00,000 --> 00:00:05,080
+- So, I'd say that's enough theory for now.
+
+2
+00:00:05,400 --> 00:00:07,920
+- Let's get started with React Native and
+
+3
+00:00:07,920 --> 00:00:10,520
+- let's create a new React Native project.
+
+4
+00:00:11,520 --> 00:00:13,300
+- And to get started, you can simply
+
+5
+00:00:13,300 --> 00:00:16,140
+- search for React Native and you should
+
+6
+00:00:16,140 --> 00:00:17,880
+- find the official web page
+
+7
+00:00:17,880 --> 00:00:19,480
+- reactnative.dev.
+
+8
+00:00:20,640 --> 00:00:23,300
+- And on that page, you can then of
+
+9
+00:00:23,300 --> 00:00:26,200
+- course learn more about React Native
+
+10
+00:00:26,200 --> 00:00:29,300
+- and it therefore is a great resource to use
+
+11
+00:00:29,300 --> 00:00:31,600
+- in addition to this course, also to dive
+
+12
+00:00:31,600 --> 00:00:32,040
+- deeper.
+
+13
+00:00:33,980 --> 00:00:36,360
+- But you can also use this site to get
+
+14
+00:00:36,360 --> 00:00:39,540
+- started and to create new React Native
+
+15
+00:00:39,540 --> 00:00:40,220
+- projects.
+
+16
+00:00:40,440 --> 00:00:41,880
+- And that is what we'll do here.
+
+17
+00:00:42,660 --> 00:00:45,200
+- So if you click on get started, you should
+
+18
+00:00:45,200 --> 00:00:47,360
+- be taken to this setting up the
+
+19
+00:00:47,360 --> 00:00:49,180
+- development environment page here.
+
+20
+00:00:49,580 --> 00:00:52,520
+- If you're not, you can visit it manually by
+
+21
+00:00:52,520 --> 00:00:55,040
+- navigating to it here on the sidebar on
+
+22
+00:00:55,040 --> 00:00:55,520
+- the left.
+
+23
+00:00:56,820 --> 00:01:00,560
+- And on this page, you'll find two main
+
+24
+00:01:00,560 --> 00:01:03,700
+- approaches you can use for creating
+
+25
+00:01:03,700 --> 00:01:05,640
+- new React Native projects.
+
+26
+00:01:06,340 --> 00:01:09,100
+- And the approach that is selected by
+
+27
+00:01:09,100 --> 00:01:10,960
+- default and that's therefore
+
+28
+00:01:10,960 --> 00:01:14,280
+- recommended also by me is to use a
+
+29
+00:01:14,280 --> 00:01:18,700
+- tool called Expo and to use its CLI, its
+
+30
+00:01:18,700 --> 00:01:21,700
+- command line interface to create new
+
+31
+00:01:21,700 --> 00:01:24,080
+- projects in the end and to manage these
+
+32
+00:01:24,080 --> 00:01:24,700
+- projects.
+
+33
+00:01:26,240 --> 00:01:28,840
+- Alternatively, you could also use a tool
+
+34
+00:01:28,840 --> 00:01:32,080
+- called the React Native CLI, which you
+
+35
+00:01:32,080 --> 00:01:34,020
+- could also use to create React Native
+
+36
+00:01:34,020 --> 00:01:34,560
+- projects.
+
+37
+00:01:34,880 --> 00:01:37,360
+- But as you'll also see in this course, this
+
+38
+00:01:37,360 --> 00:01:40,600
+- Expo tool simply makes the process of
+
+39
+00:01:40,600 --> 00:01:42,740
+- creating and managing and building
+
+40
+00:01:42,740 --> 00:01:45,360
+- React Native apps a lot easier.
+
+41
+00:01:46,639 --> 00:01:49,240
+- That's why we will also use this approach
+
+42
+00:01:49,240 --> 00:01:51,760
+- in this course, just as it's essentially
+
+43
+00:01:51,760 --> 00:01:53,960
+- recommended on the official page here.
+
+44
+00:01:54,980 --> 00:01:57,900
+- But what's the difference between these
+
+45
+00:01:57,900 --> 00:01:58,700
+- two approaches?
+
+46
+00:01:58,880 --> 00:02:01,140
+- Why do we have two approaches?
+
+47
+00:02:01,800 --> 00:02:04,960
+- We have the Expo CLI and the React
+
+48
+00:02:04,960 --> 00:02:06,340
+- Native CLI.
+
+49
+00:02:06,620 --> 00:02:09,400
+- CLI stands for command line interface
+
+50
+00:02:09,400 --> 00:02:13,640
+- and both tools are tools that exist in
+
+51
+00:02:13,640 --> 00:02:16,420
+- order to help you create React Native
+
+52
+00:02:16,420 --> 00:02:19,560
+- projects and run React Native apps on
+
+53
+00:02:19,560 --> 00:02:22,980
+- testing devices and simulators, as well as
+
+54
+00:02:22,980 --> 00:02:25,720
+- build React Native apps so that you can
+
+55
+00:02:25,720 --> 00:02:27,120
+- ship them to the app stores.
+
+56
+00:02:27,580 --> 00:02:30,560
+- So these are the tools you need to really
+
+57
+00:02:30,560 --> 00:02:33,400
+- build apps and to get those packages,
+
+58
+00:02:33,920 --> 00:02:36,800
+- those distributable packages, which you
+
+59
+00:02:36,800 --> 00:02:38,680
+- can upload to the app stores.
+
+60
+00:02:38,920 --> 00:02:42,520
+- These two tools are crucial, but you don't
+
+61
+00:02:42,520 --> 00:02:43,600
+- need to use them both.
+
+62
+00:02:43,800 --> 00:02:46,440
+- You can use either of the two and one
+
+63
+00:02:46,440 --> 00:02:47,440
+- tool is enough.
+
+64
+00:02:48,300 --> 00:02:50,560
+- But why do we have these two tools and
+
+65
+00:02:50,560 --> 00:02:51,440
+- what's the difference?
+
+66
+00:02:52,420 --> 00:02:57,060
+- Well, the Expo CLI, or just Expo, as I will
+
+67
+00:02:57,060 --> 00:02:58,920
+- also call it throughout the course, and
+
+68
+00:02:58,920 --> 00:03:02,280
+- the company behind this CLI is in the
+
+69
+00:03:02,280 --> 00:03:04,760
+- end a third-party service that you can
+
+70
+00:03:04,760 --> 00:03:07,400
+- use, a service that is entirely free.
+
+71
+00:03:07,820 --> 00:03:09,980
+- You don't have to sign up, you don't have
+
+72
+00:03:09,980 --> 00:03:10,700
+- to pay for it.
+
+73
+00:03:11,300 --> 00:03:14,100
+- You can sign up and you can pay.
+
+74
+00:03:14,500 --> 00:03:17,680
+- They do offer extra paid services, but to
+
+75
+00:03:17,680 --> 00:03:20,080
+- build React Native apps and to ship
+
+76
+00:03:20,080 --> 00:03:21,940
+- them, you don't need to pay.
+
+77
+00:03:23,220 --> 00:03:26,840
+- When using Expo, the CLI and a couple
+
+78
+00:03:26,840 --> 00:03:29,260
+- of other free tools, which they give you,
+
+79
+00:03:29,580 --> 00:03:31,800
+- you get a managed app development
+
+80
+00:03:31,800 --> 00:03:35,020
+- workflow, as I like to call it, which means
+
+81
+00:03:35,020 --> 00:03:38,640
+- creating projects is easy, writing code is
+
+82
+00:03:38,640 --> 00:03:41,760
+- a bit easier, tapping into native device
+
+83
+00:03:41,760 --> 00:03:44,160
+- functionalities like using the device
+
+84
+00:03:44,160 --> 00:03:46,420
+- camera and so on is easier.
+
+85
+00:03:47,160 --> 00:03:50,860
+- And in general, when using Expo, the
+
+86
+00:03:50,860 --> 00:03:53,900
+- Expo CLI and also a couple of other tools
+
+87
+00:03:53,900 --> 00:03:57,600
+- provided by Expo, writing native apps
+
+88
+00:03:57,600 --> 00:04:00,500
+- with React Native is more convenient
+
+89
+00:04:00,500 --> 00:04:03,580
+- than with just the React Native CLI and
+
+90
+00:04:03,580 --> 00:04:04,380
+- without Expo.
+
+91
+00:04:04,580 --> 00:04:07,140
+- There is less friction to this process.
+
+92
+00:04:08,500 --> 00:04:10,740
+- And the best thing is that you can still
+
+93
+00:04:10,740 --> 00:04:13,740
+- leave this Expo approach and ecosystem
+
+94
+00:04:13,740 --> 00:04:15,560
+- anytime if you need to.
+
+95
+00:04:16,200 --> 00:04:19,220
+- If you start by using Expo because it's
+
+96
+00:04:19,220 --> 00:04:21,959
+- easier to get started with that, and then
+
+97
+00:04:21,959 --> 00:04:24,260
+- at a later point, you find out that you
+
+98
+00:04:24,260 --> 00:04:27,020
+- want to switch to just using the React
+
+99
+00:04:27,020 --> 00:04:30,200
+- Native CLI workflow and not using Expo,
+
+100
+00:04:30,440 --> 00:04:31,620
+- you can do this anytime.
+
+101
+00:04:32,500 --> 00:04:34,660
+- That's why it's also the default selection
+
+102
+00:04:34,660 --> 00:04:37,560
+- to start with Expo because it's easier and
+
+103
+00:04:37,580 --> 00:04:40,080
+- you can still switch anytime you want to.
+
+104
+00:04:40,920 --> 00:04:42,660
+- Now why do we have the React Native
+
+105
+00:04:42,660 --> 00:04:43,380
+- CLI then?
+
+106
+00:04:43,760 --> 00:04:45,960
+- Well, because it existed before we had
+
+107
+00:04:45,960 --> 00:04:48,580
+- Expo, because this is the tool provided
+
+108
+00:04:48,580 --> 00:04:50,840
+- by the React Native team and the
+
+109
+00:04:50,840 --> 00:04:52,540
+- community around React Native.
+
+110
+00:04:54,000 --> 00:04:56,820
+- It gives you a bare bone React Native
+
+111
+00:04:56,820 --> 00:04:59,100
+- development setup, which means you
+
+112
+00:04:59,100 --> 00:05:02,280
+- will need to do more configuration and
+
+113
+00:05:02,280 --> 00:05:03,740
+- setup work on your own.
+
+114
+00:05:04,420 --> 00:05:06,940
+- There are less convenience features and
+
+115
+00:05:06,940 --> 00:05:10,120
+- if you need to tap into certain native
+
+116
+00:05:10,120 --> 00:05:12,960
+- device features like using the camera or
+
+117
+00:05:12,960 --> 00:05:16,020
+- other features, then it is often a bit more
+
+118
+00:05:16,020 --> 00:05:18,800
+- work when not having Expo around.
+
+119
+00:05:19,220 --> 00:05:21,400
+- Because as mentioned before, Expo is
+
+120
+00:05:21,400 --> 00:05:23,740
+- not just about the tool that creates
+
+121
+00:05:23,740 --> 00:05:24,320
+- projects.
+
+122
+00:05:24,700 --> 00:05:27,520
+- It will also give you helpful packages and
+
+123
+00:05:27,520 --> 00:05:29,720
+- tools that you can use when writing
+
+124
+00:05:29,720 --> 00:05:32,360
+- code that will make your life easier in
+
+125
+00:05:32,360 --> 00:05:33,420
+- that case as well.
+
+126
+00:05:34,820 --> 00:05:37,380
+- Now what the pure React Native
+
+127
+00:05:37,380 --> 00:05:40,920
+- workflow does have though, is that it is
+
+128
+00:05:40,920 --> 00:05:43,840
+- often a bit easier to integrate with native
+
+129
+00:05:43,840 --> 00:05:44,820
+- source code.
+
+130
+00:05:45,020 --> 00:05:47,780
+- So with source code written in Java or
+
+131
+00:05:47,780 --> 00:05:50,420
+- Objective-C or Swift or Kotlin.
+
+132
+00:05:50,980 --> 00:05:54,280
+- So if you must mix JavaScript code and
+
+133
+00:05:54,280 --> 00:05:57,700
+- native device source code, then using
+
+134
+00:05:57,700 --> 00:06:00,520
+- just the React Native CLI could be
+
+135
+00:06:00,520 --> 00:06:01,120
+- beneficial.
+
+136
+00:06:01,880 --> 00:06:04,040
+- But the idea behind React Native is that
+
+137
+00:06:04,040 --> 00:06:06,340
+- you don't have to do this too often and
+
+138
+00:06:06,340 --> 00:06:07,960
+- therefore this might not really be an
+
+139
+00:06:07,960 --> 00:06:08,400
+- advantage.
+
+140
+00:06:09,380 --> 00:06:11,840
+- And for all these reasons, and especially
+
+141
+00:06:11,840 --> 00:06:13,840
+- since you can switch anytime if you
+
+142
+00:06:13,840 --> 00:06:16,720
+- need to, we will use Expo in this course.
+
+143
+00:06:17,280 --> 00:06:19,480
+- As you will see, it's super easy to get
+
+144
+00:06:19,480 --> 00:06:21,620
+- started with that and it will make
+
+145
+00:06:21,620 --> 00:06:24,080
+- building React Native apps much easier.

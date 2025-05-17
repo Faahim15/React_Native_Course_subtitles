@@ -1,0 +1,435 @@
+1
+00:00:02,130 --> 00:00:04,340
+So we got our code opened up here.
+2
+
+2
+00:00:04,340 --> 00:00:06,830
+We created this project with Expo.
+3
+
+3
+00:00:06,830 --> 00:00:10,140
+Now it would be nice to preview our app because of course,
+4
+
+4
+00:00:10,140 --> 00:00:12,580
+whilst we're working on the React Native app,
+5
+
+5
+00:00:12,580 --> 00:00:14,670
+we want to constantly preview it
+6
+
+6
+00:00:14,670 --> 00:00:16,470
+so that we can see our changes
+7
+
+7
+00:00:16,470 --> 00:00:18,940
+and tweak the app as required.
+8
+
+8
+00:00:18,940 --> 00:00:22,269
+It would basically be nice to have the same kind of workflow
+9
+
+9
+00:00:22,269 --> 00:00:24,630
+or a comparable workflow
+10
+
+10
+00:00:24,630 --> 00:00:28,160
+as we have it with the browser and just React
+11
+
+11
+00:00:28,160 --> 00:00:30,310
+when we're building React Web apps.
+12
+
+12
+00:00:30,310 --> 00:00:32,650
+There, we can also create a React project
+13
+
+13
+00:00:32,650 --> 00:00:34,600
+and preview it in the browser.
+14
+
+14
+00:00:34,600 --> 00:00:37,250
+Now thankfully, since we're using Expo,
+15
+
+15
+00:00:37,250 --> 00:00:41,973
+previewing our app on a real device is super easy.
+16
+
+16
+00:00:42,890 --> 00:00:46,110
+You just need an Android device or an iPhone.
+17
+
+17
+00:00:46,110 --> 00:00:48,570
+In my case, I have an iPhone here,
+18
+
+18
+00:00:48,570 --> 00:00:50,790
+but the same is true for Android,
+19
+
+19
+00:00:50,790 --> 00:00:53,380
+and you visit the app store there.
+20
+
+20
+00:00:53,380 --> 00:00:56,933
+And in the app store, you can search for Expo.
+21
+
+21
+00:00:58,360 --> 00:01:01,140
+Now, you should find a Expo Go app.
+22
+
+22
+00:01:01,140 --> 00:01:05,970
+This is an app provided by the company behind the Expo CLI
+23
+
+23
+00:01:05,970 --> 00:01:09,883
+and this Expo package, which is part of our project here.
+24
+
+24
+00:01:10,720 --> 00:01:14,420
+So you can now download this app onto your device.
+25
+
+25
+00:01:14,420 --> 00:01:17,060
+This app is available for the iPhone
+26
+
+26
+00:01:17,060 --> 00:01:19,290
+and for Android devices.
+27
+
+27
+00:01:19,290 --> 00:01:21,873
+And once downloaded, you can open it.
+28
+
+28
+00:01:23,030 --> 00:01:27,650
+Now in here, you can preview your Expo apps
+29
+
+29
+00:01:27,650 --> 00:01:31,350
+that are built on your local computer.
+30
+
+30
+00:01:31,350 --> 00:01:34,140
+To do that, you should open up your terminal
+31
+
+31
+00:01:34,140 --> 00:01:35,180
+or command prompt.
+32
+
+32
+00:01:35,180 --> 00:01:38,330
+Here, I'm using the one integrated into VS Code.
+33
+
+33
+00:01:38,330 --> 00:01:40,440
+You can open this by going to terminal here
+34
+
+34
+00:01:40,440 --> 00:01:41,820
+and opening a new terminal.
+35
+
+35
+00:01:41,820 --> 00:01:45,190
+And this is the default system terminal integrated here
+36
+
+36
+00:01:45,190 --> 00:01:47,350
+into your VS Code.
+37
+
+37
+00:01:47,350 --> 00:01:50,893
+And then in here you can run npm-start.
+38
+
+38
+00:01:51,780 --> 00:01:53,330
+Now, what this will do,
+(device chiming)
+39
+
+39
+00:01:53,330 --> 00:01:57,610
+is it will actually start the Expo Development Server
+40
+
+40
+00:01:57,610 --> 00:01:59,690
+which watches and builds our code
+41
+
+41
+00:01:59,690 --> 00:02:01,400
+and which builds our code,
+42
+
+42
+00:02:01,400 --> 00:02:04,060
+basically such that we can preview it.
+43
+
+43
+00:02:04,060 --> 00:02:07,280
+And it also gives us a QR code here.
+44
+
+44
+00:02:07,280 --> 00:02:11,730
+You can scan this QR code with your Expo app on Android,
+45
+
+45
+00:02:11,730 --> 00:02:12,610
+not on iOS.
+46
+
+46
+00:02:12,610 --> 00:02:13,850
+I'll come back to this in a second,
+47
+
+47
+00:02:13,850 --> 00:02:17,140
+but on Android, you will have a barcode scanner,
+48
+
+48
+00:02:17,140 --> 00:02:19,941
+a button that allows you to scan this barcode
+49
+
+49
+00:02:19,941 --> 00:02:22,823
+in your Expo Go app which you downloaded.
+50
+
+50
+00:02:23,880 --> 00:02:26,650
+In addition, you also should have a browser tab
+51
+
+51
+00:02:26,650 --> 00:02:31,030
+that opened up where you also find this barcode,
+52
+
+52
+00:02:31,030 --> 00:02:34,800
+and where you will find log messages printed by Expo
+53
+
+53
+00:02:34,800 --> 00:02:36,323
+as your app is running.
+54
+
+54
+00:02:37,500 --> 00:02:40,690
+Now on the iPhone, the scanner is not integrated
+55
+
+55
+00:02:40,690 --> 00:02:42,640
+into the Expo app.
+56
+
+56
+00:02:42,640 --> 00:02:44,940
+Instead, there you need to open your camera
+57
+
+57
+00:02:44,940 --> 00:02:49,860
+and then scan this barcode here or the one in the terminal.
+58
+
+58
+00:02:49,860 --> 00:02:52,140
+And then once you tap to open the link
+59
+
+59
+00:02:52,140 --> 00:02:55,460
+that is sent by that barcode, you should click Open,
+60
+
+60
+00:02:55,460 --> 00:02:57,313
+which opens the Expo Go app.
+61
+
+61
+00:02:58,940 --> 00:02:59,830
+Then you should grant
+62
+
+62
+00:02:59,830 --> 00:03:01,140
+any permissions the app might
+(device chiming)
+63
+
+63
+00:03:01,140 --> 00:03:02,183
+be asking for.
+64
+
+64
+00:03:03,400 --> 00:03:07,490
+And now you see here that the JavaScript bundle
+65
+
+65
+00:03:07,490 --> 00:03:08,420
+is being built.
+66
+
+66
+00:03:08,420 --> 00:03:10,240
+So the Expo app is being built.
+67
+
+67
+00:03:10,240 --> 00:03:12,860
+The React Native app based on Expo is built
+68
+
+68
+00:03:12,860 --> 00:03:16,950
+and it opens up in this simulator on our real device here.
+69
+
+69
+00:03:16,950 --> 00:03:19,100
+So in this Expo Go app here.
+70
+
+70
+00:03:19,100 --> 00:03:20,770
+We can close this info screen.
+71
+
+71
+00:03:20,770 --> 00:03:24,690
+And now here, we see our app which we're building
+72
+
+72
+00:03:24,690 --> 00:03:27,883
+on our local machine running on a real device.
+73
+
+73
+00:03:29,130 --> 00:03:32,910
+Now we can tell that this is our app by changing this text.
+74
+
+74
+00:03:32,910 --> 00:03:36,827
+If I remove all the text here, and instead I say,
+75
+
+75
+00:03:36,827 --> 00:03:41,827
+"Hello, World," good old "Hello, World" message,
+76
+
+76
+00:03:42,731 --> 00:03:45,083
+and I then save this file,
+77
+
+77
+00:03:46,730 --> 00:03:49,320
+you will see that it basically instantly updates
+78
+
+78
+00:03:49,320 --> 00:03:52,290
+on your phone as well in this Expo Go app
+79
+
+79
+00:03:52,290 --> 00:03:54,530
+which we use for previewing.
+80
+
+80
+00:03:54,530 --> 00:03:57,900
+And this is how simple it is to build
+81
+
+81
+00:03:57,900 --> 00:04:01,610
+and test those Expo based React Native apps
+82
+
+82
+00:04:01,610 --> 00:04:04,750
+with the Expo Go app and why it's so recommended
+83
+
+83
+00:04:04,750 --> 00:04:06,870
+to use this Expo workflow.
+84
+
+84
+00:04:06,870 --> 00:04:08,030
+It simply makes building
+85
+
+85
+00:04:08,030 --> 00:04:11,510
+and testing React Native apps much easier.
+86
+
+86
+00:04:11,510 --> 00:04:14,750
+And this still is a React Native app here.
+87
+
+87
+00:04:14,750 --> 00:04:18,233
+We're just using Expo to make our life a bit easier.

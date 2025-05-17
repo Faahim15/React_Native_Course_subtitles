@@ -1,0 +1,288 @@
+1
+00:00:02,230 --> 00:00:07,230
+So, what exactly is React Native?
+2
+
+2
+00:00:07,330 --> 00:00:12,330
+Well, as the name applies, it is related to React.js.
+3
+
+3
+00:00:12,590 --> 00:00:16,540
+And with React.js and React Native,
+4
+
+4
+00:00:16,540 --> 00:00:20,810
+you can build real React Native based mobile apps
+5
+
+5
+00:00:20,810 --> 00:00:22,670
+for iOS and Android,
+6
+
+6
+00:00:22,670 --> 00:00:26,010
+which are real apps you can distribute
+7
+
+7
+00:00:26,010 --> 00:00:28,910
+through the app stores and apps that can be used
+8
+
+8
+00:00:28,910 --> 00:00:32,800
+by any user with an iOS or Android device.
+9
+
+9
+00:00:32,800 --> 00:00:36,910
+Now React.js is a library that's independent
+10
+
+10
+00:00:36,910 --> 00:00:39,240
+from React Native though.
+11
+
+11
+00:00:39,240 --> 00:00:42,090
+React.js is a JavaScript library
+12
+
+12
+00:00:42,090 --> 00:00:45,030
+for building user interfaces.
+13
+
+13
+00:00:45,030 --> 00:00:48,430
+And it is typically used for web development.
+14
+
+14
+00:00:48,430 --> 00:00:52,626
+That's also the environment for which it was first created.
+15
+
+15
+00:00:52,626 --> 00:00:56,180
+But actually, if you worked with React.js,
+16
+
+16
+00:00:56,180 --> 00:01:00,450
+you might know that there, it's actually another library
+17
+
+17
+00:01:00,450 --> 00:01:05,353
+the React DOM library that adds the actual web support
+18
+
+18
+00:01:05,353 --> 00:01:10,353
+because React itself, the library React itself,
+19
+
+19
+00:01:10,460 --> 00:01:14,830
+without React DOM is platform-agnostic,
+20
+
+20
+00:01:14,830 --> 00:01:17,251
+which means you can use React
+21
+
+21
+00:01:17,251 --> 00:01:21,160
+in conjunction with React DOM to build web apps,
+22
+
+22
+00:01:21,160 --> 00:01:25,050
+but React the library itself, actually does not care
+23
+
+23
+00:01:25,050 --> 00:01:27,300
+about the underlying platform.
+24
+
+24
+00:01:27,300 --> 00:01:30,750
+React just gives you tools for managing state,
+25
+
+25
+00:01:30,750 --> 00:01:33,640
+for building virtual component trees,
+26
+
+26
+00:01:33,640 --> 00:01:37,380
+and then you need an extra library like React DOM
+27
+
+27
+00:01:37,380 --> 00:01:41,496
+for translating the result React produced
+28
+
+28
+00:01:41,496 --> 00:01:45,680
+to an actual platform like the browser.
+29
+
+29
+00:01:45,680 --> 00:01:48,330
+Now, React Native is basically
+30
+
+30
+00:01:48,330 --> 00:01:52,440
+an alternative to React DOM, therefore.
+31
+
+31
+00:01:52,440 --> 00:01:54,630
+React Native gives you a collection
+32
+
+32
+00:01:54,630 --> 00:01:57,350
+of special react components,
+33
+
+33
+00:01:57,350 --> 00:02:00,180
+which you can use in your JSX code.
+34
+
+34
+00:02:00,180 --> 00:02:04,840
+So React Native ships with built-in components you can use.
+35
+
+35
+00:02:04,840 --> 00:02:09,840
+And those components are then compiled to native UI elements
+36
+
+36
+00:02:10,800 --> 00:02:14,170
+for the iOS and Android platforms,
+37
+
+37
+00:02:14,170 --> 00:02:16,290
+and React Native will also take care
+38
+
+38
+00:02:16,290 --> 00:02:19,350
+about this compilation step.
+39
+
+39
+00:02:19,350 --> 00:02:21,030
+In addition, React Native
+40
+
+40
+00:02:21,030 --> 00:02:25,470
+also exposes certain native platform APIs
+41
+
+41
+00:02:25,470 --> 00:02:27,890
+like using the device camera
+42
+
+42
+00:02:27,890 --> 00:02:32,186
+so that you can use such features in your JavaScript code
+43
+
+43
+00:02:32,186 --> 00:02:34,220
+even though you need to tap
+44
+
+44
+00:02:34,220 --> 00:02:37,520
+into native device APIs for that.
+45
+
+45
+00:02:37,520 --> 00:02:41,880
+And therefore in the end, React Native is like React DOM.
+46
+
+46
+00:02:41,880 --> 00:02:46,640
+It just does not target the web, the browser as a platform,
+47
+
+47
+00:02:46,640 --> 00:02:49,320
+but instead iOS and Android.
+48
+
+48
+00:02:49,320 --> 00:02:50,720
+And React Native gives you
+49
+
+49
+00:02:50,720 --> 00:02:54,820
+all the components and the APIs you need to interact
+50
+
+50
+00:02:54,820 --> 00:02:59,400
+with those platforms and to build apps for those platforms.
+51
+
+51
+00:02:59,400 --> 00:03:02,520
+That is what React Native is all about.
+52
+
+52
+00:03:02,520 --> 00:03:06,430
+And therefore, in order to work with React Native,
+53
+
+53
+00:03:06,430 --> 00:03:09,570
+you also must know React.js
+54
+
+54
+00:03:09,570 --> 00:03:12,660
+because you will write your code in React.js
+55
+
+55
+00:03:12,660 --> 00:03:16,670
+and then just use these extra React Native components
+56
+
+56
+00:03:16,670 --> 00:03:20,637
+and APIs in your React JavaScript code
+57
+
+57
+00:03:20,637 --> 00:03:23,578
+to produce those native mobile apps
+58
+
+58
+00:03:23,578 --> 00:03:25,763
+for iOS and Android.

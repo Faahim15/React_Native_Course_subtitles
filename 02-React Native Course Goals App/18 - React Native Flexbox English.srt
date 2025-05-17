@@ -1,0 +1,218 @@
+1
+00:00:02,180 --> 00:00:04,550
+When it comes to building layouts
+2
+
+2
+00:00:04,550 --> 00:00:08,970
+in React Native apps, Flexbox is super important.
+3
+
+3
+00:00:08,970 --> 00:00:12,830
+And you might know Flexbox from the web and CSS.
+4
+
+4
+00:00:12,830 --> 00:00:15,600
+And then the next lecture, will have a little deep dive
+5
+
+5
+00:00:15,600 --> 00:00:17,593
+into Flexbox and how to use it.
+6
+
+6
+00:00:18,600 --> 00:00:23,090
+But Flexbox is a key approach, a key concept
+7
+
+7
+00:00:23,090 --> 00:00:26,730
+which is basically a collection of CSS properties
+8
+
+8
+00:00:26,730 --> 00:00:30,880
+that you use to control how things look like.
+9
+
+9
+00:00:30,880 --> 00:00:34,780
+And the Flexbox implemented here in React Native,
+10
+
+10
+00:00:34,780 --> 00:00:38,330
+which can be set with all those React Native properties,
+11
+
+11
+00:00:38,330 --> 00:00:43,330
+is very similar to what you know from CSS Flexbox.
+12
+
+12
+00:00:43,490 --> 00:00:48,050
+In the end Flexbox is all about a couple of CSS properties,
+13
+
+13
+00:00:48,050 --> 00:00:51,700
+or a couple of styling properties to be precise here,
+14
+
+14
+00:00:51,700 --> 00:00:55,733
+that are about positioning elements inside of containers.
+15
+
+15
+00:00:56,670 --> 00:01:00,160
+You can control how much space certain elements take up,
+16
+
+16
+00:01:00,160 --> 00:01:02,400
+and if they are to the left or right,
+17
+
+17
+00:01:02,400 --> 00:01:05,610
+or bottom or top of other elements.
+18
+
+18
+00:01:05,610 --> 00:01:07,740
+And the positioning is then controlled
+19
+
+19
+00:01:07,740 --> 00:01:11,340
+with the style settings that you apply to the container
+20
+
+20
+00:01:11,340 --> 00:01:15,220
+that holds other elements, as you will see in a second.
+21
+
+21
+00:01:15,220 --> 00:01:19,220
+Now Flexbox is all about Q-axis
+22
+
+22
+00:01:19,220 --> 00:01:21,310
+which you have on a container.
+23
+
+23
+00:01:21,310 --> 00:01:23,900
+For example, the styles which you see here at the top,
+24
+
+24
+00:01:23,900 --> 00:01:27,210
+flex one, flex-direction: column, and so on,
+25
+
+25
+00:01:27,210 --> 00:01:29,460
+would be applied to the container
+26
+
+26
+00:01:29,460 --> 00:01:31,963
+that holds the three boxes inside of it.
+27
+
+27
+00:01:33,130 --> 00:01:36,330
+Now the flex one instruction here, for example,
+28
+
+28
+00:01:36,330 --> 00:01:38,850
+would tell the container that it should expand
+29
+
+29
+00:01:38,850 --> 00:01:43,210
+to occupy all available space, though as you will see soon,
+30
+
+30
+00:01:43,210 --> 00:01:46,100
+this is seen in relation to other containers
+31
+
+31
+00:01:46,100 --> 00:01:48,270
+that might also take up space.
+32
+
+32
+00:01:48,270 --> 00:01:50,770
+And then flex-direction controls whether the elements
+33
+
+33
+00:01:50,770 --> 00:01:54,300
+are laid out in a column as you see it here,
+34
+
+34
+00:01:54,300 --> 00:01:57,950
+or in a row as you see it here.
+35
+
+35
+00:01:57,950 --> 00:01:59,663
+So that all works.
+36
+
+36
+00:02:00,560 --> 00:02:03,880
+Basically, flex-direction controls if the main axis,
+37
+
+37
+00:02:03,880 --> 00:02:08,100
+as it's called, is top to bottom or left to right.
+38
+
+38
+00:02:08,100 --> 00:02:10,700
+With column, it's top to bottom,
+39
+
+39
+00:02:10,700 --> 00:02:13,163
+with row, it's left to right.
+40
+
+40
+00:02:14,490 --> 00:02:17,630
+And then you also got other properties like justify-content
+41
+
+41
+00:02:17,630 --> 00:02:20,710
+or align items that allow you to control
+42
+
+42
+00:02:20,710 --> 00:02:23,950
+how the elements are laid out in their axis.
+43
+
+43
+00:02:23,950 --> 00:02:25,900
+So if there is some space between them,
+44
+
+44
+00:02:25,900 --> 00:02:28,773
+if there are crunched together and so on.

@@ -1,0 +1,578 @@
+1
+00:00:02,130 --> 00:00:05,740
+So we created this project, this expert project
+2
+
+2
+00:00:05,740 --> 00:00:07,250
+before we run it now,
+3
+
+3
+00:00:07,250 --> 00:00:09,260
+I wanna open the created project
+4
+
+4
+00:00:09,260 --> 00:00:12,160
+in an editor that allows me to edit the code
+5
+
+5
+00:00:12,160 --> 00:00:13,740
+in a convenient way.
+6
+
+6
+00:00:13,740 --> 00:00:16,460
+Now you can use any code editor you want,
+7
+
+7
+00:00:16,460 --> 00:00:19,290
+My recommendation is Visuals Studio Code,
+8
+
+8
+00:00:19,290 --> 00:00:21,970
+which is an amazing free code editor,
+9
+
+9
+00:00:21,970 --> 00:00:25,290
+That's very extensible and fun to use.
+10
+
+10
+00:00:25,290 --> 00:00:28,000
+You can download it for all platforms.
+11
+
+11
+00:00:28,000 --> 00:00:31,360
+And I already do have installed it for Mac OS.
+12
+
+12
+00:00:31,360 --> 00:00:33,700
+Now with vscode installed,
+13
+
+13
+00:00:33,700 --> 00:00:36,590
+you can open it and you might see a welcome screen.
+14
+
+14
+00:00:36,590 --> 00:00:39,150
+If you installed it for the first time,
+15
+
+15
+00:00:39,150 --> 00:00:41,000
+you can simply close that screen.
+16
+
+16
+00:00:41,000 --> 00:00:42,800
+And then you should see something like this,
+17
+
+17
+00:00:42,800 --> 00:00:45,300
+where you can open a new folder.
+18
+
+18
+00:00:45,300 --> 00:00:48,070
+Alternatively, you can always go to the menu file
+19
+
+19
+00:00:48,070 --> 00:00:50,280
+and find open on Windows,
+20
+
+20
+00:00:50,280 --> 00:00:53,320
+or open folder on Mac OS still.
+21
+
+21
+00:00:53,320 --> 00:00:55,120
+And then if you click that,
+22
+
+22
+00:00:55,120 --> 00:00:57,100
+it will open such a file picker,
+23
+
+23
+00:00:57,100 --> 00:00:59,640
+where you can now select that project
+24
+
+24
+00:00:59,640 --> 00:01:02,060
+folder you just created.
+25
+
+25
+00:01:02,060 --> 00:01:04,490
+So here I'm selecting this RNCOURSE folder
+26
+
+26
+00:01:04,490 --> 00:01:08,360
+which I created before, and I'll open this in vscode.
+27
+
+27
+00:01:08,360 --> 00:01:12,340
+So here I got this expo react-native project opened up
+28
+
+28
+00:01:12,340 --> 00:01:15,530
+and you can of course configure the visuals,
+29
+
+29
+00:01:15,530 --> 00:01:18,440
+the way vscode looks, however you want.
+30
+
+30
+00:01:18,440 --> 00:01:21,610
+by going to view appearance, you can hide
+31
+
+31
+00:01:21,610 --> 00:01:25,620
+or show the sidebar, the status bar at the bottom,
+32
+
+32
+00:01:25,620 --> 00:01:28,290
+and you can also go to preferences
+33
+
+33
+00:01:28,290 --> 00:01:30,070
+and then choose a color theme,
+34
+
+34
+00:01:30,070 --> 00:01:31,390
+that suits your needs.
+35
+
+35
+00:01:31,390 --> 00:01:34,170
+I'm using the dark plus theme here.
+36
+
+36
+00:01:34,170 --> 00:01:37,430
+so you can configure this editor however you want
+37
+
+37
+00:01:37,430 --> 00:01:39,793
+but what was created for us here?
+38
+
+38
+00:01:40,890 --> 00:01:43,850
+Well, we see actually not too much.
+39
+
+39
+00:01:43,850 --> 00:01:47,080
+We got two folders, expo-shared and vscode
+40
+
+40
+00:01:47,080 --> 00:01:48,397
+which we can ignore,
+41
+
+41
+00:01:48,397 --> 00:01:50,020
+vscode just holds some settings
+42
+
+42
+00:01:50,020 --> 00:01:52,290
+i configured for this workspace here,
+43
+
+43
+00:01:52,290 --> 00:01:54,520
+And expo-shared simply just holds
+44
+
+44
+00:01:54,520 --> 00:01:57,870
+some internally used information.
+45
+
+45
+00:01:57,870 --> 00:02:00,640
+The assets folder will become important later,
+46
+
+46
+00:02:00,640 --> 00:02:02,280
+because we can store images there.
+47
+
+47
+00:02:02,280 --> 00:02:04,250
+For example, the icon of our app
+48
+
+48
+00:02:04,250 --> 00:02:07,103
+but also images which be used inside our app.
+49
+
+49
+00:02:08,000 --> 00:02:10,020
+And we got the node modules folder
+50
+
+50
+00:02:10,020 --> 00:02:12,510
+which holds all the third party packages
+51
+
+51
+00:02:12,510 --> 00:02:13,960
+that are used under the hood.
+52
+
+52
+00:02:14,970 --> 00:02:16,950
+We got a package, Json file
+53
+
+53
+00:02:16,950 --> 00:02:19,350
+which lists all the dependencies
+54
+
+54
+00:02:19,350 --> 00:02:20,550
+of our project here.
+55
+
+55
+00:02:20,550 --> 00:02:23,040
+And here For example, we see expo
+56
+
+56
+00:02:23,040 --> 00:02:26,440
+because expo is not just the command line interface.
+57
+
+57
+00:02:26,440 --> 00:02:29,620
+It's all so a JavaScript package which we can use,
+58
+
+58
+00:02:29,620 --> 00:02:32,360
+and which we will use heavily as you see
+59
+
+59
+00:02:32,360 --> 00:02:35,810
+because it gives us many utility functionalities
+60
+
+60
+00:02:35,810 --> 00:02:39,470
+that make writing react-native code easier.
+61
+
+61
+00:02:39,470 --> 00:02:41,140
+But you also see we're using react,
+62
+
+62
+00:02:41,140 --> 00:02:44,620
+react-dom, react-native, and react-native-web,
+63
+
+63
+00:02:44,620 --> 00:02:47,600
+though again, that's not the focus of this course.
+64
+
+64
+00:02:47,600 --> 00:02:50,620
+You could build web apps with react-native
+65
+
+65
+00:02:50,620 --> 00:02:52,660
+but support is a bit clunky.
+66
+
+66
+00:02:52,660 --> 00:02:55,080
+And yeah, we're simply not focusing
+67
+
+67
+00:02:55,080 --> 00:02:58,090
+on that because you could just use react itself.
+68
+
+68
+00:02:58,090 --> 00:03:01,470
+If you want to do that together with react-dom.
+69
+
+69
+00:03:01,470 --> 00:03:03,890
+React-dom of course therefore is also just here
+70
+
+70
+00:03:03,890 --> 00:03:05,713
+because of react-native web.
+71
+
+71
+00:03:06,920 --> 00:03:08,240
+So that's what we have here.
+72
+
+72
+00:03:08,240 --> 00:03:09,870
+We also got a couple of script commands
+73
+
+73
+00:03:09,870 --> 00:03:12,150
+which we could execute with NPM
+74
+
+74
+00:03:12,150 --> 00:03:14,450
+but overall there's nothing fancy in here.
+75
+
+75
+00:03:14,450 --> 00:03:16,420
+And you know, these kinds of files
+76
+
+76
+00:03:16,420 --> 00:03:18,430
+if you worked with react before,
+77
+
+77
+00:03:18,430 --> 00:03:19,730
+which you should have
+78
+
+78
+00:03:19,730 --> 00:03:21,350
+because this course assumes
+79
+
+79
+00:03:21,350 --> 00:03:25,100
+that you have react and JavaScript knowledge.
+80
+
+80
+00:03:25,100 --> 00:03:27,910
+So that's the package, Json file .
+81
+
+81
+00:03:27,910 --> 00:03:29,990
+Package-lock is related to that.
+82
+
+82
+00:03:29,990 --> 00:03:32,800
+And the babbleconfigjs file just configures
+83
+
+83
+00:03:32,800 --> 00:03:35,980
+how code is trans piled under the hood,
+84
+
+84
+00:03:35,980 --> 00:03:37,880
+and unless you know what you're doing
+85
+
+85
+00:03:37,880 --> 00:03:40,847
+you also shouldn't change this file therefore.
+86
+
+86
+00:03:41,830 --> 00:03:43,820
+Now we do have the app Json file,
+87
+
+87
+00:03:43,820 --> 00:03:46,050
+which will become important later
+88
+
+88
+00:03:46,050 --> 00:03:49,600
+because here we can configure some settings
+89
+
+89
+00:03:49,600 --> 00:03:53,040
+and behaviors of our react-native app.
+90
+
+90
+00:03:53,040 --> 00:03:56,260
+And this is a file that will be picked up by expo.
+91
+
+91
+00:03:56,260 --> 00:03:59,260
+When our app is built for preview
+92
+
+92
+00:03:59,260 --> 00:04:01,630
+or for the actual app stores.
+93
+
+93
+00:04:01,630 --> 00:04:03,450
+We can set the name here.
+94
+
+94
+00:04:03,450 --> 00:04:05,660
+We can set some background colors here
+95
+
+95
+00:04:05,660 --> 00:04:06,750
+and we will come back
+96
+
+96
+00:04:06,750 --> 00:04:10,360
+to this file occasionally for configuration.
+97
+
+97
+00:04:10,360 --> 00:04:14,350
+So this is a file, which we have because we're using expo.
+98
+
+98
+00:04:14,350 --> 00:04:16,230
+And then we got App js.
+99
+
+99
+00:04:16,230 --> 00:04:19,570
+This is the only real code file we have
+100
+
+100
+00:04:19,570 --> 00:04:22,070
+in this starter project.
+101
+
+101
+00:04:22,070 --> 00:04:25,270
+The exact content could change over time
+102
+
+102
+00:04:25,270 --> 00:04:27,740
+to make sure that we're all on the same page.
+103
+
+103
+00:04:27,740 --> 00:04:31,000
+I attached my App js file to this lecture
+104
+
+104
+00:04:31,000 --> 00:04:34,130
+so that you can download it and replace yours with it
+105
+
+105
+00:04:34,130 --> 00:04:36,760
+so that you have the same code as I have it.
+106
+
+106
+00:04:36,760 --> 00:04:40,163
+Because we'll build up on this code in the next lectures.
+107
+
+107
+00:04:41,100 --> 00:04:44,500
+This in here is a regular react component
+108
+
+108
+00:04:44,500 --> 00:04:47,080
+which uses special components
+109
+
+109
+00:04:47,080 --> 00:04:51,850
+special js x elements, exposed, bio-react-native.
+110
+
+110
+00:04:51,850 --> 00:04:53,900
+That's what I mentioned before.
+111
+
+111
+00:04:53,900 --> 00:04:57,010
+And then we got some styling which could look a bit weird
+112
+
+112
+00:04:57,010 --> 00:04:59,480
+but I'll come back to how styling works
+113
+
+113
+00:04:59,480 --> 00:05:01,783
+in react-native apps later.
+114
+
+114
+00:05:02,910 --> 00:05:05,750
+So for the moment, this is our app code,
+115
+
+115
+00:05:05,750 --> 00:05:09,740
+and now it would be nice to see this code in action.
+116
+
+116
+00:05:09,740 --> 00:05:13,733
+For this, we need some device on which we can preview it.

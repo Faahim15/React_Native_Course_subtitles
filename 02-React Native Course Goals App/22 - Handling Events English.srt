@@ -1,0 +1,923 @@
+1
+00:00:02,200 --> 00:00:04,230
+So we did add some styling
+2
+
+2
+00:00:04,230 --> 00:00:05,620
+and a basic layout.
+3
+
+3
+00:00:05,620 --> 00:00:06,860
+This is nice,
+4
+
+4
+00:00:06,860 --> 00:00:09,130
+but of course, not all we wanna do.
+5
+
+5
+00:00:09,130 --> 00:00:10,470
+In most apps,
+6
+
+6
+00:00:10,470 --> 00:00:12,610
+no matter if we're talking about web apps
+7
+
+7
+00:00:12,610 --> 00:00:14,590
+or native mobile apps,
+8
+
+8
+00:00:14,590 --> 00:00:18,100
+we also want to allow the user to interact with the app.
+9
+
+9
+00:00:18,100 --> 00:00:20,650
+And we got a text input here
+10
+
+10
+00:00:20,650 --> 00:00:23,420
+and we also got a button that could be pressed,
+11
+
+11
+00:00:23,420 --> 00:00:24,530
+but at the moment, of course,
+12
+
+12
+00:00:24,530 --> 00:00:26,440
+nothing happens if you type here
+13
+
+13
+00:00:26,440 --> 00:00:28,040
+or if you press this button,
+14
+
+14
+00:00:28,040 --> 00:00:29,880
+this is ignored.
+15
+
+15
+00:00:29,880 --> 00:00:31,380
+And this is ignored
+16
+
+16
+00:00:31,380 --> 00:00:34,050
+because we're not handling these events.
+17
+
+17
+00:00:34,050 --> 00:00:38,250
+And just as with a web app that you're building with React,
+18
+
+18
+00:00:38,250 --> 00:00:39,740
+you, of course, need to handle them
+19
+
+19
+00:00:39,740 --> 00:00:41,660
+if you want something to happen.
+20
+
+20
+00:00:41,660 --> 00:00:45,710
+The good news is that you do handle events in the same way
+21
+
+21
+00:00:45,710 --> 00:00:48,430
+you would do it in web apps though.
+22
+
+22
+00:00:48,430 --> 00:00:50,220
+You can add event listeners
+23
+
+23
+00:00:50,220 --> 00:00:53,350
+and connect them to event handler functions
+24
+
+24
+00:00:53,350 --> 00:00:56,680
+and you can manage state in your components
+25
+
+25
+00:00:56,680 --> 00:00:58,730
+with the useState Hook,
+26
+
+26
+00:00:58,730 --> 00:01:01,880
+just as you would do it in any other React app.
+27
+
+27
+00:01:01,880 --> 00:01:04,430
+Because this is just a React app,
+28
+
+28
+00:01:04,430 --> 00:01:05,870
+the only difference,
+29
+
+29
+00:01:05,870 --> 00:01:06,703
+as you learned
+30
+
+30
+00:01:06,703 --> 00:01:08,500
+in the first course section,
+31
+
+31
+00:01:08,500 --> 00:01:12,070
+compared to a React app that targets the web
+32
+
+32
+00:01:12,070 --> 00:01:14,540
+is that we use a different platform
+33
+
+33
+00:01:14,540 --> 00:01:17,570
+with React Native instead of React DOM.
+34
+
+34
+00:01:17,570 --> 00:01:20,420
+But when it comes to React's core features
+35
+
+35
+00:01:20,420 --> 00:01:23,780
+like handling events or managing state,
+36
+
+36
+00:01:23,780 --> 00:01:26,380
+that all works in exactly the same way
+37
+
+37
+00:01:26,380 --> 00:01:29,310
+as you know it from React for the web.
+38
+
+38
+00:01:29,310 --> 00:01:32,160
+And here I got two events that I wanna handle.
+39
+
+39
+00:01:32,160 --> 00:01:34,630
+The first one would be a click on this button
+40
+
+40
+00:01:34,630 --> 00:01:36,390
+but before we handle that
+41
+
+41
+00:01:36,390 --> 00:01:40,900
+I also wanna handle keystrokes on that TextInput element
+42
+
+42
+00:01:40,900 --> 00:01:43,850
+so that I can grab the value the user entered
+43
+
+43
+00:01:43,850 --> 00:01:45,720
+and so that we can then use this value
+44
+
+44
+00:01:45,720 --> 00:01:48,000
+to finally add a new goal
+45
+
+45
+00:01:48,000 --> 00:01:50,560
+in this list of goals as a next step.
+46
+
+46
+00:01:50,560 --> 00:01:51,393
+And therefore,
+47
+
+47
+00:01:51,393 --> 00:01:54,000
+these are the first two things I wanna do.
+48
+
+48
+00:01:54,000 --> 00:01:55,370
+I will add a function
+49
+
+49
+00:01:56,230 --> 00:01:59,217
+that could be called goalInputHandler
+50
+
+50
+00:02:00,210 --> 00:02:03,440
+that is responsible for fetching that user input
+51
+
+51
+00:02:03,440 --> 00:02:04,803
+as the user types.
+52
+
+52
+00:02:05,710 --> 00:02:09,870
+Then I'll another function addGoalHandler
+53
+
+53
+00:02:09,870 --> 00:02:12,913
+which should be fired when this button here is clicked.
+54
+
+54
+00:02:14,660 --> 00:02:16,530
+Now to connect those functions,
+55
+
+55
+00:02:16,530 --> 00:02:19,960
+we use special event listening props
+56
+
+56
+00:02:19,960 --> 00:02:23,593
+that are provided by React Native on its components.
+57
+
+57
+00:02:24,620 --> 00:02:25,453
+For example,
+58
+
+58
+00:02:25,453 --> 00:02:27,350
+to connect goalInputHandler to TextInput,
+59
+
+59
+00:02:28,550 --> 00:02:33,540
+we can add the special onChangeText prop.
+60
+
+60
+00:02:33,540 --> 00:02:36,160
+This is a prop exposed by React Native
+61
+
+61
+00:02:36,160 --> 00:02:38,720
+which wants a function as a value,
+62
+
+62
+00:02:38,720 --> 00:02:40,540
+a pointer at a function.
+63
+
+63
+00:02:40,540 --> 00:02:44,180
+In my case, I'll point at this goalInputHandler function.
+64
+
+64
+00:02:44,180 --> 00:02:46,620
+So I'll pass that as a value here
+65
+
+65
+00:02:46,620 --> 00:02:48,360
+and I'll press the auto format shortcut
+66
+
+66
+00:02:48,360 --> 00:02:50,060
+to make this a bit easier to read.
+67
+
+67
+00:02:51,300 --> 00:02:54,700
+Now, please note that I don't execute this function here.
+68
+
+68
+00:02:54,700 --> 00:02:57,010
+I don't add parentheses.
+69
+
+69
+00:02:57,010 --> 00:02:58,700
+If you would add parentheses
+70
+
+70
+00:02:58,700 --> 00:03:00,550
+this function would be executed
+71
+
+71
+00:03:00,550 --> 00:03:04,330
+as soon as this code is parsed and evaluated.
+72
+
+72
+00:03:04,330 --> 00:03:05,560
+And this would be too soon,
+73
+
+73
+00:03:05,560 --> 00:03:07,060
+because that would be the case
+74
+
+74
+00:03:07,060 --> 00:03:09,400
+when this user interface is rendered.
+75
+
+75
+00:03:09,400 --> 00:03:10,660
+I don't wanna do that.
+76
+
+76
+00:03:10,660 --> 00:03:12,860
+Instead, I wanna point at this function
+77
+
+77
+00:03:12,860 --> 00:03:15,240
+so that React can execute it for me
+78
+
+78
+00:03:15,240 --> 00:03:18,840
+whenever this text changes in this input
+79
+
+79
+00:03:18,840 --> 00:03:19,910
+and that's what will happen
+80
+
+80
+00:03:19,910 --> 00:03:21,333
+if we set it up like this.
+81
+
+81
+00:03:22,880 --> 00:03:25,970
+Now in this goalInputHandler function here,
+82
+
+82
+00:03:25,970 --> 00:03:29,370
+we then receive the entered value automatically
+83
+
+83
+00:03:29,370 --> 00:03:30,260
+because keep in mind,
+84
+
+84
+00:03:30,260 --> 00:03:32,620
+it will be React that calls this function
+85
+
+85
+00:03:32,620 --> 00:03:35,850
+because it's React Native that exposes this prop.
+86
+
+86
+00:03:35,850 --> 00:03:37,070
+And therefore, React,
+87
+
+87
+00:03:37,070 --> 00:03:38,950
+or to be precise React Native,
+88
+
+88
+00:03:38,950 --> 00:03:41,860
+will also provide us a value as a input
+89
+
+89
+00:03:41,860 --> 00:03:43,800
+as a parameter to this function
+90
+
+90
+00:03:43,800 --> 00:03:46,220
+and that will be the enteredText.
+91
+
+91
+00:03:46,220 --> 00:03:49,310
+So we get the enteredText automatically.
+92
+
+92
+00:03:49,310 --> 00:03:50,940
+And then we could, for example,
+93
+
+93
+00:03:50,940 --> 00:03:53,130
+console.log this here.
+94
+
+94
+00:03:53,130 --> 00:03:54,053
+Like this.
+95
+
+95
+00:03:55,500 --> 00:03:56,890
+If we save this code
+96
+
+96
+00:03:56,890 --> 00:03:59,623
+and we have the npm-start process up and running,
+97
+
+97
+00:04:00,600 --> 00:04:02,330
+we can go back here.
+98
+
+98
+00:04:02,330 --> 00:04:03,163
+And for example,
+99
+
+99
+00:04:03,163 --> 00:04:04,380
+enter Test.
+100
+
+100
+00:04:04,380 --> 00:04:05,890
+And as I type this here,
+101
+
+101
+00:04:05,890 --> 00:04:09,670
+you see the log update here in my terminal
+102
+
+102
+00:04:09,670 --> 00:04:12,543
+with every keystroke until we have the word Test.
+103
+
+103
+00:04:13,520 --> 00:04:14,740
+So that's how this works
+104
+
+104
+00:04:14,740 --> 00:04:17,890
+and this works totally on its own.
+105
+
+105
+00:04:17,890 --> 00:04:20,250
+So that's how we can get the entered value.
+106
+
+106
+00:04:20,250 --> 00:04:22,450
+Of course, we don't want to get the value
+107
+
+107
+00:04:22,450 --> 00:04:24,670
+because we need it in this function though.
+108
+
+108
+00:04:24,670 --> 00:04:26,610
+Instead, we need it in this function.
+109
+
+109
+00:04:26,610 --> 00:04:28,660
+So we need it when the button is clicked.
+110
+
+110
+00:04:29,560 --> 00:04:30,393
+And for this,
+111
+
+111
+00:04:30,393 --> 00:04:31,440
+we need to connect this function
+112
+
+112
+00:04:31,440 --> 00:04:33,373
+to a button click as a first step.
+113
+
+113
+00:04:34,230 --> 00:04:36,270
+Now, if you would be building a web app
+114
+
+114
+00:04:36,270 --> 00:04:38,500
+and you had a HTML button here,
+115
+
+115
+00:04:38,500 --> 00:04:40,430
+you would add the onClick prop
+116
+
+116
+00:04:41,330 --> 00:04:42,810
+but with React Native,
+117
+
+117
+00:04:42,810 --> 00:04:44,713
+this prop doesn't exist on a button.
+118
+
+118
+00:04:45,610 --> 00:04:47,150
+But we have a similar prop,
+119
+
+119
+00:04:47,150 --> 00:04:49,350
+it's called onPress.
+120
+
+120
+00:04:49,350 --> 00:04:51,610
+It's called onPress instead of onClick
+121
+
+121
+00:04:51,610 --> 00:04:53,880
+because technically we don't have clicks
+122
+
+122
+00:04:53,880 --> 00:04:55,650
+in native mobile apps.
+123
+
+123
+00:04:55,650 --> 00:04:58,243
+Instead, we have taps or presses.
+124
+
+124
+00:04:59,210 --> 00:05:00,770
+So here we have onPress.
+125
+
+125
+00:05:00,770 --> 00:05:02,700
+And just as with onChangeText,
+126
+
+126
+00:05:02,700 --> 00:05:06,360
+here I point at my function that should be executed.
+127
+
+127
+00:05:06,360 --> 00:05:08,660
+In this case, addGoalHandler.
+128
+
+128
+00:05:08,660 --> 00:05:10,240
+So now this function will be triggered
+129
+
+129
+00:05:10,240 --> 00:05:12,693
+whenever the button is clicked or tapped.
+130
+
+130
+00:05:13,690 --> 00:05:15,860
+Now we want the value entered
+131
+
+131
+00:05:15,860 --> 00:05:16,890
+in this TextInput
+132
+
+132
+00:05:16,890 --> 00:05:18,490
+in this function.
+133
+
+133
+00:05:18,490 --> 00:05:19,920
+So what we need to do
+134
+
+134
+00:05:19,920 --> 00:05:22,780
+is we need to store it as state.
+135
+
+135
+00:05:22,780 --> 00:05:24,830
+We need to store it as state
+136
+
+136
+00:05:24,830 --> 00:05:28,210
+which is updated with every keystroke in this function
+137
+
+137
+00:05:28,210 --> 00:05:29,500
+so that we can then use it
+138
+
+138
+00:05:29,500 --> 00:05:31,790
+in this second function.
+139
+
+139
+00:05:31,790 --> 00:05:32,960
+And state management
+140
+
+140
+00:05:32,960 --> 00:05:34,400
+works just as it works
+141
+
+141
+00:05:34,400 --> 00:05:36,830
+in any other React app.
+142
+
+142
+00:05:36,830 --> 00:05:41,830
+We can import the useState Hook from React.
+143
+
+143
+00:05:41,860 --> 00:05:43,440
+So not from React Native,
+144
+
+144
+00:05:43,440 --> 00:05:44,400
+but from React:
+145
+
+145
+00:05:44,400 --> 00:05:47,440
+the core React library itself.
+146
+
+146
+00:05:47,440 --> 00:05:49,930
+And then we can register a new state here
+147
+
+147
+00:05:49,930 --> 00:05:51,980
+in our App component function
+148
+
+148
+00:05:51,980 --> 00:05:54,283
+just as we do it in any other React app.
+149
+
+149
+00:05:56,090 --> 00:05:58,540
+So here I'll call useState
+150
+
+150
+00:05:58,540 --> 00:06:01,100
+and set this to an empty string initially,
+151
+
+151
+00:06:01,100 --> 00:06:03,460
+because this will be my user input state
+152
+
+152
+00:06:03,460 --> 00:06:07,360
+or my enteredGoalText state,
+153
+
+153
+00:06:07,360 --> 00:06:11,513
+which can be updated with the setEnteredGoalText function.
+154
+
+154
+00:06:12,900 --> 00:06:16,470
+And then in case this syntax doesn't tell you anything,
+155
+
+155
+00:06:16,470 --> 00:06:20,070
+definitely have a look at some dedicated React resources
+156
+
+156
+00:06:20,070 --> 00:06:22,380
+like my React complete guide course
+157
+
+157
+00:06:22,380 --> 00:06:24,830
+because this is standard React
+158
+
+158
+00:06:24,830 --> 00:06:26,843
+and you should know syntax like this.
+159
+
+159
+00:06:27,890 --> 00:06:30,140
+So now we got this enteredGoalText state,
+160
+
+160
+00:06:30,140 --> 00:06:32,030
+which initially is an empty string,
+161
+
+161
+00:06:32,030 --> 00:06:34,580
+but with every keystroke in my TextInput,
+162
+
+162
+00:06:34,580 --> 00:06:35,760
+I will update it
+163
+
+163
+00:06:35,760 --> 00:06:37,390
+and set my enteredGoalText
+164
+
+164
+00:06:37,390 --> 00:06:41,273
+to the enteredText I'm receiving here as a parameter.
+165
+
+165
+00:06:42,660 --> 00:06:43,493
+And therefore, now,
+166
+
+166
+00:06:43,493 --> 00:06:44,470
+in addGoalHandler,
+167
+
+167
+00:06:44,470 --> 00:06:46,170
+we can access this state
+168
+
+168
+00:06:46,170 --> 00:06:47,523
+and do something with it.
+169
+
+169
+00:06:48,830 --> 00:06:49,710
+And for the moment,
+170
+
+170
+00:06:49,710 --> 00:06:54,560
+I will simply console.log my enteredGoalText state here.
+171
+
+171
+00:06:54,560 --> 00:06:55,550
+But of course, soon,
+172
+
+172
+00:06:55,550 --> 00:06:57,410
+we will update a list of goals
+173
+
+173
+00:06:57,410 --> 00:06:59,113
+which we then output down there.
+174
+
+174
+00:07:00,650 --> 00:07:02,123
+So let's save this.
+175
+
+175
+00:07:02,980 --> 00:07:04,140
+And now here,
+176
+
+176
+00:07:04,140 --> 00:07:05,810
+if I enter Test
+177
+
+177
+00:07:05,810 --> 00:07:07,500
+and click Add Goal,
+178
+
+178
+00:07:07,500 --> 00:07:09,393
+we got this Test log here.
+179
+
+179
+00:07:10,400 --> 00:07:13,290
+Or if we enter Some other text!
+180
+
+180
+00:07:13,290 --> 00:07:16,400
+to see that this is really coming from our updated code.
+181
+
+181
+00:07:16,400 --> 00:07:18,253
+Now we see Some other text!, here.
+182
+
+182
+00:07:19,730 --> 00:07:22,400
+So this is working as intended.
+183
+
+183
+00:07:22,400 --> 00:07:23,490
+The next step now
+184
+
+184
+00:07:23,490 --> 00:07:26,610
+is to make sure that we can manage a list of goals,
+185
+
+185
+00:07:26,610 --> 00:07:28,493
+which we then can also output.

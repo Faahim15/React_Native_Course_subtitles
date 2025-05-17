@@ -1,0 +1,573 @@
+1
+00:00:01,070 --> 00:00:03,290
+So to work on the styling here.
+2
+
+2
+00:00:03,290 --> 00:00:06,580
+In the end we need to go into the GoalInput component.
+3
+
+3
+00:00:06,580 --> 00:00:08,590
+There, we have this model
+4
+
+4
+00:00:08,590 --> 00:00:11,200
+and in the model we have this View.
+5
+
+5
+00:00:11,200 --> 00:00:14,370
+Which in the end is responsible for controlling how
+6
+
+6
+00:00:14,370 --> 00:00:17,173
+the textInput and button are displayed.
+7
+
+7
+00:00:18,390 --> 00:00:20,290
+Now I wanna change the overall look.
+8
+
+8
+00:00:20,290 --> 00:00:22,990
+I now wanna have the button beneath the textInput
+9
+
+9
+00:00:23,942 --> 00:00:25,330
+and I wanna have another button
+10
+
+10
+00:00:25,330 --> 00:00:27,160
+in addition to add goal.
+11
+
+11
+00:00:27,160 --> 00:00:29,470
+Because that other button should allow us
+12
+
+12
+00:00:29,470 --> 00:00:30,963
+to close that model.
+13
+
+13
+00:00:31,980 --> 00:00:36,890
+Now to achieve this I will restructure this a bit.
+14
+
+14
+00:00:36,890 --> 00:00:40,630
+And I will actually add another View in here,
+15
+
+15
+00:00:40,630 --> 00:00:44,223
+below the textInput, and move my button into this View.
+16
+
+16
+00:00:45,320 --> 00:00:47,090
+And add another button here
+17
+
+17
+00:00:48,800 --> 00:00:53,060
+with a title of Cancel.
+18
+
+18
+00:00:53,060 --> 00:00:56,890
+So that I can add the goal or cancel adding.
+19
+
+19
+00:00:56,890 --> 00:00:59,340
+And this should in the future close my model.
+20
+
+20
+00:00:59,340 --> 00:01:01,860
+at the moment it won't do anything though.
+21
+
+21
+00:01:01,860 --> 00:01:04,350
+Now with that, we got that View in a View.
+22
+
+22
+00:01:04,350 --> 00:01:07,070
+But now I wanna change the styles of that outer View,
+23
+
+23
+00:01:07,070 --> 00:01:09,170
+which is the main View inside the model.
+24
+
+24
+00:01:09,170 --> 00:01:12,000
+Because it's the first element in the model.
+25
+
+25
+00:01:12,000 --> 00:01:14,980
+The top most element in the model.
+26
+
+26
+00:01:14,980 --> 00:01:18,780
+And on this input container, I wanna use flex 1.
+27
+
+27
+00:01:18,780 --> 00:01:22,530
+So that it takes all the available space in the model.
+28
+
+28
+00:01:22,530 --> 00:01:26,963
+But I wanna change the flexDirection back to column.
+29
+
+29
+00:01:28,080 --> 00:01:29,870
+And therefore we can also remove it
+30
+
+30
+00:01:29,870 --> 00:01:31,823
+because that is the default anyways.
+31
+
+31
+00:01:32,720 --> 00:01:34,690
+With this, if I save this,
+32
+
+32
+00:01:34,690 --> 00:01:37,083
+the buttons are now below the textInput.
+33
+
+33
+00:01:37,930 --> 00:01:40,660
+But they are totally stretched out,
+34
+
+34
+00:01:40,660 --> 00:01:44,030
+because we have space between for justifyContent.
+35
+
+35
+00:01:44,030 --> 00:01:46,470
+This should instead be center
+36
+
+36
+00:01:46,470 --> 00:01:49,800
+to make sure all the content is centered.
+37
+
+37
+00:01:49,800 --> 00:01:52,120
+This now looks way better.
+38
+
+38
+00:01:52,120 --> 00:01:53,970
+Now in addition these two buttons
+39
+
+39
+00:01:53,970 --> 00:01:56,470
+should be next to each other
+40
+
+40
+00:01:56,470 --> 00:02:00,090
+and therefore I added this View around the buttons.
+41
+
+41
+00:02:00,090 --> 00:02:02,960
+and I will give this View some styling.
+42
+
+42
+00:02:02,960 --> 00:02:05,290
+So here, maybe at the bottom,
+43
+
+43
+00:02:05,290 --> 00:02:08,560
+I'll add my buttonContainer object.
+44
+
+44
+00:02:08,560 --> 00:02:12,670
+And actually give this a flexDirection of row.
+45
+
+45
+00:02:12,670 --> 00:02:16,130
+So that the two buttons are next to each other.
+46
+
+46
+00:02:16,130 --> 00:02:19,930
+And then add this buttonContainer on this View.
+47
+
+47
+00:02:19,930 --> 00:02:21,860
+So here I'll add a style
+48
+
+48
+00:02:21,860 --> 00:02:23,460
+which is styles.buttonContainer.
+49
+
+49
+00:02:25,531 --> 00:02:30,130
+And with that, the buttons do sit next to each other.
+50
+
+50
+00:02:30,130 --> 00:02:33,400
+Now it would be nice if the buttons had
+51
+
+51
+00:02:33,400 --> 00:02:37,560
+maybe a fixed width and some spacing between them.
+52
+
+52
+00:02:37,560 --> 00:02:41,230
+And to achieve this, since I can't style these buttons,
+53
+
+53
+00:02:41,230 --> 00:02:42,400
+since they're built in
+54
+
+54
+00:02:42,400 --> 00:02:44,380
+and since I don't wanna build my own button
+55
+
+55
+00:02:44,380 --> 00:02:47,433
+which we could do but which is some extra work.
+56
+
+56
+00:02:47,433 --> 00:02:51,380
+I'll actually wrap each button into a View as well.
+57
+
+57
+00:02:51,380 --> 00:02:54,470
+Because then I can style that View instead of the button.
+58
+
+58
+00:02:54,470 --> 00:02:58,920
+And therefore still influence the look of the button a bit.
+59
+
+59
+00:02:58,920 --> 00:03:03,920
+So here I'll assign a style property to those Views here.
+60
+
+60
+00:03:03,970 --> 00:03:08,050
+And setup a dedicated styling object for those buttons.
+61
+
+61
+00:03:08,050 --> 00:03:10,220
+I'll name style object button.
+62
+
+62
+00:03:10,220 --> 00:03:13,400
+And for every button here I'll just make sure
+63
+
+63
+00:03:13,400 --> 00:03:18,400
+that it takes, lets say, 40% of the available width.
+64
+
+64
+00:03:18,520 --> 00:03:22,090
+And then we might want to add a marginHorizontal,
+65
+
+65
+00:03:22,090 --> 00:03:25,340
+So margin left and right, of eight pixels.
+66
+
+66
+00:03:25,340 --> 00:03:27,790
+So that we have some spacing between the buttons.
+67
+
+67
+00:03:28,760 --> 00:03:31,660
+And it's now this button style here
+68
+
+68
+00:03:31,660 --> 00:03:35,560
+which I wanna add to the Views that hold the buttons.
+69
+
+69
+00:03:35,560 --> 00:03:37,040
+And that's a quick and easy way
+70
+
+70
+00:03:37,040 --> 00:03:39,270
+of setting my own styles to the buttons
+71
+
+71
+00:03:39,270 --> 00:03:42,600
+even though I can't change the button style itself.
+72
+
+72
+00:03:42,600 --> 00:03:46,590
+But you can change the width or height with that,
+73
+
+73
+00:03:46,590 --> 00:03:49,270
+you can add margins between them.
+74
+
+74
+00:03:49,270 --> 00:03:51,120
+You wouldn't be able to change the color
+75
+
+75
+00:03:51,120 --> 00:03:53,930
+or text color though, if that was your plan
+76
+
+76
+00:03:53,930 --> 00:03:55,800
+you would have to build your own button.
+77
+
+77
+00:03:55,800 --> 00:03:58,790
+And in general, if you need more adjustments,
+78
+
+78
+00:03:58,790 --> 00:04:00,470
+you might wanna build your own button
+79
+
+79
+00:04:00,470 --> 00:04:02,930
+by using the pressable component.
+80
+
+80
+00:04:02,930 --> 00:04:04,460
+But this is good enough for now
+81
+
+81
+00:04:04,460 --> 00:04:06,710
+and it gives me these equal sized buttons
+82
+
+82
+00:04:06,710 --> 00:04:07,713
+below the textInput.
+83
+
+83
+00:04:08,950 --> 00:04:10,750
+I also wanna have some spacing between
+84
+
+84
+00:04:10,750 --> 00:04:12,900
+the textInputs and the buttons.
+85
+
+85
+00:04:12,900 --> 00:04:15,430
+And maybe we can shrink them a little bit.
+86
+
+86
+00:04:15,430 --> 00:04:18,720
+So to shrink them I'll change the width to 30% here
+87
+
+87
+00:04:19,580 --> 00:04:23,460
+or we set this to a fixed pixel width of 100 for example,
+88
+
+88
+00:04:23,460 --> 00:04:24,850
+like this.
+89
+
+89
+00:04:24,850 --> 00:04:28,120
+And for the spacing between the textInput and the buttons.
+90
+
+90
+00:04:28,120 --> 00:04:31,610
+On the buttonContainer I will add a marginTop
+91
+
+91
+00:04:32,650 --> 00:04:36,660
+of let's say, 8 or maybe 16.
+92
+
+92
+00:04:36,660 --> 00:04:39,090
+So now I save this there is some distance
+93
+
+93
+00:04:39,090 --> 00:04:42,503
+between the buttons and the textInput above the buttons.
+94
+
+94
+00:04:43,450 --> 00:04:47,250
+The textInput now also can become wider.
+95
+
+95
+00:04:47,250 --> 00:04:49,787
+So I will set the width of the textInput to 100%.
+96
+
+96
+00:04:52,766 --> 00:04:55,250
+And with that, I reloaded the app in between
+97
+
+97
+00:04:55,250 --> 00:04:58,030
+so I will reopen this, this is now wider.
+98
+
+98
+00:04:58,030 --> 00:05:01,080
+Now it would still be nice to have some area
+99
+
+99
+00:05:01,080 --> 00:05:03,350
+around that which is not occupied.
+100
+
+100
+00:05:03,350 --> 00:05:05,300
+And therefore on the overall container,
+101
+
+101
+00:05:05,300 --> 00:05:07,560
+Which is that root View in that model,
+102
+
+102
+00:05:07,560 --> 00:05:10,430
+I will add a little of padding in all directions
+103
+
+103
+00:05:10,430 --> 00:05:13,690
+and let's say add 16 pixels of padding.
+104
+
+104
+00:05:13,690 --> 00:05:16,830
+And now I'd say this doesn't look too bad.
+105
+
+105
+00:05:16,830 --> 00:05:17,750
+Last but not least
+106
+
+106
+00:05:17,750 --> 00:05:19,860
+we still have some extra spacing to the right
+107
+
+107
+00:05:19,860 --> 00:05:21,430
+of the textInput,
+108
+
+108
+00:05:21,430 --> 00:05:23,170
+because we had a margin to right
+109
+
+109
+00:05:23,170 --> 00:05:24,970
+and I wanna get rid of that as well.
+110
+
+110
+00:05:25,850 --> 00:05:27,690
+So now this does look quite good.
+111
+
+111
+00:05:27,690 --> 00:05:29,820
+And of course you can adjust this a bit further
+112
+
+112
+00:05:29,820 --> 00:05:31,410
+if you want to.
+113
+
+113
+00:05:31,410 --> 00:05:33,880
+Now I wanna make sure the model closes
+114
+
+114
+00:05:33,880 --> 00:05:37,310
+whenever we cancel or click add goal though.
+115
+
+115
+00:05:37,310 --> 00:05:39,773
+Because at the moment that's not happening.

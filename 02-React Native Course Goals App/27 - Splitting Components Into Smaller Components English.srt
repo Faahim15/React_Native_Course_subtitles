@@ -1,0 +1,528 @@
+1
+00:00:02,860 --> 00:00:03,693
+So by now, we already learned
+2
+
+2
+00:00:03,693 --> 00:00:06,630
+a lot about important React Native components
+3
+
+3
+00:00:06,630 --> 00:00:08,490
+and concepts in general.
+4
+
+4
+00:00:08,490 --> 00:00:11,580
+Our app JS file is getting bigger and bigger.
+5
+
+5
+00:00:11,580 --> 00:00:14,350
+And this is something that happens in most React apps,
+6
+
+6
+00:00:14,350 --> 00:00:16,540
+no matter if you're building for React Native,
+7
+
+7
+00:00:16,540 --> 00:00:18,343
+or if you're building for the web.
+8
+
+8
+00:00:19,328 --> 00:00:21,970
+Your components get bigger as you add more functionality.
+9
+
+9
+00:00:21,970 --> 00:00:25,960
+Now, what do in such cases is you break up your components
+10
+
+10
+00:00:25,960 --> 00:00:29,010
+and you split them into smaller components.
+11
+
+11
+00:00:29,010 --> 00:00:32,130
+That is a common approach and a common best practice
+12
+
+12
+00:00:32,130 --> 00:00:34,200
+for keeping your code maintainable.
+13
+
+13
+00:00:34,200 --> 00:00:37,120
+And it's no difference here for React Native.
+14
+
+14
+00:00:37,120 --> 00:00:40,330
+Thus far we're working with one component only
+15
+
+15
+00:00:40,330 --> 00:00:43,080
+but this of course is the exception.
+16
+
+16
+00:00:43,080 --> 00:00:46,510
+The norm is that you do work with multiple components.
+17
+
+17
+00:00:46,510 --> 00:00:48,403
+And we wanna do that here as well.
+18
+
+18
+00:00:49,480 --> 00:00:51,960
+For this, I'll add a new folder in my project
+19
+
+19
+00:00:51,960 --> 00:00:53,400
+which I'll name "components"
+20
+
+20
+00:00:53,400 --> 00:00:56,010
+because I wanna store my components in there.
+21
+
+21
+00:00:56,010 --> 00:00:57,700
+You don't have to use this name
+22
+
+22
+00:00:57,700 --> 00:00:59,430
+but it is a common convention
+23
+
+23
+00:00:59,430 --> 00:01:03,088
+since we will be building and storing components in there.
+24
+
+24
+00:01:03,088 --> 00:01:06,690
+And then I want to add two components files in there.
+25
+
+25
+00:01:06,690 --> 00:01:08,480
+Goal input JS,
+26
+
+26
+00:01:08,480 --> 00:01:10,190
+because there I plan to store
+27
+
+27
+00:01:10,190 --> 00:01:15,190
+the data input related JSX code and functionality.
+28
+
+28
+00:01:15,460 --> 00:01:18,320
+And goal item JS,
+29
+
+29
+00:01:18,320 --> 00:01:22,470
+here I plan to store the actual JSX code
+30
+
+30
+00:01:22,470 --> 00:01:24,700
+and functionality that is related
+31
+
+31
+00:01:24,700 --> 00:01:27,513
+without putting single goal items.
+32
+
+32
+00:01:28,850 --> 00:01:31,210
+And of course you could split this into more components,
+33
+
+33
+00:01:31,210 --> 00:01:32,950
+if you wanted to.
+34
+
+34
+00:01:32,950 --> 00:01:36,044
+Now I'll start working on this goal item component.
+35
+
+35
+00:01:36,044 --> 00:01:38,850
+In there I'll add a function goal item
+36
+
+36
+00:01:39,688 --> 00:01:41,280
+because I'll create a functional component
+37
+
+37
+00:01:41,280 --> 00:01:43,753
+and I will export this as a default.
+38
+
+38
+00:01:44,600 --> 00:01:47,263
+So I will build a standard React component in there.
+39
+
+39
+00:01:48,360 --> 00:01:51,610
+Now you don't need to import React from React here.
+40
+
+40
+00:01:51,610 --> 00:01:54,090
+You did need to do that in the past
+41
+
+41
+00:01:54,090 --> 00:01:57,140
+but with the modern versions of React Native and React
+42
+
+42
+00:01:57,140 --> 00:01:58,850
+you don't need to do that anymore
+43
+
+43
+00:01:58,850 --> 00:02:00,990
+and therefore a functional component
+44
+
+44
+00:02:00,990 --> 00:02:02,773
+can be created just like this.
+45
+
+45
+00:02:04,528 --> 00:02:05,480
+Now in this goal item component,
+46
+
+46
+00:02:05,480 --> 00:02:07,640
+I wanna return some JSX code
+47
+
+47
+00:02:07,640 --> 00:02:09,470
+and I actually wanna return the code
+48
+
+48
+00:02:09,470 --> 00:02:12,470
+that is responsible for outputting a single goal item.
+49
+
+49
+00:02:12,470 --> 00:02:15,430
+So not the list of items, but a single item.
+50
+
+50
+00:02:15,430 --> 00:02:18,700
+And that means I wanna use this code here.
+51
+
+51
+00:02:18,700 --> 00:02:21,524
+Hence, I will cut this code from app JS
+52
+
+52
+00:02:21,524 --> 00:02:24,953
+and return it here in goal item JS.
+53
+
+53
+00:02:26,270 --> 00:02:29,830
+Now, of course, here, I'm referring to some styles though
+54
+
+54
+00:02:29,830 --> 00:02:34,230
+and those styles therefore also should be brought over.
+55
+
+55
+00:02:34,230 --> 00:02:37,760
+For this I have to create a new style sheet object
+56
+
+56
+00:02:37,760 --> 00:02:40,224
+that belongs to this component.
+57
+
+57
+00:02:40,224 --> 00:02:41,540
+So to this component file also
+58
+
+58
+00:02:41,540 --> 00:02:46,360
+and hence I will import from React Native
+59
+
+59
+00:02:46,360 --> 00:02:51,360
+and I will import the style sheet object here.
+60
+
+60
+00:02:51,416 --> 00:02:54,310
+Which allows me to call the create method,
+61
+
+61
+00:02:54,310 --> 00:02:59,310
+which creates a new React Native managed styling object,
+62
+
+62
+00:02:59,396 --> 00:03:01,690
+which helps with auto completion and so on.
+63
+
+63
+00:03:01,690 --> 00:03:04,370
+I'll store this in a constant named styles,
+64
+
+64
+00:03:04,370 --> 00:03:06,712
+though the name is up to you,
+65
+
+65
+00:03:06,712 --> 00:03:09,596
+but since I'm already referring to this kind of constant
+66
+
+66
+00:03:09,596 --> 00:03:10,479
+here in my code,
+67
+
+67
+00:03:10,479 --> 00:03:12,050
+I will keep the name here.
+68
+
+68
+00:03:12,050 --> 00:03:15,900
+Now as a side note, we could have also passed our styles
+69
+
+69
+00:03:15,900 --> 00:03:20,160
+from app component to goal item component via props.
+70
+
+70
+00:03:20,160 --> 00:03:22,440
+We don't have to define the styles here
+71
+
+71
+00:03:22,440 --> 00:03:25,340
+but it is a good practice to keep your styles
+72
+
+72
+00:03:25,340 --> 00:03:27,190
+close to your JSX code.
+73
+
+73
+00:03:27,190 --> 00:03:29,010
+And therefore I wanna move my styles
+74
+
+74
+00:03:29,010 --> 00:03:30,570
+that belong to the goal item
+75
+
+75
+00:03:30,570 --> 00:03:34,810
+from the app component into the goal item component as well.
+76
+
+76
+00:03:34,810 --> 00:03:37,370
+And that would be these two objects
+77
+
+77
+00:03:37,370 --> 00:03:39,840
+with their style properties.
+78
+
+78
+00:03:39,840 --> 00:03:43,690
+I will cut them in app JS and move them over
+79
+
+79
+00:03:43,690 --> 00:03:45,930
+to goal item JS.
+80
+
+80
+00:03:45,930 --> 00:03:49,450
+And here in this object which we pass to the create method,
+81
+
+81
+00:03:49,450 --> 00:03:52,240
+I'll paste in these two properties.
+82
+
+82
+00:03:52,240 --> 00:03:54,790
+And with that, I can reference those properties
+83
+
+83
+00:03:54,790 --> 00:03:56,303
+in my JSX code.
+84
+
+84
+00:03:58,104 --> 00:03:59,610
+So with that, we are creating this component.
+85
+
+85
+00:03:59,610 --> 00:04:02,200
+We still need to take care about this text,
+86
+
+86
+00:04:02,200 --> 00:04:04,360
+but we get our first component
+87
+
+87
+00:04:04,360 --> 00:04:08,490
+and then app JS we can now import this component.
+88
+
+88
+00:04:08,490 --> 00:04:10,440
+We can now also get rid of some imports
+89
+
+89
+00:04:10,440 --> 00:04:12,920
+which we don't need anymore because I'm, for example,
+90
+
+90
+00:04:12,920 --> 00:04:15,470
+not displaying a text component in there
+91
+
+91
+00:04:15,470 --> 00:04:17,450
+and I'm not using scroll view anymore
+92
+
+92
+00:04:18,998 --> 00:04:23,998
+But I will now import goal item from components goal item.
+93
+
+93
+00:04:26,130 --> 00:04:30,536
+And this works just as it works in our regular React app,
+94
+
+94
+00:04:30,536 --> 00:04:33,440
+we import our components from other files like this,
+95
+
+95
+00:04:33,440 --> 00:04:35,200
+we have a capital starting character
+96
+
+96
+00:04:35,200 --> 00:04:37,970
+because we plan on using this in JSX
+97
+
+97
+00:04:37,970 --> 00:04:39,520
+and we wanna make it clear to React
+98
+
+98
+00:04:39,520 --> 00:04:41,060
+that this is a custom component.
+99
+
+99
+00:04:41,060 --> 00:04:43,673
+Hence we start with a capital character.
+100
+
+100
+00:04:44,730 --> 00:04:47,610
+Now down here in our JSX code,
+101
+
+101
+00:04:47,610 --> 00:04:52,610
+where I return some markup inside of render item.
+102
+
+102
+00:04:52,800 --> 00:04:57,330
+I now return my goal item component, so my own component.
+103
+
+103
+00:04:57,330 --> 00:05:01,050
+And this is how we define and use a custom component.
+104
+
+104
+00:05:01,050 --> 00:05:03,560
+And of course in the end it's totally the same
+105
+
+105
+00:05:03,560 --> 00:05:08,039
+as we do it in a React for web project.
+106
+
+106
+00:05:08,039 --> 00:05:09,989
+There isn't really any difference here.
