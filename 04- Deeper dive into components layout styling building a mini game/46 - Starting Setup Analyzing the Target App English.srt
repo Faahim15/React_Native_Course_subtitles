@@ -1,0 +1,313 @@
+1
+00:00:02,291 --> 00:00:03,440
+[Maximilian Schwarzmuller] Now to get started.
+2
+
+2
+00:00:03,440 --> 00:00:06,490
+I created a brand new expo project
+3
+
+3
+00:00:06,490 --> 00:00:09,130
+and you find my project attached.
+4
+
+4
+00:00:09,130 --> 00:00:12,780
+So that you can use the same starting point as I did.
+5
+
+5
+00:00:12,780 --> 00:00:16,100
+It's a very simple app with only one component.
+6
+
+6
+00:00:16,100 --> 00:00:17,040
+The app component
+7
+
+7
+00:00:17,040 --> 00:00:20,520
+with some dummy content and some basic styles.
+8
+
+8
+00:00:20,520 --> 00:00:25,323
+This will be our starting point for this course section.
+9
+
+9
+00:00:26,450 --> 00:00:28,210
+Now in this course section,
+10
+
+10
+00:00:28,210 --> 00:00:29,770
+we're going to build this game
+11
+
+11
+00:00:29,770 --> 00:00:32,010
+which I already showed you.
+12
+
+12
+00:00:32,010 --> 00:00:35,290
+This game of course has multiple screens.
+13
+
+13
+00:00:35,290 --> 00:00:38,500
+It has this starting screen, where we
+14
+
+14
+00:00:38,500 --> 00:00:43,440
+as the owner of the phone, pick a number between one and 99.
+15
+
+15
+00:00:43,440 --> 00:00:47,400
+And on this screen, we want to do a couple of things.
+16
+
+16
+00:00:47,400 --> 00:00:50,400
+We want to ensure that no number smaller
+17
+
+17
+00:00:50,400 --> 00:00:53,200
+than one or bigger than 99 can be picked,
+18
+
+18
+00:00:53,200 --> 00:00:54,820
+for example.
+19
+
+19
+00:00:54,820 --> 00:00:58,950
+We also then want to allow the user to reset this input
+20
+
+20
+00:00:58,950 --> 00:01:02,350
+and pick a new number, or finally start a game
+21
+
+21
+00:01:02,350 --> 00:01:05,350
+at which point we'll navigate to the game screen.
+22
+
+22
+00:01:05,350 --> 00:01:08,453
+The second main screen we have in this game.
+23
+
+23
+00:01:09,410 --> 00:01:10,530
+On this screen
+24
+
+24
+00:01:10,530 --> 00:01:13,890
+the phone will guess the number
+25
+
+25
+00:01:13,890 --> 00:01:17,320
+and we have to tell the phone after every guess,
+26
+
+26
+00:01:17,320 --> 00:01:19,900
+if it should guess lower or higher
+27
+
+27
+00:01:19,900 --> 00:01:22,270
+to get closer to our number.
+28
+
+28
+00:01:22,270 --> 00:01:24,290
+Now on this screen, we for example
+29
+
+29
+00:01:24,290 --> 00:01:27,340
+show a little alert, a little a warning.
+30
+
+30
+00:01:27,340 --> 00:01:29,500
+If we give the phone a wrong hint.
+31
+
+31
+00:01:29,500 --> 00:01:33,020
+If our chosen number is smaller and we tell the phone
+32
+
+32
+00:01:33,020 --> 00:01:35,270
+that it's bigger, something like this.
+33
+
+33
+00:01:35,270 --> 00:01:39,230
+Now, besides that every guess by the phone is logged
+34
+
+34
+00:01:39,230 --> 00:01:43,540
+and we see our log here, and this log also is scrollable.
+35
+
+35
+00:01:43,540 --> 00:01:47,440
+In case we exceed the max available height.
+36
+
+36
+00:01:47,440 --> 00:01:50,560
+Last but not least, once the phone guess our number.
+37
+
+37
+00:01:50,560 --> 00:01:52,470
+We get this Game Over screen
+38
+
+38
+00:01:52,470 --> 00:01:55,000
+with a short summary and this nice image.
+39
+
+39
+00:01:55,000 --> 00:01:56,690
+And then from that screen
+40
+
+40
+00:01:56,690 --> 00:01:59,760
+we can start a new game if we want to.
+41
+
+41
+00:01:59,760 --> 00:02:02,450
+And therefore, in this starting app here
+42
+
+42
+00:02:02,450 --> 00:02:04,730
+we will have to add all these screens
+43
+
+43
+00:02:04,730 --> 00:02:08,070
+but also plenty of other reusable components.
+44
+
+44
+00:02:08,070 --> 00:02:11,250
+Like the buttons we have, because we will build those
+45
+
+45
+00:02:11,250 --> 00:02:14,940
+from scratch ourselves and many other things.
+46
+
+46
+00:02:14,940 --> 00:02:16,510
+And therefore, that's what we'll do
+47
+
+47
+00:02:16,510 --> 00:02:18,860
+for the rest of this section.
+48
+
+48
+00:02:18,860 --> 00:02:21,880
+Now, if you're feeling super fancy
+49
+
+49
+00:02:21,880 --> 00:02:25,480
+definitely try building a first prototype of this game
+50
+
+50
+00:02:25,480 --> 00:02:27,750
+on your own with the basic React
+51
+
+51
+00:02:27,750 --> 00:02:30,740
+and React Native knowledge you have up to this point.
+52
+
+52
+00:02:30,740 --> 00:02:33,870
+You will not be able to recreate the exact same look
+53
+
+53
+00:02:33,870 --> 00:02:36,410
+because there are new components
+54
+
+54
+00:02:36,410 --> 00:02:40,130
+and new tricks that we will need to build this result.
+55
+
+55
+00:02:40,130 --> 00:02:42,650
+But maybe you can build a basic prototype
+56
+
+56
+00:02:42,650 --> 00:02:44,630
+with React and React Native.
+57
+
+57
+00:02:44,630 --> 00:02:47,690
+And if you want to definitely try building this
+58
+
+58
+00:02:47,690 --> 00:02:49,480
+on your own first, but of course
+59
+
+59
+00:02:49,480 --> 00:02:52,240
+otherwise it's perfectly fine to just follow along
+60
+
+60
+00:02:52,240 --> 00:02:55,550
+so that we can build this game together step by step.
+61
+
+61
+00:02:55,550 --> 00:02:56,640
+And at the same time
+62
+
+62
+00:02:56,640 --> 00:02:59,380
+we will learn many new important things
+63
+
+63
+00:02:59,380 --> 00:03:01,263
+about React and React Native.

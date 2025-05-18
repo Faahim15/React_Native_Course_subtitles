@@ -1,0 +1,433 @@
+1
+00:00:02,304 --> 00:00:03,137
+[Maximilian Schwarzmüller] Great.
+2
+
+2
+00:00:03,137 --> 00:00:05,000
+So, now we added this save area view.
+3
+
+3
+00:00:05,000 --> 00:00:07,110
+Let's now continue with styling
+4
+
+4
+00:00:07,110 --> 00:00:10,670
+and laying out the rest of this game screen.
+5
+
+5
+00:00:10,670 --> 00:00:13,070
+And this opponents guest text, for example,
+6
+
+6
+00:00:13,070 --> 00:00:14,960
+should be a title.
+7
+
+7
+00:00:14,960 --> 00:00:17,683
+Not a small little text as we have it here.
+8
+
+8
+00:00:18,810 --> 00:00:21,923
+And to make it a title we can add some extra styling.
+9
+
+9
+00:00:23,130 --> 00:00:27,849
+For this, I'll add a title property here.
+10
+
+10
+00:00:27,849 --> 00:00:29,960
+And then we could say that a title
+11
+
+11
+00:00:29,960 --> 00:00:33,050
+should have a font size of 18 maybe,
+12
+
+12
+00:00:33,050 --> 00:00:35,530
+maybe it should have a font weight of bold,
+13
+
+13
+00:00:35,530 --> 00:00:38,180
+that might make sense for a title
+14
+
+14
+00:00:38,180 --> 00:00:41,290
+and we can give it a certain color.
+15
+
+15
+00:00:41,290 --> 00:00:43,290
+The color is up to you
+16
+
+16
+00:00:43,290 --> 00:00:46,680
+but here I want to use a yellowish color
+17
+
+17
+00:00:46,680 --> 00:00:48,190
+and I'll use the yellow color
+18
+
+18
+00:00:48,190 --> 00:00:50,280
+I have here in the start game screen.
+19
+
+19
+00:00:50,280 --> 00:00:51,973
+So I will assign that here.
+20
+
+20
+00:00:53,450 --> 00:00:57,130
+Now with that assigned, we can go back
+21
+
+21
+00:00:57,130 --> 00:01:00,563
+and add our style here, like this.
+22
+
+22
+00:01:02,410 --> 00:01:04,460
+If we do this, this is looking better
+23
+
+23
+00:01:04,460 --> 00:01:06,660
+but I'd also like to center it.
+24
+
+24
+00:01:06,660 --> 00:01:11,253
+So I'm also going to add text align center,
+25
+
+25
+00:01:12,090 --> 00:01:16,793
+and maybe we ramp up the font size even more to 24 pixels.
+26
+
+26
+00:01:19,130 --> 00:01:20,230
+And this looks better.
+27
+
+27
+00:01:21,250 --> 00:01:24,210
+Now, what I want to add in addition,
+28
+
+28
+00:01:24,210 --> 00:01:29,210
+is I want to add a little border around this title,
+29
+
+29
+00:01:29,400 --> 00:01:31,610
+and I also wanna add some padding therefore
+30
+
+30
+00:01:31,610 --> 00:01:33,280
+so that we have some distance
+31
+
+31
+00:01:33,280 --> 00:01:35,883
+between the border and the actual text.
+32
+
+32
+00:01:36,770 --> 00:01:40,270
+So I'll add a border width of two here
+33
+
+33
+00:01:40,270 --> 00:01:44,693
+and a border color, of that same yellow as I had it before.
+34
+
+34
+00:01:46,070 --> 00:01:48,640
+And last but not least I want to add some padding here
+35
+
+35
+00:01:48,640 --> 00:01:51,083
+in all directions of let's say 12.
+36
+
+36
+00:01:52,770 --> 00:01:55,610
+And with this I have this kind of title.
+37
+
+37
+00:01:55,610 --> 00:01:57,470
+Now, of course you can adjust the title
+38
+
+38
+00:01:57,470 --> 00:01:59,530
+to look however you want it to look,
+39
+
+39
+00:01:59,530 --> 00:02:02,240
+but I'm quite happy with this result.
+40
+
+40
+00:02:02,240 --> 00:02:04,100
+By the way, the layout is not final.
+41
+
+41
+00:02:04,100 --> 00:02:06,280
+We will make sure that this is all pushed down
+42
+
+42
+00:02:06,280 --> 00:02:08,800
+a little bit more in the future.
+43
+
+43
+00:02:08,800 --> 00:02:12,259
+But now we have this title and it's probably fair to assume
+44
+
+44
+00:02:12,259 --> 00:02:16,360
+that we might be using a title like this quite frequently,
+45
+
+45
+00:02:16,360 --> 00:02:19,240
+in our application, maybe on different screens
+46
+
+46
+00:02:19,240 --> 00:02:21,650
+but typically with the same styling
+47
+
+47
+00:02:21,650 --> 00:02:25,330
+or maybe minor styling differences
+48
+
+48
+00:02:25,330 --> 00:02:28,390
+and therefore it would make sense to outsource this text
+49
+
+49
+00:02:28,390 --> 00:02:31,120
+into a separate reusable component
+50
+
+50
+00:02:31,120 --> 00:02:33,920
+because that is what we typically do in React
+51
+
+51
+00:02:33,920 --> 00:02:37,120
+when we do have elements that are used
+52
+
+52
+00:02:37,120 --> 00:02:39,443
+in different places of our app.
+53
+
+53
+00:02:40,750 --> 00:02:43,450
+So in the components folder I'll add a new file,
+54
+
+54
+00:02:43,450 --> 00:02:46,610
+which I'll name, Title.js.
+55
+
+55
+00:02:46,610 --> 00:02:49,690
+And in there, I'll add a component function
+56
+
+56
+00:02:49,690 --> 00:02:52,200
+which I'll also name, Title.
+57
+
+57
+00:02:52,200 --> 00:02:54,460
+Which I'll of course export as always
+58
+
+58
+00:02:56,250 --> 00:02:58,740
+and the job of this component is to display
+59
+
+59
+00:02:58,740 --> 00:03:00,793
+such a configurable title.
+60
+
+60
+00:03:01,700 --> 00:03:03,860
+So we can grab this text here
+61
+
+61
+00:03:03,860 --> 00:03:06,460
+from the game screen and cut it from there
+62
+
+62
+00:03:06,460 --> 00:03:09,863
+and add it here as a returned JSX code.
+63
+
+63
+00:03:11,100 --> 00:03:14,500
+Of course for this to work, we need to import text
+64
+
+64
+00:03:14,500 --> 00:03:19,500
+from React Native here in this Title.js file
+65
+
+65
+00:03:19,700 --> 00:03:23,000
+and the text here, should of course not be set in stone.
+66
+
+66
+00:03:23,000 --> 00:03:24,280
+Instead I'll remove it
+67
+
+67
+00:03:24,280 --> 00:03:26,960
+and I'll use object destructuring here
+68
+
+68
+00:03:26,960 --> 00:03:30,751
+to pull the children property out of my incoming props
+69
+
+69
+00:03:30,751 --> 00:03:34,630
+and use that here, so that the actual content
+70
+
+70
+00:03:34,630 --> 00:03:36,940
+that is displayed by the title,
+71
+
+71
+00:03:36,940 --> 00:03:39,540
+can be set by adding it between the opening
+72
+
+72
+00:03:39,540 --> 00:03:42,463
+and closing text of my custom title component.
+73
+
+73
+00:03:44,290 --> 00:03:46,270
+And now in GameScreen.js we can use
+74
+
+74
+00:03:46,270 --> 00:03:48,560
+this custom title component.
+75
+
+75
+00:03:48,560 --> 00:03:50,210
+Of course, for this you must make sure
+76
+
+76
+00:03:50,210 --> 00:03:51,593
+that it's being imported.
+77
+
+77
+00:03:52,570 --> 00:03:56,283
+And then here we can output opponents guests like this.
+78
+
+78
+00:03:57,700 --> 00:04:01,680
+Now for this all to work we also must migrate our styling
+79
+
+79
+00:04:01,680 --> 00:04:04,250
+and we can therefore cut the title style
+80
+
+80
+00:04:04,250 --> 00:04:07,833
+from the game screen and move it into the title component.
+81
+
+81
+00:04:09,170 --> 00:04:13,140
+There of course we must import style sheet
+82
+
+82
+00:04:14,950 --> 00:04:19,013
+and create our styles via style sheet create,
+83
+
+83
+00:04:20,351 --> 00:04:22,653
+like this, adding the title property.
+84
+
+84
+00:04:23,710 --> 00:04:25,770
+With all of that, if we save everything
+85
+
+85
+00:04:25,770 --> 00:04:29,360
+we got the same title as before and nothing changed here
+86
+
+86
+00:04:29,360 --> 00:04:31,850
+but we have this reusable component
+87
+
+87
+00:04:31,850 --> 00:04:35,203
+which we could use in different parts of our application.

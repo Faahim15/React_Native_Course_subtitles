@@ -1,0 +1,458 @@
+1
+00:00:02,345 --> 00:00:06,267
+Now to highlight X and Y we can wrap X and Y
+2
+
+2
+00:00:07,340 --> 00:00:12,340
+in extra text elements, in extra text Components.
+3
+
+3
+00:00:12,570 --> 00:00:14,750
+And this is something we haven't done
+4
+
+4
+00:00:14,750 --> 00:00:16,420
+up to this point in this course
+5
+
+5
+00:00:16,420 --> 00:00:19,040
+but it is something that is absolutely fine
+6
+
+6
+00:00:19,040 --> 00:00:22,230
+and which you can do with React Native.
+7
+
+7
+00:00:22,230 --> 00:00:25,530
+A text Component, actually can't hold
+8
+
+8
+00:00:25,530 --> 00:00:27,870
+too many other kinds of Components.
+9
+
+9
+00:00:27,870 --> 00:00:32,003
+For example, a text Component should not really wrap a view,
+10
+
+10
+00:00:33,050 --> 00:00:37,290
+but a text Component can contain other text Components.
+11
+
+11
+00:00:37,290 --> 00:00:40,880
+So having a text Component besides the plain text
+12
+
+12
+00:00:40,880 --> 00:00:43,770
+in another text Component is allowed
+13
+
+13
+00:00:43,770 --> 00:00:47,110
+and is absolutely something you can do.
+14
+
+14
+00:00:47,110 --> 00:00:51,020
+And what this allows us to do is add different styling
+15
+
+15
+00:00:51,020 --> 00:00:54,760
+to this text than to the rest of this text.
+16
+
+16
+00:00:54,760 --> 00:00:57,780
+So therefore here I'll add another text wrapper
+17
+
+17
+00:00:57,780 --> 00:01:01,460
+around the Y and then we can prepare some styles
+18
+
+18
+00:01:01,460 --> 00:01:05,523
+for this text in general, and then for the X and Y texts.
+19
+
+19
+00:01:06,550 --> 00:01:09,450
+Now let's start with the text in general.
+20
+
+20
+00:01:09,450 --> 00:01:14,220
+For this, I'll add the summary text styling property,
+21
+
+21
+00:01:14,220 --> 00:01:17,580
+and here I just wanna set the font family to open sense.
+22
+
+22
+00:01:17,580 --> 00:01:19,750
+That's basically all I wanna do,
+23
+
+23
+00:01:19,750 --> 00:01:24,610
+but then I also wanna add a highlight styling object here,
+24
+
+24
+00:01:24,610 --> 00:01:27,020
+where I set the font family to open sense
+25
+
+25
+00:01:27,020 --> 00:01:29,500
+bold so that we have some bold text
+26
+
+26
+00:01:29,500 --> 00:01:32,790
+and where the color is set to colors primary 500
+27
+
+27
+00:01:34,382 --> 00:01:36,853
+so that we assign a color to that text.
+28
+
+28
+00:01:37,890 --> 00:01:40,640
+And now we can use these styling objects
+29
+
+29
+00:01:40,640 --> 00:01:44,980
+to style the text and the texts inside the text.
+30
+
+30
+00:01:44,980 --> 00:01:47,930
+The wrapping text receives the style prop
+31
+
+31
+00:01:47,930 --> 00:01:49,900
+to assume the styles.
+32
+
+32
+00:01:49,900 --> 00:01:52,620
+Summary text, styling
+33
+
+33
+00:01:52,620 --> 00:01:54,170
+and the inner texts
+34
+
+34
+00:01:54,170 --> 00:01:59,170
+that wrap X and Y receive style=styles.highlight
+35
+
+35
+00:01:59,630 --> 00:02:02,023
+both these texts receive that.
+36
+
+36
+00:02:03,260 --> 00:02:06,230
+And we could again create a reusable component for that
+37
+
+37
+00:02:06,230 --> 00:02:08,670
+but here this is all the pretty reusable
+38
+
+38
+00:02:08,670 --> 00:02:11,220
+since we assigned the same reusable style
+39
+
+39
+00:02:11,220 --> 00:02:13,053
+to these two text Components.
+40
+
+40
+00:02:14,320 --> 00:02:18,890
+With that we now got this summary text below this image.
+41
+
+41
+00:02:18,890 --> 00:02:22,600
+Now, when I look at it, I'm not totally happy with that.
+42
+
+42
+00:02:22,600 --> 00:02:24,380
+To make this a bit prettier
+43
+
+43
+00:02:24,380 --> 00:02:27,040
+I actually wanna increase the text size.
+44
+
+44
+00:02:27,040 --> 00:02:31,150
+So on the summary text, I'll ramp up the font size to 24
+45
+
+45
+00:02:32,320 --> 00:02:33,950
+and now this is bigger.
+46
+
+46
+00:02:33,950 --> 00:02:36,720
+And please note that the text that's nested
+47
+
+47
+00:02:36,720 --> 00:02:40,040
+into another text element also is resized.
+48
+
+48
+00:02:40,040 --> 00:02:41,920
+This is not inheritance at work,
+49
+
+49
+00:02:41,920 --> 00:02:43,350
+but instead this is related
+50
+
+50
+00:02:43,350 --> 00:02:48,300
+to how this is compiled to a Native Component internally.
+51
+
+51
+00:02:48,300 --> 00:02:50,690
+If we have a view that contains a text
+52
+
+52
+00:02:50,690 --> 00:02:52,825
+and we add a font size to the view
+53
+
+53
+00:02:52,825 --> 00:02:57,825
+it would not affect any nested text elements in the view.
+54
+
+54
+00:02:58,100 --> 00:03:01,340
+Nested text elements inside of other text elements
+55
+
+55
+00:03:01,340 --> 00:03:05,190
+however, are affected by the text specific styles
+56
+
+56
+00:03:05,190 --> 00:03:08,660
+you do set on the parent text Component though.
+57
+
+57
+00:03:08,660 --> 00:03:11,180
+Though when we set a font size on the outer text
+58
+
+58
+00:03:11,180 --> 00:03:14,490
+the nested texts are also affected.
+59
+
+59
+00:03:14,490 --> 00:03:15,700
+That in the end works
+60
+
+60
+00:03:15,700 --> 00:03:18,750
+as you would expect it to work, I guess
+61
+
+61
+00:03:18,750 --> 00:03:21,993
+and it's definitely worth noting that it works like this.
+62
+
+62
+00:03:23,150 --> 00:03:26,700
+So now we have this styling, centering the text
+63
+
+63
+00:03:26,700 --> 00:03:28,180
+would also be nice still.
+64
+
+64
+00:03:28,180 --> 00:03:31,540
+So I will also add text align center here
+65
+
+65
+00:03:31,540 --> 00:03:33,410
+for the summary text,
+66
+
+66
+00:03:33,410 --> 00:03:35,813
+so that this is centered like this.
+67
+
+67
+00:03:37,000 --> 00:03:39,570
+Now last but not least below all of that,
+68
+
+68
+00:03:39,570 --> 00:03:41,270
+I'd like to have a button that allows us
+69
+
+69
+00:03:41,270 --> 00:03:43,380
+to start a new game.
+70
+
+70
+00:03:43,380 --> 00:03:46,920
+So below of this text, I'll add the primary button
+71
+
+71
+00:03:46,920 --> 00:03:49,530
+which therefore of course must be imported
+72
+
+72
+00:03:49,530 --> 00:03:51,973
+from Components UI primary button.
+73
+
+73
+00:03:52,950 --> 00:03:57,440
+And then on this primary button, I'll say start new game
+74
+
+74
+00:03:57,440 --> 00:04:00,320
+and we will later add the on press prop
+75
+
+75
+00:04:00,320 --> 00:04:03,743
+to trigger some function that does start a new game.
+76
+
+76
+00:04:05,040 --> 00:04:07,390
+When we save this, we have this button here as well
+77
+
+77
+00:04:07,390 --> 00:04:09,460
+and now maybe some spacing would be nice
+78
+
+78
+00:04:09,460 --> 00:04:11,720
+so on that summary text
+79
+
+79
+00:04:11,720 --> 00:04:14,450
+we can actually add a margin vertical
+80
+
+80
+00:04:14,450 --> 00:04:17,963
+so margin top and bottom of 24 maybe.
+81
+
+81
+00:04:19,620 --> 00:04:21,670
+With that there is some spacing
+82
+
+82
+00:04:21,670 --> 00:04:23,650
+between the button and the text.
+83
+
+83
+00:04:23,650 --> 00:04:26,800
+and actually, maybe we just want margin
+84
+
+84
+00:04:26,800 --> 00:04:29,208
+to the bottom, now that I look at it
+85
+
+85
+00:04:29,208 --> 00:04:31,423
+yeah, I think that looks nicer.
+86
+
+86
+00:04:32,820 --> 00:04:37,230
+So now we have that, we have this game over screen finished
+87
+
+87
+00:04:37,230 --> 00:04:40,280
+at least regarding the styling and the layout
+88
+
+88
+00:04:40,280 --> 00:04:42,850
+but what's missing is of course that data
+89
+
+89
+00:04:42,850 --> 00:04:44,250
+how many rounds we took?
+90
+
+90
+00:04:44,250 --> 00:04:45,960
+and what the number was?
+91
+
+91
+00:04:45,960 --> 00:04:47,980
+And this button is not working.
+92
+
+92
+00:04:47,980 --> 00:04:50,683
+So that will be the next steps we will work on.

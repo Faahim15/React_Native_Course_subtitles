@@ -1,0 +1,788 @@
+1
+00:00:02,040 --> 00:00:05,070
+Now for styling these items here,
+2
+
+2
+00:00:05,070 --> 00:00:06,700
+We can create a new component,
+3
+
+3
+00:00:06,700 --> 00:00:10,140
+maybe in the game folder, in the components folder.
+4
+
+4
+00:00:10,140 --> 00:00:13,640
+And that could be the GuessLogItem.js file,
+5
+
+5
+00:00:13,640 --> 00:00:17,290
+which holds the GuessLogItem component.
+6
+
+6
+00:00:17,290 --> 00:00:20,203
+So we export this as a default GuessLogItem.
+7
+
+7
+00:00:21,560 --> 00:00:23,430
+And then in here, it's up to you
+8
+
+8
+00:00:23,430 --> 00:00:25,080
+how you wanna style this.
+9
+
+9
+00:00:25,080 --> 00:00:28,150
+But I wanna make sure that for every LogItem
+10
+
+10
+00:00:28,150 --> 00:00:30,830
+I show the number of the round,
+11
+
+11
+00:00:30,830 --> 00:00:34,130
+and I also show the actual value
+12
+
+12
+00:00:34,130 --> 00:00:36,363
+that was guessed in that guessing round.
+13
+
+13
+00:00:37,200 --> 00:00:39,090
+Hence, I wanna add a view here
+14
+
+14
+00:00:40,140 --> 00:00:43,310
+Which must be imported from react-native as you learned,
+15
+
+15
+00:00:43,310 --> 00:00:45,533
+so we import this from react-native.
+16
+
+16
+00:00:46,560 --> 00:00:49,190
+And I will also import Text here,
+17
+
+17
+00:00:49,190 --> 00:00:51,380
+because inside that view,
+18
+
+18
+00:00:51,380 --> 00:00:56,380
+I wanna have a text where I say hashtag,
+19
+
+19
+00:00:58,270 --> 00:01:02,240
+and then roundNumber, let's say,
+20
+
+20
+00:01:02,240 --> 00:01:05,583
+and roundNumber should be a prop which we receive.
+21
+
+21
+00:01:06,810 --> 00:01:11,810
+And then another text where I output the opponent's guess,
+22
+
+22
+00:01:14,050 --> 00:01:17,630
+which I also expect to guess as prop, as a prop,
+23
+
+23
+00:01:17,630 --> 00:01:20,523
+and therefore that's the guess prop, like this.
+24
+
+24
+00:01:21,450 --> 00:01:23,740
+So now these are the two pieces of information
+25
+
+25
+00:01:23,740 --> 00:01:26,810
+which I wanna output in this GuessLogItem.
+26
+
+26
+00:01:26,810 --> 00:01:29,960
+And I wanna render one instance of this component
+27
+
+27
+00:01:29,960 --> 00:01:32,610
+for every round that's being played.
+28
+
+28
+00:01:32,610 --> 00:01:35,553
+So for every item that's being output in the flat list.
+29
+
+29
+00:01:36,490 --> 00:01:38,640
+Now, of course we wanna style this.
+30
+
+30
+00:01:38,640 --> 00:01:41,890
+So I'll import the style sheet from react-native,
+31
+
+31
+00:01:41,890 --> 00:01:43,770
+and then create my styles here
+32
+
+32
+00:01:43,770 --> 00:01:47,833
+with StyleSheet.create, like this,
+33
+
+33
+00:01:49,970 --> 00:01:54,240
+and then here, we can give this a name of ListItem,
+34
+
+34
+00:01:54,240 --> 00:01:56,920
+and apply any styles of your choice.
+35
+
+35
+00:01:56,920 --> 00:01:58,820
+In my case, I wanna style the border
+36
+
+36
+00:01:58,820 --> 00:02:01,350
+by adding a border color here.
+37
+
+37
+00:02:01,350 --> 00:02:05,430
+And for that, I'll choose my colors constant,
+38
+
+38
+00:02:05,430 --> 00:02:08,440
+which is imported from that constants folder.
+39
+
+39
+00:02:08,440 --> 00:02:10,963
+And I wanna use a dark primary shade.
+40
+
+40
+00:02:12,340 --> 00:02:14,120
+The border should also receive a width
+41
+
+41
+00:02:14,120 --> 00:02:16,370
+of let's say one pixel,
+42
+
+42
+00:02:16,370 --> 00:02:20,270
+and the border radius of let's say 40 pixels,
+43
+
+43
+00:02:20,270 --> 00:02:22,603
+to have some nice rounded corners.
+44
+
+44
+00:02:24,470 --> 00:02:27,080
+I also wanna have some padding of let's say 12 pixels
+45
+
+45
+00:02:27,080 --> 00:02:30,083
+so that we have some spacing inside of that container,
+46
+
+46
+00:02:30,980 --> 00:02:33,160
+and the margin vertical of eight.
+47
+
+47
+00:02:33,160 --> 00:02:34,910
+So that between the log items,
+48
+
+48
+00:02:34,910 --> 00:02:38,210
+which are basically displayed on top of each other,
+49
+
+49
+00:02:38,210 --> 00:02:39,610
+we have some spacing,
+50
+
+50
+00:02:39,610 --> 00:02:41,860
+some vertical distance between the log items.
+51
+
+51
+00:02:44,070 --> 00:02:46,360
+There also should be a nice background color
+52
+
+52
+00:02:46,360 --> 00:02:47,630
+on every log item.
+53
+
+53
+00:02:47,630 --> 00:02:50,220
+And I'll also get that from my colors constant,
+54
+
+54
+00:02:50,220 --> 00:02:54,300
+and use the, let's say the accent 500 color,
+55
+
+55
+00:02:54,300 --> 00:02:55,833
+so this yellow color.
+56
+
+56
+00:02:57,110 --> 00:02:59,500
+I also wanna make sure that these two text items
+57
+
+57
+00:02:59,500 --> 00:03:01,580
+sit next to each other in a row,
+58
+
+58
+00:03:01,580 --> 00:03:03,130
+and therefore the flexDirection
+59
+
+59
+00:03:04,220 --> 00:03:07,363
+must be changed to a row, as you learned.
+60
+
+60
+00:03:08,469 --> 00:03:11,560
+JustifyContent can then be space-between
+61
+
+61
+00:03:11,560 --> 00:03:14,790
+so that they are pushed to the edges of this container.
+62
+
+62
+00:03:14,790 --> 00:03:16,380
+So the first item is on the left,
+63
+
+63
+00:03:16,380 --> 00:03:17,830
+the second item is on the right,
+64
+
+64
+00:03:17,830 --> 00:03:21,033
+and the empty space in between is left empty.
+65
+
+65
+00:03:22,320 --> 00:03:25,170
+And I wanna add a width of 100%
+66
+
+66
+00:03:25,170 --> 00:03:28,870
+to make sure that the log items take the full width
+67
+
+67
+00:03:28,870 --> 00:03:31,640
+that is made available by the parent component,
+68
+
+68
+00:03:31,640 --> 00:03:32,963
+which is the flat list.
+69
+
+69
+00:03:34,180 --> 00:03:36,510
+Last but not least, we can add a little shadow,
+70
+
+70
+00:03:36,510 --> 00:03:38,450
+and for Android, this can be done
+71
+
+71
+00:03:38,450 --> 00:03:41,530
+with the elevation property, as you learned.
+72
+
+72
+00:03:41,530 --> 00:03:45,070
+We could set this to a value of four.
+73
+
+73
+00:03:45,070 --> 00:03:47,770
+And for iOS, we do this by adding a shadow color
+74
+
+74
+00:03:47,770 --> 00:03:49,363
+which could be black,
+75
+
+75
+00:03:50,780 --> 00:03:53,510
+and then a shadow offset
+76
+
+76
+00:03:53,510 --> 00:03:54,550
+which is an object
+77
+
+77
+00:03:54,550 --> 00:03:56,850
+with a width and a height, as you learned.
+78
+
+78
+00:03:56,850 --> 00:04:00,060
+And the width can be zero, the height can be zero,
+79
+
+79
+00:04:00,060 --> 00:04:04,710
+and then a shadow opacity of 0.25,
+80
+
+80
+00:04:04,710 --> 00:04:08,310
+and a shadow radius, let's say, of three.
+81
+
+81
+00:04:08,310 --> 00:04:10,440
+And you can play around with these values
+82
+
+82
+00:04:10,440 --> 00:04:13,713
+to find a shadow that you like visually.
+83
+
+83
+00:04:15,880 --> 00:04:18,300
+Now, with that, the styles have to be applied.
+84
+
+84
+00:04:18,300 --> 00:04:21,283
+So on that view, I add styles.listItem.
+85
+
+85
+00:04:24,360 --> 00:04:25,350
+And I also wanna make sure
+86
+
+86
+00:04:25,350 --> 00:04:28,630
+that I use the right font for the text in there.
+87
+
+87
+00:04:28,630 --> 00:04:33,630
+And therefore I'll add my itemText styling property,
+88
+
+88
+00:04:33,640 --> 00:04:36,143
+where I set the font family to open-sans.
+89
+
+89
+00:04:37,400 --> 00:04:40,420
+And then this itemText styling property here
+90
+
+90
+00:04:40,420 --> 00:04:45,190
+can be added as a style to both these text elements,
+91
+
+91
+00:04:45,190 --> 00:04:47,223
+these text components, like this.
+92
+
+92
+00:04:48,670 --> 00:04:50,610
+Now we have the LogItem.
+93
+
+93
+00:04:50,610 --> 00:04:52,563
+Now we can use it in the game screen.
+94
+
+94
+00:04:53,480 --> 00:04:56,740
+Here, instead of outputting this boring text here,
+95
+
+95
+00:04:56,740 --> 00:04:59,330
+I wanna output my GuessLogItem,
+96
+
+96
+00:04:59,330 --> 00:05:01,563
+this newly added component.
+97
+
+97
+00:05:02,570 --> 00:05:05,190
+Which therefore, of course, must be imported
+98
+
+98
+00:05:05,190 --> 00:05:07,663
+from that file in which we created it.
+99
+
+99
+00:05:09,520 --> 00:05:12,770
+And then here, we have to configure it.
+100
+
+100
+00:05:12,770 --> 00:05:16,370
+We have to pass in the round number,
+101
+
+101
+00:05:16,370 --> 00:05:19,103
+and we have to pass in the guess that was made.
+102
+
+102
+00:05:20,260 --> 00:05:23,940
+Now the round number can be retrieved from itemData,
+103
+
+103
+00:05:23,940 --> 00:05:27,830
+because on this itemData object, besides the item itself,
+104
+
+104
+00:05:27,830 --> 00:05:31,330
+we also get the index of the item in the array.
+105
+
+105
+00:05:31,330 --> 00:05:35,670
+And in the end, this index gives us an idea about the round.
+106
+
+106
+00:05:35,670 --> 00:05:38,680
+The index itself is not the round number,
+107
+
+107
+00:05:38,680 --> 00:05:40,370
+but we know that we just need
+108
+
+108
+00:05:40,370 --> 00:05:43,520
+to take the overall length of the list,
+109
+
+109
+00:05:43,520 --> 00:05:45,460
+so the number of items of the list,
+110
+
+110
+00:05:45,460 --> 00:05:49,260
+minus the index, to get the round number.
+111
+
+111
+00:05:49,260 --> 00:05:51,450
+We need to do this kind of calculation
+112
+
+112
+00:05:51,450 --> 00:05:54,490
+because the latest round is added at the beginning.
+113
+
+113
+00:05:54,490 --> 00:05:57,550
+So the latest round will always have an index of zero.
+114
+
+114
+00:05:57,550 --> 00:05:59,800
+So if we take the overall length of the list
+115
+
+115
+00:05:59,800 --> 00:06:03,270
+and we then deduct the index of the individual items
+116
+
+116
+00:06:03,270 --> 00:06:04,330
+we get the round
+117
+
+117
+00:06:04,330 --> 00:06:07,293
+in which this item was added to the overall list.
+118
+
+118
+00:06:08,290 --> 00:06:10,410
+Now to get this listItem length,
+119
+
+119
+00:06:10,410 --> 00:06:12,280
+we can add a regular constant
+120
+
+120
+00:06:12,280 --> 00:06:14,080
+anywhere in this component function
+121
+
+121
+00:06:14,080 --> 00:06:16,940
+before the JSX code is returned.
+122
+
+122
+00:06:16,940 --> 00:06:20,740
+And here we get the guessRoundsListLength
+123
+
+123
+00:06:20,740 --> 00:06:25,210
+by simply using guessRounds.length.
+124
+
+124
+00:06:25,210 --> 00:06:26,640
+So this is recalculated
+125
+
+125
+00:06:26,640 --> 00:06:29,350
+every time the component is reevaluated,
+126
+
+126
+00:06:29,350 --> 00:06:32,210
+which will happen whenever a new round is added.
+127
+
+127
+00:06:32,210 --> 00:06:33,890
+And then we can use this
+128
+
+128
+00:06:36,030 --> 00:06:39,833
+to deduct itemData.index from it.
+129
+
+129
+00:06:41,070 --> 00:06:43,570
+And the guess itself, of course, is itemData.item.
+130
+
+130
+00:06:45,490 --> 00:06:48,340
+So the number value itself.
+131
+
+131
+00:06:48,340 --> 00:06:51,430
+This is how we can deduct the round number,
+132
+
+132
+00:06:51,430 --> 00:06:54,370
+and then the value for the round itself,
+133
+
+133
+00:06:54,370 --> 00:06:56,163
+the number that was guessed.
+134
+
+134
+00:06:57,030 --> 00:06:58,823
+If we give this a try,
+135
+
+135
+00:07:00,830 --> 00:07:04,110
+you can see this is how it looks, and this looks quite good.
+136
+
+136
+00:07:04,110 --> 00:07:06,130
+And you see now in the second round,
+137
+
+137
+00:07:06,130 --> 00:07:08,180
+the guess was five, which is correct,
+138
+
+138
+00:07:08,180 --> 00:07:10,980
+and this gets added, and added,
+139
+
+139
+00:07:10,980 --> 00:07:14,090
+and we still get that warning if we give a wrong hint,
+140
+
+140
+00:07:14,090 --> 00:07:17,460
+until we actually found the right number.
+141
+
+141
+00:07:17,460 --> 00:07:19,220
+And this is scrollable
+142
+
+142
+00:07:19,220 --> 00:07:21,440
+so that we can even view all the rounds
+143
+
+143
+00:07:21,440 --> 00:07:24,460
+if we exceed the available space we have on the screen.
+144
+
+144
+00:07:24,460 --> 00:07:26,690
+So we can still see that.
+145
+
+145
+00:07:26,690 --> 00:07:27,970
+And eventually, of course,
+146
+
+146
+00:07:27,970 --> 00:07:30,600
+we can then end the game
+147
+
+147
+00:07:30,600 --> 00:07:32,653
+and start a new one if we want to.
+148
+
+148
+00:07:33,530 --> 00:07:36,253
+By the way, we will also update this number soon.
+149
+
+149
+00:07:37,130 --> 00:07:39,590
+So this generally works.
+150
+
+150
+00:07:39,590 --> 00:07:43,210
+But if you paid close attention,
+151
+
+151
+00:07:43,210 --> 00:07:45,550
+you might have seen that,
+152
+
+152
+00:07:45,550 --> 00:07:47,900
+well, let me try again, reproduce this
+153
+
+153
+00:07:47,900 --> 00:07:50,993
+so that we produce a list that's long enough.
+154
+
+154
+00:07:52,650 --> 00:07:55,330
+You might see that actually here,
+155
+
+155
+00:07:55,330 --> 00:07:57,330
+once we exceed this space,
+156
+
+156
+00:07:57,330 --> 00:08:01,000
+yeah, we can scroll to see the bottommost value,
+157
+
+157
+00:08:01,000 --> 00:08:04,920
+but actually it's not really scrolling into view.
+158
+
+158
+00:08:04,920 --> 00:08:08,603
+We have a hard time really seeing that last guess.

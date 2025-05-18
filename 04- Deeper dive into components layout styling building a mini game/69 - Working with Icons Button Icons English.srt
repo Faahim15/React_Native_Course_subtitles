@@ -1,0 +1,393 @@
+1
+00:00:02,130 --> 00:00:04,460
+So now we're making good progress here.
+2
+
+2
+00:00:04,460 --> 00:00:07,890
+We worked on these buttons, but I'm not done yet.
+3
+
+3
+00:00:07,890 --> 00:00:10,670
+There are two main things I wanna change
+4
+
+4
+00:00:10,670 --> 00:00:13,540
+before we move on to the Game Over screen.
+5
+
+5
+00:00:13,540 --> 00:00:16,390
+And the first thing which I'd like to change
+6
+
+6
+00:00:16,390 --> 00:00:20,240
+is the icons in the buttons.
+7
+
+7
+00:00:20,240 --> 00:00:23,480
+At the moment we have regular characters in there,
+8
+
+8
+00:00:23,480 --> 00:00:27,200
+a minus and a plus, and I would like to use proper icons,
+9
+
+9
+00:00:27,200 --> 00:00:29,230
+which are a bit prettier.
+10
+
+10
+00:00:29,230 --> 00:00:32,760
+In addition, I also want to use custom fonts,
+11
+
+11
+00:00:32,760 --> 00:00:36,690
+so that I'm not stuck with these default device fonts,
+12
+
+12
+00:00:36,690 --> 00:00:39,810
+which are okay but which I don't wanna use here,
+13
+
+13
+00:00:39,810 --> 00:00:42,740
+but that I instead can use my own custom fonts,
+14
+
+14
+00:00:42,740 --> 00:00:45,500
+because of course, that is also a typical requirement
+15
+
+15
+00:00:45,500 --> 00:00:48,440
+that you wanna bring your own fonts.
+16
+
+16
+00:00:48,440 --> 00:00:50,920
+Now let's start with the icons though.
+17
+
+17
+00:00:50,920 --> 00:00:53,330
+Thankfully, when working with Expo,
+18
+
+18
+00:00:53,330 --> 00:00:55,640
+adding icons is super simple
+19
+
+19
+00:00:55,640 --> 00:00:58,740
+because Expo and Expo-created projects
+20
+
+20
+00:00:58,740 --> 00:01:02,420
+already come with a library, a package,
+21
+
+21
+00:01:02,420 --> 00:01:05,290
+that allows us to use icons.
+22
+
+22
+00:01:05,290 --> 00:01:08,730
+We just have to add a import here at the top
+23
+
+23
+00:01:08,730 --> 00:01:13,730
+and we import something from @expo/vector-icons.
+24
+
+24
+00:01:16,270 --> 00:01:19,210
+Now this should be available automatically
+25
+
+25
+00:01:19,210 --> 00:01:22,460
+out of the box without you installing anything
+26
+
+26
+00:01:22,460 --> 00:01:25,763
+because it is a peer dependency of Expo.
+27
+
+27
+00:01:26,830 --> 00:01:31,830
+And from this package, you can import various icon sets.
+28
+
+28
+00:01:31,860 --> 00:01:34,740
+Now, if you search for Expo vector icons,
+29
+
+29
+00:01:34,740 --> 00:01:37,970
+you should find the official icons documentation.
+30
+
+30
+00:01:37,970 --> 00:01:40,320
+And there, you can learn more about this library
+31
+
+31
+00:01:40,320 --> 00:01:42,560
+and that it is installed by default
+32
+
+32
+00:01:42,560 --> 00:01:45,090
+if you created your project with Expo in it,
+33
+
+33
+00:01:45,090 --> 00:01:46,480
+and how you can use it
+34
+
+34
+00:01:46,480 --> 00:01:49,760
+and which kind of icon sets you can use,
+35
+
+35
+00:01:49,760 --> 00:01:51,163
+you can learn more here.
+36
+
+36
+00:01:52,230 --> 00:01:54,860
+Now, one icon set that's built in which I like a lot
+37
+
+37
+00:01:54,860 --> 00:01:56,393
+are the Ionicons.
+38
+
+38
+00:01:57,600 --> 00:02:00,170
+Actually, there are more icon sets available
+39
+
+39
+00:02:00,170 --> 00:02:02,100
+which provide different kinds of icons,
+40
+
+40
+00:02:02,100 --> 00:02:05,530
+but Ionicons is one of them, which I like a lot.
+41
+
+41
+00:02:05,530 --> 00:02:09,670
+Now on the official docs about Expo vector icons,
+42
+
+42
+00:02:09,670 --> 00:02:13,290
+you can find a list of the built-in icons.
+43
+
+43
+00:02:13,290 --> 00:02:16,000
+And for example, there if you search for minus,
+44
+
+44
+00:02:16,000 --> 00:02:18,820
+you find various minuses,
+45
+
+45
+00:02:18,820 --> 00:02:20,650
+belonging to different icon sets,
+46
+
+46
+00:02:20,650 --> 00:02:24,290
+which are included with Expo vector icons.
+47
+
+47
+00:02:24,290 --> 00:02:25,990
+And you do, for example,
+48
+
+48
+00:02:25,990 --> 00:02:30,240
+also find the Ionicons minus in there.
+49
+
+49
+00:02:30,240 --> 00:02:32,800
+For this, I'll add a little filter here
+50
+
+50
+00:02:32,800 --> 00:02:34,943
+to filter only for Ionicons,
+51
+
+51
+00:02:36,960 --> 00:02:39,480
+and actually search for remove.
+52
+
+52
+00:02:39,480 --> 00:02:41,970
+And then here you find various icons
+53
+
+53
+00:02:41,970 --> 00:02:45,610
+and I will use this md-remove icon, which is this minus.
+54
+
+54
+00:02:45,610 --> 00:02:48,270
+But you can of course use any icon you want.
+55
+
+55
+00:02:48,270 --> 00:02:49,740
+This name is important,
+56
+
+56
+00:02:49,740 --> 00:02:53,200
+because you use these icons by grabbing this icon set
+57
+
+57
+00:02:53,200 --> 00:02:56,090
+which is imported from Expo vector icons.
+58
+
+58
+00:02:56,090 --> 00:03:00,060
+And then in the place where you wanna use an icon,
+59
+
+59
+00:03:00,060 --> 00:03:03,763
+you render this as a component, as a self-closing component,
+60
+
+60
+00:03:04,640 --> 00:03:06,250
+which gets a name prompt.
+61
+
+61
+00:03:06,250 --> 00:03:08,670
+And now the name is that icon you want to use.
+62
+
+62
+00:03:08,670 --> 00:03:10,680
+And we even get auto-completion here.
+63
+
+63
+00:03:10,680 --> 00:03:14,350
+And we, for example, get help and learn that md-remove
+64
+
+64
+00:03:14,350 --> 00:03:17,043
+is indeed a valid icon we can use here.
+65
+
+65
+00:03:18,660 --> 00:03:21,360
+Now you can, in addition, also add a size prompt,
+66
+
+66
+00:03:21,360 --> 00:03:23,170
+which sets the size in pixels.
+67
+
+67
+00:03:23,170 --> 00:03:26,763
+And here I'll set this to 24 to have a nice big icon.
+68
+
+68
+00:03:27,900 --> 00:03:30,730
+And you can set the color, and here I'll set this to white,
+69
+
+69
+00:03:30,730 --> 00:03:33,653
+but you could also add a hex code or anything like this.
+70
+
+70
+00:03:35,070 --> 00:03:39,314
+And with that, now we have this nice minus here.
+71
+
+71
+00:03:39,314 --> 00:03:41,720
+And we can do the same thing for the plus.
+72
+
+72
+00:03:41,720 --> 00:03:45,510
+We replace the plus character with Ionicons.
+73
+
+73
+00:03:45,510 --> 00:03:49,320
+And now instead of md-remove, it's indeed md-add.
+74
+
+74
+00:03:49,320 --> 00:03:52,110
+Same size, same color.
+75
+
+75
+00:03:52,110 --> 00:03:55,470
+And with that added, we now also have this plus here.
+76
+
+76
+00:03:55,470 --> 00:03:58,020
+And I'm using the same icons on both platforms.
+77
+
+77
+00:03:58,020 --> 00:04:01,300
+You could even use different icons on different platforms,
+78
+
+78
+00:04:01,300 --> 00:04:04,200
+but we will learn more about platform specific code
+79
+
+79
+00:04:04,200 --> 00:04:06,223
+in the next course section.

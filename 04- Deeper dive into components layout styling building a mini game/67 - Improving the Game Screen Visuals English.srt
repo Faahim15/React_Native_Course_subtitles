@@ -1,0 +1,1118 @@
+1
+00:00:02,050 --> 00:00:04,830
+So, let's now finalize these screens,
+2
+
+2
+00:00:04,830 --> 00:00:08,543
+and for this I wanna start on that StartGameScreen again.
+3
+
+3
+00:00:09,390 --> 00:00:11,680
+I wanna improve this screen a little bit
+4
+
+4
+00:00:11,680 --> 00:00:14,370
+and I, for example, wanna add my title
+5
+
+5
+00:00:14,370 --> 00:00:16,423
+above this input area.
+6
+
+6
+00:00:17,500 --> 00:00:20,030
+And for that, if we go to the StartGameScreen,
+7
+
+7
+00:00:20,030 --> 00:00:22,800
+we have to actually add another view
+8
+
+8
+00:00:22,800 --> 00:00:25,650
+because at the moment everything on this screen
+9
+
+9
+00:00:25,650 --> 00:00:27,770
+is only this input area.
+10
+
+10
+00:00:27,770 --> 00:00:31,673
+This entire view here is this entire input area container.
+11
+
+11
+00:00:32,510 --> 00:00:35,220
+So, I will add another view on this screen,
+12
+
+12
+00:00:35,220 --> 00:00:38,070
+in the StartGameScreen Component here,
+13
+
+13
+00:00:38,070 --> 00:00:40,900
+and then in there above this container
+14
+
+14
+00:00:40,900 --> 00:00:43,520
+that holds the TextInput (indistinct) on,
+15
+
+15
+00:00:43,520 --> 00:00:47,170
+I wanna add my Title Component that I created before,
+16
+
+16
+00:00:47,170 --> 00:00:50,563
+which is imported from components/ui/Title.
+17
+
+17
+00:00:51,760 --> 00:00:54,030
+And in that Title Component
+18
+
+18
+00:00:54,030 --> 00:00:56,480
+we could say something like guess my number
+19
+
+19
+00:00:56,480 --> 00:00:59,510
+because that is the title of the game, let's say.
+20
+
+20
+00:00:59,510 --> 00:01:01,630
+With that we got this title here,
+21
+
+21
+00:01:01,630 --> 00:01:04,230
+but of course this is not looking good.
+22
+
+22
+00:01:04,230 --> 00:01:06,310
+Having this sit on the top edge
+23
+
+23
+00:01:06,310 --> 00:01:08,790
+is not looking good at all.
+24
+
+24
+00:01:08,790 --> 00:01:11,090
+To change this positioning
+25
+
+25
+00:01:11,090 --> 00:01:15,270
+I will add another property here in my StyleSheet,
+26
+
+26
+00:01:15,270 --> 00:01:17,520
+and name it screenContainer or rootContainer,
+27
+
+27
+00:01:19,040 --> 00:01:21,100
+maybe that is a fitting name.
+28
+
+28
+00:01:21,100 --> 00:01:23,160
+And here I wanna set up flex one,
+29
+
+29
+00:01:23,160 --> 00:01:25,290
+so that whatever receives this style
+30
+
+30
+00:01:25,290 --> 00:01:27,703
+takes up as much space as possible.
+31
+
+31
+00:01:28,540 --> 00:01:32,420
+And here I also wanna add marginTop 100,
+32
+
+32
+00:01:32,420 --> 00:01:35,700
+and actually reduce marginTop in the inputContainer
+33
+
+33
+00:01:35,700 --> 00:01:38,823
+now to, let's say, 36.
+34
+
+34
+00:01:39,870 --> 00:01:42,420
+And then we can add this rootContainer style
+35
+
+35
+00:01:42,420 --> 00:01:44,110
+to this view here,
+36
+
+36
+00:01:44,110 --> 00:01:47,900
+so we add the style prop and point at styles rootContainer.
+37
+
+37
+00:01:49,400 --> 00:01:50,970
+With that this looks nicer
+38
+
+38
+00:01:50,970 --> 00:01:52,920
+but I also don't want that title
+39
+
+39
+00:01:52,920 --> 00:01:55,470
+to stretch from left to right.
+40
+
+40
+00:01:55,470 --> 00:01:59,390
+Now, there certainly would be different ways of fixing this
+41
+
+41
+00:01:59,390 --> 00:02:01,760
+but the way I will choose here
+42
+
+42
+00:02:01,760 --> 00:02:03,840
+is that on that rootContainer
+43
+
+43
+00:02:03,840 --> 00:02:06,189
+I simply change alignItems,
+44
+
+44
+00:02:06,189 --> 00:02:09,230
+which aligns items across the cross axis,
+45
+
+45
+00:02:09,230 --> 00:02:11,420
+which in this case is left to right,
+46
+
+46
+00:02:11,420 --> 00:02:13,650
+from stretch, which is the default
+47
+
+47
+00:02:13,650 --> 00:02:18,040
+which leads to this title being stretched, to center.
+48
+
+48
+00:02:18,040 --> 00:02:20,310
+And with that it's not stretched anymore
+49
+
+49
+00:02:20,310 --> 00:02:22,163
+but instead centered like this.
+50
+
+50
+00:02:23,090 --> 00:02:25,940
+So that's an enhancement, I would say.
+51
+
+51
+00:02:25,940 --> 00:02:27,550
+What I also wanna change
+52
+
+52
+00:02:27,550 --> 00:02:30,570
+is that I wanna have a little instruction here
+53
+
+53
+00:02:30,570 --> 00:02:34,060
+inside of that inputContainer box,
+54
+
+54
+00:02:34,060 --> 00:02:35,760
+a little instruction that tells me
+55
+
+55
+00:02:35,760 --> 00:02:39,323
+that I should enter a number that then has to be guessed.
+56
+
+56
+00:02:40,690 --> 00:02:44,550
+So, for this, above this TextInput we can add a text,
+57
+
+57
+00:02:44,550 --> 00:02:46,440
+a regular text,
+58
+
+58
+00:02:46,440 --> 00:02:49,610
+which we of course have to import from React Native,
+59
+
+59
+00:02:49,610 --> 00:02:50,443
+like this.
+60
+
+60
+00:02:51,500 --> 00:02:56,500
+And in this text here we can then say enter a number,
+61
+
+61
+00:03:00,090 --> 00:03:00,923
+like this.
+62
+
+62
+00:03:02,910 --> 00:03:05,100
+Now, of course, this is totally not readable
+63
+
+63
+00:03:05,100 --> 00:03:07,410
+so we need to add some styling here.
+64
+
+64
+00:03:07,410 --> 00:03:12,410
+And for the styling I will add another style property here,
+65
+
+65
+00:03:13,420 --> 00:03:18,420
+the instructionText property maybe.
+66
+
+66
+00:03:18,450 --> 00:03:21,333
+And we can give the text a color of Colors.
+67
+
+67
+00:03:22,580 --> 00:03:27,113
+lets try primary500, though that might be too dark.
+68
+
+68
+00:03:28,240 --> 00:03:31,973
+And lets increase the font size to 24.
+69
+
+69
+00:03:32,870 --> 00:03:35,490
+With that we can now add this to this text
+70
+
+70
+00:03:35,490 --> 00:03:36,870
+by adding the style prop
+71
+
+71
+00:03:36,870 --> 00:03:39,053
+and pointing at styles.instructionText,
+72
+
+72
+00:03:43,480 --> 00:03:46,750
+and with this done we now got this instruction.
+73
+
+73
+00:03:46,750 --> 00:03:49,910
+And I think it's not too easy to read
+74
+
+74
+00:03:49,910 --> 00:03:53,940
+so as a workaround we could add a lighter shade,
+75
+
+75
+00:03:53,940 --> 00:03:56,970
+but I think the better workaround is to make this yellow
+76
+
+76
+00:03:56,970 --> 00:03:58,370
+since the number input field
+77
+
+77
+00:03:58,370 --> 00:04:00,710
+also has yellow text, and so on.
+78
+
+78
+00:04:00,710 --> 00:04:03,810
+And therefore I'll actually switch this
+79
+
+79
+00:04:03,810 --> 00:04:07,390
+from primary500 to accent500,
+80
+
+80
+00:04:07,390 --> 00:04:09,980
+to this yellow color which we stored.
+81
+
+81
+00:04:09,980 --> 00:04:13,950
+And with this, yeah, that doesn't look too bad.
+82
+
+82
+00:04:13,950 --> 00:04:15,060
+Now you could add more,
+83
+
+83
+00:04:15,060 --> 00:04:17,400
+you could add an image to this screen,
+84
+
+84
+00:04:17,400 --> 00:04:19,290
+enhance it in any way you want,
+85
+
+85
+00:04:19,290 --> 00:04:22,063
+but I think this looks okay, this is decent.
+86
+
+86
+00:04:23,200 --> 00:04:26,310
+I therefore would now wanna continue on this screen
+87
+
+87
+00:04:26,310 --> 00:04:28,693
+where we actually play the game.
+88
+
+88
+00:04:29,720 --> 00:04:31,410
+And on this screen, of course,
+89
+
+89
+00:04:31,410 --> 00:04:34,603
+the buttons currently aren't that good looking.
+90
+
+90
+00:04:35,730 --> 00:04:38,870
+I'm also not entirely happy with that number container
+91
+
+91
+00:04:38,870 --> 00:04:40,300
+so I will work on this as well,
+92
+
+92
+00:04:40,300 --> 00:04:42,023
+but I will start with the buttons.
+93
+
+93
+00:04:43,010 --> 00:04:46,610
+I wanna group those buttons and the instruction text
+94
+
+94
+00:04:46,610 --> 00:04:49,490
+that belongs to them in a box,
+95
+
+95
+00:04:49,490 --> 00:04:52,530
+as we have it here on the StartGameScreen.
+96
+
+96
+00:04:52,530 --> 00:04:54,670
+And actually I like the style of that box,
+97
+
+97
+00:04:54,670 --> 00:04:57,383
+so I would like to use exactly the same box.
+98
+
+98
+00:04:58,220 --> 00:05:01,360
+Now, since I plan on using exactly the same box
+99
+
+99
+00:05:01,360 --> 00:05:04,420
+as I have it here on the StartGameScreen,
+100
+
+100
+00:05:04,420 --> 00:05:08,270
+it makes sense to create a dedicated Component
+101
+
+101
+00:05:08,270 --> 00:05:10,463
+that renders this box.
+102
+
+102
+00:05:11,347 --> 00:05:13,140
+So, in the so in the components ui folder
+103
+
+103
+00:05:13,140 --> 00:05:15,070
+I'll add a Card.js file
+104
+
+104
+00:05:15,070 --> 00:05:16,680
+because this kind of Component
+105
+
+105
+00:05:16,680 --> 00:05:19,940
+that provides such a container with this kind of look
+106
+
+106
+00:05:19,940 --> 00:05:22,003
+is typically called a card.
+107
+
+107
+00:05:23,450 --> 00:05:27,100
+So, therefore here we have our Card function
+108
+
+108
+00:05:27,100 --> 00:05:30,313
+and we export this as a default here,
+109
+
+109
+00:05:31,490 --> 00:05:36,490
+and then we crab the Card related code from StartGameScreen.
+110
+
+110
+00:05:37,160 --> 00:05:40,020
+And for this I'm not going to grab all that code
+111
+
+111
+00:05:40,020 --> 00:05:41,913
+because, of course, the specific content
+112
+
+112
+00:05:41,913 --> 00:05:45,290
+that we have in this box on the StartGameScreen
+113
+
+113
+00:05:45,290 --> 00:05:46,750
+should stay in that screen,
+114
+
+114
+00:05:46,750 --> 00:05:50,990
+that's not what we wanna outsource into a generic component.
+115
+
+115
+00:05:50,990 --> 00:05:54,920
+It's just the background, just the container itself.
+116
+
+116
+00:05:54,920 --> 00:05:59,270
+And therefore it's actually this view here which I'll grab,
+117
+
+117
+00:05:59,270 --> 00:06:03,250
+and return in here also with a closing tag.
+118
+
+118
+00:06:03,250 --> 00:06:04,980
+And then in the Card component
+119
+
+119
+00:06:04,980 --> 00:06:08,180
+I expect to get my children prop,
+120
+
+120
+00:06:08,180 --> 00:06:12,420
+and I output this between the opening and closing view tags,
+121
+
+121
+00:06:12,420 --> 00:06:15,230
+and that means that I can now use my Card Component
+122
+
+122
+00:06:15,230 --> 00:06:18,140
+as a wrapper around any kind of content
+123
+
+123
+00:06:18,140 --> 00:06:22,083
+to wrap this view with this style around that content.
+124
+
+124
+00:06:23,110 --> 00:06:24,280
+Of course, for this to work
+125
+
+125
+00:06:24,280 --> 00:06:26,510
+we also need to bring over the style, though,
+126
+
+126
+00:06:26,510 --> 00:06:30,363
+and therefore I'll import the StyleSheet from React Native,
+127
+
+127
+00:06:31,540 --> 00:06:36,540
+and create this styles constant here with StyleSheet create,
+128
+
+128
+00:06:36,860 --> 00:06:38,623
+like this here.
+129
+
+129
+00:06:40,670 --> 00:06:42,940
+And then in the StartGameScreen here,
+130
+
+130
+00:06:42,940 --> 00:06:46,020
+we can grab this inputContainer style property,
+131
+
+131
+00:06:46,020 --> 00:06:49,530
+which is responsible for styling this container,
+132
+
+132
+00:06:49,530 --> 00:06:52,770
+this Card container, and cut that from StartGameScreen
+133
+
+133
+00:06:54,060 --> 00:06:56,660
+and add it into this Card.js file
+134
+
+134
+00:06:56,660 --> 00:06:58,880
+into the StyleSheet instead.
+135
+
+135
+00:06:58,880 --> 00:07:00,530
+And I'll rename it to card
+136
+
+136
+00:07:00,530 --> 00:07:03,000
+because this is now really the kind of style
+137
+
+137
+00:07:03,000 --> 00:07:04,553
+we are applying here.
+138
+
+138
+00:07:06,410 --> 00:07:08,920
+With that we can now use this Card Component
+139
+
+139
+00:07:08,920 --> 00:07:10,600
+in the StartGameScreen,
+140
+
+140
+00:07:10,600 --> 00:07:15,600
+and there we can import Card from components/ui/Card,
+141
+
+141
+00:07:18,960 --> 00:07:19,793
+like that.
+142
+
+142
+00:07:20,900 --> 00:07:23,930
+And now we just need to replace this view,
+143
+
+143
+00:07:23,930 --> 00:07:28,303
+which is wrapped around our TextInput elements with Card,
+144
+
+144
+00:07:29,190 --> 00:07:33,250
+and of course also replace the closing element
+145
+
+145
+00:07:33,250 --> 00:07:34,823
+that belongs to that view.
+146
+
+146
+00:07:36,540 --> 00:07:38,780
+And we can now also use this on GameScreen
+147
+
+147
+00:07:38,780 --> 00:07:41,330
+to wrap this around our buttons there.
+148
+
+148
+00:07:41,330 --> 00:07:46,270
+Here I wanna replace this view with Card,
+149
+
+149
+00:07:46,270 --> 00:07:49,130
+also replace the closing view
+150
+
+150
+00:07:50,300 --> 00:07:53,790
+and, of course, make sure that card is being imported
+151
+
+151
+00:07:53,790 --> 00:07:57,053
+from the components/ui/Card file.
+152
+
+152
+00:07:59,020 --> 00:08:03,330
+I also now wanna use my instruction text
+153
+
+153
+00:08:03,330 --> 00:08:05,990
+that I defined here on StartGameScreen,
+154
+
+154
+00:08:05,990 --> 00:08:09,600
+this text with that styling on the GameScreen
+155
+
+155
+00:08:09,600 --> 00:08:12,970
+for this higher or lower text.
+156
+
+156
+00:08:12,970 --> 00:08:14,690
+And, therefore, for the same reason,
+157
+
+157
+00:08:14,690 --> 00:08:17,120
+we can create a Component.
+158
+
+158
+00:08:17,120 --> 00:08:21,290
+The instructionText Component, or however you wanna name it.
+159
+
+159
+00:08:21,290 --> 00:08:23,633
+The name, of course, is totally up to you.
+160
+
+160
+00:08:24,840 --> 00:08:29,223
+But this also is a default React component, like this.
+161
+
+161
+00:08:30,680 --> 00:08:35,520
+And in here we wanna return this text here,
+162
+
+162
+00:08:35,520 --> 00:08:37,560
+which we have on the StartGameScreen
+163
+
+163
+00:08:37,560 --> 00:08:39,363
+where we say enter a number,
+164
+
+164
+00:08:40,620 --> 00:08:44,700
+and for this we then, of course, want to import Text
+165
+
+165
+00:08:44,700 --> 00:08:46,630
+from React Native
+166
+
+166
+00:08:47,930 --> 00:08:51,410
+and expect to get that children prop here as well,
+167
+
+167
+00:08:51,410 --> 00:08:54,320
+so that we get this actual content
+168
+
+168
+00:08:54,320 --> 00:08:56,650
+that should be rendered between the text tags
+169
+
+169
+00:08:56,650 --> 00:09:00,020
+from the place where this instructionText Component
+170
+
+170
+00:09:00,020 --> 00:09:00,883
+will be used.
+171
+
+171
+00:09:02,350 --> 00:09:04,510
+And then, again, we wanna bring ove the styles
+172
+
+172
+00:09:04,510 --> 00:09:07,160
+because that's the primary reason for creating
+173
+
+173
+00:09:07,160 --> 00:09:08,770
+this reusable Component,
+174
+
+174
+00:09:08,770 --> 00:09:12,140
+so that we have the styles to find once in one place,
+175
+
+175
+00:09:12,140 --> 00:09:14,170
+and we can then use it in different parts
+176
+
+176
+00:09:14,170 --> 00:09:16,470
+of the application.
+177
+
+177
+00:09:16,470 --> 00:09:19,520
+And we therefore create such a styles object here
+178
+
+178
+00:09:19,520 --> 00:09:24,140
+with StyleSheet create, like this,
+179
+
+179
+00:09:24,140 --> 00:09:27,480
+and then we go back to StartGameScreen,
+180
+
+180
+00:09:27,480 --> 00:09:32,140
+we grab the instruction text styling here and cut that,
+181
+
+181
+00:09:32,140 --> 00:09:35,130
+and bring that over here into the StyleSheet
+182
+
+182
+00:09:35,130 --> 00:09:36,763
+so that this works there.
+183
+
+183
+00:09:38,210 --> 00:09:39,680
+And, of course, this should not be content
+184
+
+184
+00:09:39,680 --> 00:09:40,823
+but children here.
+185
+
+185
+00:09:42,350 --> 00:09:43,520
+So, now with that
+186
+
+186
+00:09:43,520 --> 00:09:45,970
+we can use this instructionText here
+187
+
+187
+00:09:45,970 --> 00:09:48,080
+in the StartGameScreen Component,
+188
+
+188
+00:09:48,080 --> 00:09:50,770
+instead of the regular Text Component.
+189
+
+189
+00:09:50,770 --> 00:09:55,080
+We now use the instructionText also for the closing tag
+190
+
+190
+00:09:56,610 --> 00:09:59,120
+and we get rid of this style assignment,
+191
+
+191
+00:09:59,120 --> 00:10:01,530
+we don't have that style in this file anymore
+192
+
+192
+00:10:01,530 --> 00:10:02,763
+and we don't need it.
+193
+
+193
+00:10:03,730 --> 00:10:06,740
+And, of course, you should add this instructionText import
+194
+
+194
+00:10:06,740 --> 00:10:07,573
+and on the other hand
+195
+
+195
+00:10:07,573 --> 00:10:10,140
+we can rid of the Text Component import
+196
+
+196
+00:10:10,140 --> 00:10:12,380
+because we're not using raw Text Component
+197
+
+197
+00:10:12,380 --> 00:10:13,803
+in this file anymore.
+198
+
+198
+00:10:14,720 --> 00:10:17,700
+And now in the GameScreen we can also use this,
+199
+
+199
+00:10:17,700 --> 00:10:20,030
+we can replace this Text Component
+200
+
+200
+00:10:20,030 --> 00:10:23,133
+with the instructionText, like that,
+201
+
+201
+00:10:24,270 --> 00:10:26,720
+and make sure that we import this Component,
+202
+
+202
+00:10:26,720 --> 00:10:29,723
+and we can also get rid of the Text Component import here.
+203
+
+203
+00:10:31,030 --> 00:10:34,330
+With all those changes made, let's see if this works.
+204
+
+204
+00:10:34,330 --> 00:10:36,330
+It looks like we have an error,
+205
+
+205
+00:10:36,330 --> 00:10:38,440
+can't find variable colors.
+206
+
+206
+00:10:38,440 --> 00:10:42,350
+Okay, so in the Card Component
+207
+
+207
+00:10:42,350 --> 00:10:44,660
+I'm referring to this colors constant
+208
+
+208
+00:10:44,660 --> 00:10:48,180
+and I'm doing the same thing here in the instructionText,
+209
+
+209
+00:10:48,180 --> 00:10:52,290
+and in both Component files I'm missing the colors import
+210
+
+210
+00:10:52,290 --> 00:10:56,730
+so, of course we should import this from constants colors
+211
+
+211
+00:10:56,730 --> 00:11:00,790
+and add this line of import to both the Card.js
+212
+
+212
+00:11:00,790 --> 00:11:04,270
+as well as the instructionText.js files.
+213
+
+213
+00:11:04,270 --> 00:11:09,270
+With that we're missing the variable view in Card,
+214
+
+214
+00:11:10,330 --> 00:11:12,060
+and that makes sense I'm rendering a view
+215
+
+215
+00:11:12,060 --> 00:11:13,943
+so of course we have to import this.
+216
+
+216
+00:11:15,890 --> 00:11:18,410
+Now this should render successfully.
+217
+
+217
+00:11:18,410 --> 00:11:20,130
+It crashed on Android as it seems
+218
+
+218
+00:11:20,130 --> 00:11:21,913
+so let me restart it there.
+219
+
+219
+00:11:23,840 --> 00:11:25,600
+And now we still have this box here
+220
+
+220
+00:11:26,630 --> 00:11:29,093
+but we also have it on this GameScreen now.
+221
+
+221
+00:11:30,080 --> 00:11:32,670
+There it's now just the positioning of the buttons
+222
+
+222
+00:11:32,670 --> 00:11:33,770
+which I wanna change,
+223
+
+223
+00:11:33,770 --> 00:11:36,050
+and then I got a couple of other things
+224
+
+224
+00:11:36,050 --> 00:11:38,113
+I'd like to change as well.

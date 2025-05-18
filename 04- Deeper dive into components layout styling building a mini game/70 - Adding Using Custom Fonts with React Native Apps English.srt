@@ -1,0 +1,753 @@
+1
+00:00:02,120 --> 00:00:04,090
+So now, with the icons added,
+2
+
+2
+00:00:04,090 --> 00:00:05,750
+let's talk about fonts
+3
+
+3
+00:00:05,750 --> 00:00:09,050
+because we also sometimes wanna use custom fonts.
+4
+
+4
+00:00:09,050 --> 00:00:13,403
+And again, thankfully Expo makes this pretty easy.
+5
+
+5
+00:00:14,360 --> 00:00:16,300
+For this, we can go to the app component
+6
+
+6
+00:00:16,300 --> 00:00:19,340
+because we wanna set up our own fonts
+7
+
+7
+00:00:19,340 --> 00:00:21,160
+in the root component of the app
+8
+
+8
+00:00:21,160 --> 00:00:24,270
+so that they are loaded when the app starts,
+9
+
+9
+00:00:24,270 --> 00:00:26,700
+because custom fonts have to be loaded
+10
+
+10
+00:00:26,700 --> 00:00:28,410
+and we wanna do this early on
+11
+
+11
+00:00:28,410 --> 00:00:30,253
+when the app starts, typically.
+12
+
+12
+00:00:31,490 --> 00:00:33,660
+Now custom fonts can be loaded
+13
+
+13
+00:00:33,660 --> 00:00:36,400
+with help of a extra package.
+14
+
+14
+00:00:36,400 --> 00:00:38,430
+This extra package must be installed
+15
+
+15
+00:00:38,430 --> 00:00:41,030
+and we can do this with expo install,
+16
+
+16
+00:00:41,030 --> 00:00:44,670
+and the package name is expo-font.
+17
+
+17
+00:00:44,670 --> 00:00:48,460
+With that, this package gets installed into our project.
+18
+
+18
+00:00:48,460 --> 00:00:50,460
+I still have the npm-start process running
+19
+
+19
+00:00:50,460 --> 00:00:51,350
+in a different tab,
+20
+
+20
+00:00:51,350 --> 00:00:54,150
+but I'm all installing this package.
+21
+
+21
+00:00:54,150 --> 00:00:57,110
+And once this is installed in the app component,
+22
+
+22
+00:00:57,110 --> 00:01:01,260
+we can import something from expo-font,
+23
+
+23
+00:01:01,260 --> 00:01:03,950
+and that something is a hook,
+24
+
+24
+00:01:03,950 --> 00:01:06,740
+a React Hook, exposed by this package,
+25
+
+25
+00:01:06,740 --> 00:01:08,053
+the useFonts hook.
+26
+
+26
+00:01:09,770 --> 00:01:11,270
+This hook can be called
+27
+
+27
+00:01:11,270 --> 00:01:13,760
+and must be called in an app component.
+28
+
+28
+00:01:13,760 --> 00:01:18,496
+In this case, in our root app component to load these fonts.
+29
+
+29
+00:01:18,496 --> 00:01:19,930
+UseFont is executed,
+30
+
+30
+00:01:19,930 --> 00:01:21,600
+and to useFonts,
+31
+
+31
+00:01:21,600 --> 00:01:23,850
+you pass an object with instructions
+32
+
+32
+00:01:23,850 --> 00:01:26,720
+about which fonts should be loaded.
+33
+
+33
+00:01:26,720 --> 00:01:28,660
+Now, if you dive into the official
+34
+
+34
+00:01:28,660 --> 00:01:31,710
+Expo Fonts documentation
+35
+
+35
+00:01:31,710 --> 00:01:35,410
+you'll learn how you could easily include fonts from Google
+36
+
+36
+00:01:35,410 --> 00:01:39,500
+because including Google Fonts is made extra simple
+37
+
+37
+00:01:39,500 --> 00:01:43,240
+with help of a special Expo Google Fonts Package.
+38
+
+38
+00:01:43,240 --> 00:01:46,090
+That might be worth a closer look as well.
+39
+
+39
+00:01:46,090 --> 00:01:49,840
+Here, I wanna show you how to include any kind of fonts
+40
+
+40
+00:01:49,840 --> 00:01:53,830
+where you might just have your local font files,
+41
+
+41
+00:01:53,830 --> 00:01:55,490
+and therefore in the assets folder,
+42
+
+42
+00:01:55,490 --> 00:01:58,070
+I'll add a fonts sub-folder,
+43
+
+43
+00:01:58,070 --> 00:01:59,940
+and attached to this lecture,
+44
+
+44
+00:01:59,940 --> 00:02:02,530
+you'll find two font files
+45
+
+45
+00:02:02,530 --> 00:02:06,770
+which you should download and add to this fonts folder.
+46
+
+46
+00:02:06,770 --> 00:02:09,230
+The OpenSans-Boldttf file,
+47
+
+47
+00:02:09,230 --> 00:02:12,253
+and the OpenSans-Regularttf file.
+48
+
+48
+00:02:13,150 --> 00:02:14,670
+These two files are attached,
+49
+
+49
+00:02:14,670 --> 00:02:15,920
+and you should download them,
+50
+
+50
+00:02:15,920 --> 00:02:18,893
+and add them to the fonts folder in the assets folder.
+51
+
+51
+00:02:19,800 --> 00:02:21,490
+Now, once you added them,
+52
+
+52
+00:02:21,490 --> 00:02:24,700
+they can be loaded with help of useFonts.
+53
+
+53
+00:02:24,700 --> 00:02:27,180
+For this, in this useFonts object,
+54
+
+54
+00:02:27,180 --> 00:02:29,550
+you must set up property names
+55
+
+55
+00:02:29,550 --> 00:02:33,250
+that will later be used for identifying the fonts you loaded
+56
+
+56
+00:02:33,250 --> 00:02:35,650
+and values for these property names,
+57
+
+57
+00:02:35,650 --> 00:02:39,170
+that point to these files that should be loaded.
+58
+
+58
+00:02:39,170 --> 00:02:42,427
+So for example, this font is called OpenSans
+59
+
+59
+00:02:42,427 --> 00:02:45,510
+so I'll use open-sans as a property name,
+60
+
+60
+00:02:45,510 --> 00:02:48,280
+between quotes, since this name includes a dash,
+61
+
+61
+00:02:48,280 --> 00:02:52,830
+and it would be a invalid JavaScript property otherwise.
+62
+
+62
+00:02:52,830 --> 00:02:56,970
+And then to load the font and assign it to this identifier,
+63
+
+63
+00:02:56,970 --> 00:02:58,970
+we use this require function,
+64
+
+64
+00:02:58,970 --> 00:03:01,690
+which we already know from images.
+65
+
+65
+00:03:01,690 --> 00:03:03,260
+And here, just as for images,
+66
+
+66
+00:03:03,260 --> 00:03:05,930
+we construct the path to this font
+67
+
+67
+00:03:05,930 --> 00:03:07,130
+that should be loaded.
+68
+
+68
+00:03:07,130 --> 00:03:12,000
+In this case, it's OpenSans-Regularttf.
+69
+
+69
+00:03:12,000 --> 00:03:14,590
+And make sure you introduce no typo here
+70
+
+70
+00:03:14,590 --> 00:03:17,390
+because otherwise loading that font will of course fail.
+71
+
+71
+00:03:18,900 --> 00:03:20,350
+Now, we also have to bold version
+72
+
+72
+00:03:20,350 --> 00:03:22,860
+for this I'll load open-sans-bold here,
+73
+
+73
+00:03:22,860 --> 00:03:26,513
+and point at OpenSansttf like that.
+74
+
+74
+00:03:28,980 --> 00:03:30,970
+This will load these fonts.
+75
+
+75
+00:03:30,970 --> 00:03:32,980
+Now, what you should typically do
+76
+
+76
+00:03:32,980 --> 00:03:35,800
+is that whilst these fonts are loaded
+77
+
+77
+00:03:35,800 --> 00:03:38,060
+you wanna show a loading screen,
+78
+
+78
+00:03:38,060 --> 00:03:41,060
+or you wanna show the splash screen of the app
+79
+
+79
+00:03:41,060 --> 00:03:43,140
+which is the app loading screen
+80
+
+80
+00:03:43,140 --> 00:03:45,653
+until the fonts have been initialized.
+81
+
+81
+00:03:46,550 --> 00:03:47,383
+And to do this,
+82
+
+82
+00:03:47,383 --> 00:03:51,430
+we can install another package with expo install,
+83
+
+83
+00:03:51,430 --> 00:03:55,133
+and that would be the expo-app-loading package.
+84
+
+84
+00:03:57,150 --> 00:04:00,460
+This gives us a utility component, which we can render
+85
+
+85
+00:04:00,460 --> 00:04:03,020
+which will prolong the splash screen,
+86
+
+86
+00:04:03,020 --> 00:04:06,510
+and will ensure that the splash screen is still shown
+87
+
+87
+00:04:06,510 --> 00:04:08,113
+until some condition is met.
+88
+
+88
+00:04:09,310 --> 00:04:10,920
+So now with this package installed,
+89
+
+89
+00:04:10,920 --> 00:04:14,943
+we can import app-loading from expo-app loading,
+90
+
+90
+00:04:16,520 --> 00:04:19,483
+and we wanna show this as long as we're loading fonts.
+91
+
+91
+00:04:20,370 --> 00:04:23,183
+Now to find out if we are still loading,
+92
+
+92
+00:04:23,183 --> 00:04:27,130
+useFunds, thankfully returns an array,
+93
+
+93
+00:04:27,130 --> 00:04:28,980
+where the first element
+94
+
+94
+00:04:28,980 --> 00:04:31,730
+which we can extract with array destructuring,
+95
+
+95
+00:04:31,730 --> 00:04:33,753
+as we did it for useState,
+96
+
+96
+00:04:34,610 --> 00:04:37,860
+where the first element is actually a boolean,
+97
+
+97
+00:04:37,860 --> 00:04:39,950
+that indicates whether the fonts
+98
+
+98
+00:04:39,950 --> 00:04:41,833
+have been loaded yet or not.
+99
+
+99
+00:04:42,750 --> 00:04:44,610
+So we can now use this boolean
+100
+
+100
+00:04:44,610 --> 00:04:46,730
+to render our app loading component,
+101
+
+101
+00:04:46,730 --> 00:04:48,900
+which will then show the splash screen
+102
+
+102
+00:04:48,900 --> 00:04:50,863
+until the fonts have been loaded.
+103
+
+103
+00:04:51,820 --> 00:04:54,410
+So here I'll check if not fonts loaded,
+104
+
+104
+00:04:54,410 --> 00:04:57,080
+so if we are still loading,
+105
+
+105
+00:04:57,080 --> 00:05:01,470
+and in that case, I will return AppLaoding like this.
+106
+
+106
+00:05:01,470 --> 00:05:03,640
+So in that case, I will show the splash screen,
+107
+
+107
+00:05:03,640 --> 00:05:05,570
+and once the fonts have been loaded
+108
+
+108
+00:05:05,570 --> 00:05:07,780
+the component will be re-executed,
+109
+
+109
+00:05:07,780 --> 00:05:11,223
+and then we will not show the splash screen anymore.
+110
+
+110
+00:05:12,200 --> 00:05:13,033
+But now with that,
+111
+
+111
+00:05:13,033 --> 00:05:14,700
+we can use our custom fonts
+112
+
+112
+00:05:14,700 --> 00:05:18,120
+because that is of course the main reason for loading them.
+113
+
+113
+00:05:18,120 --> 00:05:20,630
+And it's up to you where you wanna use them,
+114
+
+114
+00:05:20,630 --> 00:05:21,830
+but I, in the end,
+115
+
+115
+00:05:21,830 --> 00:05:26,210
+wanna use my fonts in different places of the app.
+116
+
+116
+00:05:26,210 --> 00:05:29,290
+For example, I wanna use my fonts here,
+117
+
+117
+00:05:29,290 --> 00:05:32,490
+in the Title and Instruction text,
+118
+
+118
+00:05:32,490 --> 00:05:35,530
+and NumberContainer elements.
+119
+
+119
+00:05:35,530 --> 00:05:39,490
+And therefore, in Title.js to use my custom font,
+120
+
+120
+00:05:39,490 --> 00:05:42,810
+we can, by the way, remove the colors import here
+121
+
+121
+00:05:42,810 --> 00:05:44,620
+since we don't need it anymore.
+122
+
+122
+00:05:44,620 --> 00:05:46,850
+But here to use the custom font
+123
+
+123
+00:05:46,850 --> 00:05:48,600
+all we have to do
+124
+
+124
+00:05:48,600 --> 00:05:51,500
+is go to our style object,
+125
+
+125
+00:05:51,500 --> 00:05:54,550
+and add the fontFamily property,
+126
+
+126
+00:05:54,550 --> 00:05:56,423
+as we would do it in CSS.
+127
+
+127
+00:05:57,260 --> 00:05:59,470
+And now we can use these identifiers,
+128
+
+128
+00:05:59,470 --> 00:06:01,410
+that we assigned in the app component.
+129
+
+129
+00:06:01,410 --> 00:06:05,140
+So in my case, open-sans or open-sans-bold.
+130
+
+130
+00:06:05,140 --> 00:06:08,390
+And here I wanna use open-sans-bold
+131
+
+131
+00:06:08,390 --> 00:06:10,370
+since I wanna have some bold text.
+132
+
+132
+00:06:10,370 --> 00:06:12,750
+We can now remove the fontWeight here
+133
+
+133
+00:06:12,750 --> 00:06:15,713
+because this font which we load, is already bold.
+134
+
+134
+00:06:16,910 --> 00:06:18,220
+Now in the InstructionText
+135
+
+135
+00:06:18,220 --> 00:06:20,240
+I wanna use just open-sans,
+136
+
+136
+00:06:20,240 --> 00:06:23,763
+so there I'll add fontFamily open-sans, like this.
+137
+
+137
+00:06:25,800 --> 00:06:26,940
+And in the NumberContainer,
+138
+
+138
+00:06:26,940 --> 00:06:28,800
+I wanna use the bold font again.
+139
+
+139
+00:06:28,800 --> 00:06:30,600
+So here for number-text,
+140
+
+140
+00:06:30,600 --> 00:06:33,280
+again we can comment out the fontWeight
+141
+
+141
+00:06:33,280 --> 00:06:37,760
+but I'll add a fontFamily of open-sans-bold
+142
+
+142
+00:06:37,760 --> 00:06:41,173
+or whatever you chose as your font identifiers.
+143
+
+143
+00:06:42,520 --> 00:06:45,570
+With that, if we reload the entire apps,
+144
+
+144
+00:06:45,570 --> 00:06:47,050
+the font is now a different one,
+145
+
+145
+00:06:47,050 --> 00:06:48,070
+as you can tell,
+146
+
+146
+00:06:48,070 --> 00:06:50,390
+because we're now using this custom font
+147
+
+147
+00:06:50,390 --> 00:06:53,110
+that is getting imported.
+148
+
+148
+00:06:53,110 --> 00:06:54,540
+The difference might not be huge
+149
+
+149
+00:06:54,540 --> 00:06:57,440
+but it is a different font which we have here.
+150
+
+150
+00:06:57,440 --> 00:06:59,870
+So that's how you can add custom fonts
+151
+
+151
+00:06:59,870 --> 00:07:01,233
+to a React Native app.

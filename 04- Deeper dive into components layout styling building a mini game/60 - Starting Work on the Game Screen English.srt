@@ -1,0 +1,463 @@
+1
+00:00:02,090 --> 00:00:03,410
+So let's start working
+2
+
+2
+00:00:03,410 --> 00:00:05,370
+on this game screen now.
+3
+
+3
+00:00:05,370 --> 00:00:08,720
+And we got a couple of things that should be added there.
+4
+
+4
+00:00:08,720 --> 00:00:11,530
+For example, the main thing that's happening
+5
+
+5
+00:00:11,530 --> 00:00:14,490
+on this screen is that our phone,
+6
+
+6
+00:00:14,490 --> 00:00:18,929
+so the program in the end, the app, is guessing a number
+7
+
+7
+00:00:18,929 --> 00:00:21,680
+and then we have controls to tell the program
+8
+
+8
+00:00:21,680 --> 00:00:25,140
+if the number is too high or too low.
+9
+
+9
+00:00:25,140 --> 00:00:28,190
+Therefore, we definitely need to output the guessed number
+10
+
+10
+00:00:28,190 --> 00:00:32,950
+and we need to derive the guessed number as a first step.
+11
+
+11
+00:00:32,950 --> 00:00:35,080
+Then we need to output the controls
+12
+
+12
+00:00:35,080 --> 00:00:38,240
+that allow us to provide feedback to the program
+13
+
+13
+00:00:38,240 --> 00:00:40,760
+and then we need to recalculate a new number
+14
+
+14
+00:00:40,760 --> 00:00:42,890
+based on that feedback.
+15
+
+15
+00:00:42,890 --> 00:00:46,020
+In addition, I wanna log all the rounds we had in the game,
+16
+
+16
+00:00:46,020 --> 00:00:49,600
+so I wanna log the different guesses that have been made.
+17
+
+17
+00:00:49,600 --> 00:00:51,331
+Therefore, here in the game screen,
+18
+
+18
+00:00:51,331 --> 00:00:53,950
+we will definitely need a view to group
+19
+
+19
+00:00:53,950 --> 00:00:56,373
+all these different UI elements that we need.
+20
+
+20
+00:00:57,650 --> 00:00:59,520
+So we'll have this main view
+21
+
+21
+00:00:59,520 --> 00:01:02,411
+and then in there, I wanna have a text where I say
+22
+
+22
+00:01:02,411 --> 00:01:07,310
+opponent's guess, this is just a title,
+23
+
+23
+00:01:07,310 --> 00:01:09,660
+but I want to have this kind of title here,
+24
+
+24
+00:01:09,660 --> 00:01:13,160
+then below that, I want to have the actual guess
+25
+
+25
+00:01:13,160 --> 00:01:17,360
+being output and yes, we can't add text like this in a view
+26
+
+26
+00:01:17,360 --> 00:01:19,100
+but this is just a placeholder.
+27
+
+27
+00:01:19,100 --> 00:01:20,720
+We'll add a nice component
+28
+
+28
+00:01:20,720 --> 00:01:24,360
+that shows the guess by the opponent here.
+29
+
+29
+00:01:24,360 --> 00:01:27,060
+And then below that I wanna have another view
+30
+
+30
+00:01:27,060 --> 00:01:31,250
+which holds the controls that we have to tell the opponent,
+31
+
+31
+00:01:31,250 --> 00:01:35,203
+the program, whether the guess was too high or too low.
+32
+
+32
+00:01:36,160 --> 00:01:38,200
+So here we could have another text
+33
+
+33
+00:01:38,200 --> 00:01:42,010
+where we say higher or lower
+34
+
+34
+00:01:42,010 --> 00:01:45,190
+and then below that we have our two buttons,
+35
+
+35
+00:01:45,190 --> 00:01:47,870
+where we basically show a plus or minus
+36
+
+36
+00:01:47,870 --> 00:01:50,500
+to indicate whether it's too low or to high.
+37
+
+37
+00:01:50,500 --> 00:01:52,420
+These are all the chess placeholders
+38
+
+38
+00:01:52,420 --> 00:01:54,513
+we'll add real buttons instead soon.
+39
+
+39
+00:01:55,680 --> 00:01:57,340
+And then below all of that,
+40
+
+40
+00:01:57,340 --> 00:02:01,503
+we'll have another view where we log our rounds.
+41
+
+41
+00:02:03,040 --> 00:02:04,720
+So that's the general structure
+42
+
+42
+00:02:04,720 --> 00:02:07,600
+with plenty of placeholders that we have here
+43
+
+43
+00:02:07,600 --> 00:02:11,150
+and we'll have to fill those placeholders step by step
+44
+
+44
+00:02:11,150 --> 00:02:15,140
+and we'll have to style this overall screen step by step.
+45
+
+45
+00:02:15,140 --> 00:02:18,960
+And I'll start by styling this view that wraps everything.
+46
+
+46
+00:02:18,960 --> 00:02:21,640
+I wanna make sure that we don't have the content
+47
+
+47
+00:02:21,640 --> 00:02:23,620
+crammed up to the edges here,
+48
+
+48
+00:02:23,620 --> 00:02:26,230
+instead, it should be centered,
+49
+
+49
+00:02:26,230 --> 00:02:29,460
+it should be clearly visible on the screen.
+50
+
+50
+00:02:29,460 --> 00:02:32,820
+And of course for that, we can use good old Flexbox.
+51
+
+51
+00:02:32,820 --> 00:02:36,150
+So we'll add a style sheet here
+52
+
+52
+00:02:36,150 --> 00:02:38,630
+in this game screen component, as well
+53
+
+53
+00:02:38,630 --> 00:02:40,990
+and create the styles constant
+54
+
+54
+00:02:42,360 --> 00:02:45,810
+which then will hold a style sheet
+55
+
+55
+00:02:45,810 --> 00:02:49,230
+that is created with the create method
+56
+
+56
+00:02:50,490 --> 00:02:52,440
+and then here in this style sheet object,
+57
+
+57
+00:02:52,440 --> 00:02:54,690
+I'll add a property named screen.
+58
+
+58
+00:02:54,690 --> 00:02:57,170
+Name as always, is up to you though,
+59
+
+59
+00:02:57,170 --> 00:03:00,230
+which gets flex one to make sure it takes up
+60
+
+60
+00:03:00,230 --> 00:03:01,730
+all the available space,
+61
+
+61
+00:03:01,730 --> 00:03:03,680
+instead of just the space needed
+62
+
+62
+00:03:03,680 --> 00:03:08,580
+by the content of the element that receives this property.
+63
+
+63
+00:03:08,580 --> 00:03:11,740
+We wanna take all the available space instead.
+64
+
+64
+00:03:11,740 --> 00:03:15,380
+And I'll already add some padding, let's say, 12 pixels,
+65
+
+65
+00:03:15,380 --> 00:03:19,140
+to make sure that we add some distance in all directions,
+66
+
+66
+00:03:19,140 --> 00:03:22,193
+so that we have some distance to the device edges.
+67
+
+67
+00:03:23,480 --> 00:03:24,770
+Now for the moment, that's it.
+68
+
+68
+00:03:24,770 --> 00:03:26,660
+For a start, that's good enough.
+69
+
+69
+00:03:26,660 --> 00:03:29,880
+And then I'll add this style to this view,
+70
+
+70
+00:03:29,880 --> 00:03:32,543
+as we did it many times before, like this.
+71
+
+71
+00:03:33,910 --> 00:03:38,070
+If we save this, I get an error, of course,
+72
+
+72
+00:03:38,070 --> 00:03:41,820
+because I have these texts here which must go into texts
+73
+
+73
+00:03:41,820 --> 00:03:44,870
+and I'll just comment those placeholders out
+74
+
+74
+00:03:44,870 --> 00:03:47,530
+because they are just meant to be used as placeholders,
+75
+
+75
+00:03:47,530 --> 00:03:49,470
+not as actual text.
+76
+
+76
+00:03:49,470 --> 00:03:52,010
+I also have this text, of course.
+77
+
+77
+00:03:52,010 --> 00:03:53,720
+Let's count this out, as well.
+78
+
+78
+00:03:53,720 --> 00:03:56,730
+Now with that finally, if I go to this screen
+79
+
+79
+00:03:56,730 --> 00:03:58,530
+we have this extra content,
+80
+
+80
+00:03:58,530 --> 00:04:02,750
+but it's actually still in the top left corner.
+81
+
+81
+00:04:02,750 --> 00:04:05,670
+Now actually, there is some padding here,
+82
+
+82
+00:04:05,670 --> 00:04:08,980
+as you can tell if I ramp up the padding to 40,
+83
+
+83
+00:04:08,980 --> 00:04:13,693
+now it's moved in further, but 12 pixels wasn't enough.
+84
+
+84
+00:04:14,950 --> 00:04:16,410
+Now we didn't have the problem here
+85
+
+85
+00:04:16,410 --> 00:04:18,330
+on the start game screen
+86
+
+86
+00:04:18,330 --> 00:04:20,840
+because on this screen, we do add
+87
+
+87
+00:04:20,840 --> 00:04:23,680
+quite a lot of margin to the top.
+88
+
+88
+00:04:23,680 --> 00:04:27,300
+We could add this here, as well on this game screen,
+89
+
+89
+00:04:27,300 --> 00:04:30,830
+but actually I want to introduce a new component
+90
+
+90
+00:04:30,830 --> 00:04:35,190
+that is very useful when it comes to adding some distance
+91
+
+91
+00:04:35,190 --> 00:04:38,870
+to the device edges, especially to the top of the device,
+92
+
+92
+00:04:38,870 --> 00:04:41,220
+to the notch as we have it here.
+93
+
+93
+00:04:41,220 --> 00:04:43,323
+And that's the safe area view.

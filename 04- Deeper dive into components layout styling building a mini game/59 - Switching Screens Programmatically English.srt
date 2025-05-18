@@ -1,0 +1,668 @@
+1
+00:00:01,625 --> 00:00:04,290
+So now that we can enter
+2
+
+2
+00:00:04,290 --> 00:00:05,880
+and confirm a number,
+3
+
+3
+00:00:05,880 --> 00:00:09,160
+let's make sure that we are able to switch to a game screen
+4
+
+4
+00:00:09,160 --> 00:00:10,333
+once we get a number.
+5
+
+5
+00:00:11,410 --> 00:00:14,790
+And for this, we already have this game screen JS file
+6
+
+6
+00:00:14,790 --> 00:00:16,293
+but at the moment it's empty.
+7
+
+7
+00:00:17,470 --> 00:00:20,550
+Therefore it makes sense to also add a functional component
+8
+
+8
+00:00:20,550 --> 00:00:22,720
+in there because of course this new screen
+9
+
+9
+00:00:22,720 --> 00:00:25,710
+will also be component in the end.
+10
+
+10
+00:00:25,710 --> 00:00:29,150
+So we export this component here,
+11
+
+11
+00:00:29,150 --> 00:00:32,970
+and then here for a start I will add some text
+12
+
+12
+00:00:32,970 --> 00:00:35,623
+where I just say Game screen.
+13
+
+13
+00:00:37,500 --> 00:00:40,030
+And we have to import this text component
+14
+
+14
+00:00:40,030 --> 00:00:43,723
+from react-native of course, otherwise it's not available.
+15
+
+15
+00:00:44,740 --> 00:00:46,890
+Now this screen here should be displayed
+16
+
+16
+00:00:46,890 --> 00:00:49,340
+as soon as the user picked a number.
+17
+
+17
+00:00:49,340 --> 00:00:51,270
+How can we do that?
+18
+
+18
+00:00:51,270 --> 00:00:54,570
+Well, later in the course in the navigation section,
+19
+
+19
+00:00:54,570 --> 00:00:56,900
+we will learn about a third party package
+20
+
+20
+00:00:56,900 --> 00:01:01,080
+that helps with navigating between different screens.
+21
+
+21
+00:01:01,080 --> 00:01:03,910
+But we can also navigate without that package
+22
+
+22
+00:01:03,910 --> 00:01:06,860
+and to keep things simpler for the moment,
+23
+
+23
+00:01:06,860 --> 00:01:09,120
+I will show you how you can do this
+24
+
+24
+00:01:09,120 --> 00:01:12,110
+without any external dependencies.
+25
+
+25
+00:01:12,110 --> 00:01:14,650
+Because in the end you just have to keep in mind
+26
+
+26
+00:01:14,650 --> 00:01:18,030
+that we can use standard react tools like state
+27
+
+27
+00:01:18,030 --> 00:01:20,253
+to change what's visible on the screen.
+28
+
+28
+00:01:21,330 --> 00:01:24,850
+And we just wanna swap this StartGameScreen here
+29
+
+29
+00:01:24,850 --> 00:01:27,900
+in the app component with the GameScreen
+30
+
+30
+00:01:27,900 --> 00:01:30,330
+as even as we have a number.
+31
+
+31
+00:01:30,330 --> 00:01:32,210
+So all we have to do for that
+32
+
+32
+00:01:32,210 --> 00:01:35,550
+is manage some extra state in this app component
+33
+
+33
+00:01:35,550 --> 00:01:38,250
+that basically keeps track of the fact
+34
+
+34
+00:01:38,250 --> 00:01:40,113
+whether we have a number or not.
+35
+
+35
+00:01:41,260 --> 00:01:44,860
+So, we can import useState
+36
+
+36
+00:01:47,080 --> 00:01:50,783
+from react here in the app component,
+37
+
+37
+00:01:51,930 --> 00:01:55,917
+and then we wanna register some state here With useState,
+38
+
+38
+00:01:55,917 --> 00:01:58,730
+and that state that I do wanna register here
+39
+
+39
+00:01:58,730 --> 00:02:03,693
+in the end is simply the number picked by the user.
+40
+
+40
+00:02:04,580 --> 00:02:07,400
+So the userNumber for example
+41
+
+41
+00:02:07,400 --> 00:02:11,080
+which we can set with this state updating function.
+42
+
+42
+00:02:11,080 --> 00:02:13,720
+And initially this is null.
+43
+
+43
+00:02:13,720 --> 00:02:16,870
+We could also set it to zero but I will send it to null
+44
+
+44
+00:02:16,870 --> 00:02:19,410
+so undefined to be precise
+45
+
+45
+00:02:19,410 --> 00:02:23,650
+to make it clear that we have no number initially.
+46
+
+46
+00:02:23,650 --> 00:02:26,070
+Now we can add a function.
+47
+
+47
+00:02:26,070 --> 00:02:30,450
+Let's say the startGameHandler or the pickedNumberHandler,
+48
+
+48
+00:02:32,380 --> 00:02:33,863
+whatever name you wanna use.
+49
+
+49
+00:02:34,710 --> 00:02:38,600
+And here I expect to get the pickedNumber.
+50
+
+50
+00:02:38,600 --> 00:02:41,120
+So the number picked by the user,
+51
+
+51
+00:02:41,120 --> 00:02:43,690
+and once the number was picked and confirmed
+52
+
+52
+00:02:43,690 --> 00:02:45,810
+we know that the game should start.
+53
+
+53
+00:02:45,810 --> 00:02:49,170
+So here we get the picked number once it is confirmed,
+54
+
+54
+00:02:49,170 --> 00:02:50,880
+or at least that's the plan.
+55
+
+55
+00:02:50,880 --> 00:02:53,450
+And then here we can set the user number
+56
+
+56
+00:02:53,450 --> 00:02:54,823
+to that picked number.
+57
+
+57
+00:02:55,770 --> 00:02:57,710
+Now, why is this helpful?
+58
+
+58
+00:02:57,710 --> 00:03:02,170
+Because now we can use this userNumber state here
+59
+
+59
+00:03:02,170 --> 00:03:05,430
+to either render the StartGameScreen
+60
+
+60
+00:03:05,430 --> 00:03:08,430
+if we have no user number yet,
+61
+
+61
+00:03:08,430 --> 00:03:12,973
+or render the game screen if we do have a user number.
+62
+
+62
+00:03:13,970 --> 00:03:16,977
+So for this we can import the GameScreen here
+63
+
+63
+00:03:16,977 --> 00:03:19,513
+from ./screens/GameScreen.
+64
+
+64
+00:03:21,280 --> 00:03:23,760
+And then here I'll add a helper variable
+65
+
+65
+00:03:23,760 --> 00:03:28,760
+called screen which is the StartGameScreen by default.
+66
+
+66
+00:03:31,090 --> 00:03:32,840
+But I'll then add a if check here
+67
+
+67
+00:03:32,840 --> 00:03:35,360
+directly in my component function,
+68
+
+68
+00:03:35,360 --> 00:03:38,640
+and therefore this if check will be re-executed
+69
+
+69
+00:03:38,640 --> 00:03:41,860
+whenever this component function is re-executed
+70
+
+70
+00:03:41,860 --> 00:03:44,563
+which will be the case whenever state changes.
+71
+
+71
+00:03:45,500 --> 00:03:50,500
+And in here I'll check if userNumber if this is truthy,
+72
+
+72
+00:03:51,280 --> 00:03:54,780
+which will not be the case if it's null or undefined,
+73
+
+73
+00:03:54,780 --> 00:03:56,440
+which it is initially.
+74
+
+74
+00:03:56,440 --> 00:04:00,550
+But if it's truthy so not null and not zero
+75
+
+75
+00:04:00,550 --> 00:04:03,710
+which can't be the case because we validate for this
+76
+
+76
+00:04:03,710 --> 00:04:05,740
+in the StartGameScreen.
+77
+
+77
+00:04:05,740 --> 00:04:07,610
+So if it is a valid number,
+78
+
+78
+00:04:07,610 --> 00:04:09,710
+then we'll make it into this if block
+79
+
+79
+00:04:09,710 --> 00:04:13,780
+and in that case I'll set the screen variable here
+80
+
+80
+00:04:13,780 --> 00:04:14,680
+to the GameScreen.
+81
+
+81
+00:04:18,120 --> 00:04:21,670
+And then we just have to render this screen variable here
+82
+
+82
+00:04:21,670 --> 00:04:25,827
+in the JSX code instead of the hard-coded StartGameScreen.
+83
+
+83
+00:04:27,620 --> 00:04:32,060
+So now we either display StartGameScreen or GameScreen.
+84
+
+84
+00:04:33,320 --> 00:04:36,520
+Of course at the moment though pickedNumberHandler
+85
+
+85
+00:04:36,520 --> 00:04:39,470
+will never execute which is a problem.
+86
+
+86
+00:04:39,470 --> 00:04:42,110
+Now we do wanna execute whenever a number
+87
+
+87
+00:04:42,110 --> 00:04:45,672
+is confirmed inside of StartGameScreen.
+88
+
+88
+00:04:45,672 --> 00:04:47,660
+And again we can use props for that
+89
+
+89
+00:04:47,660 --> 00:04:50,220
+and we can pass a pointer to this function
+90
+
+90
+00:04:50,220 --> 00:04:53,590
+to StartGameScreen with help of props
+91
+
+91
+00:04:53,590 --> 00:04:56,300
+so that this function can be executed
+92
+
+92
+00:04:56,300 --> 00:04:59,610
+from inside the StartGameScreen component.
+93
+
+93
+00:04:59,610 --> 00:05:01,980
+And this is a standard pattern in react
+94
+
+94
+00:05:01,980 --> 00:05:04,460
+which we used before with the primary button
+95
+
+95
+00:05:04,460 --> 00:05:07,260
+and the onPress prop we accepted there
+96
+
+96
+00:05:07,260 --> 00:05:09,910
+and which we will now use again with StartGameScreen.
+97
+
+97
+00:05:11,200 --> 00:05:14,336
+So here we could have a onPickNumber,
+98
+
+98
+00:05:14,336 --> 00:05:18,040
+or onConfirmNumber, whatever you want.
+99
+
+99
+00:05:18,040 --> 00:05:19,957
+I'll go with onPickNumber.
+100
+
+100
+00:05:21,330 --> 00:05:24,533
+It's your component, so the prop name is up to you.
+101
+
+101
+00:05:25,450 --> 00:05:28,763
+And here I will point at pickedNumberHandler.
+102
+
+102
+00:05:30,190 --> 00:05:31,590
+Now we just have to accept
+103
+
+103
+00:05:31,590 --> 00:05:34,810
+and use this prop inside of StartGameScreen
+104
+
+104
+00:05:34,810 --> 00:05:36,810
+and therefore in this component
+105
+
+105
+00:05:36,810 --> 00:05:41,810
+we can use props here or object destructuring
+106
+
+106
+00:05:42,270 --> 00:05:45,180
+to automatically pull out this prop
+107
+
+107
+00:05:45,180 --> 00:05:47,273
+from the incoming props object.
+108
+
+108
+00:05:48,260 --> 00:05:50,220
+And then here we wanna execute that
+109
+
+109
+00:05:50,220 --> 00:05:52,640
+whenever a number is picked and confirmed.
+110
+
+110
+00:05:52,640 --> 00:05:56,180
+And that is case in the confirmInputHandler
+111
+
+111
+00:05:56,180 --> 00:05:59,793
+after this if Check where we currently log to the console.
+112
+
+112
+00:06:00,650 --> 00:06:02,680
+Instead of logging to the console
+113
+
+113
+00:06:02,680 --> 00:06:04,993
+I now wanna execute onPickNumber
+114
+
+114
+00:06:05,900 --> 00:06:09,510
+and very important I wanna forward the number
+115
+
+115
+00:06:09,510 --> 00:06:11,320
+that has been picked.
+116
+
+116
+00:06:11,320 --> 00:06:15,247
+Because in AppJS I expect to get this pickedNumber.
+117
+
+117
+00:06:16,090 --> 00:06:17,590
+So in StartGameScreen
+118
+
+118
+00:06:17,590 --> 00:06:21,090
+when we call the function received on this prop
+119
+
+119
+00:06:21,090 --> 00:06:24,123
+which will be the pickedNumberHandler function,
+120
+
+120
+00:06:24,123 --> 00:06:26,650
+there we now wanna pass the picked number
+121
+
+121
+00:06:26,650 --> 00:06:29,280
+as a argument to that function.
+122
+
+122
+00:06:29,280 --> 00:06:33,160
+So we wanna pass the chosen number which is our converted
+123
+
+123
+00:06:33,160 --> 00:06:35,793
+and validated number to this function.
+124
+
+124
+00:06:37,700 --> 00:06:40,493
+Well, and with that, if we save everything.
+125
+
+125
+00:06:41,360 --> 00:06:44,150
+If I enter something invalid
+126
+
+126
+00:06:44,150 --> 00:06:46,870
+we still get the same behavior as before,
+127
+
+127
+00:06:46,870 --> 00:06:49,390
+but if I enter something valid here,
+128
+
+128
+00:06:49,390 --> 00:06:52,600
+this disappears and I'm on the game screen
+129
+
+129
+00:06:52,600 --> 00:06:55,323
+as you can see here in the top left corner.
+130
+
+130
+00:06:56,290 --> 00:06:59,420
+Of course the game screen has absolutely no layout
+131
+
+131
+00:06:59,420 --> 00:07:01,180
+and therefore it looks horrible
+132
+
+132
+00:07:01,180 --> 00:07:04,083
+but we successfully switched the screen.
+133
+
+133
+00:07:05,000 --> 00:07:06,730
+And now we can build up on this
+134
+
+134
+00:07:06,730 --> 00:07:09,313
+and start working on that game screen.

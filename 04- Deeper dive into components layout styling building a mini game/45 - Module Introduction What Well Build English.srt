@@ -1,0 +1,193 @@
+1
+00:00:02,290 --> 00:00:06,560
+Even though we had a first look at some important basics
+2
+
+2
+00:00:06,560 --> 00:00:08,190
+like these core Components
+3
+
+3
+00:00:08,190 --> 00:00:12,390
+and how you can style and debug your React Native apps,
+4
+
+4
+00:00:12,390 --> 00:00:15,800
+we're only scratching the surface thus far.
+5
+
+5
+00:00:15,800 --> 00:00:17,440
+It's time to dive deeper
+6
+
+6
+00:00:17,440 --> 00:00:20,750
+and that's exactly what we'll do in this core section,
+7
+
+7
+00:00:20,750 --> 00:00:24,800
+we're going to dig deeper into all these fundamentals,
+8
+
+8
+00:00:24,800 --> 00:00:27,700
+into all these basics that you must know.
+9
+
+9
+00:00:27,700 --> 00:00:31,100
+And for this, we're going to build a complete Demo App,
+10
+
+10
+00:00:31,100 --> 00:00:32,560
+a brand new app,
+11
+
+11
+00:00:32,560 --> 00:00:37,560
+a little game where you will be able to enter a number
+12
+
+12
+00:00:37,810 --> 00:00:40,090
+between one and 99
+13
+
+13
+00:00:40,090 --> 00:00:43,640
+and then it's the phone's task to guess your number
+14
+
+14
+00:00:43,640 --> 00:00:45,500
+and you give the phone hints,
+15
+
+15
+00:00:45,500 --> 00:00:48,830
+and then we'll see how many turns it takes the phone
+16
+
+16
+00:00:48,830 --> 00:00:50,503
+to guess your number.
+17
+
+17
+00:00:52,050 --> 00:00:55,750
+So it's a nice little game, a Number app, which we'll build.
+18
+
+18
+00:00:55,750 --> 00:00:59,100
+And as you can already tell by looking at this app
+19
+
+19
+00:00:59,100 --> 00:01:01,690
+there are some new concepts in there
+20
+
+20
+00:01:01,690 --> 00:01:05,480
+like using gradients or background images.
+21
+
+21
+00:01:05,480 --> 00:01:08,830
+We have multiple screens between which we'll navigate
+22
+
+22
+00:01:08,830 --> 00:01:10,570
+and therefore we're going to dive
+23
+
+23
+00:01:10,570 --> 00:01:13,630
+into many new Core Components.
+24
+
+24
+00:01:13,630 --> 00:01:16,820
+We'll work on these Complex Layouts
+25
+
+25
+00:01:16,820 --> 00:01:20,510
+and learn many things about creating layouts like this.
+26
+
+26
+00:01:20,510 --> 00:01:22,540
+And we'll dive deeper into Styling
+27
+
+27
+00:01:22,540 --> 00:01:27,070
+and learn about some brand new Styling techniques as well.
+28
+
+28
+00:01:27,070 --> 00:01:30,120
+And last but definitely not least,
+29
+
+29
+00:01:30,120 --> 00:01:34,710
+this is a React app after all, a React Native app,
+30
+
+30
+00:01:34,710 --> 00:01:36,840
+but therefore also a React app
+31
+
+31
+00:01:36,840 --> 00:01:40,730
+and hence we will also build reusable components.
+32
+
+32
+00:01:40,730 --> 00:01:42,650
+We will build custom components
+33
+
+33
+00:01:42,650 --> 00:01:45,820
+and we will ensure that we don't just create this app
+34
+
+34
+00:01:45,820 --> 00:01:50,580
+in some way but in a good way by writing good code,
+35
+
+35
+00:01:50,580 --> 00:01:53,420
+good react code to be precise.
+36
+
+36
+00:01:53,420 --> 00:01:56,890
+So plenty of things to cover, by the end of this module
+37
+
+37
+00:01:56,890 --> 00:01:59,400
+you will have a super deep understanding
+38
+
+38
+00:01:59,400 --> 00:02:01,750
+of react native and of its fundamentals
+39
+
+39
+00:02:01,750 --> 00:02:04,043
+and therefore let's dive right in.

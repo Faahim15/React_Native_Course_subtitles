@@ -1,0 +1,558 @@
+1
+00:00:02,180 --> 00:00:06,130
+So let's dive right into building this app.
+2
+
+2
+00:00:06,130 --> 00:00:08,880
+And for this, I am in this new project
+3
+
+3
+00:00:08,880 --> 00:00:10,390
+and as you saw before,
+4
+
+4
+00:00:10,390 --> 00:00:13,710
+we will have a couple of screens in this app.
+5
+
+5
+00:00:13,710 --> 00:00:16,470
+Therefore, what I'll do as a first step
+6
+
+6
+00:00:16,470 --> 00:00:19,990
+is I'll add a folder named screens in this project.
+7
+
+7
+00:00:19,990 --> 00:00:22,500
+You don't have to create that folder,
+8
+
+8
+00:00:22,500 --> 00:00:24,950
+you don't have to name it screens,
+9
+
+9
+00:00:24,950 --> 00:00:29,950
+but I like to add my components that will act as screens,
+10
+
+10
+00:00:30,170 --> 00:00:32,470
+so that will be full size
+11
+
+11
+00:00:32,470 --> 00:00:35,050
+taking up the entire size off the screen.
+12
+
+12
+00:00:35,050 --> 00:00:37,560
+I like to store them in such a screens folder
+13
+
+13
+00:00:37,560 --> 00:00:41,390
+to make it clear that this will be full screen components.
+14
+
+14
+00:00:41,390 --> 00:00:43,980
+And I will also add a components folder
+15
+
+15
+00:00:43,980 --> 00:00:46,570
+which will hold all the other components
+16
+
+16
+00:00:46,570 --> 00:00:51,570
+that are then combined together to make up these screens.
+17
+
+17
+00:00:52,440 --> 00:00:55,030
+So in the past, in the first app we built,
+18
+
+18
+00:00:55,030 --> 00:00:57,530
+we only had one screen in the end
+19
+
+19
+00:00:57,530 --> 00:00:59,000
+and then we had that model
+20
+
+20
+00:00:59,000 --> 00:01:01,310
+which you could count as a second screen
+21
+
+21
+00:01:01,310 --> 00:01:04,140
+but it generally was all on one screen
+22
+
+22
+00:01:04,140 --> 00:01:07,960
+and our app component did render the entire screen
+23
+
+23
+00:01:07,960 --> 00:01:10,870
+and all the components that made up that screen.
+24
+
+24
+00:01:10,870 --> 00:01:13,810
+Now we will have multiple main screens
+25
+
+25
+00:01:13,810 --> 00:01:16,190
+between which we'll switch and you will learn
+26
+
+26
+00:01:16,190 --> 00:01:19,360
+how you can switch throughout this section,
+27
+
+27
+00:01:19,360 --> 00:01:22,810
+though we will also come back to this idea of screens
+28
+
+28
+00:01:22,810 --> 00:01:26,030
+and navigating between screens later in the course
+29
+
+29
+00:01:26,030 --> 00:01:28,023
+when we dive into navigation.
+30
+
+30
+00:01:28,960 --> 00:01:32,560
+But now we have these two folders, screens and components.
+31
+
+31
+00:01:32,560 --> 00:01:37,410
+And in the screens folder, I will add three new files.
+32
+
+32
+00:01:37,410 --> 00:01:41,340
+I will add a StartGameScreen.js file
+33
+
+33
+00:01:41,340 --> 00:01:43,020
+which will hold the component
+34
+
+34
+00:01:43,020 --> 00:01:45,960
+that will act as a, well, start screen
+35
+
+35
+00:01:45,960 --> 00:01:48,740
+where we pick the number that should be guessed
+36
+
+36
+00:01:48,740 --> 00:01:50,633
+and where we start the game.
+37
+
+37
+00:01:51,780 --> 00:01:53,710
+I will then add a second component,
+38
+
+38
+00:01:53,710 --> 00:01:56,200
+a second component file I should say,
+39
+
+39
+00:01:56,200 --> 00:01:58,630
+which I will name GameScreen.
+40
+
+40
+00:01:58,630 --> 00:02:01,400
+This will be the component, the screen
+41
+
+41
+00:02:01,400 --> 00:02:04,290
+that will be responsible for the actual game.
+42
+
+42
+00:02:04,290 --> 00:02:08,710
+So where we will see the gases by the phone
+43
+
+43
+00:02:08,710 --> 00:02:11,990
+and where we then let the phone know
+44
+
+44
+00:02:11,990 --> 00:02:14,853
+if the gas is too high or too low.
+45
+
+45
+00:02:15,920 --> 00:02:18,950
+And then finally we have one last screen
+46
+
+46
+00:02:18,950 --> 00:02:21,890
+and that's the GameOverScreen
+47
+
+47
+00:02:21,890 --> 00:02:25,213
+which will be shown once the game is over.
+48
+
+48
+00:02:26,090 --> 00:02:28,670
+At the moment, all three files are empty
+49
+
+49
+00:02:28,670 --> 00:02:31,803
+but we're going to add content throughout this section.
+50
+
+50
+00:02:33,260 --> 00:02:37,020
+Now it makes sense to start with the StartGameScreen
+51
+
+51
+00:02:37,020 --> 00:02:39,470
+because that is the first screen we will see,
+52
+
+52
+00:02:39,470 --> 00:02:42,780
+that is the screen that will allow us to pick a number
+53
+
+53
+00:02:42,780 --> 00:02:44,860
+and then start the game.
+54
+
+54
+00:02:44,860 --> 00:02:48,110
+Therefore I'll start by adding a new functional component
+55
+
+55
+00:02:48,110 --> 00:02:51,240
+in there like this and it will export it
+56
+
+56
+00:02:51,240 --> 00:02:53,760
+so that we can use it in other files.
+57
+
+57
+00:02:53,760 --> 00:02:56,770
+And that's the first important takeaway by the way.
+58
+
+58
+00:02:56,770 --> 00:02:59,280
+A screen, as I define it here,
+59
+
+59
+00:02:59,280 --> 00:03:02,240
+is just a regular react component,
+60
+
+60
+00:03:02,240 --> 00:03:04,250
+a react component that will render
+61
+
+61
+00:03:04,250 --> 00:03:06,600
+react native core components
+62
+
+62
+00:03:06,600 --> 00:03:09,330
+and custom components which then in turn
+63
+
+63
+00:03:09,330 --> 00:03:12,830
+are made up of react native core components.
+64
+
+64
+00:03:12,830 --> 00:03:14,920
+That is what a screen is, it's nothing special,
+65
+
+65
+00:03:14,920 --> 00:03:17,000
+it's just a component.
+66
+
+66
+00:03:17,000 --> 00:03:18,750
+And therefore now the question is
+67
+
+67
+00:03:18,750 --> 00:03:23,750
+what do we want to display on this StartGameScreen?
+68
+
+68
+00:03:23,860 --> 00:03:25,700
+And it is of course up to you
+69
+
+69
+00:03:25,700 --> 00:03:27,620
+what you would want to display,
+70
+
+70
+00:03:27,620 --> 00:03:30,260
+but in this game which I have in mind,
+71
+
+71
+00:03:30,260 --> 00:03:32,840
+we essentially have this input field
+72
+
+72
+00:03:32,840 --> 00:03:35,990
+where users can enter a number
+73
+
+73
+00:03:35,990 --> 00:03:37,940
+and then we also have a button
+74
+
+74
+00:03:37,940 --> 00:03:40,780
+which allows users to confirm that number
+75
+
+75
+00:03:40,780 --> 00:03:44,420
+and the button which allows users to reset the input
+76
+
+76
+00:03:44,420 --> 00:03:47,480
+and then a couple of titles around that input field
+77
+
+77
+00:03:47,480 --> 00:03:49,850
+to provide some instructions.
+78
+
+78
+00:03:49,850 --> 00:03:52,200
+Now, therefore we can start simple
+79
+
+79
+00:03:52,200 --> 00:03:55,080
+by adding this input field.
+80
+
+80
+00:03:55,080 --> 00:03:59,680
+And for this, we import another component from react native
+81
+
+81
+00:03:59,680 --> 00:04:02,750
+and this the text input component
+82
+
+82
+00:04:02,750 --> 00:04:06,923
+which we also saw already in the first course section.
+83
+
+83
+00:04:07,790 --> 00:04:10,270
+This is a component that renders a input field
+84
+
+84
+00:04:10,270 --> 00:04:13,290
+which can be used to enter data,
+85
+
+85
+00:04:13,290 --> 00:04:15,803
+some text or in this case a number.
+86
+
+86
+00:04:16,790 --> 00:04:21,250
+Now, I don't just want to display a text input field,
+87
+
+87
+00:04:21,250 --> 00:04:25,000
+I also wanna have two buttons below that text input field.
+88
+
+88
+00:04:25,000 --> 00:04:29,090
+One button for resetting and one button for confirming.
+89
+
+89
+00:04:29,090 --> 00:04:33,420
+And therefore we could also import button, we could do that,
+90
+
+90
+00:04:33,420 --> 00:04:36,440
+but I instead wanna build my own custom button
+91
+
+91
+00:04:36,440 --> 00:04:38,920
+so that you also see how this could be done
+92
+
+92
+00:04:38,920 --> 00:04:41,850
+since this will be something you will do quite a lot
+93
+
+93
+00:04:41,850 --> 00:04:43,840
+when working with react native.
+94
+
+94
+00:04:43,840 --> 00:04:45,790
+Because when you build your own buttons,
+95
+
+95
+00:04:45,790 --> 00:04:49,500
+you have full control over their look and feel.
+96
+
+96
+00:04:49,500 --> 00:04:53,020
+Therefore I will not add a button but I will import a view
+97
+
+97
+00:04:53,020 --> 00:04:55,810
+because I want to use a view as a container
+98
+
+98
+00:04:55,810 --> 00:04:59,203
+around my text input and those buttons.
+99
+
+99
+00:05:00,240 --> 00:05:05,240
+So therefore here I then add my text input in that view
+100
+
+100
+00:05:05,410 --> 00:05:10,400
+and then below that text input, I plan on having my buttons.
+101
+
+101
+00:05:10,400 --> 00:05:12,450
+By the way, rendering text like this
+102
+
+102
+00:05:12,450 --> 00:05:13,890
+would not work as you learned.
+103
+
+103
+00:05:13,890 --> 00:05:16,840
+You can't output text directly in a view,
+104
+
+104
+00:05:16,840 --> 00:05:19,670
+you would need to wrap this with a text component,
+105
+
+105
+00:05:19,670 --> 00:05:22,110
+but here I just placed this text for me
+106
+
+106
+00:05:22,110 --> 00:05:24,550
+as a placeholder to remind myself
+107
+
+107
+00:05:24,550 --> 00:05:27,480
+that here I wanna display some buttons.
+108
+
+108
+00:05:27,480 --> 00:05:29,010
+So at the moment, this would not work
+109
+
+109
+00:05:29,010 --> 00:05:31,950
+and I'm not even running this NPM start process
+110
+
+110
+00:05:31,950 --> 00:05:33,610
+because I know that it won't work.
+111
+
+111
+00:05:33,610 --> 00:05:37,220
+I just wanna outline this base component structure
+112
+
+112
+00:05:37,220 --> 00:05:38,120
+that I wanna have.

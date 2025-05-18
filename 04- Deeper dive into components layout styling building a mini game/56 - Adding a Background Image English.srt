@@ -1,0 +1,668 @@
+1
+00:00:02,060 --> 00:00:05,030
+Now having this gradient here is nice.
+2
+
+2
+00:00:05,030 --> 00:00:06,160
+Certainly perfect
+3
+
+3
+00:00:06,160 --> 00:00:08,920
+if we would be building a tequila sunrise app,
+4
+
+4
+00:00:08,920 --> 00:00:12,300
+but as a last step for finishing this background,
+5
+
+5
+00:00:12,300 --> 00:00:16,110
+I actually wanna overlay a background image
+6
+
+6
+00:00:16,110 --> 00:00:21,110
+above this gradient, but below the upper elements on the UI.
+7
+
+7
+00:00:21,500 --> 00:00:24,770
+So below this input container, for example.
+8
+
+8
+00:00:24,770 --> 00:00:29,390
+Now a background image can be added with another component
+9
+
+9
+00:00:29,390 --> 00:00:32,460
+that's actually already built into react native.
+10
+
+10
+00:00:32,460 --> 00:00:35,363
+And that's the image background component.
+11
+
+11
+00:00:36,640 --> 00:00:40,000
+Now we learned about the image component before already,
+12
+
+12
+00:00:40,000 --> 00:00:42,620
+image background is quite similar
+13
+
+13
+00:00:42,620 --> 00:00:45,370
+but as the names suggests, it renders a image
+14
+
+14
+00:00:45,370 --> 00:00:47,963
+in the background instead of the foreground.
+15
+
+15
+00:00:48,920 --> 00:00:51,640
+Now I wanna have that above the linear gradient
+16
+
+16
+00:00:51,640 --> 00:00:55,970
+so that the linear gradient shimmers through the image
+17
+
+17
+00:00:55,970 --> 00:00:59,400
+but below all the other UI elements.
+18
+
+18
+00:00:59,400 --> 00:01:02,830
+So therefore now here I'll add image background
+19
+
+19
+00:01:02,830 --> 00:01:06,760
+like this and wrap my other content with it
+20
+
+20
+00:01:06,760 --> 00:01:10,550
+so that the other content is inside the background image
+21
+
+21
+00:01:10,550 --> 00:01:14,630
+and therefore above the background image visually.
+22
+
+22
+00:01:14,630 --> 00:01:16,860
+And now on this image background,
+23
+
+23
+00:01:16,860 --> 00:01:21,610
+just as on the normal image we have to add a source.
+24
+
+24
+00:01:21,610 --> 00:01:24,210
+And this source should provide the image
+25
+
+25
+00:01:24,210 --> 00:01:25,710
+that should be displayed here.
+26
+
+26
+00:01:26,640 --> 00:01:30,010
+Now for this, I prepared an image for you
+27
+
+27
+00:01:30,010 --> 00:01:34,290
+and I will add a images folder here in the assets folder
+28
+
+28
+00:01:34,290 --> 00:01:37,210
+into which you should store this image.
+29
+
+29
+00:01:37,210 --> 00:01:38,750
+You find the image attached
+30
+
+30
+00:01:38,750 --> 00:01:41,720
+it's this background PNG file.
+31
+
+31
+00:01:41,720 --> 00:01:44,863
+And this image looks like this, just a couple of dices.
+32
+
+32
+00:01:45,720 --> 00:01:49,420
+By the way, I took this image from Unsplash.
+33
+
+33
+00:01:49,420 --> 00:01:53,210
+And of course I do wanna give proper attribution, therefore.
+34
+
+34
+00:01:53,210 --> 00:01:55,800
+And there, if you search for dices,
+35
+
+35
+00:01:55,800 --> 00:01:58,300
+I think you find this image.
+36
+
+36
+00:01:58,300 --> 00:02:00,940
+So this image was not taken or created by me.
+37
+
+37
+00:02:00,940 --> 00:02:03,700
+It's from Unsplash, Unsplash is a great resource
+38
+
+38
+00:02:03,700 --> 00:02:05,500
+for finding free images.
+39
+
+39
+00:02:05,500 --> 00:02:09,210
+And you can take this image here, or another image
+40
+
+40
+00:02:09,210 --> 00:02:12,373
+from Unsplash, if you wanna use it in your app.
+41
+
+41
+00:02:13,230 --> 00:02:17,090
+So now with the image stored in the assets images folder,
+42
+
+42
+00:02:17,090 --> 00:02:19,050
+we should point at it.
+43
+
+43
+00:02:19,050 --> 00:02:21,950
+And just as with the normal image component,
+44
+
+44
+00:02:21,950 --> 00:02:25,340
+we don't just pass a path as a string here,
+45
+
+45
+00:02:25,340 --> 00:02:28,300
+instead, we use this special require function
+46
+
+46
+00:02:28,300 --> 00:02:31,203
+and to then construct a path to the image.
+47
+
+47
+00:02:32,590 --> 00:02:34,290
+Now, here I'm in app JS.
+48
+
+48
+00:02:34,290 --> 00:02:37,160
+So I don't need to go up one level first.
+49
+
+49
+00:02:37,160 --> 00:02:40,500
+Instead, I am already next to the assets folder.
+50
+
+50
+00:02:40,500 --> 00:02:45,080
+So with dot slash, we tell react native that we're looking
+51
+
+51
+00:02:45,080 --> 00:02:49,420
+for a folder that's in the same folder as this app JS file.
+52
+
+52
+00:02:49,420 --> 00:02:52,270
+And then it's the assets folder
+53
+
+53
+00:02:52,270 --> 00:02:54,420
+there, the images folder
+54
+
+54
+00:02:54,420 --> 00:02:58,483
+and in there, the background PNG file like this.
+55
+
+55
+00:02:59,700 --> 00:03:02,700
+Now image background also takes another prop
+56
+
+56
+00:03:02,700 --> 00:03:04,040
+which is very important.
+57
+
+57
+00:03:04,040 --> 00:03:05,823
+And that's the resize mode.
+58
+
+58
+00:03:06,950 --> 00:03:09,910
+It's very likely that the image you're using is too small
+59
+
+59
+00:03:09,910 --> 00:03:12,570
+or too big for the screen size
+60
+
+60
+00:03:12,570 --> 00:03:14,890
+of the device on which the app is running.
+61
+
+61
+00:03:14,890 --> 00:03:18,330
+And resize mode controls how the image will be resized
+62
+
+62
+00:03:18,330 --> 00:03:20,860
+if it doesn't have this same dimensions
+63
+
+63
+00:03:20,860 --> 00:03:22,623
+as the underlying device.
+64
+
+64
+00:03:23,930 --> 00:03:25,730
+Here, you got multiple options
+65
+
+65
+00:03:25,730 --> 00:03:28,310
+which you might know from web development
+66
+
+66
+00:03:28,310 --> 00:03:30,520
+because there you have similar options
+67
+
+67
+00:03:30,520 --> 00:03:31,850
+when working with images,
+68
+
+68
+00:03:31,850 --> 00:03:34,010
+with background images to be precise
+69
+
+69
+00:03:34,850 --> 00:03:37,180
+and I will use cover, which will make sure
+70
+
+70
+00:03:37,180 --> 00:03:40,750
+that the image always covers up all the available space
+71
+
+71
+00:03:40,750 --> 00:03:45,173
+but not by distorting it, but instead by zooming in or out.
+72
+
+72
+00:03:46,100 --> 00:03:48,040
+So that's a nice setting when it comes
+73
+
+73
+00:03:48,040 --> 00:03:50,183
+to adjusting the size of the image.
+74
+
+74
+00:03:51,950 --> 00:03:53,280
+Now what's also important
+75
+
+75
+00:03:53,280 --> 00:03:57,210
+is that I will add the style prop to image background.
+76
+
+76
+00:03:57,210 --> 00:03:59,660
+And here I also will point at a root screen
+77
+
+77
+00:03:59,660 --> 00:04:03,290
+so that this also takes up all the available space.
+78
+
+78
+00:04:03,290 --> 00:04:05,820
+It's not enough that the gradient does this.
+79
+
+79
+00:04:05,820 --> 00:04:07,710
+This image should also take
+80
+
+80
+00:04:07,710 --> 00:04:10,970
+up all the available space that is made available
+81
+
+81
+00:04:10,970 --> 00:04:12,720
+by its parent component.
+82
+
+82
+00:04:12,720 --> 00:04:15,053
+So by the gradient, in this case.
+83
+
+83
+00:04:16,550 --> 00:04:18,020
+If you now save this
+84
+
+84
+00:04:18,020 --> 00:04:22,390
+here's the image, but the gradient is gone.
+85
+
+85
+00:04:22,390 --> 00:04:24,577
+Now you might just want an image.
+86
+
+86
+00:04:24,577 --> 00:04:26,680
+And in that case, this perfect.
+87
+
+87
+00:04:26,680 --> 00:04:29,260
+But if you also want the gradient back,
+88
+
+88
+00:04:29,260 --> 00:04:32,890
+we now have to make this image transparent.
+89
+
+89
+00:04:32,890 --> 00:04:36,560
+Not entirely transparent, of course, but to some extent
+90
+
+90
+00:04:36,560 --> 00:04:40,103
+so that the gradient shimmers through the image.
+91
+
+91
+00:04:41,160 --> 00:04:44,270
+And this can be achieved with another special prop
+92
+
+92
+00:04:44,270 --> 00:04:46,480
+that we can set on image background.
+93
+
+93
+00:04:46,480 --> 00:04:48,743
+And that's the image style.
+94
+
+94
+00:04:49,580 --> 00:04:51,680
+Now we already added style here.
+95
+
+95
+00:04:51,680 --> 00:04:55,060
+But what you have to understand is that image background,
+96
+
+96
+00:04:55,060 --> 00:04:58,160
+this component provided by react native
+97
+
+97
+00:04:58,160 --> 00:05:03,160
+is actually under the hood, a combination of components.
+98
+
+98
+00:05:03,820 --> 00:05:08,060
+We saw that before in the React Native GitHub repository
+99
+
+99
+00:05:08,060 --> 00:05:11,010
+where you can see all the React Native source code
+100
+
+100
+00:05:11,010 --> 00:05:12,660
+when we had a look at the button.
+101
+
+101
+00:05:13,550 --> 00:05:17,670
+If you have a look at the image background JS file here,
+102
+
+102
+00:05:17,670 --> 00:05:19,960
+you will see how that works internally.
+103
+
+103
+00:05:19,960 --> 00:05:21,600
+And you will see that it's a combination
+104
+
+104
+00:05:21,600 --> 00:05:25,313
+of a view and the normal image component.
+105
+
+105
+00:05:26,750 --> 00:05:29,180
+Now, the style which we set here,
+106
+
+106
+00:05:29,180 --> 00:05:32,463
+this prop is added to this view.
+107
+
+107
+00:05:33,450 --> 00:05:36,500
+We can see that here, the style is set.
+108
+
+108
+00:05:36,500 --> 00:05:39,870
+The inner image can also receive some styling though.
+109
+
+109
+00:05:39,870 --> 00:05:44,120
+And here on this inner image we wanna add some transparency
+110
+
+110
+00:05:44,120 --> 00:05:46,100
+because the view is transparent anyways,
+111
+
+111
+00:05:46,100 --> 00:05:48,950
+it doesn't have a background color by default
+112
+
+112
+00:05:48,950 --> 00:05:52,570
+but of course the image, well shows the image.
+113
+
+113
+00:05:52,570 --> 00:05:53,403
+So therefore,
+114
+
+114
+00:05:53,403 --> 00:05:57,610
+now we can add the background image style object
+115
+
+115
+00:05:58,520 --> 00:06:03,170
+and add the opacity property to give this image an opacity
+116
+
+116
+00:06:03,170 --> 00:06:05,423
+of let's say 0.15.
+117
+
+117
+00:06:06,380 --> 00:06:10,490
+So that would be 85% transparency.
+118
+
+118
+00:06:10,490 --> 00:06:12,713
+So almost entirely transparent.
+119
+
+119
+00:06:13,550 --> 00:06:15,780
+And it's now this style property
+120
+
+120
+00:06:15,780 --> 00:06:17,830
+which we will add as a image style.
+121
+
+121
+00:06:17,830 --> 00:06:21,010
+So QD image that's inside of this view
+122
+
+122
+00:06:21,010 --> 00:06:23,113
+that is exposed by image background.
+123
+
+123
+00:06:24,600 --> 00:06:29,150
+If we save this, now we have the image and the gradient
+124
+
+124
+00:06:29,150 --> 00:06:32,150
+and now we have a combination of gradient and image
+125
+
+125
+00:06:32,150 --> 00:06:35,320
+which I think looks quite nice.
+126
+
+126
+00:06:35,320 --> 00:06:38,680
+Of course, as always, feel free to pick different styles.
+127
+
+127
+00:06:38,680 --> 00:06:41,230
+But I am quite happy with that background.
+128
+
+128
+00:06:41,230 --> 00:06:44,790
+And I would say after all that styling and layouting
+129
+
+129
+00:06:44,790 --> 00:06:47,500
+and all these things on which we work thus far,
+130
+
+130
+00:06:47,500 --> 00:06:50,980
+it's now time to dive into some actual logic.
+131
+
+131
+00:06:50,980 --> 00:06:54,140
+Because up to this point, we have a nice user interface
+132
+
+132
+00:06:54,140 --> 00:06:56,950
+but nothing happens when we tap those buttons
+133
+
+133
+00:06:56,950 --> 00:06:59,980
+or when we enter something into the input field.
+134
+
+134
+00:06:59,980 --> 00:07:01,493
+And it's time to change that.

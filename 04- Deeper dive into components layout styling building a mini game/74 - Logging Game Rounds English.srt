@@ -1,0 +1,598 @@
+1
+00:00:02,315 --> 00:00:03,720
+[Maximilian Schwarzmüller] So let's now work on logging
+2
+
+2
+00:00:03,720 --> 00:00:07,210
+the number of rounds and on creating this log
+3
+
+3
+00:00:07,210 --> 00:00:09,643
+that we can output on this game screen.
+4
+
+4
+00:00:11,060 --> 00:00:13,570
+For this, we should add a new piece of state
+5
+
+5
+00:00:13,570 --> 00:00:14,570
+to the GameScreen,
+6
+
+6
+00:00:14,570 --> 00:00:17,510
+because these rounds are also just some state
+7
+
+7
+00:00:17,510 --> 00:00:19,120
+which we can log.
+8
+
+8
+00:00:19,120 --> 00:00:21,630
+So here I'll add my guessRounds
+9
+
+9
+00:00:23,620 --> 00:00:28,620
+and setGuessRounds and initialize a new state
+10
+
+10
+00:00:28,650 --> 00:00:31,870
+which initially should hold an array.
+11
+
+11
+00:00:31,870 --> 00:00:32,760
+It will be an array
+12
+
+12
+00:00:32,760 --> 00:00:34,630
+because of course we have multiple rounds
+13
+
+13
+00:00:34,630 --> 00:00:37,310
+and we wanna log the number that was guessed
+14
+
+14
+00:00:37,310 --> 00:00:38,683
+for every round.
+15
+
+15
+00:00:39,540 --> 00:00:41,700
+So therefore also the initial value,
+16
+
+16
+00:00:41,700 --> 00:00:43,840
+the initial first and only element
+17
+
+17
+00:00:43,840 --> 00:00:47,440
+we wanna have in this array is the initialGuess.
+18
+
+18
+00:00:47,440 --> 00:00:49,823
+That should be part of this array initially.
+19
+
+19
+00:00:50,950 --> 00:00:55,190
+And now we can update this whenever we guess a new number.
+20
+
+20
+00:00:55,190 --> 00:00:57,470
+So in the next guess handler,
+21
+
+21
+00:00:57,470 --> 00:01:01,110
+besides setting the currentGuess to the newRndNumber,
+22
+
+22
+00:01:01,110 --> 00:01:05,080
+we also wanna update the setGuessRounds state
+23
+
+23
+00:01:05,080 --> 00:01:06,950
+or the guessRounds state
+24
+
+24
+00:01:06,950 --> 00:01:11,280
+with the setGuessRounds updating function and update this
+25
+
+25
+00:01:11,280 --> 00:01:14,823
+to include this new random number into this existing array.
+26
+
+26
+00:01:15,950 --> 00:01:17,630
+Now, since we will update state
+27
+
+27
+00:01:17,630 --> 00:01:19,990
+based on a previous version of that state,
+28
+
+28
+00:01:19,990 --> 00:01:23,670
+we should use the function form of updating this state
+29
+
+29
+00:01:23,670 --> 00:01:26,943
+by passing a function to the state updating function.
+30
+
+30
+00:01:27,850 --> 00:01:29,650
+And here we get our prevGuessRounds.
+31
+
+31
+00:01:30,960 --> 00:01:34,200
+So the previous state snapshot,
+32
+
+32
+00:01:34,200 --> 00:01:36,350
+and we returned a new array
+33
+
+33
+00:01:36,350 --> 00:01:40,410
+which is basically all our old array elements
+34
+
+34
+00:01:40,410 --> 00:01:43,480
+which we can re-add into this new array
+35
+
+35
+00:01:43,480 --> 00:01:48,480
+with the spread operator, plus this newRndNnumber.
+36
+
+36
+00:01:48,721 --> 00:01:52,053
+This newRndNumber that was guessed in this round.
+37
+
+37
+00:01:53,670 --> 00:01:57,080
+Now we can add this newRndNumber at the end of this array
+38
+
+38
+00:01:57,080 --> 00:02:00,003
+or at the beginning which is what I will do,
+39
+
+39
+00:02:01,050 --> 00:02:03,170
+so that when I do output the log
+40
+
+40
+00:02:03,170 --> 00:02:05,570
+I can simply loop through these items
+41
+
+41
+00:02:05,570 --> 00:02:08,470
+and the latest guess will always be on top.
+42
+
+42
+00:02:08,470 --> 00:02:11,830
+This is not a must do, but something I wanna do here
+43
+
+43
+00:02:11,830 --> 00:02:13,533
+for displaying this log.
+44
+
+44
+00:02:14,810 --> 00:02:17,340
+So now we update these guessRounds
+45
+
+45
+00:02:17,340 --> 00:02:19,643
+and we can now output them here.
+46
+
+46
+00:02:20,890 --> 00:02:23,770
+So therefore, here we wanna output all these rounds.
+47
+
+47
+00:02:23,770 --> 00:02:26,530
+We wanna output this log information.
+48
+
+48
+00:02:26,530 --> 00:02:29,310
+We can do this by creating a view
+49
+
+49
+00:02:29,310 --> 00:02:32,670
+and then mapping our array elements
+50
+
+50
+00:02:32,670 --> 00:02:34,720
+into a list of other elements
+51
+
+51
+00:02:34,720 --> 00:02:36,453
+that will be output on the screen.
+52
+
+52
+00:02:37,450 --> 00:02:40,170
+So for this here we can use our guessRounds
+53
+
+53
+00:02:40,170 --> 00:02:44,520
+and simply map through them and then we get our guessRound.
+54
+
+54
+00:02:44,520 --> 00:02:46,910
+And for each round, we wanna output some text.
+55
+
+55
+00:02:46,910 --> 00:02:49,760
+Let's say for this of course, you must make sure
+56
+
+56
+00:02:49,760 --> 00:02:53,260
+that text is being imported from React Native,
+57
+
+57
+00:02:53,260 --> 00:02:54,893
+otherwise this won't work.
+58
+
+58
+00:02:56,780 --> 00:02:57,820
+And then here at the bottom
+59
+
+59
+00:02:57,820 --> 00:03:01,210
+we output this text and we output this guessRound.
+60
+
+60
+00:03:02,670 --> 00:03:05,083
+Now if we try this, we get an error here.
+61
+
+61
+00:03:06,230 --> 00:03:09,720
+We get an error because we should have a unique key
+62
+
+62
+00:03:09,720 --> 00:03:11,370
+for every element as you learned.
+63
+
+63
+00:03:12,400 --> 00:03:14,230
+And indeed here we should add a key.
+64
+
+64
+00:03:14,230 --> 00:03:15,803
+And the key can be the guessRound,
+65
+
+65
+00:03:15,803 --> 00:03:18,070
+because we know that it will be unique,
+66
+
+66
+00:03:18,070 --> 00:03:20,880
+because what's actually in this guessRounds array
+67
+
+67
+00:03:20,880 --> 00:03:22,740
+are our guessed numbers.
+68
+
+68
+00:03:22,740 --> 00:03:25,670
+And since we can never guess the same number again
+69
+
+69
+00:03:25,670 --> 00:03:28,120
+due to how our logic is written here,
+70
+
+70
+00:03:28,120 --> 00:03:29,840
+it's a perfect unique key,
+71
+
+71
+00:03:29,840 --> 00:03:31,430
+because we know that every number
+72
+
+72
+00:03:31,430 --> 00:03:33,363
+will only occur once in here.
+73
+
+73
+00:03:34,830 --> 00:03:38,180
+So therefore now if we save this and we reload,
+74
+
+74
+00:03:38,180 --> 00:03:39,450
+we can start a new game,
+75
+
+75
+00:03:39,450 --> 00:03:42,810
+maybe on Android to mix things up.
+76
+
+76
+00:03:42,810 --> 00:03:46,480
+And here 14 is the first number guess, we see it here.
+77
+
+77
+00:03:46,480 --> 00:03:50,130
+And then you see this is being locked
+78
+
+78
+00:03:50,130 --> 00:03:54,240
+but actually this is not looking right,
+79
+
+79
+00:03:54,240 --> 00:03:55,990
+if we take a look at that.
+80
+
+80
+00:03:55,990 --> 00:03:57,963
+What's the problem here?
+81
+
+81
+00:03:59,240 --> 00:04:02,350
+The problem is that I added a tiny mistake here.
+82
+
+82
+00:04:02,350 --> 00:04:05,900
+It should be the newRndNumber that's added as a new element
+83
+
+83
+00:04:05,900 --> 00:04:07,140
+to this array.
+84
+
+84
+00:04:07,140 --> 00:04:10,160
+So I mistyped and added the entire array again
+85
+
+85
+00:04:10,160 --> 00:04:12,100
+which doesn't make any sense.
+86
+
+86
+00:04:12,100 --> 00:04:14,960
+It should be the newRndNumber instead.
+87
+
+87
+00:04:14,960 --> 00:04:18,033
+So if you save this and reload and try this again,
+88
+
+88
+00:04:19,930 --> 00:04:21,310
+now this is looking better
+89
+
+89
+00:04:21,310 --> 00:04:23,140
+and now we see that the correct numbers
+90
+
+90
+00:04:23,140 --> 00:04:25,740
+are being locked here at the bottom.
+91
+
+91
+00:04:25,740 --> 00:04:27,180
+So this is working
+92
+
+92
+00:04:27,180 --> 00:04:30,403
+and this would be one way of solving this,
+93
+
+93
+00:04:31,340 --> 00:04:33,140
+but of course you learned before
+94
+
+94
+00:04:33,140 --> 00:04:36,110
+that outputting lists like this works
+95
+
+95
+00:04:36,110 --> 00:04:40,400
+and can be okay, but if a list could get very long
+96
+
+96
+00:04:40,400 --> 00:04:43,810
+then you might wanna use FlatList instead.
+97
+
+97
+00:04:43,810 --> 00:04:47,770
+Now, arguably this list won't get very long
+98
+
+98
+00:04:47,770 --> 00:04:50,930
+because it will very likely not take much more
+99
+
+99
+00:04:50,930 --> 00:04:55,010
+than maybe eight, nine, or ten guesses at most
+100
+
+100
+00:04:55,010 --> 00:04:57,020
+to derive the right number.
+101
+
+101
+00:04:57,020 --> 00:05:00,220
+And outputting that amount of items with this approach
+102
+
+102
+00:05:00,220 --> 00:05:02,460
+would be absolutely fine.
+103
+
+103
+00:05:02,460 --> 00:05:05,560
+Still to learn it in the best possible way,
+104
+
+104
+00:05:05,560 --> 00:05:07,590
+we can use FlatList here
+105
+
+105
+00:05:07,590 --> 00:05:10,360
+instead of mapping a list manually.
+106
+
+106
+00:05:10,360 --> 00:05:12,980
+But I wanna emphasize that in this situation
+107
+
+107
+00:05:12,980 --> 00:05:15,620
+where we have a limited amount of list items,
+108
+
+108
+00:05:15,620 --> 00:05:18,253
+it wouldn't be horrible to do it like this.
+109
+
+109
+00:05:19,160 --> 00:05:20,970
+Still to move to FlatList
+110
+
+110
+00:05:20,970 --> 00:05:24,590
+we can import FlatList from React Native
+111
+
+111
+00:05:24,590 --> 00:05:27,883
+and use that instead to output all these items.
+112
+
+112
+00:05:28,780 --> 00:05:31,710
+And of course, feel free to implement this on your own first
+113
+
+113
+00:05:31,710 --> 00:05:33,960
+because you learned how FlatList works
+114
+
+114
+00:05:33,960 --> 00:05:35,450
+and in the next lecture,
+115
+
+115
+00:05:35,450 --> 00:05:37,640
+we're going to implement it together.
+116
+
+116
+00:05:37,640 --> 00:05:40,100
+And there, we're then also going to create
+117
+
+117
+00:05:40,100 --> 00:05:42,940
+nicely styled list items together.
+118
+
+118
+00:05:42,940 --> 00:05:45,750
+But definitely feel free to do all these things
+119
+
+119
+00:05:45,750 --> 00:05:47,600
+on your own first as a practice,
+120
+
+120
+00:05:47,600 --> 00:05:49,200
+before we then do them together.

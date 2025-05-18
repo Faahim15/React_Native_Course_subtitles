@@ -1,0 +1,318 @@
+1
+00:00:02,060 --> 00:00:05,450
+Now, that is it for this game.
+2
+
+2
+00:00:05,450 --> 00:00:08,530
+You can absolutely fine tune this game
+3
+
+3
+00:00:08,530 --> 00:00:10,270
+a bit more if you want to.
+4
+
+4
+00:00:10,270 --> 00:00:12,380
+You can change the styling, the layout,
+5
+
+5
+00:00:12,380 --> 00:00:14,613
+and you absolutely should play around
+6
+
+6
+00:00:14,613 --> 00:00:17,020
+with those fundamentals.
+7
+
+7
+00:00:17,020 --> 00:00:18,460
+Because in this section,
+8
+
+8
+00:00:18,460 --> 00:00:21,140
+you learned a lot about these fundamentals.
+9
+
+9
+00:00:21,140 --> 00:00:22,810
+You practiced a lot.
+10
+
+10
+00:00:22,810 --> 00:00:25,410
+You practiced all these things you learned early
+11
+
+11
+00:00:25,410 --> 00:00:27,620
+in the course, and you worked a lot
+12
+
+12
+00:00:27,620 --> 00:00:32,120
+with all those built in core components with styling,
+13
+
+13
+00:00:32,120 --> 00:00:34,470
+and you learned how you can build your own components
+14
+
+14
+00:00:34,470 --> 00:00:36,820
+based on these core components,
+15
+
+15
+00:00:36,820 --> 00:00:39,190
+how you can build general UI components
+16
+
+16
+00:00:39,190 --> 00:00:43,080
+as well as app specific components.
+17
+
+17
+00:00:43,080 --> 00:00:44,420
+You learned how you can switch
+18
+
+18
+00:00:44,420 --> 00:00:46,870
+between multiple screens here simply
+19
+
+19
+00:00:46,870 --> 00:00:49,610
+with help of State and if statements.
+20
+
+20
+00:00:49,610 --> 00:00:52,010
+Later, we will also learn a different approach,
+21
+
+21
+00:00:52,010 --> 00:00:54,390
+but this approach is perfect for simple apps
+22
+
+22
+00:00:54,390 --> 00:00:56,300
+like this one here.
+23
+
+23
+00:00:56,300 --> 00:00:58,100
+You learned in general how you can
+24
+
+24
+00:00:58,100 --> 00:01:00,100
+use these core React features,
+25
+
+25
+00:01:00,100 --> 00:01:05,040
+like State or useEffect in React Native apps,
+26
+
+26
+00:01:05,040 --> 00:01:07,490
+and you learned how you can implement such a game
+27
+
+27
+00:01:07,490 --> 00:01:09,470
+with React Native.
+28
+
+28
+00:01:09,470 --> 00:01:12,570
+Now we did have a look at a lot of special cases.
+29
+
+29
+00:01:12,570 --> 00:01:14,160
+You learned some tips and tricks
+30
+
+30
+00:01:14,160 --> 00:01:16,680
+regarding styling and laying things out,
+31
+
+31
+00:01:16,680 --> 00:01:19,300
+and for example, building custom buttons -
+32
+
+32
+00:01:19,300 --> 00:01:20,340
+and that's what I mean.
+33
+
+33
+00:01:20,340 --> 00:01:23,550
+I can only encourage you to build up on that
+34
+
+34
+00:01:23,550 --> 00:01:27,260
+and practice all these things in your own demo apps.
+35
+
+35
+00:01:27,260 --> 00:01:29,260
+Dive into the official docs
+36
+
+36
+00:01:29,260 --> 00:01:32,830
+and get comfortable working with those core components
+37
+
+37
+00:01:32,830 --> 00:01:35,633
+and with styling those components.
+38
+
+38
+00:01:36,480 --> 00:01:38,490
+Now the final app we built here
+39
+
+39
+00:01:38,490 --> 00:01:41,140
+could definitely be improved even more.
+40
+
+40
+00:01:41,140 --> 00:01:43,110
+You could extract more components,
+41
+
+41
+00:01:43,110 --> 00:01:46,010
+you could build more reusable components.
+42
+
+42
+00:01:46,010 --> 00:01:49,820
+You could maybe use this style cascading effect
+43
+
+43
+00:01:49,820 --> 00:01:52,290
+which we use here with the instruction text
+44
+
+44
+00:01:52,290 --> 00:01:54,250
+where we merge an incoming style
+45
+
+45
+00:01:54,250 --> 00:01:56,290
+with a built-in default style.
+46
+
+46
+00:01:56,290 --> 00:01:58,520
+You could definitely use all these things
+47
+
+47
+00:01:58,520 --> 00:02:00,833
+in different parts of this game.
+48
+
+48
+00:02:01,750 --> 00:02:04,010
+I did not optimize all that code
+49
+
+49
+00:02:04,010 --> 00:02:05,700
+in the best possible way,
+50
+
+50
+00:02:05,700 --> 00:02:09,300
+because I A: Wanted to keep related concepts
+51
+
+51
+00:02:09,300 --> 00:02:12,630
+and styles together to a certain extent,
+52
+
+52
+00:02:12,630 --> 00:02:17,370
+and B: this already is a huge section and we wanna move on
+53
+
+53
+00:02:17,370 --> 00:02:21,740
+and learn more exciting features React Native has to offer.
+54
+
+54
+00:02:21,740 --> 00:02:24,960
+For example, in the next core section, we're going to build
+55
+
+55
+00:02:24,960 --> 00:02:27,340
+up on this game and we're going to make sure
+56
+
+56
+00:02:27,340 --> 00:02:32,150
+that it adapts to different screen sizes and platforms.
+57
+
+57
+00:02:32,150 --> 00:02:35,400
+That we render slightly different styles
+58
+
+58
+00:02:35,400 --> 00:02:37,996
+or layouts on different platforms,
+59
+
+59
+00:02:37,996 --> 00:02:41,400
+that we can for example rotate the device,
+60
+
+60
+00:02:41,400 --> 00:02:44,850
+and then also use this in landscape mode
+61
+
+61
+00:02:44,850 --> 00:02:46,860
+instead of just portrait mode,
+62
+
+62
+00:02:46,860 --> 00:02:49,470
+and a couple of other are interesting things.
+63
+
+63
+00:02:49,470 --> 00:02:52,470
+That's what we will explore next, but for the moment
+64
+
+64
+00:02:52,470 --> 00:02:54,193
+that's it for this section.

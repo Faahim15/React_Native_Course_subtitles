@@ -1,0 +1,758 @@
+1
+00:00:02,260 --> 00:00:03,960
+So let's work on outputting,
+2
+
+2
+00:00:03,960 --> 00:00:05,720
+the actual number of rounds
+3
+
+3
+00:00:05,720 --> 00:00:08,570
+the actual number that had to be guessed
+4
+
+4
+00:00:08,570 --> 00:00:12,170
+and on starting a new game.
+5
+
+5
+00:00:12,170 --> 00:00:14,520
+Now, here in the game over screen component
+6
+
+6
+00:00:14,520 --> 00:00:15,960
+in this screen here
+7
+
+7
+00:00:15,960 --> 00:00:19,020
+it's probably fair to assume that all that data
+8
+
+8
+00:00:19,020 --> 00:00:22,810
+should be passed into this component from outside.
+9
+
+9
+00:00:22,810 --> 00:00:24,310
+So from the app component
+10
+
+10
+00:00:24,310 --> 00:00:25,950
+since that is the component
+11
+
+11
+00:00:25,950 --> 00:00:28,573
+that is rendering the game over screen.
+12
+
+12
+00:00:29,470 --> 00:00:31,280
+So therefore here in game, over screen
+13
+
+13
+00:00:31,280 --> 00:00:33,330
+I just expect some props
+14
+
+14
+00:00:33,330 --> 00:00:35,230
+and I use object destructuring here
+15
+
+15
+00:00:35,230 --> 00:00:39,190
+to pull these props out of the incoming object immediately.
+16
+
+16
+00:00:39,190 --> 00:00:40,620
+And the props I want here
+17
+
+17
+00:00:40,620 --> 00:00:44,680
+are the rounds number,
+18
+
+18
+00:00:44,680 --> 00:00:47,400
+the user number that was set up
+19
+
+19
+00:00:47,400 --> 00:00:52,400
+and on restart or on start new game prop
+20
+
+20
+00:00:53,050 --> 00:00:56,120
+which should hold a pointer at a function
+21
+
+21
+00:00:56,120 --> 00:00:59,430
+that will reset all these game metrics
+22
+
+22
+00:00:59,430 --> 00:01:01,743
+so that a new game is started.
+23
+
+23
+00:01:03,660 --> 00:01:04,950
+So therefore now here
+24
+
+24
+00:01:04,950 --> 00:01:09,473
+for X we can output the rounds number like that.
+25
+
+25
+00:01:10,510 --> 00:01:14,943
+For Y we can output the user number like this.
+26
+
+26
+00:01:16,020 --> 00:01:18,030
+And on the primary button here,
+27
+
+27
+00:01:18,030 --> 00:01:22,000
+we add the on press prop and point at on start new game
+28
+
+28
+00:01:23,980 --> 00:01:25,840
+With that this component is finished
+29
+
+29
+00:01:25,840 --> 00:01:28,280
+but of course we at the moment get no data
+30
+
+30
+00:01:28,280 --> 00:01:29,800
+for are these props.
+31
+
+31
+00:01:29,800 --> 00:01:32,690
+We have to change this an app component.
+32
+
+32
+00:01:32,690 --> 00:01:34,390
+So on the game over screen,
+33
+
+33
+00:01:34,390 --> 00:01:37,150
+we wanna provide the user number.
+34
+
+34
+00:01:37,150 --> 00:01:40,160
+We wanna provide the rounds number
+35
+
+35
+00:01:40,160 --> 00:01:43,393
+and we wanna provide the on stat new game prop.
+36
+
+36
+00:01:45,320 --> 00:01:47,230
+Now user number is pretty easy
+37
+
+37
+00:01:47,230 --> 00:01:51,010
+because we're managing this as a state in the app component.
+38
+
+38
+00:01:51,010 --> 00:01:55,340
+So we just wanna pass the user number into this component.
+39
+
+39
+00:01:55,340 --> 00:01:59,380
+Now the rounds number is not available right now though
+40
+
+40
+00:01:59,380 --> 00:02:02,180
+But that is something we can change.
+41
+
+41
+00:02:02,180 --> 00:02:04,240
+Here in app JS,
+42
+
+42
+00:02:04,240 --> 00:02:07,890
+we can manage a extra piece of state,
+43
+
+43
+00:02:07,890 --> 00:02:11,000
+which is the guess rounds maybe
+44
+
+44
+00:02:11,910 --> 00:02:13,480
+the set guess rounds,
+45
+
+45
+00:02:13,480 --> 00:02:15,117
+state updating function.
+46
+
+46
+00:02:15,117 --> 00:02:17,580
+And we do this with the use state.
+47
+
+47
+00:02:17,580 --> 00:02:19,580
+And initially we have zero rounds
+48
+
+48
+00:02:19,580 --> 00:02:21,533
+because the game hasn't started yet.
+49
+
+49
+00:02:22,810 --> 00:02:26,550
+So now we could pass guess rounds to rounds number
+50
+
+50
+00:02:26,550 --> 00:02:27,383
+but of course,
+51
+
+51
+00:02:27,383 --> 00:02:28,810
+we will also need to make sure
+52
+
+52
+00:02:28,810 --> 00:02:32,163
+that guess rounds actually changes at some point.
+53
+
+53
+00:02:33,400 --> 00:02:35,363
+We'll take care about that in a second.
+54
+
+54
+00:02:36,290 --> 00:02:38,430
+Now regarding on start new game,
+55
+
+55
+00:02:38,430 --> 00:02:41,810
+we need a function that can be executed here
+56
+
+56
+00:02:41,810 --> 00:02:43,630
+in the app component,
+57
+
+57
+00:02:43,630 --> 00:02:48,630
+a function which I'll name start new game handler.
+58
+
+58
+00:02:48,770 --> 00:02:50,373
+This sounds like a fitting name.
+59
+
+59
+00:02:51,500 --> 00:02:52,533
+And then here,
+60
+
+60
+00:02:53,410 --> 00:02:55,600
+I will point at this phone function
+61
+
+61
+00:02:56,560 --> 00:02:59,070
+or to be precise I will pass a pointer
+62
+
+62
+00:02:59,070 --> 00:03:01,510
+to this start new game handler function
+63
+
+63
+00:03:01,510 --> 00:03:04,170
+to the on start new game prop.
+64
+
+64
+00:03:04,170 --> 00:03:07,580
+So that this function here gets executed
+65
+
+65
+00:03:07,580 --> 00:03:09,593
+when that new game button is clicked.
+66
+
+66
+00:03:11,040 --> 00:03:12,940
+Now in this function,
+67
+
+67
+00:03:12,940 --> 00:03:16,130
+we in the end wanna reset some data.
+68
+
+68
+00:03:16,130 --> 00:03:18,630
+We wanna reset the state we're managing here
+69
+
+69
+00:03:18,630 --> 00:03:20,100
+in the app component.
+70
+
+70
+00:03:20,100 --> 00:03:22,020
+When we start a new game,
+71
+
+71
+00:03:22,020 --> 00:03:24,900
+I want to set the user number back to null
+72
+
+72
+00:03:24,900 --> 00:03:27,363
+because a new number must be picked.
+73
+
+73
+00:03:28,400 --> 00:03:31,740
+I wanna set game is over to true because it is over
+74
+
+74
+00:03:32,580 --> 00:03:34,580
+though we already set this to true here
+75
+
+75
+00:03:34,580 --> 00:03:37,730
+so we don't need to set it again, actually.
+76
+
+76
+00:03:37,730 --> 00:03:41,590
+But I also do want to set my guess rounds back zero
+77
+
+77
+00:03:41,590 --> 00:03:43,070
+because a new game will start
+78
+
+78
+00:03:43,070 --> 00:03:47,260
+and they offer the phone hasn't guessed any numbers yet.
+79
+
+79
+00:03:47,260 --> 00:03:48,970
+So that's what I wanna do here.
+80
+
+80
+00:03:48,970 --> 00:03:51,730
+And by setting user number back to null for example,
+81
+
+81
+00:03:51,730 --> 00:03:55,440
+we ensure that this if check won't become active anymore
+82
+
+82
+00:03:55,440 --> 00:03:56,530
+because user number
+83
+
+83
+00:03:56,530 --> 00:03:59,890
+if it's null again is not truth anymore.
+84
+
+84
+00:03:59,890 --> 00:04:02,910
+So we will automatically leave game over screen
+85
+
+85
+00:04:02,910 --> 00:04:05,160
+and go back to the start game screen
+86
+
+86
+00:04:05,160 --> 00:04:07,240
+just by setting user number to null
+87
+
+87
+00:04:07,240 --> 00:04:11,170
+because both these if conditions won't be met anymore.
+88
+
+88
+00:04:11,170 --> 00:04:13,650
+So that's already pretty good.
+89
+
+89
+00:04:13,650 --> 00:04:15,030
+Now what we also need to do
+90
+
+90
+00:04:15,030 --> 00:04:16,950
+when a new game is started though
+91
+
+91
+00:04:16,950 --> 00:04:19,070
+is in the game screen.
+92
+
+92
+00:04:19,070 --> 00:04:20,760
+Once a new game starts
+93
+
+93
+00:04:20,760 --> 00:04:24,380
+we will need to reset the min and max boundary.
+94
+
+94
+00:04:24,380 --> 00:04:28,030
+Now I'm managing these values as regular variables
+95
+
+95
+00:04:28,030 --> 00:04:30,130
+outside of the component function
+96
+
+96
+00:04:30,130 --> 00:04:32,580
+because they actually should be independent
+97
+
+97
+00:04:32,580 --> 00:04:34,010
+from the component function.
+98
+
+98
+00:04:34,010 --> 00:04:36,810
+When the component function is re-executed,
+99
+
+99
+00:04:36,810 --> 00:04:38,180
+those variables
+100
+
+100
+00:04:38,180 --> 00:04:41,240
+shouldn't be reset back to their initial values
+101
+
+101
+00:04:41,240 --> 00:04:42,073
+all the time.
+102
+
+102
+00:04:42,073 --> 00:04:45,493
+That's why I manage them outside of the component function.
+103
+
+103
+00:04:46,570 --> 00:04:48,380
+But I do want to reset them
+104
+
+104
+00:04:48,380 --> 00:04:49,720
+if a new game started
+105
+
+105
+00:04:50,810 --> 00:04:51,720
+To achieve this,
+106
+
+106
+00:04:51,720 --> 00:04:55,573
+we can again use use effect in the game screen component.
+107
+
+107
+00:04:56,470 --> 00:04:59,920
+There I have an effect which I wanna execute
+108
+
+108
+00:04:59,920 --> 00:05:02,760
+whenever this game screen component
+109
+
+109
+00:05:02,760 --> 00:05:05,450
+is rendered for the first the time.
+110
+
+110
+00:05:05,450 --> 00:05:10,360
+So whenever it was not part of the rendered user interface
+111
+
+111
+00:05:10,360 --> 00:05:13,560
+and now became part of the interface.
+112
+
+112
+00:05:13,560 --> 00:05:14,770
+And this can be achieved by
+113
+
+113
+00:05:14,770 --> 00:05:18,970
+adding an empty array of dependencies to use effect.
+114
+
+114
+00:05:18,970 --> 00:05:21,660
+Then this effect function will only execute
+115
+
+115
+00:05:21,660 --> 00:05:25,380
+the first time this component is evaluated.
+116
+
+116
+00:05:25,380 --> 00:05:29,040
+And then if it is removed from the UI and re added later,
+117
+
+117
+00:05:29,040 --> 00:05:30,450
+this will execute again
+118
+
+118
+00:05:30,450 --> 00:05:31,890
+but it will not execute
+119
+
+119
+00:05:31,890 --> 00:05:34,560
+If this component was already on the UI
+120
+
+120
+00:05:34,560 --> 00:05:36,320
+and now just updated
+121
+
+121
+00:05:36,320 --> 00:05:38,913
+because for example a new guess was made.
+122
+
+122
+00:05:40,150 --> 00:05:41,960
+So therefore this effect function
+123
+
+123
+00:05:41,960 --> 00:05:45,720
+is now perfect for resetting min boundary to one
+124
+
+124
+00:05:45,720 --> 00:05:47,930
+and max to 100
+125
+
+125
+00:05:47,930 --> 00:05:48,763
+because with that,
+126
+
+126
+00:05:48,763 --> 00:05:51,700
+we should ensure that this actually only happens
+127
+
+127
+00:05:51,700 --> 00:05:54,870
+when this is rendered for the first time again.
+128
+
+128
+00:05:54,870 --> 00:05:57,950
+Alternatively, we could also do this here
+129
+
+129
+00:05:57,950 --> 00:05:59,890
+when we trigger on game over
+130
+
+130
+00:05:59,890 --> 00:06:02,000
+because we know if the game is over
+131
+
+131
+00:06:02,000 --> 00:06:04,430
+we wanna reset the min and max boundary
+132
+
+132
+00:06:04,430 --> 00:06:06,860
+for the next time the game is played,
+133
+
+133
+00:06:06,860 --> 00:06:08,100
+that should work as well
+134
+
+134
+00:06:08,100 --> 00:06:10,210
+but here I'll try solving this with this
+135
+
+135
+00:06:10,210 --> 00:06:12,700
+separate effect function.
+136
+
+136
+00:06:12,700 --> 00:06:14,510
+So now we have all of that.
+137
+
+137
+00:06:14,510 --> 00:06:16,230
+Let's now save this
+138
+
+138
+00:06:18,060 --> 00:06:19,820
+and let's start a new game.
+139
+
+139
+00:06:19,820 --> 00:06:21,860
+Now, if I solve this
+140
+
+140
+00:06:24,610 --> 00:06:26,170
+and I start a new game again
+141
+
+141
+00:06:26,170 --> 00:06:28,240
+I'm back here on this starting screen
+142
+
+142
+00:06:28,240 --> 00:06:30,430
+and I can pick a new number
+143
+
+143
+00:06:30,430 --> 00:06:34,320
+and then here I can still play the game as I did before
+144
+
+144
+00:06:34,320 --> 00:06:35,300
+and it again ends.
+145
+
+145
+00:06:35,300 --> 00:06:36,610
+So this looks good.
+146
+
+146
+00:06:36,610 --> 00:06:39,900
+I can also see my number here on this game over screen
+147
+
+147
+00:06:39,900 --> 00:06:43,220
+but of course the rounds number is currently not updated
+148
+
+148
+00:06:43,220 --> 00:06:46,120
+and that's there for the next thing we wanna implement.
+149
+
+149
+00:06:46,120 --> 00:06:48,060
+And we also should not forget
+150
+
+150
+00:06:48,060 --> 00:06:49,680
+that the goal also is
+151
+
+151
+00:06:49,680 --> 00:06:54,290
+to output a log of the play rounds here on this game screen.
+152
+
+152
+00:06:54,290 --> 00:06:56,390
+So that's also something we'll have to do.

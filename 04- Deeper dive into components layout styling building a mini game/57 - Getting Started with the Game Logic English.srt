@@ -1,0 +1,863 @@
+1
+00:00:02,250 --> 00:00:03,380
+So let's start working
+2
+
+2
+00:00:03,380 --> 00:00:05,530
+on the Game Logic now.
+3
+
+3
+00:00:05,530 --> 00:00:08,730
+And this includes fetching the user input,
+4
+
+4
+00:00:08,730 --> 00:00:11,320
+resetting it if we click this button
+5
+
+5
+00:00:11,320 --> 00:00:13,830
+and moving on to the actual game screen,
+6
+
+6
+00:00:13,830 --> 00:00:15,970
+if we confirm the input.
+7
+
+7
+00:00:15,970 --> 00:00:18,920
+Though, we also wanna validate the input.
+8
+
+8
+00:00:18,920 --> 00:00:20,430
+For example, we wanna make sure
+9
+
+9
+00:00:20,430 --> 00:00:23,380
+that if it's empty, we don't proceed
+10
+
+10
+00:00:23,380 --> 00:00:25,230
+to the game screen.
+11
+
+11
+00:00:25,230 --> 00:00:27,440
+That would not be the behavior we want.
+12
+
+12
+00:00:27,440 --> 00:00:28,630
+Instead in that case,
+13
+
+13
+00:00:28,630 --> 00:00:30,240
+I wanna show a little alert
+14
+
+14
+00:00:30,240 --> 00:00:32,390
+that tells the user that a value
+15
+
+15
+00:00:32,390 --> 00:00:33,933
+must be entered here.
+16
+
+16
+00:00:34,780 --> 00:00:36,800
+In addition, I also wanna make sure
+17
+
+17
+00:00:36,800 --> 00:00:38,670
+that you can't enter,
+18
+
+18
+00:00:38,670 --> 00:00:43,010
+let's say zero or minus one as a value here.
+19
+
+19
+00:00:43,010 --> 00:00:44,250
+So we'll also have to make sure
+20
+
+20
+00:00:44,250 --> 00:00:45,913
+that this is not possible.
+21
+
+21
+00:00:46,990 --> 00:00:48,560
+Now, how can we fetch
+22
+
+22
+00:00:48,560 --> 00:00:52,090
+and handle the user input with good old state?
+23
+
+23
+00:00:52,090 --> 00:00:55,150
+Because again, it is just a React component
+24
+
+24
+00:00:55,150 --> 00:00:57,350
+and now we wanna fetch some user input
+25
+
+25
+00:00:57,350 --> 00:00:59,580
+as we did it before in the course already.
+26
+
+26
+00:00:59,580 --> 00:01:01,410
+And using state for that is
+27
+
+27
+00:01:01,410 --> 00:01:04,053
+of course the standard React way of doing that.
+28
+
+28
+00:01:04,940 --> 00:01:08,780
+Therefore, we should import the useState hook
+29
+
+29
+00:01:08,780 --> 00:01:11,700
+from React so that we can manage state
+30
+
+30
+00:01:11,700 --> 00:01:14,080
+in this functional component.
+31
+
+31
+00:01:14,080 --> 00:01:17,750
+And here I then have my state for managing or
+32
+
+32
+00:01:17,750 --> 00:01:19,970
+for getting this entered value.
+33
+
+33
+00:01:19,970 --> 00:01:22,453
+And therefore I will name this enteredValue
+34
+
+34
+00:01:24,160 --> 00:01:25,980
+or actually enteredNumber,
+35
+
+35
+00:01:25,980 --> 00:01:28,260
+since it should be a number.
+36
+
+36
+00:01:28,260 --> 00:01:32,970
+And we have the setEnteredNumber state updating function,
+37
+
+37
+00:01:32,970 --> 00:01:34,640
+and here out of the box,
+38
+
+38
+00:01:34,640 --> 00:01:36,380
+this is an empty string.
+39
+
+39
+00:01:36,380 --> 00:01:37,700
+Now it's a empty string
+40
+
+40
+00:01:37,700 --> 00:01:39,860
+instead of a number like zero
+41
+
+41
+00:01:39,860 --> 00:01:42,310
+because actually I will bind this,
+42
+
+42
+00:01:42,310 --> 00:01:43,740
+queue the text input
+43
+
+43
+00:01:43,740 --> 00:01:46,610
+and even if you have "number-pad" here,
+44
+
+44
+00:01:46,610 --> 00:01:48,350
+what you will get as a value
+45
+
+45
+00:01:48,350 --> 00:01:50,290
+will always be a string.
+46
+
+46
+00:01:50,290 --> 00:01:52,850
+It will always be of type string
+47
+
+47
+00:01:52,850 --> 00:01:54,760
+even if the text is a number,
+48
+
+48
+00:01:54,760 --> 00:01:57,380
+even if the text contains a number
+49
+
+49
+00:01:57,380 --> 00:01:59,230
+and that's the same as in the web.
+50
+
+50
+00:01:59,230 --> 00:02:01,120
+So what we get from TextInput
+51
+
+51
+00:02:01,120 --> 00:02:02,550
+will always be a string.
+52
+
+52
+00:02:02,550 --> 00:02:04,740
+We can of course convert it thereafter.
+53
+
+53
+00:02:04,740 --> 00:02:07,350
+But since I plan on binding this state
+54
+
+54
+00:02:07,350 --> 00:02:08,690
+to the TextInput,
+55
+
+55
+00:02:08,690 --> 00:02:11,550
+I also wanna manage a string here.
+56
+
+56
+00:02:11,550 --> 00:02:14,340
+Now with bind this to the TextInput,
+57
+
+57
+00:02:14,340 --> 00:02:17,220
+I mean that I wanna set the value prop
+58
+
+58
+00:02:17,220 --> 00:02:18,053
+on TextInput
+59
+
+59
+00:02:19,220 --> 00:02:22,188
+and set this equal to enteredNumber.
+60
+
+60
+00:02:22,188 --> 00:02:23,021
+I do this so
+61
+
+61
+00:02:23,021 --> 00:02:24,680
+that we can change the state
+62
+
+62
+00:02:24,680 --> 00:02:26,480
+from anywhere in this app.
+63
+
+63
+00:02:26,480 --> 00:02:28,910
+For example, when the Reset button is clicked
+64
+
+64
+00:02:28,910 --> 00:02:30,820
+to reset it to an empty string
+65
+
+65
+00:02:30,820 --> 00:02:33,750
+and such state changes are then reflected
+66
+
+66
+00:02:33,750 --> 00:02:34,960
+in TextInput.
+67
+
+67
+00:02:34,960 --> 00:02:36,930
+That's why I'm setting the value prop
+68
+
+68
+00:02:36,930 --> 00:02:38,610
+to the state.
+69
+
+69
+00:02:38,610 --> 00:02:40,340
+But of course, we also wanna update
+70
+
+70
+00:02:40,340 --> 00:02:41,990
+this enteredNumber state
+71
+
+71
+00:02:41,990 --> 00:02:43,310
+whenever the user types
+72
+
+72
+00:02:43,310 --> 00:02:44,900
+into the TextInput field.
+73
+
+73
+00:02:44,900 --> 00:02:47,410
+And for this, we can add a function,
+74
+
+74
+00:02:47,410 --> 00:02:51,350
+the numberInputHandler, for example,
+75
+
+75
+00:02:51,350 --> 00:02:54,320
+which should be executed upon every keystroke
+76
+
+76
+00:02:54,320 --> 00:02:55,770
+which can be achieved
+77
+
+77
+00:02:55,770 --> 00:02:59,710
+by adding the onChangeText prop here
+78
+
+78
+00:02:59,710 --> 00:03:01,220
+to this TextInput.
+79
+
+79
+00:03:01,220 --> 00:03:04,440
+And then we point at this numberInputHandler
+80
+
+80
+00:03:04,440 --> 00:03:07,080
+and this will in the end execute this function
+81
+
+81
+00:03:07,080 --> 00:03:09,090
+on every keystroke that is done
+82
+
+82
+00:03:09,090 --> 00:03:09,990
+on this TextInput.
+83
+
+83
+00:03:11,240 --> 00:03:12,300
+And conveniently,
+84
+
+84
+00:03:12,300 --> 00:03:15,620
+we automatically get the inputText
+85
+
+85
+00:03:15,620 --> 00:03:19,540
+or the enteredText passed into this function
+86
+
+86
+00:03:19,540 --> 00:03:20,940
+by React Native.
+87
+
+87
+00:03:20,940 --> 00:03:22,900
+So we automatically get a value
+88
+
+88
+00:03:22,900 --> 00:03:25,290
+for this parameter because React Native
+89
+
+89
+00:03:25,290 --> 00:03:27,290
+will invoke this function for us
+90
+
+90
+00:03:27,290 --> 00:03:29,777
+for every keystroke on the TextInput.
+91
+
+91
+00:03:30,940 --> 00:03:34,120
+And in here I'll then set my enteredNumber
+92
+
+92
+00:03:34,120 --> 00:03:36,550
+to the enteredText.
+93
+
+93
+00:03:36,550 --> 00:03:39,320
+So I'll update my state with the text entered
+94
+
+94
+00:03:39,320 --> 00:03:40,573
+into this input field.
+95
+
+95
+00:03:41,410 --> 00:03:42,760
+Now that is all nice.
+96
+
+96
+00:03:42,760 --> 00:03:44,750
+That's a good first step.
+97
+
+97
+00:03:44,750 --> 00:03:46,820
+The second step of course is
+98
+
+98
+00:03:46,820 --> 00:03:48,853
+to connect this Confirm button.
+99
+
+99
+00:03:49,760 --> 00:03:53,290
+For this, I'll add another function here
+100
+
+100
+00:03:53,290 --> 00:03:57,190
+which I'll name confirmInputHandler.
+101
+
+101
+00:03:57,190 --> 00:03:58,750
+And the idea here is
+102
+
+102
+00:03:58,750 --> 00:04:01,440
+that we then check the current state
+103
+
+103
+00:04:01,440 --> 00:04:03,900
+that we have, we check if it's a number
+104
+
+104
+00:04:03,900 --> 00:04:06,300
+and if it's greater or equal than one
+105
+
+105
+00:04:06,300 --> 00:04:08,620
+and smaller or equal than 99
+106
+
+106
+00:04:08,620 --> 00:04:12,090
+because I only wanna allow numbers in that range.
+107
+
+107
+00:04:12,090 --> 00:04:14,370
+And then we proceed to the next screen
+108
+
+108
+00:04:14,370 --> 00:04:17,393
+if it's valid and we show an alert, otherwise.
+109
+
+109
+00:04:18,390 --> 00:04:19,880
+Now let's first connect this
+110
+
+110
+00:04:19,880 --> 00:04:21,260
+to the Button though.
+111
+
+111
+00:04:21,260 --> 00:04:23,310
+And for this, our PrimaryButton
+112
+
+112
+00:04:23,310 --> 00:04:26,250
+should expose a prop that does allow us
+113
+
+113
+00:04:26,250 --> 00:04:28,330
+to pass in a function.
+114
+
+114
+00:04:28,330 --> 00:04:31,150
+And if we have a look at the PrimaryButton,
+115
+
+115
+00:04:31,150 --> 00:04:34,470
+then at the moment we don't use any props
+116
+
+116
+00:04:34,470 --> 00:04:37,460
+in here that would take a function.
+117
+
+117
+00:04:37,460 --> 00:04:41,600
+Instead here, our Pressable does have the onPress prop
+118
+
+118
+00:04:41,600 --> 00:04:44,120
+and we point at the the pressHandler
+119
+
+119
+00:04:44,120 --> 00:04:47,150
+but there, we just log to the console.
+120
+
+120
+00:04:47,150 --> 00:04:49,740
+Now I want to make this button reusable.
+121
+
+121
+00:04:49,740 --> 00:04:52,880
+I want to make this custom component reusable.
+122
+
+122
+00:04:52,880 --> 00:04:55,640
+And I wanna add a prop that allows components
+123
+
+123
+00:04:55,640 --> 00:04:58,270
+that use this Button component to pass
+124
+
+124
+00:04:58,270 --> 00:05:01,730
+in a function that will be executed upon a press.
+125
+
+125
+00:05:01,730 --> 00:05:05,410
+And therefore here I'll also pull out another prop
+126
+
+126
+00:05:05,410 --> 00:05:08,010
+from that incoming props object,
+127
+
+127
+00:05:08,010 --> 00:05:10,310
+which I'll name onPress.
+128
+
+128
+00:05:10,310 --> 00:05:11,560
+Now, this name is up to you
+129
+
+129
+00:05:11,560 --> 00:05:14,270
+because this is your component and your props,
+130
+
+130
+00:05:14,270 --> 00:05:17,200
+but it makes sense to use onPress I'd say
+131
+
+131
+00:05:17,200 --> 00:05:19,460
+because we know that we want a function
+132
+
+132
+00:05:19,460 --> 00:05:20,710
+that should be invoked
+133
+
+133
+00:05:20,710 --> 00:05:23,040
+when that button is pressed.
+134
+
+134
+00:05:23,040 --> 00:05:25,350
+So that is a name that makes sense to me
+135
+
+135
+00:05:25,350 --> 00:05:27,110
+but it's not a must use
+136
+
+136
+00:05:27,110 --> 00:05:29,650
+because it is your component.
+137
+
+137
+00:05:29,650 --> 00:05:34,500
+In pressHandler, we can then execute onPress
+138
+
+138
+00:05:34,500 --> 00:05:37,100
+or we get rid of pressHandler
+139
+
+139
+00:05:37,100 --> 00:05:39,370
+and we just forward that value
+140
+
+140
+00:05:39,370 --> 00:05:42,100
+which we receive on the onPress prop
+141
+
+141
+00:05:42,100 --> 00:05:45,093
+to the onPress prop provided by Pressable.
+142
+
+142
+00:05:46,230 --> 00:05:49,050
+Now this name here on the left is not up to you.
+143
+
+143
+00:05:49,050 --> 00:05:51,730
+That's a prop provided by Pressable.
+144
+
+144
+00:05:51,730 --> 00:05:53,450
+But this here is up to you
+145
+
+145
+00:05:53,450 --> 00:05:55,980
+because this is your prop.
+146
+
+146
+00:05:55,980 --> 00:05:58,820
+And now we simply forward the value we receive
+147
+
+147
+00:05:58,820 --> 00:06:00,660
+on the onPress prop
+148
+
+148
+00:06:00,660 --> 00:06:03,450
+to the onPress prop of Pressable.
+149
+
+149
+00:06:03,450 --> 00:06:05,220
+Yeah, it's a lot of presses
+150
+
+150
+00:06:05,220 --> 00:06:07,363
+but it's hopefully clear how that works.
+151
+
+151
+00:06:08,520 --> 00:06:10,730
+Again, this is standard React,
+152
+
+152
+00:06:10,730 --> 00:06:13,023
+nothing React Native specific here.
+153
+
+153
+00:06:14,000 --> 00:06:15,500
+With that we can go back
+154
+
+154
+00:06:15,500 --> 00:06:17,070
+to the start game screen,
+155
+
+155
+00:06:17,070 --> 00:06:20,770
+and now we can add the onPress prop here
+156
+
+156
+00:06:20,770 --> 00:06:22,660
+on the PrimaryButton.
+157
+
+157
+00:06:22,660 --> 00:06:26,020
+And if you chose a different name here
+158
+
+158
+00:06:26,020 --> 00:06:27,540
+and here,
+159
+
+159
+00:06:27,540 --> 00:06:31,130
+you have to use that different name here now.
+160
+
+160
+00:06:31,130 --> 00:06:33,820
+But I'm using onPress so I will use this name
+161
+
+161
+00:06:34,950 --> 00:06:38,260
+and here I point at the confirmInputHandler.
+162
+
+162
+00:06:38,260 --> 00:06:41,510
+So a pointer at this function is now passed
+163
+
+163
+00:06:41,510 --> 00:06:44,450
+to the PrimaryButton or to be precise
+164
+
+164
+00:06:44,450 --> 00:06:47,280
+to this instance of the PrimaryButton.
+165
+
+165
+00:06:47,280 --> 00:06:49,740
+And there it's forwarded as a value
+166
+
+166
+00:06:49,740 --> 00:06:52,610
+to the onPress prop on Pressable.
+167
+
+167
+00:06:52,610 --> 00:06:55,330
+And therefore, whenever we press this button,
+168
+
+168
+00:06:55,330 --> 00:06:58,120
+this confirmInputHandler function
+169
+
+169
+00:06:58,120 --> 00:06:59,483
+will be executed.
+170
+
+170
+00:07:00,820 --> 00:07:02,010
+And in that function,
+171
+
+171
+00:07:02,010 --> 00:07:04,520
+we can now add all our validation logic
+172
+
+172
+00:07:04,520 --> 00:07:05,660
+and show an alert
+173
+
+173
+00:07:05,660 --> 00:07:07,973
+if an invalid value is provided.

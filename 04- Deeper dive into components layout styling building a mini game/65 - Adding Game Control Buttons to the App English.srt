@@ -1,0 +1,1773 @@
+1
+00:00:02,090 --> 00:00:05,350
+So let's work on that feedback area now.
+2
+
+2
+00:00:05,350 --> 00:00:08,510
+And for this, below this higher or lower text,
+3
+
+3
+00:00:08,510 --> 00:00:09,890
+which I have here,
+4
+
+4
+00:00:09,890 --> 00:00:12,660
+I wanna output two PrimaryButtons
+5
+
+5
+00:00:12,660 --> 00:00:14,970
+using my own custom-built button.
+6
+
+6
+00:00:14,970 --> 00:00:17,080
+One button that shows a plus
+7
+
+7
+00:00:17,080 --> 00:00:19,263
+and one button that shows a minus.
+8
+
+8
+00:00:20,120 --> 00:00:21,260
+Now, for this, of course,
+9
+
+9
+00:00:21,260 --> 00:00:24,980
+you must make sure that PrimaryButton is being imported
+10
+
+10
+00:00:24,980 --> 00:00:26,170
+in this file.
+11
+
+11
+00:00:26,170 --> 00:00:28,190
+So this import must be added.
+12
+
+12
+00:00:28,190 --> 00:00:32,030
+And then we can add a plus and a minus button.
+13
+
+13
+00:00:32,030 --> 00:00:34,030
+We will later replace plus
+14
+
+14
+00:00:34,030 --> 00:00:37,200
+and minus with better looking icons
+15
+
+15
+00:00:37,200 --> 00:00:40,083
+but for the moment, these default characters will do.
+16
+
+16
+00:00:41,000 --> 00:00:42,260
+Now, I actually wanna make sure
+17
+
+17
+00:00:42,260 --> 00:00:45,900
+that these two buttons are next to each other in a row
+18
+
+18
+00:00:45,900 --> 00:00:48,200
+below this text here
+19
+
+19
+00:00:48,200 --> 00:00:50,210
+and therefore, I'll wrap them in a extra view,
+20
+
+20
+00:00:50,210 --> 00:00:52,560
+just as we did it a little bit earlier
+21
+
+21
+00:00:52,560 --> 00:00:55,160
+so that I can then ensure that this view,
+22
+
+22
+00:00:55,160 --> 00:00:56,420
+which holds the buttons,
+23
+
+23
+00:00:56,420 --> 00:00:59,110
+positions its children in a row
+24
+
+24
+00:00:59,110 --> 00:01:01,670
+whereas this view, which holds the text
+25
+
+25
+00:01:01,670 --> 00:01:05,280
+and then the view with the buttons positions these elements
+26
+
+26
+00:01:05,280 --> 00:01:08,040
+in a column below each other.
+27
+
+27
+00:01:08,040 --> 00:01:10,330
+And I will add the styling code
+28
+
+28
+00:01:10,330 --> 00:01:12,680
+for creating that layout later
+29
+
+29
+00:01:12,680 --> 00:01:15,523
+but that's the general structure I'd like to have.
+30
+
+30
+00:01:16,680 --> 00:01:20,900
+Well, and now we can add the onPress prop to both buttons.
+31
+
+31
+00:01:20,900 --> 00:01:23,830
+And then make sure that we have some function we can call
+32
+
+32
+00:01:23,830 --> 00:01:27,110
+that will derive a new random number.
+33
+
+33
+00:01:27,110 --> 00:01:29,500
+And for this, I will add a new function here,
+34
+
+34
+00:01:29,500 --> 00:01:32,510
+the nextGuessHandler function
+35
+
+35
+00:01:32,510 --> 00:01:34,020
+and the job of this function
+36
+
+36
+00:01:34,020 --> 00:01:36,433
+is to derive such a new number.
+37
+
+37
+00:01:37,430 --> 00:01:38,470
+For this, we need to know
+38
+
+38
+00:01:38,470 --> 00:01:40,520
+if that new number that should be guessed
+39
+
+39
+00:01:40,520 --> 00:01:42,980
+should be higher or lower.
+40
+
+40
+00:01:42,980 --> 00:01:45,330
+Now, we could write two separate functions
+41
+
+41
+00:01:45,330 --> 00:01:47,300
+where then one function is bound
+42
+
+42
+00:01:47,300 --> 00:01:48,420
+to this first button
+43
+
+43
+00:01:48,420 --> 00:01:51,850
+and the other function is bound to the second button
+44
+
+44
+00:01:51,850 --> 00:01:54,120
+but here I will simply use one function,
+45
+
+45
+00:01:54,120 --> 00:01:56,230
+which takes a parameters,
+46
+
+46
+00:01:56,230 --> 00:01:58,520
+which could be called direction,
+47
+
+47
+00:01:58,520 --> 00:02:00,370
+which then could be a string
+48
+
+48
+00:02:00,370 --> 00:02:02,960
+that is either lower
+49
+
+49
+00:02:02,960 --> 00:02:04,730
+if the new number should be lower
+50
+
+50
+00:02:04,730 --> 00:02:06,170
+than the previous number
+51
+
+51
+00:02:06,170 --> 00:02:09,130
+or greater if it should be greater.
+52
+
+52
+00:02:09,130 --> 00:02:12,630
+So that is what direction should hold actually
+53
+
+53
+00:02:12,630 --> 00:02:15,010
+and since I will be the one calling that function,
+54
+
+54
+00:02:15,010 --> 00:02:16,600
+it's my responsibility
+55
+
+55
+00:02:16,600 --> 00:02:21,230
+to pass in either lower or greater as values.
+56
+
+56
+00:02:21,230 --> 00:02:23,900
+And then inside of nextGuessHandler,
+57
+
+57
+00:02:23,900 --> 00:02:26,440
+we can check if direction is lower,
+58
+
+58
+00:02:26,440 --> 00:02:29,430
+which means we wanna now generate a lower number
+59
+
+59
+00:02:29,430 --> 00:02:31,283
+or well, if it's higher.
+60
+
+60
+00:02:31,283 --> 00:02:34,820
+Now, for that, to derive that number,
+61
+
+61
+00:02:34,820 --> 00:02:36,070
+we, of course, wanna call
+62
+
+62
+00:02:36,070 --> 00:02:39,730
+our random number generation function again.
+63
+
+63
+00:02:39,730 --> 00:02:41,380
+So generateRandomBetween.
+64
+
+64
+00:02:41,380 --> 00:02:43,200
+We wanna call that again.
+65
+
+65
+00:02:43,200 --> 00:02:45,710
+But now we need new boundaries.
+66
+
+66
+00:02:45,710 --> 00:02:48,680
+And if we know that the new number should be lower
+67
+
+67
+00:02:48,680 --> 00:02:50,090
+than the previous number,
+68
+
+68
+00:02:50,090 --> 00:02:53,450
+we know that our minimum boundary was okay
+69
+
+69
+00:02:53,450 --> 00:02:55,710
+but the max boundary needs to be adjusted
+70
+
+70
+00:02:55,710 --> 00:02:57,370
+because it was too high.
+71
+
+71
+00:02:57,370 --> 00:03:00,780
+Otherwise the new number wouldn't have to be lower.
+72
+
+72
+00:03:00,780 --> 00:03:04,040
+So my min should stay the previous minimum number
+73
+
+73
+00:03:04,040 --> 00:03:07,210
+but how do we know what the previous minimum was?
+74
+
+74
+00:03:07,210 --> 00:03:08,810
+Initially, it's one but, of course,
+75
+
+75
+00:03:08,810 --> 00:03:10,750
+that could change over time.
+76
+
+76
+00:03:10,750 --> 00:03:13,664
+If we had to guess a higher number at some point,
+77
+
+77
+00:03:13,664 --> 00:03:16,860
+the minimum is no longer one.
+78
+
+78
+00:03:16,860 --> 00:03:18,980
+So both the min and the max boundaries
+79
+
+79
+00:03:18,980 --> 00:03:20,580
+are actually dynamic
+80
+
+80
+00:03:20,580 --> 00:03:23,860
+and they're only 1 and 100 initially.
+81
+
+81
+00:03:23,860 --> 00:03:25,200
+Now, what we can do for this
+82
+
+82
+00:03:25,200 --> 00:03:27,330
+is we can add extra variables,
+83
+
+83
+00:03:27,330 --> 00:03:30,090
+which we manage outside of the component function
+84
+
+84
+00:03:30,090 --> 00:03:32,250
+so that the variables won't change
+85
+
+85
+00:03:32,250 --> 00:03:35,560
+just because the component is reevaluated.
+86
+
+86
+00:03:35,560 --> 00:03:38,230
+And here I'll have my minBoundary,
+87
+
+87
+00:03:38,230 --> 00:03:39,960
+which initially is one,
+88
+
+88
+00:03:39,960 --> 00:03:43,393
+and I have my maxBoundary, which initially is 100.
+89
+
+89
+00:03:44,418 --> 00:03:46,623
+And then we could use the minBoundary here
+90
+
+90
+00:03:46,623 --> 00:03:50,460
+and the maxBoundary as initial values
+91
+
+91
+00:03:50,460 --> 00:03:52,180
+but we also change these variables
+92
+
+92
+00:03:52,180 --> 00:03:53,690
+as soon as we have to.
+93
+
+93
+00:03:53,690 --> 00:03:55,840
+So here, for example, when we know
+94
+
+94
+00:03:55,840 --> 00:03:57,390
+that we need to guess lower,
+95
+
+95
+00:03:57,390 --> 00:03:59,660
+we know that our new maxBoundary
+96
+
+96
+00:04:00,520 --> 00:04:03,870
+actually should be the currentGuess
+97
+
+97
+00:04:03,870 --> 00:04:07,410
+because we know the currentGuess was too high,
+98
+
+98
+00:04:07,410 --> 00:04:08,610
+so it makes no sense
+99
+
+99
+00:04:08,610 --> 00:04:10,770
+to guess a number even bigger
+100
+
+100
+00:04:10,770 --> 00:04:12,740
+because if we have to guess lower,
+101
+
+101
+00:04:12,740 --> 00:04:15,650
+we know that the currentGuess was too big,
+102
+
+102
+00:04:15,650 --> 00:04:18,520
+otherwise we wouldn't have to guess lower.
+103
+
+103
+00:04:18,520 --> 00:04:20,270
+And therefore, we know that the currentGuess
+104
+
+104
+00:04:20,270 --> 00:04:22,380
+is definitely the upper boundary.
+105
+
+105
+00:04:22,380 --> 00:04:25,680
+Actually, it's the currentGuess minus one even
+106
+
+106
+00:04:25,680 --> 00:04:27,000
+because if the currentGuess
+107
+
+107
+00:04:27,000 --> 00:04:28,960
+would have been the right number, we would have won.
+108
+
+108
+00:04:28,960 --> 00:04:32,270
+So it has to be the currentGuess minus one.
+109
+
+109
+00:04:32,270 --> 00:04:34,233
+That's our new maxBoundary.
+110
+
+110
+00:04:35,890 --> 00:04:39,260
+On the other hand, since the maxBoundary is excluded here
+111
+
+111
+00:04:39,260 --> 00:04:41,490
+when calling generateRandomBetween,
+112
+
+112
+00:04:41,490 --> 00:04:43,870
+we should not deduct minus one
+113
+
+113
+00:04:43,870 --> 00:04:47,120
+because if we do so, we actually exclude a number
+114
+
+114
+00:04:47,120 --> 00:04:49,800
+that could be the valid guess.
+115
+
+115
+00:04:49,800 --> 00:04:53,200
+So setting maxBoundary to currentGuess is fine.
+116
+
+116
+00:04:53,200 --> 00:04:54,610
+It will be our currentGuess,
+117
+
+117
+00:04:54,610 --> 00:04:55,900
+which then will automatically
+118
+
+118
+00:04:55,900 --> 00:04:58,800
+be excluded by generateRandomBetween
+119
+
+119
+00:04:58,800 --> 00:05:00,923
+because of how this function works.
+120
+
+120
+00:05:01,980 --> 00:05:05,190
+Now the minBoundary has not changed here
+121
+
+121
+00:05:05,190 --> 00:05:06,860
+when we need to guess lower.
+122
+
+122
+00:05:06,860 --> 00:05:10,420
+So now we generate a random number between the minBoundary,
+123
+
+123
+00:05:10,420 --> 00:05:12,763
+the maxBoundary, which we did update,
+124
+
+124
+00:05:13,960 --> 00:05:16,810
+and when it comes to excluding a number here,
+125
+
+125
+00:05:16,810 --> 00:05:19,850
+we actually wanna exclude the currentGuess.
+126
+
+126
+00:05:19,850 --> 00:05:22,500
+It makes no sense to guess the same number again,
+127
+
+127
+00:05:22,500 --> 00:05:24,830
+though it would be excluded anyways here
+128
+
+128
+00:05:24,830 --> 00:05:27,750
+since it is our new maxBoundary,
+129
+
+129
+00:05:27,750 --> 00:05:30,420
+which as mentioned before is excluded anyways
+130
+
+130
+00:05:30,420 --> 00:05:32,763
+because of how this function is written.
+131
+
+131
+00:05:33,700 --> 00:05:35,760
+Nonetheless, we exclude the currentGuess here
+132
+
+132
+00:05:35,760 --> 00:05:39,690
+and with that, we should guess a new lower number.
+133
+
+133
+00:05:39,690 --> 00:05:43,010
+So here we have the new random number that's being guessed,
+134
+
+134
+00:05:43,010 --> 00:05:45,210
+which should be lower than the previous one.
+135
+
+135
+00:05:46,310 --> 00:05:48,920
+Now, else if the direction is not lower,
+136
+
+136
+00:05:48,920 --> 00:05:51,930
+we know that we need to guess a higher number.
+137
+
+137
+00:05:51,930 --> 00:05:55,250
+So we need to generate our random number as before
+138
+
+138
+00:05:56,130 --> 00:05:58,400
+but now we need to adjust the minBoundary
+139
+
+139
+00:05:58,400 --> 00:06:00,770
+instead of the maxBoundary.
+140
+
+140
+00:06:00,770 --> 00:06:03,570
+And the new minBoundary here in this case
+141
+
+141
+00:06:03,570 --> 00:06:06,050
+should, of course, also be our currentGuess
+142
+
+142
+00:06:06,050 --> 00:06:07,963
+but the currentGuess plus one.
+143
+
+143
+00:06:08,840 --> 00:06:11,510
+The minBoundary, unlike the maxBoundary,
+144
+
+144
+00:06:11,510 --> 00:06:14,790
+is included in the set of possible results
+145
+
+145
+00:06:14,790 --> 00:06:16,890
+and therefore, we have to add plus one
+146
+
+146
+00:06:16,890 --> 00:06:20,700
+so that we don't guess the same minBoundary again.
+147
+
+147
+00:06:20,700 --> 00:06:23,410
+We would exclude it also because currentGuess
+148
+
+148
+00:06:23,410 --> 00:06:25,460
+is excluded but still,
+149
+
+149
+00:06:25,460 --> 00:06:27,870
+this is an adjustment we can make here.
+150
+
+150
+00:06:27,870 --> 00:06:30,400
+This exclude parameter mostly exists
+151
+
+151
+00:06:30,400 --> 00:06:31,820
+for the initial guess.
+152
+
+152
+00:06:31,820 --> 00:06:33,960
+For the other guesses, we don't really need it,
+153
+
+153
+00:06:33,960 --> 00:06:35,310
+so therefore here, setting this
+154
+
+154
+00:06:35,310 --> 00:06:38,373
+to the currentGuess each time is perfectly fine.
+155
+
+155
+00:06:39,290 --> 00:06:40,650
+And of course, you will notice
+156
+
+156
+00:06:40,650 --> 00:06:43,270
+that this random number calculation,
+157
+
+157
+00:06:43,270 --> 00:06:45,860
+this line of code is exactly the same
+158
+
+158
+00:06:45,860 --> 00:06:48,910
+so we can move this out of the if-else statement
+159
+
+159
+00:06:48,910 --> 00:06:51,300
+and remove it in the other branch here
+160
+
+160
+00:06:51,300 --> 00:06:52,730
+and just have it once
+161
+
+161
+00:06:52,730 --> 00:06:54,790
+and just adjust the boundaries
+162
+
+162
+00:06:54,790 --> 00:06:57,710
+inside this if-else statement.
+163
+
+163
+00:06:57,710 --> 00:07:00,400
+So now we have this new random number here
+164
+
+164
+00:07:00,400 --> 00:07:03,130
+and this is now the new random number we wanna use
+165
+
+165
+00:07:03,130 --> 00:07:05,153
+as a new state for the guess.
+166
+
+166
+00:07:06,060 --> 00:07:08,240
+So now we can call the setCurrentGuess
+167
+
+167
+00:07:08,240 --> 00:07:09,730
+state updating function
+168
+
+168
+00:07:09,730 --> 00:07:12,693
+and set this equal to the new random number.
+169
+
+169
+00:07:13,550 --> 00:07:15,610
+Now, with that, this should be updated
+170
+
+170
+00:07:15,610 --> 00:07:18,100
+and we just need to bind this function
+171
+
+171
+00:07:18,100 --> 00:07:20,070
+to these buttons now.
+172
+
+172
+00:07:20,070 --> 00:07:20,903
+And for this, of course,
+173
+
+173
+00:07:20,903 --> 00:07:24,160
+we wanna point at the nextGuessHandler function
+174
+
+174
+00:07:24,160 --> 00:07:26,020
+on both buttons
+175
+
+175
+00:07:26,020 --> 00:07:29,300
+but we need to pre-configure this function
+176
+
+176
+00:07:29,300 --> 00:07:33,240
+because this function wants a parameter, the direction.
+177
+
+177
+00:07:33,240 --> 00:07:35,290
+And you learned that you can pre-configure
+178
+
+178
+00:07:35,290 --> 00:07:36,490
+a function like this
+179
+
+179
+00:07:36,490 --> 00:07:38,550
+that will be called by someone else,
+180
+
+180
+00:07:38,550 --> 00:07:40,237
+like in this case the button
+181
+
+181
+00:07:40,237 --> 00:07:42,570
+and therefore, React Native in the end,
+182
+
+182
+00:07:42,570 --> 00:07:45,750
+by using the bind method on that function.
+183
+
+183
+00:07:45,750 --> 00:07:49,250
+This allows you to pre-configure the parameter value
+184
+
+184
+00:07:49,250 --> 00:07:52,113
+that will be used in a future function execution.
+185
+
+185
+00:07:53,240 --> 00:07:57,150
+Now, the first value of bind actually sets the this value,
+186
+
+186
+00:07:57,150 --> 00:08:00,550
+so it sets the value to which the this keyword
+187
+
+187
+00:08:00,550 --> 00:08:02,299
+would refer in this function.
+188
+
+188
+00:08:02,299 --> 00:08:04,900
+And since we're not using this keyword here,
+189
+
+189
+00:08:04,900 --> 00:08:06,290
+this does not matter at all,
+190
+
+190
+00:08:06,290 --> 00:08:08,023
+so we'll just set it to this.
+191
+
+191
+00:08:08,920 --> 00:08:12,280
+But the second value is then the first parameter received
+192
+
+192
+00:08:12,280 --> 00:08:13,630
+by that function.
+193
+
+193
+00:08:13,630 --> 00:08:15,350
+And here that should be a string
+194
+
+194
+00:08:15,350 --> 00:08:17,280
+with the content lower
+195
+
+195
+00:08:17,280 --> 00:08:20,410
+because that's one of the two string values we want
+196
+
+196
+00:08:20,410 --> 00:08:23,770
+because that's one of the values we're checking for.
+197
+
+197
+00:08:23,770 --> 00:08:26,320
+We're actually not checking for the other value
+198
+
+198
+00:08:26,320 --> 00:08:28,270
+in any place at this time
+199
+
+199
+00:08:28,270 --> 00:08:32,963
+but still here I will set this to greater nonetheless.
+200
+
+200
+00:08:34,580 --> 00:08:36,880
+And actually now it's wrong.
+201
+
+201
+00:08:36,880 --> 00:08:38,910
+This should be the minus button.
+202
+
+202
+00:08:38,910 --> 00:08:41,070
+This should be the plus button.
+203
+
+203
+00:08:41,070 --> 00:08:42,763
+So I'll update these characters
+204
+
+204
+00:08:42,763 --> 00:08:46,033
+so that they fit the way we call this function.
+205
+
+205
+00:08:47,440 --> 00:08:50,650
+Okay, with all of that, we added those buttons,
+206
+
+206
+00:08:50,650 --> 00:08:52,900
+we added this functionality.
+207
+
+207
+00:08:52,900 --> 00:08:55,460
+Let's see whether it works.
+208
+
+208
+00:08:55,460 --> 00:08:56,820
+We got the buttons here.
+209
+
+209
+00:08:56,820 --> 00:08:59,720
+And if I click a plus, indeed, we get a higher number.
+210
+
+210
+00:08:59,720 --> 00:09:02,660
+If I click a plus again, we get a even higher number
+211
+
+211
+00:09:02,660 --> 00:09:05,580
+and if I click the minus, we get lower numbers.
+212
+
+212
+00:09:05,580 --> 00:09:08,480
+However, only up to this point
+213
+
+213
+00:09:08,480 --> 00:09:11,373
+and now the app froze here.
+214
+
+214
+00:09:12,690 --> 00:09:14,163
+Let's try this again.
+215
+
+215
+00:09:16,890 --> 00:09:19,470
+Yeah, at some point, it freezes
+216
+
+216
+00:09:19,470 --> 00:09:23,120
+with a maximum call stack size exceeded error.
+217
+
+217
+00:09:23,120 --> 00:09:26,370
+So it looks like we're somehow entering
+218
+
+218
+00:09:26,370 --> 00:09:28,820
+an infinite loop in some place.
+219
+
+219
+00:09:28,820 --> 00:09:30,770
+And that causes the app to crash.
+220
+
+220
+00:09:30,770 --> 00:09:32,863
+Now, where does this happen?
+221
+
+221
+00:09:33,720 --> 00:09:36,370
+Now, to understand why this happens,
+222
+
+222
+00:09:36,370 --> 00:09:39,350
+let's actually add a console.log statement
+223
+
+223
+00:09:39,350 --> 00:09:41,060
+to this nextGuessHandler
+224
+
+224
+00:09:41,060 --> 00:09:44,730
+and let's log the min and maxBoundaries
+225
+
+225
+00:09:44,730 --> 00:09:48,180
+because there is a reason why this is happening.
+226
+
+226
+00:09:48,180 --> 00:09:50,940
+If we add this and we force a reload,
+227
+
+227
+00:09:50,940 --> 00:09:53,460
+let's say I have the number 31.
+228
+
+228
+00:09:53,460 --> 00:09:54,910
+Now I tell the computer
+229
+
+229
+00:09:54,910 --> 00:09:58,230
+that the number should be smaller than 71,
+230
+
+230
+00:09:58,230 --> 00:10:00,230
+smaller than 63.
+231
+
+231
+00:10:00,230 --> 00:10:02,170
+And if we have a look at the log,
+232
+
+232
+00:10:02,170 --> 00:10:03,050
+we see that indeed,
+233
+
+233
+00:10:03,050 --> 00:10:06,010
+we're logging the minBoundary, which never changed
+234
+
+234
+00:10:06,010 --> 00:10:09,360
+and we have our maxBoundary, which makes sense.
+235
+
+235
+00:10:09,360 --> 00:10:11,800
+And we have no problem right now.
+236
+
+236
+00:10:11,800 --> 00:10:16,800
+Now, if I now give the computer a wrong hint, for example,
+237
+
+237
+00:10:17,100 --> 00:10:18,920
+like this, then we see
+238
+
+238
+00:10:18,920 --> 00:10:21,427
+that the minBoundary is now 46
+239
+
+239
+00:10:21,427 --> 00:10:24,243
+and the maxBoundary is 63.
+240
+
+240
+00:10:25,190 --> 00:10:27,060
+At this point, the computer has no chance
+241
+
+241
+00:10:27,060 --> 00:10:29,850
+of guessing the right number, which was 31,
+242
+
+242
+00:10:29,850 --> 00:10:31,870
+but that's not even the main problem.
+243
+
+243
+00:10:31,870 --> 00:10:34,590
+The main problem is that if I now say lower again
+244
+
+244
+00:10:34,590 --> 00:10:36,491
+and lower, and now higher,
+245
+
+245
+00:10:36,491 --> 00:10:40,240
+at some point, we narrow down this area
+246
+
+246
+00:10:40,240 --> 00:10:44,190
+to an area where no guesses can be made anymore.
+247
+
+247
+00:10:44,190 --> 00:10:46,220
+At the moment, it's still possible
+248
+
+248
+00:10:46,220 --> 00:10:48,550
+but if I decrease this again
+249
+
+249
+00:10:48,550 --> 00:10:50,690
+and I decrease this again,
+250
+
+250
+00:10:50,690 --> 00:10:55,500
+now we get to a range where if I press this again,
+251
+
+251
+00:10:55,500 --> 00:10:58,740
+we actually have a range that is no range anymore.
+252
+
+252
+00:10:58,740 --> 00:11:01,410
+Now a random number between 48 and 48
+253
+
+253
+00:11:01,410 --> 00:11:02,490
+would have to be guessed
+254
+
+254
+00:11:02,490 --> 00:11:04,620
+and that number can never be found
+255
+
+255
+00:11:04,620 --> 00:11:07,060
+and therefore, we enter an infinite loop
+256
+
+256
+00:11:07,060 --> 00:11:08,970
+because this is then also always equal
+257
+
+257
+00:11:08,970 --> 00:11:10,313
+to our latest guess,
+258
+
+258
+00:11:11,290 --> 00:11:12,520
+which was 48
+259
+
+259
+00:11:12,520 --> 00:11:14,420
+and therefore, we always make it
+260
+
+260
+00:11:14,420 --> 00:11:17,550
+into this recursive function here,
+261
+
+261
+00:11:17,550 --> 00:11:20,864
+guessing more numbers, never getting out of that.
+262
+
+262
+00:11:20,864 --> 00:11:22,380
+So actually, the problem
+263
+
+263
+00:11:22,380 --> 00:11:25,340
+is that we can make contradicting indications
+264
+
+264
+00:11:25,340 --> 00:11:26,750
+to the computer
+265
+
+265
+00:11:26,750 --> 00:11:28,610
+and besides entering this infinite loop,
+266
+
+266
+00:11:28,610 --> 00:11:30,470
+this would be a problem anyways
+267
+
+267
+00:11:30,470 --> 00:11:32,130
+because we should play fair.
+268
+
+268
+00:11:32,130 --> 00:11:33,440
+We should let the phone know
+269
+
+269
+00:11:33,440 --> 00:11:35,550
+if the guess was too high or too low
+270
+
+270
+00:11:35,550 --> 00:11:37,980
+and we should not be able to say you need
+271
+
+271
+00:11:37,980 --> 00:11:41,633
+to guess higher if actually you need to guess lower.
+272
+
+272
+00:11:42,560 --> 00:11:44,520
+Therefore, we should add another check here
+273
+
+273
+00:11:44,520 --> 00:11:47,590
+at the beginning of nextGuessHandler
+274
+
+274
+00:11:47,590 --> 00:11:51,280
+and there, we should check if the direction is lower
+275
+
+275
+00:11:51,280 --> 00:11:53,440
+and at the same time,
+276
+
+276
+00:11:53,440 --> 00:11:55,920
+the currentGuess that was made
+277
+
+277
+00:11:55,920 --> 00:12:00,650
+is smaller than the choice made by the user,
+278
+
+278
+00:12:00,650 --> 00:12:03,703
+than the userNumber, which we get through props.
+279
+
+279
+00:12:05,270 --> 00:12:07,830
+Because if the currentGuess is smaller
+280
+
+280
+00:12:07,830 --> 00:12:10,750
+and we're saying that you need to guess lower,
+281
+
+281
+00:12:10,750 --> 00:12:13,040
+then we are lying
+282
+
+282
+00:12:13,040 --> 00:12:15,890
+because you already guessed lower than the userNumber,
+283
+
+283
+00:12:15,890 --> 00:12:17,230
+so telling you that you need
+284
+
+284
+00:12:17,230 --> 00:12:19,453
+to guess even lower is a lie.
+285
+
+285
+00:12:20,290 --> 00:12:21,240
+The same would be true
+286
+
+286
+00:12:21,240 --> 00:12:23,340
+for the opposite, if I copy this
+287
+
+287
+00:12:23,340 --> 00:12:25,410
+and combine it with a or statement
+288
+
+288
+00:12:25,410 --> 00:12:27,386
+because that would also be a problem.
+289
+
+289
+00:12:27,386 --> 00:12:31,090
+If we say the direction is greater
+290
+
+290
+00:12:31,090 --> 00:12:32,280
+but the current guess
+291
+
+291
+00:12:32,280 --> 00:12:34,590
+is actually greater than the userNumber,
+292
+
+292
+00:12:34,590 --> 00:12:36,690
+then we're also misleading the phone
+293
+
+293
+00:12:36,690 --> 00:12:38,530
+into a wrong direction.
+294
+
+294
+00:12:38,530 --> 00:12:41,753
+And this is what causes the infinite loop in the end.
+295
+
+295
+00:12:42,610 --> 00:12:45,750
+So now I'll group this together in parentheses
+296
+
+296
+00:12:45,750 --> 00:12:48,290
+and now with this extra if check added,
+297
+
+297
+00:12:48,290 --> 00:12:50,080
+if we return here,
+298
+
+298
+00:12:50,080 --> 00:12:53,020
+and not calculate a new number, in this case,
+299
+
+299
+00:12:53,020 --> 00:12:56,020
+we won't have this infinite loop anymore.
+300
+
+300
+00:12:56,020 --> 00:12:58,560
+Of course, I don't just wanna return silently,
+301
+
+301
+00:12:58,560 --> 00:13:00,280
+instead, I wanna let the user know
+302
+
+302
+00:13:00,280 --> 00:13:02,130
+that he or she lied.
+303
+
+303
+00:13:02,130 --> 00:13:05,170
+And we could do this by throwing an alert.
+304
+
+304
+00:13:05,170 --> 00:13:08,110
+So by using this built-in Alert API again,
+305
+
+305
+00:13:08,110 --> 00:13:10,490
+which we already used before,
+306
+
+306
+00:13:10,490 --> 00:13:14,200
+we can use this to now show a short alert message here
+307
+
+307
+00:13:14,200 --> 00:13:15,460
+by calling alert
+308
+
+308
+00:13:16,840 --> 00:13:20,943
+and saying don't lie,
+309
+
+309
+00:13:22,070 --> 00:13:24,853
+you know that this is wrong.
+310
+
+310
+00:13:25,940 --> 00:13:29,030
+And then we can add a button here
+311
+
+311
+00:13:29,030 --> 00:13:33,470
+with a text of sorry, for example,
+312
+
+312
+00:13:33,470 --> 00:13:37,210
+and the style of this button could be cancel.
+313
+
+313
+00:13:37,210 --> 00:13:39,602
+You can, of course, configure this however you want.
+314
+
+314
+00:13:39,602 --> 00:13:42,870
+We don't need to add a onPress handler here
+315
+
+315
+00:13:42,870 --> 00:13:44,600
+because I don't wanna do anything
+316
+
+316
+00:13:44,600 --> 00:13:46,370
+when this button is clicked.
+317
+
+317
+00:13:46,370 --> 00:13:48,830
+Instead, I just want to close the dialog,
+318
+
+318
+00:13:48,830 --> 00:13:51,720
+which will happen automatically and then return.
+319
+
+319
+00:13:51,720 --> 00:13:53,480
+I'm just warning the user
+320
+
+320
+00:13:53,480 --> 00:13:55,913
+that a incorrect indication was given.
+321
+
+321
+00:13:56,830 --> 00:13:58,940
+Now, one thing that's missing here though
+322
+
+322
+00:13:58,940 --> 00:14:01,670
+and that was already missing before to be honest
+323
+
+323
+00:14:01,670 --> 00:14:04,137
+is the userNumber.
+324
+
+324
+00:14:04,137 --> 00:14:05,920
+The userNumber is received as a prop
+325
+
+325
+00:14:05,920 --> 00:14:09,300
+and we're using it to calculate the initial random number
+326
+
+326
+00:14:09,300 --> 00:14:11,730
+but actually, I forgot to pass this number
+327
+
+327
+00:14:11,730 --> 00:14:13,550
+into this component.
+328
+
+328
+00:14:13,550 --> 00:14:16,383
+So all the time, we didn't take it into account.
+329
+
+329
+00:14:17,460 --> 00:14:20,020
+Therefore, what we should do here
+330
+
+330
+00:14:20,020 --> 00:14:22,870
+is we should go back to App.js
+331
+
+331
+00:14:22,870 --> 00:14:25,693
+where we manage this number with state
+332
+
+332
+00:14:25,693 --> 00:14:28,830
+and we should, of course, pass it into this GameScreen
+333
+
+333
+00:14:28,830 --> 00:14:30,750
+as soon as the game started.
+334
+
+334
+00:14:30,750 --> 00:14:32,730
+So here I'll set the userNumber prop
+335
+
+335
+00:14:32,730 --> 00:14:35,270
+and set this equal to the userNumber state
+336
+
+336
+00:14:35,270 --> 00:14:37,630
+that we're managing here in the app component
+337
+
+337
+00:14:38,750 --> 00:14:40,350
+so that this picked number
+338
+
+338
+00:14:40,350 --> 00:14:42,760
+is exposed to the GameScreen.
+339
+
+339
+00:14:42,760 --> 00:14:44,400
+We should have done this before.
+340
+
+340
+00:14:44,400 --> 00:14:45,860
+I did it now to make sure
+341
+
+341
+00:14:45,860 --> 00:14:47,943
+that this number really ends up there.
+342
+
+342
+00:14:49,340 --> 00:14:52,610
+Now, with that done, if we reload everything,
+343
+
+343
+00:14:52,610 --> 00:14:55,440
+what we'll have now is that if I enter a number,
+344
+
+344
+00:14:55,440 --> 00:14:58,210
+and now I have a guess that's too high,
+345
+
+345
+00:14:58,210 --> 00:14:59,470
+the number is too big,
+346
+
+346
+00:14:59,470 --> 00:15:02,800
+if I tell the phone that it needs to guess even higher,
+347
+
+347
+00:15:02,800 --> 00:15:05,530
+a bigger number, I get this alert.
+348
+
+348
+00:15:05,530 --> 00:15:08,230
+So now actually this would have been the right number.
+349
+
+349
+00:15:08,230 --> 00:15:10,650
+We just don't have any exit condition yet
+350
+
+350
+00:15:10,650 --> 00:15:12,490
+but now I get this warning.
+351
+
+351
+00:15:12,490 --> 00:15:14,730
+And now with that, we get this alert
+352
+
+352
+00:15:14,730 --> 00:15:18,920
+whenever we mislead the computer.
+353
+
+353
+00:15:18,920 --> 00:15:21,250
+So that's another huge step forward
+354
+
+354
+00:15:21,250 --> 00:15:22,390
+and we're getting closer
+355
+
+355
+00:15:22,390 --> 00:15:25,383
+to implementing this final game logic that we need.

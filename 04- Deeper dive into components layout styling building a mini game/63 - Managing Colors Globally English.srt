@@ -1,0 +1,643 @@
+1
+00:00:02,020 --> 00:00:03,380
+Now in the previous lecture
+2
+
+2
+00:00:03,380 --> 00:00:05,220
+we added this title component.
+3
+
+3
+00:00:05,220 --> 00:00:06,820
+And by doing so we made sure that
+4
+
+4
+00:00:06,820 --> 00:00:09,310
+we had this reusable title.
+5
+
+5
+00:00:09,310 --> 00:00:11,680
+But speaking of reusability
+6
+
+6
+00:00:11,680 --> 00:00:15,650
+and repeating certain things and settings,
+7
+
+7
+00:00:15,650 --> 00:00:17,810
+you might have noticed that these colors
+8
+
+8
+00:00:17,810 --> 00:00:21,690
+which I'm using are used in different places of the app.
+9
+
+9
+00:00:21,690 --> 00:00:24,100
+I'm using colors in the Start GameScreen,
+10
+
+10
+00:00:24,100 --> 00:00:26,520
+in the primary button component,
+11
+
+11
+00:00:26,520 --> 00:00:28,720
+in the title component.
+12
+
+12
+00:00:28,720 --> 00:00:32,260
+And having all these colors in all these places
+13
+
+13
+00:00:32,260 --> 00:00:33,520
+is not ideal.
+14
+
+14
+00:00:33,520 --> 00:00:36,920
+It's just as in web development with CSS.
+15
+
+15
+00:00:36,920 --> 00:00:39,510
+If you're using the same colors in different places
+16
+
+16
+00:00:39,510 --> 00:00:42,790
+which you typically are, repeating them manually is annoying
+17
+
+17
+00:00:42,790 --> 00:00:46,260
+because you always have to copy the exact same hex codes,
+18
+
+18
+00:00:46,260 --> 00:00:48,790
+and if you would change to color at some point
+19
+
+19
+00:00:48,790 --> 00:00:51,830
+and even if it's just a slight change, a small change,
+20
+
+20
+00:00:51,830 --> 00:00:54,580
+you would have to apply that in different files
+21
+
+21
+00:00:54,580 --> 00:00:57,153
+of your project, which of course is not great.
+22
+
+22
+00:00:58,180 --> 00:01:01,450
+Now in CSS, you could solve this problem
+23
+
+23
+00:01:01,450 --> 00:01:05,640
+by using CSS variables, CSS custom properties.
+24
+
+24
+00:01:05,640 --> 00:01:08,400
+But this feature doesn't exist with React Native
+25
+
+25
+00:01:08,400 --> 00:01:11,040
+because we're not using CSS here.
+26
+
+26
+00:01:11,040 --> 00:01:14,050
+Therefore what is commonly done in React Native,
+27
+
+27
+00:01:14,050 --> 00:01:16,480
+is that you create a helper file
+28
+
+28
+00:01:16,480 --> 00:01:19,740
+that exposes certain constant values
+29
+
+29
+00:01:19,740 --> 00:01:21,453
+like the colors you're using.
+30
+
+30
+00:01:22,340 --> 00:01:24,270
+And for this I'll add a new folder,
+31
+
+31
+00:01:24,270 --> 00:01:28,020
+which you could name Util for utility
+32
+
+32
+00:01:28,020 --> 00:01:31,100
+or constants or whatever you want.
+33
+
+33
+00:01:31,100 --> 00:01:32,760
+And I'll go for constants
+34
+
+34
+00:01:32,760 --> 00:01:36,453
+because I'll manage some constant reused values in there,
+35
+
+35
+00:01:37,540 --> 00:01:41,313
+and then I'll add a colors JS file in there.
+36
+
+36
+00:01:42,660 --> 00:01:46,190
+And in this file, I'll create a colors constant
+37
+
+37
+00:01:46,190 --> 00:01:49,133
+which is just a regular Javascript object.
+38
+
+38
+00:01:50,020 --> 00:01:52,010
+But in this object, I'm now going to set up
+39
+
+39
+00:01:52,010 --> 00:01:55,530
+various properties which I'll reuse over and over again
+40
+
+40
+00:01:55,530 --> 00:01:57,140
+throughout this app.
+41
+
+41
+00:01:57,140 --> 00:01:59,270
+For example, a primary color.
+42
+
+42
+00:01:59,270 --> 00:02:01,700
+And since I plan on managing multiple shades
+43
+
+43
+00:02:01,700 --> 00:02:05,840
+of the primary color, I'll name this primary500.
+44
+
+44
+00:02:05,840 --> 00:02:07,380
+It doesn't have to be 500,
+45
+
+45
+00:02:07,380 --> 00:02:09,950
+it could be primary 1 and 2 and so on,
+46
+
+46
+00:02:09,950 --> 00:02:14,450
+but I will indicate how saturated or dark a shade is
+47
+
+47
+00:02:14,450 --> 00:02:19,253
+by higher or lower numbers after the main property name.
+48
+
+48
+00:02:20,110 --> 00:02:25,110
+Now my primary500 number could be this primary plum color
+49
+
+49
+00:02:26,910 --> 00:02:31,080
+which I have here in my by button for example.
+50
+
+50
+00:02:31,080 --> 00:02:35,693
+So in colors, I'll set this here as my primary500 color.
+51
+
+51
+00:02:37,300 --> 00:02:42,300
+Now we can export this colors constant here as a default,
+52
+
+52
+00:02:43,210 --> 00:02:46,380
+and import it in all the places where this color is needed
+53
+
+53
+00:02:46,380 --> 00:02:48,390
+like in the primary button
+54
+
+54
+00:02:50,116 --> 00:02:51,890
+There, we also have a different shade by the way,
+55
+
+55
+00:02:51,890 --> 00:02:53,490
+because of the ripple effect.
+56
+
+56
+00:02:53,490 --> 00:02:55,430
+It's a slightly darker shade,
+57
+
+57
+00:02:55,430 --> 00:03:00,430
+so I'll go to my colors constant and also add primary600
+58
+
+58
+00:03:01,820 --> 00:03:03,823
+to store this shade here as well.
+59
+
+59
+00:03:05,170 --> 00:03:07,030
+And then in primary button as mentioned,
+60
+
+60
+00:03:07,030 --> 00:03:11,800
+we can import colors from going up one level,
+61
+
+61
+00:03:11,800 --> 00:03:14,500
+diving into the constant folder,
+62
+
+62
+00:03:14,500 --> 00:03:16,740
+and then into the colors file,
+63
+
+63
+00:03:16,740 --> 00:03:19,060
+and now here we wanna use the darker shade,
+64
+
+64
+00:03:19,060 --> 00:03:23,863
+so I access colors.primary600 to use that constant value.
+65
+
+65
+00:03:25,180 --> 00:03:26,530
+And down here in the style sheet,
+66
+
+66
+00:03:26,530 --> 00:03:28,700
+we can use this constant array as well,
+67
+
+67
+00:03:28,700 --> 00:03:31,503
+and I can access colors primary500.
+68
+
+68
+00:03:32,430 --> 00:03:35,990
+And if we would change the colors here in this colors file,
+69
+
+69
+00:03:35,990 --> 00:03:39,090
+those changes would be applied to all the components
+70
+
+70
+00:03:39,090 --> 00:03:41,920
+where we import this constant.
+71
+
+71
+00:03:41,920 --> 00:03:44,810
+That's the advantage of using this approach.
+72
+
+72
+00:03:44,810 --> 00:03:48,310
+Because now we can manage the colors in one global place,
+73
+
+73
+00:03:48,310 --> 00:03:51,140
+and then use these colors in multiple components
+74
+
+74
+00:03:51,140 --> 00:03:54,430
+and changes therefore only have to be made in one place,
+75
+
+75
+00:03:54,430 --> 00:03:55,693
+instead of many places.
+76
+
+76
+00:03:57,050 --> 00:03:59,020
+So I'll go to all the other places
+77
+
+77
+00:03:59,020 --> 00:04:01,770
+where I'm using these colors as well.
+78
+
+78
+00:04:01,770 --> 00:04:03,163
+To start GameScreen,
+79
+
+79
+00:04:04,160 --> 00:04:07,690
+though there I'm not using this plum color as it seems
+80
+
+80
+00:04:07,690 --> 00:04:10,391
+so no change needs to be made there.
+81
+
+81
+00:04:10,391 --> 00:04:12,950
+(gasps) I am using it here and even darker shade.
+82
+
+82
+00:04:12,950 --> 00:04:16,780
+So let's cut this from Start GameScreen,
+83
+
+83
+00:04:16,780 --> 00:04:21,570
+and add this darker shade maybe as primary800,
+84
+
+84
+00:04:21,570 --> 00:04:24,040
+to leave an extra space for in between shade
+85
+
+85
+00:04:24,040 --> 00:04:26,453
+if we should need it and add this here,
+86
+
+86
+00:04:27,390 --> 00:04:29,100
+and then in Start GameScreen,
+87
+
+87
+00:04:29,100 --> 00:04:34,100
+we also wanna import colors from going up, constants,
+88
+
+88
+00:04:36,370 --> 00:04:37,960
+colors like this...
+89
+
+89
+00:04:39,420 --> 00:04:44,420
+We can then use this down here and use colors.primary800
+90
+
+90
+00:04:44,420 --> 00:04:46,803
+which was this super dark shade we added.
+91
+
+91
+00:04:47,820 --> 00:04:51,640
+And we cannot also add the yellow color here.
+92
+
+92
+00:04:51,640 --> 00:04:55,450
+This is our accent color, so the alternative color.
+93
+
+93
+00:04:55,450 --> 00:04:57,290
+So I'll name this accent500
+94
+
+94
+00:04:57,290 --> 00:04:59,680
+and store the yellow color here.
+95
+
+95
+00:04:59,680 --> 00:05:01,480
+And then again in the GameScreen,
+96
+
+96
+00:05:01,480 --> 00:05:03,230
+in the places where we need that...
+97
+
+97
+00:05:03,230 --> 00:05:05,340
+Sorry, in the Start GameScreen,
+98
+
+98
+00:05:05,340 --> 00:05:07,830
+we can replace this hard coded text code
+99
+
+99
+00:05:07,830 --> 00:05:10,430
+with colors accent500.
+100
+
+100
+00:05:10,430 --> 00:05:13,193
+So do that here and here.
+101
+
+101
+00:05:15,170 --> 00:05:17,070
+And we're using that same yellow color
+102
+
+102
+00:05:17,070 --> 00:05:18,720
+in the title component,
+103
+
+103
+00:05:18,720 --> 00:05:21,750
+so therefore here we cannot also import colors
+104
+
+104
+00:05:21,750 --> 00:05:26,010
+from going up, constants colors,
+105
+
+105
+00:05:26,010 --> 00:05:29,530
+and use that instead of the hard coded yellow values here.
+106
+
+106
+00:05:29,530 --> 00:05:34,100
+So that we have colors accent500 here for the text color
+107
+
+107
+00:05:34,100 --> 00:05:36,883
+and then also for the border color.
+108
+
+108
+00:05:38,170 --> 00:05:40,490
+And that's how we can use these color constants
+109
+
+109
+00:05:40,490 --> 00:05:42,373
+in those various components.
+110
+
+110
+00:05:43,260 --> 00:05:45,900
+Now we don't use any colors in App.js...
+111
+
+111
+00:05:45,900 --> 00:05:47,190
+Oh yes we do, here.
+112
+
+112
+00:05:47,190 --> 00:05:49,690
+So let's also import it there.
+113
+
+113
+00:05:49,690 --> 00:05:54,483
+Import, colors from./constant/colors.
+114
+
+114
+00:05:56,380 --> 00:06:00,260
+And then here, this should be...
+115
+
+115
+00:06:00,260 --> 00:06:03,020
+It's an extra shade actually as I can see,
+116
+
+116
+00:06:03,020 --> 00:06:05,073
+so we might want to add that.
+117
+
+117
+00:06:05,970 --> 00:06:10,970
+And this looks like a shade between primary600 and 800.
+118
+
+118
+00:06:12,420 --> 00:06:14,803
+So it's good that we left some space here.
+119
+
+119
+00:06:15,770 --> 00:06:17,910
+Yeah, I think it fits in there,
+120
+
+120
+00:06:17,910 --> 00:06:19,530
+and now we can use that.
+121
+
+121
+00:06:19,530 --> 00:06:21,840
+We can use this newly added color,
+122
+
+122
+00:06:21,840 --> 00:06:26,840
+add this primary700 shade here in this App file,
+123
+
+123
+00:06:27,770 --> 00:06:29,670
+and then this is our default yellow,
+124
+
+124
+00:06:29,670 --> 00:06:33,263
+so here we can use our accent500 color.
+125
+
+125
+00:06:36,010 --> 00:06:39,280
+With that if we save this, this should work again
+126
+
+126
+00:06:39,280 --> 00:06:41,870
+and we should have the same look can feel as before.
+127
+
+127
+00:06:41,870 --> 00:06:45,360
+Also if I reload and end up on the starting screen,
+128
+
+128
+00:06:45,360 --> 00:06:47,620
+this looks good, but now we're managing this
+129
+
+129
+00:06:47,620 --> 00:06:51,193
+in a global place with all the advantages I outlined.

@@ -1,0 +1,808 @@
+1
+00:00:02,170 --> 00:00:05,450
+So we worked on this start game screen.
+2
+
+2
+00:00:05,450 --> 00:00:08,590
+We worked on this game screen and of course,
+3
+
+3
+00:00:08,590 --> 00:00:11,630
+as mentioned before you can definitely fine tune this
+4
+
+4
+00:00:11,630 --> 00:00:13,080
+to your likings.
+5
+
+5
+00:00:13,080 --> 00:00:15,000
+Now, I wanna work on this game over screen
+6
+
+6
+00:00:15,000 --> 00:00:20,000
+because of course this screen is not that pretty right now.
+7
+
+7
+00:00:20,070 --> 00:00:23,410
+Now for this, let's switch to the game over screen.
+8
+
+8
+00:00:23,410 --> 00:00:25,323
+What do we wanna do on this screen?
+9
+
+9
+00:00:26,300 --> 00:00:30,050
+Well, I think it makes sense to show a game over title,
+10
+
+10
+00:00:30,050 --> 00:00:33,190
+maybe a nice image and then below that image,
+11
+
+11
+00:00:33,190 --> 00:00:35,480
+also a short summary of the game.
+12
+
+12
+00:00:35,480 --> 00:00:39,340
+How many turns it took the computer, the phone
+13
+
+13
+00:00:39,340 --> 00:00:42,710
+to guess our number and what our number actually was.
+14
+
+14
+00:00:42,710 --> 00:00:45,500
+I think that could make a lot of sense.
+15
+
+15
+00:00:45,500 --> 00:00:49,190
+And for this, to achieve this,
+16
+
+16
+00:00:49,190 --> 00:00:52,920
+I will start by replacing this text here
+17
+
+17
+00:00:52,920 --> 00:00:55,570
+in the game over screen with a View,
+18
+
+18
+00:00:55,570 --> 00:00:57,300
+with a general container,
+19
+
+19
+00:00:57,300 --> 00:00:59,550
+which we of course have to import
+20
+
+20
+00:00:59,550 --> 00:01:00,950
+because as you learned by now
+21
+
+21
+00:01:00,950 --> 00:01:03,660
+that is very often the first thing you do
+22
+
+22
+00:01:03,660 --> 00:01:06,810
+since the View is this generic container component
+23
+
+23
+00:01:06,810 --> 00:01:09,040
+that contains all your other elements
+24
+
+24
+00:01:09,040 --> 00:01:13,810
+that make up a screen or a more complex component.
+25
+
+25
+00:01:13,810 --> 00:01:15,740
+Now in here, I then wanna have my title
+26
+
+26
+00:01:15,740 --> 00:01:18,680
+and I will reuse this existing title component
+27
+
+27
+00:01:18,680 --> 00:01:21,430
+which I import from components UI title,
+28
+
+28
+00:01:21,430 --> 00:01:23,980
+but of course you could also build a different title,
+29
+
+29
+00:01:23,980 --> 00:01:27,180
+specifically for this page, if you wanted to.
+30
+
+30
+00:01:27,180 --> 00:01:30,563
+I will reuse this existing title and say game over.
+31
+
+31
+00:01:31,510 --> 00:01:36,180
+And then below this title, I'd like to have an image.
+32
+
+32
+00:01:36,180 --> 00:01:39,663
+An image which I then also want to style.
+33
+
+33
+00:01:40,680 --> 00:01:43,870
+For this we can use this image component
+34
+
+34
+00:01:43,870 --> 00:01:47,610
+which we need to import from React Native as you learned,
+35
+
+35
+00:01:47,610 --> 00:01:51,900
+and then for the image, I prepare the image for you.
+36
+
+36
+00:01:51,900 --> 00:01:54,580
+Now, we already got the assets, images folder
+37
+
+37
+00:01:54,580 --> 00:01:56,530
+and therefore you should simply download
+38
+
+38
+00:01:56,530 --> 00:02:00,260
+and drag and drop that image into this images folder.
+39
+
+39
+00:02:00,260 --> 00:02:03,050
+It's this success PNG file.
+40
+
+40
+00:02:03,050 --> 00:02:06,060
+So now that's the image which I'd like to display here,
+41
+
+41
+00:02:06,060 --> 00:02:10,230
+and for this, we can add a source here, as we always did
+42
+
+42
+00:02:11,230 --> 00:02:16,230
+and require this from the assets folder like this,
+43
+
+43
+00:02:16,720 --> 00:02:20,560
+and then there from images, it's success.png
+44
+
+44
+00:02:20,560 --> 00:02:22,163
+that's the image I wanna add.
+45
+
+45
+00:02:23,580 --> 00:02:27,970
+Now, on this image I then want to add some styling,
+46
+
+46
+00:02:27,970 --> 00:02:29,710
+but for the moment let's just save this
+47
+
+47
+00:02:29,710 --> 00:02:31,700
+and take a look at that.
+48
+
+48
+00:02:31,700 --> 00:02:33,610
+So now we got the title and we got the image
+49
+
+49
+00:02:33,610 --> 00:02:36,150
+and the image is way too big, as you can tell.
+50
+
+50
+00:02:36,150 --> 00:02:38,010
+And it's way too big on purpose
+51
+
+51
+00:02:38,010 --> 00:02:41,240
+because as mentioned I wanna show you how you can resize
+52
+
+52
+00:02:41,240 --> 00:02:43,330
+and style the image and for example,
+53
+
+53
+00:02:43,330 --> 00:02:45,290
+I also wanna create round image,
+54
+
+54
+00:02:45,290 --> 00:02:49,129
+so a circle, and we can achieve this with style properties
+55
+
+55
+00:02:49,129 --> 00:02:51,233
+which will dive into next.
+56
+
+56
+00:02:52,160 --> 00:02:55,250
+For that, I will import Stylesheet
+57
+
+57
+00:02:55,250 --> 00:02:57,200
+into this game over screen component
+58
+
+58
+00:02:58,120 --> 00:03:02,817
+and create the styles object as we did it many times before.
+59
+
+59
+00:03:03,870 --> 00:03:08,870
+Stylesheet create, and then create a style for our image.
+60
+
+60
+00:03:11,850 --> 00:03:13,770
+And now when it comes to creating an image
+61
+
+61
+00:03:13,770 --> 00:03:16,800
+with rounded corners, what works best is
+62
+
+62
+00:03:16,800 --> 00:03:21,220
+that you create a View around your image,
+63
+
+63
+00:03:21,220 --> 00:03:24,800
+and then on that View you add rounded corners,
+64
+
+64
+00:03:24,800 --> 00:03:28,520
+and you add overflow hidden as we also did it earlier
+65
+
+65
+00:03:28,520 --> 00:03:32,060
+for our custom button, if you remember this.
+66
+
+66
+00:03:32,060 --> 00:03:34,600
+There we also worked with this kind of approach,
+67
+
+67
+00:03:34,600 --> 00:03:37,830
+having a container with borderRadius and overflow hidden,
+68
+
+68
+00:03:37,830 --> 00:03:40,423
+we'll do something similar for this image now.
+69
+
+69
+00:03:41,340 --> 00:03:45,150
+And therefore here I'll add the imageContainer style,
+70
+
+70
+00:03:45,150 --> 00:03:50,053
+where I add a borderRadius of let's say 200
+71
+
+71
+00:03:52,130 --> 00:03:56,170
+and a width of 400 and a height of 400.
+72
+
+72
+00:03:56,170 --> 00:04:00,000
+And the borderRadius should be half your width or height,
+73
+
+73
+00:04:00,000 --> 00:04:02,560
+and width and height should be the same amount
+74
+
+74
+00:04:02,560 --> 00:04:06,340
+so that we create a square and then by setting border radius
+75
+
+75
+00:04:06,340 --> 00:04:10,800
+to half our width or height, we actually create a circle.
+76
+
+76
+00:04:10,800 --> 00:04:14,320
+That is how we can create such a circle image.
+77
+
+77
+00:04:14,320 --> 00:04:17,470
+And then we'll also add a border width of three here
+78
+
+78
+00:04:17,470 --> 00:04:20,460
+to add a little border around that image
+79
+
+79
+00:04:20,460 --> 00:04:24,520
+and the border color then can be any color you want.
+80
+
+80
+00:04:24,520 --> 00:04:28,470
+I will use my colors constant, which is therefore imported
+81
+
+81
+00:04:28,470 --> 00:04:33,220
+from constants colors, and on this colors constant,
+82
+
+82
+00:04:33,220 --> 00:04:36,930
+I wanna choose a dark shade of my primary color,
+83
+
+83
+00:04:36,930 --> 00:04:41,870
+like primary 800, which goes into the vlack color,
+84
+
+84
+00:04:41,870 --> 00:04:43,060
+but isn't black
+85
+
+85
+00:04:43,060 --> 00:04:46,853
+but still has some plum color elements to it.
+86
+
+86
+00:04:47,850 --> 00:04:49,220
+Now, very important as mentioned,
+87
+
+87
+00:04:49,220 --> 00:04:52,990
+we also wanna add overflow hidden, to make sure
+88
+
+88
+00:04:52,990 --> 00:04:57,410
+that we hide the square or the rectangular nature
+89
+
+89
+00:04:57,410 --> 00:05:01,080
+of the actual image and we use this container as an overlay,
+90
+
+90
+00:05:01,080 --> 00:05:03,693
+as a mask for this image, you could say.
+91
+
+91
+00:05:04,640 --> 00:05:08,690
+And I will also add a vertical margin or actually a margin
+92
+
+92
+00:05:08,690 --> 00:05:11,270
+in all directions here on that image,
+93
+
+93
+00:05:11,270 --> 00:05:14,333
+and here, let's say we wanna add a margin of,
+94
+
+94
+00:05:15,380 --> 00:05:19,023
+let's say 36 pixels and we can of course tweak this later.
+95
+
+95
+00:05:19,960 --> 00:05:22,930
+Now, this style will be applied to this view
+96
+
+96
+00:05:22,930 --> 00:05:25,580
+which is the container for this image.
+97
+
+97
+00:05:25,580 --> 00:05:27,433
+So hence I add it like this.
+98
+
+98
+00:05:28,720 --> 00:05:32,770
+The image itself will now (indistinct) receive some styling
+99
+
+99
+00:05:32,770 --> 00:05:35,620
+and for this I'll create an image style property
+100
+
+100
+00:05:35,620 --> 00:05:39,720
+and all I do here is set the width to 100%
+101
+
+101
+00:05:39,720 --> 00:05:42,250
+and the height to 100%.
+102
+
+102
+00:05:42,250 --> 00:05:46,040
+And that 100% will refer to the container,
+103
+
+103
+00:05:46,040 --> 00:05:48,850
+to the View in which the image is placed.
+104
+
+104
+00:05:48,850 --> 00:05:53,050
+That's how percentage values always work in React Native.
+105
+
+105
+00:05:53,050 --> 00:05:55,970
+They refer to the container of the element
+106
+
+106
+00:05:55,970 --> 00:05:59,580
+on which you set up those percentage values.
+107
+
+107
+00:05:59,580 --> 00:06:02,910
+So in this case, I will add this style,
+108
+
+108
+00:06:02,910 --> 00:06:06,740
+this styles.image style to the image,
+109
+
+109
+00:06:06,740 --> 00:06:08,710
+and therefore the percentage width and height
+110
+
+110
+00:06:08,710 --> 00:06:10,810
+on that image will refer to the width
+111
+
+111
+00:06:10,810 --> 00:06:13,610
+and height of the View that holds the image,
+112
+
+112
+00:06:13,610 --> 00:06:15,823
+and that of course will be 400 each.
+113
+
+113
+00:06:16,820 --> 00:06:18,693
+With that applied, if we save this,
+114
+
+114
+00:06:19,590 --> 00:06:23,320
+now we got this circular image here.
+115
+
+115
+00:06:23,320 --> 00:06:24,660
+Now it's a little bit too big,
+116
+
+116
+00:06:24,660 --> 00:06:26,680
+and in the next core section.
+117
+
+117
+00:06:26,680 --> 00:06:30,730
+We're going to learn how we can adapt this dynamically
+118
+
+118
+00:06:30,730 --> 00:06:33,250
+to the available device size.
+119
+
+119
+00:06:33,250 --> 00:06:35,980
+For the moment I'll find unit manually
+120
+
+120
+00:06:35,980 --> 00:06:40,980
+and decrease this to 300 pixels height and width
+121
+
+121
+00:06:40,980 --> 00:06:43,500
+and hence the border radius to 150,
+122
+
+122
+00:06:43,500 --> 00:06:45,673
+so that it's still half the width.
+123
+
+123
+00:06:47,330 --> 00:06:50,320
+With this, this looks better I'd say.
+124
+
+124
+00:06:50,320 --> 00:06:54,450
+Now, in addition I also wanna have some general distance
+125
+
+125
+00:06:54,450 --> 00:06:58,820
+to the top and some padding around the title and so on,
+126
+
+126
+00:06:58,820 --> 00:07:03,100
+and therefore it makes sense to wrap this overall thing here
+127
+
+127
+00:07:03,100 --> 00:07:05,440
+into a View, which we already did,
+128
+
+128
+00:07:05,440 --> 00:07:08,470
+which receives some styling as well.
+129
+
+129
+00:07:08,470 --> 00:07:11,830
+And for this, I'm going to add my good old screen
+130
+
+130
+00:07:11,830 --> 00:07:16,830
+or rootContainer styling property,
+131
+
+131
+00:07:17,840 --> 00:07:21,430
+my styling object to be precise and add flex one,
+132
+
+132
+00:07:21,430 --> 00:07:24,530
+so that we take all the available space.
+133
+
+133
+00:07:24,530 --> 00:07:28,180
+Then I'll add some padding, let's say 24 pixels,
+134
+
+134
+00:07:28,180 --> 00:07:31,760
+and I wanna center the entire content in the middle
+135
+
+135
+00:07:31,760 --> 00:07:35,530
+both horizontally and vertically and this can be achieved,
+136
+
+136
+00:07:35,530 --> 00:07:40,530
+by using justifyContent center and alignItems center.
+137
+
+137
+00:07:41,230 --> 00:07:43,450
+This will center it on both axis
+138
+
+138
+00:07:43,450 --> 00:07:45,700
+and therefore it will be centered horizontally
+139
+
+139
+00:07:45,700 --> 00:07:46,913
+and vertically.
+140
+
+140
+00:07:48,330 --> 00:07:51,540
+And now this rootContainer style just needs to be applied
+141
+
+141
+00:07:51,540 --> 00:07:54,823
+to this View, which wraps this entire content like this.
+142
+
+142
+00:07:56,250 --> 00:07:58,140
+With that, we got this look
+143
+
+143
+00:07:58,140 --> 00:08:00,763
+and this doesn't look too bad I'd say.
+144
+
+144
+00:08:01,640 --> 00:08:04,040
+Now this is not everything I wanna do though,
+145
+
+145
+00:08:04,040 --> 00:08:06,450
+instead as I said below the image,
+146
+
+146
+00:08:06,450 --> 00:08:10,470
+I wanna output a short summary of the game.
+147
+
+147
+00:08:10,470 --> 00:08:13,870
+And for this, we can go back to the JSX code
+148
+
+148
+00:08:13,870 --> 00:08:16,320
+and then, below this imageContainer,
+149
+
+149
+00:08:16,320 --> 00:08:18,170
+we can add another View,
+150
+
+150
+00:08:18,170 --> 00:08:21,890
+simply to group together some text elements,
+151
+
+151
+00:08:21,890 --> 00:08:23,940
+though we might actually not need that,
+152
+
+152
+00:08:23,940 --> 00:08:26,410
+so let's just start with a text right away,
+153
+
+153
+00:08:26,410 --> 00:08:28,740
+now that I think about this.
+154
+
+154
+00:08:28,740 --> 00:08:32,490
+And for this of course text should be imported here
+155
+
+155
+00:08:32,490 --> 00:08:35,230
+from React Native, and then in this text,
+156
+
+156
+00:08:35,230 --> 00:08:39,773
+I wanna say your phone needed X rounds
+157
+
+157
+00:08:40,820 --> 00:08:44,860
+to guess the number Y.
+158
+
+158
+00:08:44,860 --> 00:08:47,320
+And of course X and Y are place holders
+159
+
+159
+00:08:47,320 --> 00:08:49,263
+for the actual values.
+160
+
+160
+00:08:50,540 --> 00:08:52,500
+Now we'll derive the values in a second
+161
+
+161
+00:08:52,500 --> 00:08:56,560
+but what I wanna do is I wanna highlight X and Y,
+162
+
+162
+00:08:56,560 --> 00:08:59,983
+and React Native makes that very easy as well.

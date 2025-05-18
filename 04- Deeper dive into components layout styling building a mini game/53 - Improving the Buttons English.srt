@@ -1,0 +1,748 @@
+1
+00:00:02,200 --> 00:00:05,420
+So slowly, this is taking shape
+2
+
+2
+00:00:05,420 --> 00:00:07,640
+but of course it's still not beautiful
+3
+
+3
+00:00:07,640 --> 00:00:10,763
+and especially the layout here is not great.
+4
+
+4
+00:00:11,600 --> 00:00:14,350
+So therefore that is what I wanna work on next.
+5
+
+5
+00:00:14,350 --> 00:00:17,150
+And as a first step it would be nice to
+6
+
+6
+00:00:17,150 --> 00:00:20,550
+position the elements inside of this input box
+7
+
+7
+00:00:20,550 --> 00:00:22,400
+in a different way.
+8
+
+8
+00:00:22,400 --> 00:00:24,050
+The text input, for example,
+9
+
+9
+00:00:24,050 --> 00:00:25,960
+should be centered in the middle.
+10
+
+10
+00:00:25,960 --> 00:00:29,100
+And whilst we could have the buttons beneath each other
+11
+
+11
+00:00:29,100 --> 00:00:32,000
+like this, I want to have them sit next to each other
+12
+
+12
+00:00:32,000 --> 00:00:35,150
+in one row because they don't need to be that wide.
+13
+
+13
+00:00:35,150 --> 00:00:38,033
+They don't need that much horizontal space.
+14
+
+14
+00:00:39,200 --> 00:00:41,320
+Hence it's time to go back to the code.
+15
+
+15
+00:00:41,320 --> 00:00:43,580
+And of course, just as a side note,
+16
+
+16
+00:00:43,580 --> 00:00:46,370
+as always, feel free to pause the video
+17
+
+17
+00:00:46,370 --> 00:00:48,550
+and try implementing this on your own.
+18
+
+18
+00:00:48,550 --> 00:00:51,020
+You will need to work with flexbox
+19
+
+19
+00:00:51,020 --> 00:00:54,130
+and you learned the fundamentals about flexbox already.
+20
+
+20
+00:00:54,130 --> 00:00:57,210
+So definitely feel free to enhance the layout on your own
+21
+
+21
+00:00:57,210 --> 00:00:59,260
+before following along with me
+22
+
+22
+00:00:59,260 --> 00:01:01,210
+where we will then enhance it together.
+23
+
+23
+00:01:02,170 --> 00:01:04,730
+Now, here is what I will do though.
+24
+
+24
+00:01:04,730 --> 00:01:06,270
+In start game screen,
+25
+
+25
+00:01:06,270 --> 00:01:09,920
+we have this view which holds this entire input area.
+26
+
+26
+00:01:09,920 --> 00:01:13,480
+And this view has this input container style object
+27
+
+27
+00:01:13,480 --> 00:01:14,433
+attached to it.
+28
+
+28
+00:01:15,370 --> 00:01:19,100
+So inside this input container style definition here
+29
+
+29
+00:01:19,100 --> 00:01:23,573
+I wanna control how the elements in there are laid out.
+30
+
+30
+00:01:24,490 --> 00:01:27,060
+And since I wanna center this text input,
+31
+
+31
+00:01:27,060 --> 00:01:30,180
+we have to add some flex properties that will take care
+32
+
+32
+00:01:30,180 --> 00:01:31,293
+about centering.
+33
+
+33
+00:01:32,730 --> 00:01:37,070
+And the positioning of elements in a flexbox is controlled
+34
+
+34
+00:01:37,070 --> 00:01:38,940
+by using justify content
+35
+
+35
+00:01:40,280 --> 00:01:42,303
+and align items.
+36
+
+36
+00:01:43,500 --> 00:01:45,820
+Now justify content will position elements
+37
+
+37
+00:01:45,820 --> 00:01:49,960
+along the main axis which by default is top to bottom
+38
+
+38
+00:01:49,960 --> 00:01:51,950
+because the default flex direction
+39
+
+39
+00:01:51,950 --> 00:01:54,720
+with React Native is column.
+40
+
+40
+00:01:54,720 --> 00:01:58,300
+And align items will position items along the cross axis
+41
+
+41
+00:01:58,300 --> 00:02:00,670
+which is the opposite of the main axis.
+42
+
+42
+00:02:00,670 --> 00:02:02,530
+So at the moment, as I just said,
+43
+
+43
+00:02:02,530 --> 00:02:05,380
+the default is flex direction column.
+44
+
+44
+00:02:05,380 --> 00:02:07,630
+So justify content will position items
+45
+
+45
+00:02:07,630 --> 00:02:10,940
+along this top to bottom axis and therefore here,
+46
+
+46
+00:02:10,940 --> 00:02:13,860
+it doesn't matter too much what we set here.
+47
+
+47
+00:02:13,860 --> 00:02:16,040
+We could set this to center
+48
+
+48
+00:02:16,040 --> 00:02:18,500
+and temporarily remove align items
+49
+
+49
+00:02:19,670 --> 00:02:21,610
+and it wouldn't really have any effect
+50
+
+50
+00:02:21,610 --> 00:02:25,540
+because the main axis, top to bottom, is occupied
+51
+
+51
+00:02:25,540 --> 00:02:27,360
+by the elements already.
+52
+
+52
+00:02:27,360 --> 00:02:30,600
+And since this overall container is not higher
+53
+
+53
+00:02:30,600 --> 00:02:33,420
+than the space taken up by the elements inside of it,
+54
+
+54
+00:02:33,420 --> 00:02:37,700
+there is no extra vertical space to distribute.
+55
+
+55
+00:02:37,700 --> 00:02:40,430
+That's why this doesn't matter too much.
+56
+
+56
+00:02:40,430 --> 00:02:42,810
+Now, what does matter though, is align items
+57
+
+57
+00:02:42,810 --> 00:02:45,890
+which positions item along the cross axis.
+58
+
+58
+00:02:45,890 --> 00:02:48,880
+And the cross axis in this case is left to right
+59
+
+59
+00:02:48,880 --> 00:02:51,083
+because the main axis is top to bottom.
+60
+
+60
+00:02:51,970 --> 00:02:53,900
+And here we wanna center the elements
+61
+
+61
+00:02:53,900 --> 00:02:57,320
+so that the text input element is centered.
+62
+
+62
+00:02:57,320 --> 00:03:00,623
+And this can be achieved by setting this to center.
+63
+
+63
+00:03:01,560 --> 00:03:05,560
+If we do this, indeed, this is centered and automatically as
+64
+
+64
+00:03:05,560 --> 00:03:08,510
+a side effect, the buttons got smaller
+65
+
+65
+00:03:08,510 --> 00:03:12,080
+because before the default was stretch,
+66
+
+66
+00:03:12,080 --> 00:03:14,550
+which ensured that the elements would stretch out
+67
+
+67
+00:03:14,550 --> 00:03:17,310
+to take the full available width.
+68
+
+68
+00:03:17,310 --> 00:03:20,170
+The text input element doesn't stretch because
+69
+
+69
+00:03:20,170 --> 00:03:22,640
+we set a dedicated width on it.
+70
+
+70
+00:03:22,640 --> 00:03:26,500
+So we restricted the width of the element and didn't allow
+71
+
+71
+00:03:26,500 --> 00:03:27,573
+it to stretch.
+72
+
+72
+00:03:28,620 --> 00:03:30,490
+Now, if we change this to center,
+73
+
+73
+00:03:30,490 --> 00:03:32,950
+we also don't stretch the buttons anymore,
+74
+
+74
+00:03:32,950 --> 00:03:35,460
+which is why they only take the space they need
+75
+
+75
+00:03:35,460 --> 00:03:37,363
+to fit the text inside of them.
+76
+
+76
+00:03:38,200 --> 00:03:40,310
+Now that is okay for the moment,
+77
+
+77
+00:03:40,310 --> 00:03:42,360
+because as I don't wanna position the buttons
+78
+
+78
+00:03:42,360 --> 00:03:45,310
+like this, anyways, instead, as I said before,
+79
+
+79
+00:03:45,310 --> 00:03:48,330
+I personally would prefer them to sit in a row
+80
+
+80
+00:03:48,330 --> 00:03:50,060
+next to each other.
+81
+
+81
+00:03:50,060 --> 00:03:54,080
+Now, for this to happen, we need to encapsulate
+82
+
+82
+00:03:54,080 --> 00:03:57,670
+these two buttons into a separate container.
+83
+
+83
+00:03:57,670 --> 00:04:00,350
+As long as they are directly in the same container
+84
+
+84
+00:04:00,350 --> 00:04:03,500
+as text input, there is no way of positioning them
+85
+
+85
+00:04:03,500 --> 00:04:08,500
+in a different way but we can wrap them in an extra view.
+86
+
+86
+00:04:08,820 --> 00:04:12,310
+And now it's this view, which is in the same container
+87
+
+87
+00:04:12,310 --> 00:04:14,740
+as the text input but the buttons are
+88
+
+88
+00:04:14,740 --> 00:04:16,143
+in a separate container.
+89
+
+89
+00:04:17,320 --> 00:04:21,510
+If we save this, this has no immediate effect other than
+90
+
+90
+00:04:21,510 --> 00:04:23,710
+the button size is changing again
+91
+
+91
+00:04:23,710 --> 00:04:27,090
+because they are now in a new flexbox container
+92
+
+92
+00:04:27,090 --> 00:04:31,430
+because every view constructs a new flexbox container -
+93
+
+93
+00:04:31,430 --> 00:04:33,850
+that is something you must know - and they,
+94
+
+94
+00:04:33,850 --> 00:04:35,290
+they stretch again.
+95
+
+95
+00:04:35,290 --> 00:04:38,560
+We would have to change the styling of that view to,
+96
+
+96
+00:04:38,560 --> 00:04:41,250
+for example, center them again to get rid of the stretching,
+97
+
+97
+00:04:41,250 --> 00:04:42,183
+if we wanted to.
+98
+
+98
+00:04:43,190 --> 00:04:45,000
+Now, I don't wanna get rid of the stretching
+99
+
+99
+00:04:45,000 --> 00:04:48,290
+but I do want to change the flex direction to row
+100
+
+100
+00:04:48,290 --> 00:04:50,570
+so that the buttons are next to each other
+101
+
+101
+00:04:50,570 --> 00:04:52,710
+instead of beneath each other.
+102
+
+102
+00:04:52,710 --> 00:04:56,690
+And for this, I'll add a new styling property here
+103
+
+103
+00:04:57,720 --> 00:05:02,720
+in my style sheet which I'll name buttons container.
+104
+
+104
+00:05:03,060 --> 00:05:05,520
+Of course, this name is up to you as well but here
+105
+
+105
+00:05:05,520 --> 00:05:08,170
+I'll set the flex direction to row
+106
+
+106
+00:05:08,170 --> 00:05:10,603
+because now the buttons should sit in a row.
+107
+
+107
+00:05:11,620 --> 00:05:16,440
+And if we do that and we add this to this view here,
+108
+
+108
+00:05:16,440 --> 00:05:21,140
+we add styles.buttonsContainer as a style to this view,
+109
+
+109
+00:05:21,140 --> 00:05:24,070
+then indeed, they are next to each other.
+110
+
+110
+00:05:24,070 --> 00:05:27,060
+Of course the button now have different sizes again,
+111
+
+111
+00:05:27,060 --> 00:05:31,440
+and an easy way of fixing that is to, again, encapsulate
+112
+
+112
+00:05:31,440 --> 00:05:34,590
+every button into a new view.
+113
+
+113
+00:05:34,590 --> 00:05:37,103
+But now every button receives its own view.
+114
+
+114
+00:05:37,940 --> 00:05:40,980
+And the idea behind this is that now we have new
+115
+
+115
+00:05:40,980 --> 00:05:44,150
+flexbox containers where every flexbox container
+116
+
+116
+00:05:44,150 --> 00:05:47,520
+contains one button and this flexbox container here
+117
+
+117
+00:05:47,520 --> 00:05:50,100
+will again have a flex direction of column
+118
+
+118
+00:05:50,100 --> 00:05:52,060
+and the button will stretch in there.
+119
+
+119
+00:05:52,060 --> 00:05:54,560
+And the two flexbox containers we have here
+120
+
+120
+00:05:54,560 --> 00:05:58,950
+can now distribute the available space provided by this view
+121
+
+121
+00:05:58,950 --> 00:06:01,683
+which is the overall container for these buttons.
+122
+
+122
+00:06:02,740 --> 00:06:06,110
+Now, just by adding these views nothing changes though,
+123
+
+123
+00:06:06,110 --> 00:06:09,270
+because by default, a view takes only as much space
+124
+
+124
+00:06:09,270 --> 00:06:11,920
+as is needed by its content.
+125
+
+125
+00:06:11,920 --> 00:06:14,020
+But you also know what you can do about that.
+126
+
+126
+00:06:14,020 --> 00:06:16,790
+You can add flex one to enforce that a view
+127
+
+127
+00:06:16,790 --> 00:06:19,660
+takes as much space as available.
+128
+
+128
+00:06:19,660 --> 00:06:22,760
+For this, we can add another style object,
+129
+
+129
+00:06:22,760 --> 00:06:25,610
+the button container
+130
+
+130
+00:06:25,610 --> 00:06:28,943
+which only holds one button and add flex one to it.
+131
+
+131
+00:06:29,930 --> 00:06:33,060
+And this style object can now be assigned
+132
+
+132
+00:06:33,060 --> 00:06:35,380
+to these two views here.
+133
+
+133
+00:06:35,380 --> 00:06:39,940
+So here we add style, styles button container like this
+134
+
+134
+00:06:39,940 --> 00:06:42,073
+and we do the same on this second view.
+135
+
+135
+00:06:43,130 --> 00:06:46,730
+And with that, these two buttons now have the same size
+136
+
+136
+00:06:46,730 --> 00:06:50,033
+and they distribute the available space amongst each other.
+137
+
+137
+00:06:51,130 --> 00:06:54,480
+And I was showing this to you so that we A, have
+138
+
+138
+00:06:54,480 --> 00:06:57,790
+a layout that we like but also B,
+139
+
+139
+00:06:57,790 --> 00:07:00,810
+so that we learn more about React Native
+140
+
+140
+00:07:00,810 --> 00:07:02,820
+and how we can create layouts.
+141
+
+141
+00:07:02,820 --> 00:07:06,630
+And indeed it is super common and normal that you nest
+142
+
+142
+00:07:06,630 --> 00:07:09,850
+views into each other and that you combine different
+143
+
+143
+00:07:09,850 --> 00:07:13,700
+flexbox properties on different view levels
+144
+
+144
+00:07:13,700 --> 00:07:16,033
+to achieve the final layout you want.
+145
+
+145
+00:07:16,950 --> 00:07:20,570
+And here, I would say this layout doesn't look too bad
+146
+
+146
+00:07:20,570 --> 00:07:23,160
+for this input container.
+147
+
+147
+00:07:23,160 --> 00:07:26,280
+Later, we will make sure that the buttons don't look equal
+148
+
+148
+00:07:26,280 --> 00:07:29,430
+but for a start, this doesn't look too bad.
+149
+
+149
+00:07:29,430 --> 00:07:32,040
+Now, I would say it's time to work on the background
+150
+
+150
+00:07:32,040 --> 00:07:36,323
+before we then finally start adding more logic to this game.

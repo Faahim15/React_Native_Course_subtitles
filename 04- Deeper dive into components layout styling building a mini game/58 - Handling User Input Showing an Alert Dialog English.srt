@@ -1,0 +1,833 @@
+1
+00:00:02,020 --> 00:00:03,060
+So let's now add
+2
+
+2
+00:00:03,060 --> 00:00:06,790
+this input validation logic here.
+3
+
+3
+00:00:06,790 --> 00:00:08,700
+For this I'll first of all,
+4
+
+4
+00:00:08,700 --> 00:00:11,160
+create a chosenNumber constant,
+5
+
+5
+00:00:11,160 --> 00:00:14,380
+where I wanna convert the enteredNumber of state,
+6
+
+6
+00:00:14,380 --> 00:00:17,720
+that I have here, which is a string to a number.
+7
+
+7
+00:00:17,720 --> 00:00:20,090
+And this conversion can be performed
+8
+
+8
+00:00:20,090 --> 00:00:23,810
+by using the built in parseInt function.
+9
+
+9
+00:00:23,810 --> 00:00:27,450
+This function is globally available in JavaScript,
+10
+
+10
+00:00:27,450 --> 00:00:28,940
+in React Native apps,
+11
+
+11
+00:00:28,940 --> 00:00:32,220
+just as it is globally available in the browser.
+12
+
+12
+00:00:32,220 --> 00:00:33,860
+So you can't just call it like this,
+13
+
+13
+00:00:33,860 --> 00:00:37,913
+and to parseInt, you pass the entered number.
+14
+
+14
+00:00:39,070 --> 00:00:41,660
+This will convert this string to a number,
+15
+
+15
+00:00:41,660 --> 00:00:44,600
+or at least it will try to convert it.
+16
+
+16
+00:00:44,600 --> 00:00:47,530
+This would fail if something is entered
+17
+
+17
+00:00:47,530 --> 00:00:49,620
+that is not convertible to a number,
+18
+
+18
+00:00:49,620 --> 00:00:52,510
+like non-digit characters.
+19
+
+19
+00:00:52,510 --> 00:00:55,310
+Therefore, I next wanna add a if statement here,
+20
+
+20
+00:00:55,310 --> 00:00:58,000
+where I check if this is maybe not a number,
+21
+
+21
+00:00:58,000 --> 00:00:59,343
+if the conversion failed.
+22
+
+22
+00:01:00,290 --> 00:01:01,160
+This can be done
+23
+
+23
+00:01:01,160 --> 00:01:04,390
+with the built in isNot a number function,
+24
+
+24
+00:01:04,390 --> 00:01:06,740
+which is also globally available,
+25
+
+25
+00:01:06,740 --> 00:01:08,490
+and to which I passed chosenNumber.
+26
+
+26
+00:01:09,810 --> 00:01:11,240
+This will return true,
+27
+
+27
+00:01:11,240 --> 00:01:13,130
+if chosenNumber is not a number,
+28
+
+28
+00:01:13,130 --> 00:01:14,573
+so if the conversion failed.
+29
+
+29
+00:01:15,500 --> 00:01:17,790
+Now, I also wanna add a couple of other checks,
+30
+
+30
+00:01:17,790 --> 00:01:20,030
+because if this check fails,
+31
+
+31
+00:01:20,030 --> 00:01:23,600
+or one of the other checks which I am about to add,
+32
+
+32
+00:01:23,600 --> 00:01:26,370
+in that case, I wanna show an alert.
+33
+
+33
+00:01:26,370 --> 00:01:29,290
+Show alert, that's what we'll do soon.
+34
+
+34
+00:01:29,290 --> 00:01:31,310
+So the other checks I wanna perform,
+35
+
+35
+00:01:31,310 --> 00:01:33,610
+are separated by an or,
+36
+
+36
+00:01:33,610 --> 00:01:37,220
+because I wanna show the alert if this is not a number,
+37
+
+37
+00:01:37,220 --> 00:01:40,580
+or if chosenNumber is a number,
+38
+
+38
+00:01:40,580 --> 00:01:43,400
+but it's smaller or equal than zero.
+39
+
+39
+00:01:43,400 --> 00:01:46,240
+So if it's zero or smaller than that,
+40
+
+40
+00:01:46,240 --> 00:01:47,960
+that would also be invalid,
+41
+
+41
+00:01:47,960 --> 00:01:50,723
+and I wanna show an alert in that case as well.
+42
+
+42
+00:01:51,590 --> 00:01:53,240
+Or I wanna show an alert,
+43
+
+43
+00:01:53,240 --> 00:01:56,780
+if chosenNumber is greater than 99.
+44
+
+44
+00:01:56,780 --> 00:01:59,253
+If it's too big, I also wanna show an alert.
+45
+
+45
+00:02:00,260 --> 00:02:02,240
+Now I also wanna return thereafter
+46
+
+46
+00:02:02,240 --> 00:02:04,440
+to make sure that this function,
+47
+
+47
+00:02:04,440 --> 00:02:06,950
+does not continue its execution,
+48
+
+48
+00:02:06,950 --> 00:02:08,930
+if we make it into if statement.
+49
+
+49
+00:02:08,930 --> 00:02:12,943
+So that we cancel this function's execution.
+50
+
+50
+00:02:14,210 --> 00:02:17,480
+But how can we now show such an alert?
+51
+
+51
+00:02:17,480 --> 00:02:19,570
+That would also be interesting.
+52
+
+52
+00:02:19,570 --> 00:02:22,363
+And here React Native got us covered.
+53
+
+53
+00:02:23,300 --> 00:02:27,403
+React Native exposes and alert API.
+54
+
+54
+00:02:28,450 --> 00:02:32,380
+Now, this is now not a component which we display,
+55
+
+55
+00:02:32,380 --> 00:02:35,130
+but instead alert is an object
+56
+
+56
+00:02:35,130 --> 00:02:39,760
+that holds a method that we can call to show an alert.
+57
+
+57
+00:02:39,760 --> 00:02:42,980
+To be precise, the alert method.
+58
+
+58
+00:02:42,980 --> 00:02:44,790
+It also has the prompt method,
+59
+
+59
+00:02:44,790 --> 00:02:47,300
+which would display a dialogue,
+60
+
+60
+00:02:47,300 --> 00:02:50,380
+where we can enter a value.
+61
+
+61
+00:02:50,380 --> 00:02:52,680
+But here I'm interested in the alert method,
+62
+
+62
+00:02:52,680 --> 00:02:55,250
+which shows a Dialog which we can only confirm
+63
+
+63
+00:02:55,250 --> 00:02:57,170
+by pressing a button.
+64
+
+64
+00:02:57,170 --> 00:02:59,070
+Now this alert method here,
+65
+
+65
+00:02:59,070 --> 00:03:00,980
+wants a couple of arguments.
+66
+
+66
+00:03:00,980 --> 00:03:04,000
+The first one is the title,
+67
+
+67
+00:03:04,000 --> 00:03:06,230
+the second one will be the message,
+68
+
+68
+00:03:06,230 --> 00:03:08,920
+and the third one allows us to configure the buttons
+69
+
+69
+00:03:08,920 --> 00:03:11,330
+that will be part of that alert.
+70
+
+70
+00:03:11,330 --> 00:03:13,600
+And this alert method by the way,
+71
+
+71
+00:03:13,600 --> 00:03:16,710
+will create a Native Alert Dialog,
+72
+
+72
+00:03:16,710 --> 00:03:18,480
+as you will see in a couple of minutes.
+73
+
+73
+00:03:18,480 --> 00:03:21,320
+So it will use the Native Alert API,
+74
+
+74
+00:03:21,320 --> 00:03:25,610
+built into the IOS and Android platforms.
+75
+
+75
+00:03:25,610 --> 00:03:28,590
+So here I'll say "Invalid Number" as a title,
+76
+
+76
+00:03:28,590 --> 00:03:30,240
+and then as a message I'll say,
+77
+
+77
+00:03:30,240 --> 00:03:35,153
+Number has to be a number, between one and 99.
+78
+
+78
+00:03:36,720 --> 00:03:37,960
+And then as a last step,
+79
+
+79
+00:03:37,960 --> 00:03:39,420
+we can pass an array,
+80
+
+80
+00:03:39,420 --> 00:03:42,810
+where we configure the buttons that should be shown.
+81
+
+81
+00:03:42,810 --> 00:03:46,120
+And you can actually add multiple buttons to the alert,
+82
+
+82
+00:03:46,120 --> 00:03:48,780
+but here I will only add one.
+83
+
+83
+00:03:48,780 --> 00:03:50,500
+And the button is defined,
+84
+
+84
+00:03:50,500 --> 00:03:52,840
+by adding an object to this array.
+85
+
+85
+00:03:52,840 --> 00:03:54,380
+And in this object,
+86
+
+86
+00:03:54,380 --> 00:03:56,400
+every button then has a text,
+87
+
+87
+00:03:56,400 --> 00:03:58,900
+which is the caption of this button.
+88
+
+88
+00:03:58,900 --> 00:04:01,020
+In this case 'Okay'
+89
+
+89
+00:04:01,020 --> 00:04:03,060
+And it has a style.
+90
+
+90
+00:04:03,060 --> 00:04:06,870
+And this style can be default, destructive, or cancel,
+91
+
+91
+00:04:06,870 --> 00:04:08,360
+and this will basically influence
+92
+
+92
+00:04:08,360 --> 00:04:10,000
+which text color is used,
+93
+
+93
+00:04:10,000 --> 00:04:12,950
+if the text is bold, things like this.
+94
+
+94
+00:04:12,950 --> 00:04:15,290
+And here I will use destructive,
+95
+
+95
+00:04:15,290 --> 00:04:18,480
+but feel free to play around with these different styles,
+96
+
+96
+00:04:18,480 --> 00:04:22,630
+to see how the look changes as you change the style.
+97
+
+97
+00:04:22,630 --> 00:04:23,900
+Last but not least,
+98
+
+98
+00:04:23,900 --> 00:04:27,210
+you also can add onPress property,
+99
+
+99
+00:04:27,210 --> 00:04:29,720
+which allows you to point at a function
+100
+
+100
+00:04:29,720 --> 00:04:31,140
+that should be executed,
+101
+
+101
+00:04:31,140 --> 00:04:32,840
+when that button is clicked.
+102
+
+102
+00:04:32,840 --> 00:04:35,600
+So when that button on this alert is clicked.
+103
+
+103
+00:04:35,600 --> 00:04:36,970
+And I do wanna do that,
+104
+
+104
+00:04:36,970 --> 00:04:39,240
+because I wanna reset the input
+105
+
+105
+00:04:39,240 --> 00:04:41,290
+once this button is clicked.
+106
+
+106
+00:04:41,290 --> 00:04:44,550
+So that if an invalid value was provided,
+107
+
+107
+00:04:44,550 --> 00:04:45,990
+we show the alert,
+108
+
+108
+00:04:45,990 --> 00:04:50,490
+and once the alert is confirmed and handled by the user,
+109
+
+109
+00:04:50,490 --> 00:04:52,370
+I wanna reset the input,
+110
+
+110
+00:04:52,370 --> 00:04:54,823
+to get rid of the invalid input value.
+111
+
+111
+00:04:55,940 --> 00:04:58,050
+For this we can add a new function,
+112
+
+112
+00:04:58,050 --> 00:05:01,340
+Maybe here, the exact position doesn't matter,
+113
+
+113
+00:05:01,340 --> 00:05:04,683
+which is the resetInputHandler.
+114
+
+114
+00:05:06,540 --> 00:05:10,710
+And here I will set my entered number to an empty string.
+115
+
+115
+00:05:10,710 --> 00:05:13,480
+To set this back to an empty string,
+116
+
+116
+00:05:13,480 --> 00:05:16,050
+which also was our initial state.
+117
+
+117
+00:05:16,050 --> 00:05:18,730
+And since we bind enteredNumber,
+118
+
+118
+00:05:18,730 --> 00:05:21,240
+to the value of text input,
+119
+
+119
+00:05:21,240 --> 00:05:23,170
+if we change enteredNumber,
+120
+
+120
+00:05:23,170 --> 00:05:26,070
+if we change this state as we do it here,
+121
+
+121
+00:05:26,070 --> 00:05:29,253
+the value in the input will be changed.
+122
+
+122
+00:05:30,140 --> 00:05:33,760
+So therefore, now we can point at resetInputHandler,
+123
+
+123
+00:05:33,760 --> 00:05:36,640
+like this, and now the input will be reset,
+124
+
+124
+00:05:36,640 --> 00:05:39,680
+whenever this Dialog is confirmed.
+125
+
+125
+00:05:39,680 --> 00:05:41,480
+Now last but not least,
+126
+
+126
+00:05:41,480 --> 00:05:44,900
+I will also connect this reset button,
+127
+
+127
+00:05:44,900 --> 00:05:48,990
+to this newly added resetInputHandler function,
+128
+
+128
+00:05:48,990 --> 00:05:50,800
+by adding the onPress prop,
+129
+
+129
+00:05:50,800 --> 00:05:55,350
+and pointing at resetInputHandler here as well.
+130
+
+130
+00:05:55,350 --> 00:05:57,400
+This is not related to the alert,
+131
+
+131
+00:05:57,400 --> 00:05:59,313
+but it's also something we need to do.
+132
+
+132
+00:06:00,430 --> 00:06:02,300
+So now we should show an alert,
+133
+
+133
+00:06:02,300 --> 00:06:04,373
+if the value is invalid,
+134
+
+134
+00:06:04,373 --> 00:06:08,530
+otherwise, I'll just log valid number for the moment.
+135
+
+135
+00:06:08,530 --> 00:06:09,500
+In the future,
+136
+
+136
+00:06:09,500 --> 00:06:11,910
+we will of course make sure that in this case,
+137
+
+137
+00:06:11,910 --> 00:06:14,283
+we move on to the next game screen.
+138
+
+138
+00:06:15,520 --> 00:06:17,610
+But now with all these changes applied,
+139
+
+139
+00:06:17,610 --> 00:06:18,967
+if we save this,
+140
+
+140
+00:06:18,967 --> 00:06:22,060
+and we maybe reload all our apps to make sure
+141
+
+141
+00:06:22,060 --> 00:06:25,970
+that all the changes are applied to these simulators.
+142
+
+142
+00:06:25,970 --> 00:06:28,860
+If I try to submit an empty input,
+143
+
+143
+00:06:28,860 --> 00:06:30,290
+I get this alert.
+144
+
+144
+00:06:30,290 --> 00:06:32,230
+And you see I have this red text here
+145
+
+145
+00:06:32,230 --> 00:06:34,610
+because I used a destructive style,
+146
+
+146
+00:06:34,610 --> 00:06:36,020
+and I get this alert
+147
+
+147
+00:06:36,020 --> 00:06:38,910
+which has to default iOS alert look and feel,
+148
+
+148
+00:06:38,910 --> 00:06:42,203
+because it is default iOS alert.
+149
+
+149
+00:06:43,080 --> 00:06:45,010
+On Android, I get an alert
+150
+
+150
+00:06:45,010 --> 00:06:47,913
+that has to default Android Dialog look.
+151
+
+151
+00:06:48,800 --> 00:06:50,850
+Now, if I enter minus one here,
+152
+
+152
+00:06:50,850 --> 00:06:52,430
+I also get such an alert.
+153
+
+153
+00:06:52,430 --> 00:06:54,570
+If I enter a valid number,
+154
+
+154
+00:06:54,570 --> 00:06:56,340
+nothing happens though.
+155
+
+155
+00:06:56,340 --> 00:07:00,993
+Instead then, we see valid number locked in the console.
+156
+
+156
+00:07:01,880 --> 00:07:04,130
+If I click reset, this is reset.
+157
+
+157
+00:07:04,130 --> 00:07:06,320
+And if I entered something invalid,
+158
+
+158
+00:07:06,320 --> 00:07:08,230
+and I click okay on this Dialog,
+159
+
+159
+00:07:08,230 --> 00:07:11,010
+it's also cleared as you can see.
+160
+
+160
+00:07:11,010 --> 00:07:13,210
+So this all works as expected,
+161
+
+161
+00:07:13,210 --> 00:07:15,810
+now we're fetching this user input.
+162
+
+162
+00:07:15,810 --> 00:07:17,590
+Now we can make sure,
+163
+
+163
+00:07:17,590 --> 00:07:20,640
+that we then move on to a new screen.
+164
+
+164
+00:07:20,640 --> 00:07:23,400
+Because at the moment we only have one screen,
+165
+
+165
+00:07:23,400 --> 00:07:25,270
+and that's this screen here.
+166
+
+166
+00:07:25,270 --> 00:07:27,430
+Which is also not entirely finished,
+167
+
+167
+00:07:27,430 --> 00:07:28,803
+but good enough for now.

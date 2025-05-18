@@ -1,0 +1,328 @@
+1
+00:00:02,040 --> 00:00:03,580
+So as a next step,
+2
+
+2
+00:00:03,580 --> 00:00:06,400
+I wanna make sure that we have a nice background
+3
+
+3
+00:00:06,400 --> 00:00:08,620
+behind this input element.
+4
+
+4
+00:00:08,620 --> 00:00:11,220
+And for a start, I wanna add a nice little color
+5
+
+5
+00:00:11,220 --> 00:00:14,590
+in the back, which we will then change to a gradient
+6
+
+6
+00:00:14,590 --> 00:00:17,480
+which we will then change to a background image
+7
+
+7
+00:00:17,480 --> 00:00:19,730
+plus a gradient.
+8
+
+8
+00:00:19,730 --> 00:00:23,350
+But let's start with a single background color.
+9
+
+9
+00:00:23,350 --> 00:00:25,530
+You learned before that there are different ways
+10
+
+10
+00:00:25,530 --> 00:00:26,390
+of setting that.
+11
+
+11
+00:00:26,390 --> 00:00:29,260
+You can, for example, go to App Json
+12
+
+12
+00:00:29,260 --> 00:00:31,060
+to this configuration file
+13
+
+13
+00:00:31,060 --> 00:00:34,900
+and add a backgroundColor property here
+14
+
+14
+00:00:34,900 --> 00:00:37,980
+and set this to a hex code that will then be applied
+15
+
+15
+00:00:37,980 --> 00:00:40,410
+as a background color to the screen.
+16
+
+16
+00:00:40,410 --> 00:00:42,683
+And this would be a fine way of doing that.
+17
+
+17
+00:00:43,730 --> 00:00:45,770
+What I will do instead though is,
+18
+
+18
+00:00:45,770 --> 00:00:49,160
+I will add a background color with help of a view.
+19
+
+19
+00:00:49,160 --> 00:00:51,130
+And for this I'll go to app.js
+20
+
+20
+00:00:51,130 --> 00:00:54,380
+because once I add more screens
+21
+
+21
+00:00:54,380 --> 00:00:58,930
+they will actually still end up in this root app component.
+22
+
+22
+00:00:58,930 --> 00:01:01,750
+So these different screens which I will add later
+23
+
+23
+00:01:01,750 --> 00:01:04,980
+will still share this app component as a root.
+24
+
+24
+00:01:04,980 --> 00:01:07,530
+So therefore any background color we set here
+25
+
+25
+00:01:07,530 --> 00:01:10,770
+around this View, around this screen, I mean,
+26
+
+26
+00:01:10,770 --> 00:01:13,120
+will be applied to all screens later,
+27
+
+27
+00:01:13,120 --> 00:01:15,163
+once we start adding them to app.
+28
+
+28
+00:01:16,020 --> 00:01:19,110
+Therefore here I will add a View
+29
+
+29
+00:01:19,110 --> 00:01:22,700
+around the StartGameScreen, like this,
+30
+
+30
+00:01:22,700 --> 00:01:24,650
+of course for a View to work,
+31
+
+31
+00:01:24,650 --> 00:01:27,370
+we need to import it from react-native though,
+32
+
+32
+00:01:27,370 --> 00:01:29,063
+otherwise it's not available.
+33
+
+33
+00:01:29,900 --> 00:01:33,710
+So now we got this View here around our StartGameScreen.
+34
+
+34
+00:01:33,710 --> 00:01:37,270
+Now we can add some styling to this View.
+35
+
+35
+00:01:37,270 --> 00:01:38,850
+And for a start,
+36
+
+36
+00:01:38,850 --> 00:01:42,710
+I will add my screen or my rootScreen
+37
+
+37
+00:01:42,710 --> 00:01:45,503
+whatever you wanna name it, style object here.
+38
+
+38
+00:01:46,650 --> 00:01:48,150
+And I'll set a backgroundColor
+39
+
+39
+00:01:49,350 --> 00:01:52,100
+which should be a nice yellow color.
+40
+
+40
+00:01:52,100 --> 00:01:55,310
+And I'll pick that yellow color, which I chose here
+41
+
+41
+00:01:55,310 --> 00:01:58,930
+for my input element in the StartGameScreen.
+42
+
+42
+00:01:58,930 --> 00:02:00,823
+I'll use that same color here.
+43
+
+43
+00:02:01,870 --> 00:02:06,870
+Now we can apply this root screen style to this View here
+44
+
+44
+00:02:06,910 --> 00:02:08,853
+by using styles.rootScreen.
+45
+
+45
+00:02:10,300 --> 00:02:14,860
+Now, if we save this, it only covers this part at the top.
+46
+
+46
+00:02:14,860 --> 00:02:16,053
+And do you know why?
+47
+
+47
+00:02:16,910 --> 00:02:19,220
+Because it only takes up the space
+48
+
+48
+00:02:19,220 --> 00:02:22,200
+it must take up by default
+49
+
+49
+00:02:22,200 --> 00:02:24,110
+and that's really important to memorize.
+50
+
+50
+00:02:24,110 --> 00:02:26,820
+Views only take as much space
+51
+
+51
+00:02:26,820 --> 00:02:31,660
+as they need to fit their content into themselves.
+52
+
+52
+00:02:31,660 --> 00:02:36,430
+And the content of this root View is this StartGameScreen
+53
+
+53
+00:02:36,430 --> 00:02:40,160
+which in turn is just this input area.
+54
+
+54
+00:02:40,160 --> 00:02:41,710
+So it's this input box
+55
+
+55
+00:02:41,710 --> 00:02:45,440
+plus the margin reserved by this input box.
+56
+
+56
+00:02:45,440 --> 00:02:48,680
+Now, if I wanna apply this color to the entire screen
+57
+
+57
+00:02:48,680 --> 00:02:50,640
+what can we do?
+58
+
+58
+00:02:50,640 --> 00:02:54,270
+Well, we can use flex: 1.
+59
+
+59
+00:02:54,270 --> 00:02:58,460
+If we add flex: 1 here, this container, this View,
+60
+
+60
+00:02:58,460 --> 00:03:00,150
+which receives this style
+61
+
+61
+00:03:00,150 --> 00:03:03,740
+will take up as much space as available.
+62
+
+62
+00:03:03,740 --> 00:03:07,930
+So by adding flex: 1 here, now everything is yellow.
+63
+
+63
+00:03:07,930 --> 00:03:11,200
+So that's how we can add such a background color
+64
+
+64
+00:03:11,200 --> 00:03:12,170
+with a View.
+65
+
+65
+00:03:12,170 --> 00:03:15,440
+It's a nice first step, but as a next step
+66
+
+66
+00:03:15,440 --> 00:03:17,713
+we will switch to a gradient instead.

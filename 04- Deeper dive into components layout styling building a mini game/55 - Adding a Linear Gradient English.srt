@@ -1,0 +1,388 @@
+1
+00:00:02,020 --> 00:00:06,120
+So how can we add a gradient in the background here?
+2
+
+2
+00:00:06,120 --> 00:00:09,450
+Well, for this we'll utilize expo.
+3
+
+3
+00:00:09,450 --> 00:00:12,900
+If you search for expo linear gradient,
+4
+
+4
+00:00:12,900 --> 00:00:14,770
+you will find that expo,
+5
+
+5
+00:00:14,770 --> 00:00:18,450
+this extra tool we're using to simplify the process
+6
+
+6
+00:00:18,450 --> 00:00:20,360
+of building React Native apps,
+7
+
+7
+00:00:20,360 --> 00:00:23,610
+this tool, and the team and company behind it
+8
+
+8
+00:00:23,610 --> 00:00:27,460
+provides an extra package called expo linear gradient
+9
+
+9
+00:00:27,460 --> 00:00:29,640
+that gives us a component, which we can use
+10
+
+10
+00:00:29,640 --> 00:00:33,333
+in our code to display a linear gradient.
+11
+
+11
+00:00:34,930 --> 00:00:38,080
+So, what we have to do here is open a new tab
+12
+
+12
+00:00:38,080 --> 00:00:39,650
+in our terminal here
+13
+
+13
+00:00:39,650 --> 00:00:42,730
+so that we can install this extra package,
+14
+
+14
+00:00:42,730 --> 00:00:45,610
+and we should install it with expo install
+15
+
+15
+00:00:45,610 --> 00:00:49,380
+not with npm install, you could do this as well
+16
+
+16
+00:00:49,380 --> 00:00:51,340
+but by using expo install,
+17
+
+17
+00:00:51,340 --> 00:00:53,620
+expo, this tool which we're using,
+18
+
+18
+00:00:53,620 --> 00:00:56,700
+will ensure that a fitting version
+19
+
+19
+00:00:56,700 --> 00:00:58,980
+is installed into this project.
+20
+
+20
+00:00:58,980 --> 00:01:00,030
+So it will take a look
+21
+
+21
+00:01:00,030 --> 00:01:03,210
+at the version of expo you are using in this project,
+22
+
+22
+00:01:03,210 --> 00:01:06,330
+and it will automatically install a dependency version
+23
+
+23
+00:01:06,330 --> 00:01:09,233
+that works well with that expo version.
+24
+
+24
+00:01:10,220 --> 00:01:12,500
+Therefore we'll use expo install here
+25
+
+25
+00:01:12,500 --> 00:01:17,053
+and install the expo-linear-gradient package like this.
+26
+
+26
+00:01:18,270 --> 00:01:19,320
+If you hit enter,
+27
+
+27
+00:01:19,320 --> 00:01:22,260
+this will execute npm install behind the scenes
+28
+
+28
+00:01:22,260 --> 00:01:25,420
+but as mentioned, it picks a fitting version.
+29
+
+29
+00:01:25,420 --> 00:01:28,890
+Now, once it's done, you can close this terminal window
+30
+
+30
+00:01:28,890 --> 00:01:31,520
+and keep the npm start process running.
+31
+
+31
+00:01:31,520 --> 00:01:35,400
+And now we can import LinearGradient
+32
+
+32
+00:01:37,800 --> 00:01:40,093
+from expo linear gradient.
+33
+
+33
+00:01:41,360 --> 00:01:44,340
+And as always, the official docs are a great place
+34
+
+34
+00:01:44,340 --> 00:01:46,980
+to understand how you can use this component
+35
+
+35
+00:01:46,980 --> 00:01:48,180
+in case you're not sure.
+36
+
+36
+00:01:49,760 --> 00:01:53,220
+So now we imported this LinearGradient component.
+37
+
+37
+00:01:53,220 --> 00:01:55,380
+And with that imported,
+38
+
+38
+00:01:55,380 --> 00:01:59,263
+we can replace this view with LinearGradient.
+39
+
+39
+00:02:00,930 --> 00:02:03,420
+And therefore, of course, we can get rid of that view import
+40
+
+40
+00:02:03,420 --> 00:02:05,510
+because we're not using the view component
+41
+
+41
+00:02:05,510 --> 00:02:07,263
+in this app component anymore.
+42
+
+42
+00:02:08,727 --> 00:02:11,440
+Now LinearGradient takes a style prop,
+43
+
+43
+00:02:11,440 --> 00:02:14,680
+and on that style, we still wanna set flex: 1 because
+44
+
+44
+00:02:14,680 --> 00:02:18,570
+the gradient also should take all the available space
+45
+
+45
+00:02:18,570 --> 00:02:21,470
+but we won't set a background color anymore
+46
+
+46
+00:02:21,470 --> 00:02:23,140
+because the idea behind that gradient
+47
+
+47
+00:02:23,140 --> 00:02:26,183
+is that we have a gradient between multiple colors.
+48
+
+48
+00:02:27,020 --> 00:02:29,760
+And we set those multiple colors
+49
+
+49
+00:02:29,760 --> 00:02:32,880
+with help of the colors prop that is supported
+50
+
+50
+00:02:32,880 --> 00:02:35,393
+by this LinearGradient component.
+51
+
+51
+00:02:36,270 --> 00:02:38,710
+This colors prop takes an array
+52
+
+52
+00:02:38,710 --> 00:02:42,610
+which takes all the colors you want to use in your gradient.
+53
+
+53
+00:02:42,610 --> 00:02:44,420
+That could be two colors.
+54
+
+54
+00:02:44,420 --> 00:02:46,500
+It could be five colors.
+55
+
+55
+00:02:46,500 --> 00:02:49,150
+Again, take a look at the official documentation
+56
+
+56
+00:02:49,150 --> 00:02:51,840
+to learn more about all these supported properties
+57
+
+57
+00:02:51,840 --> 00:02:53,973
+and how you can configure this gradient.
+58
+
+58
+00:02:55,040 --> 00:02:59,170
+Now, the two colors I want to use here are, in the end,
+59
+
+59
+00:02:59,170 --> 00:03:02,560
+the yellow, which we used for the input,
+60
+
+60
+00:03:02,560 --> 00:03:03,993
+so I will pick this.
+61
+
+61
+00:03:05,550 --> 00:03:08,690
+But as a first color, I want to use a different color.
+62
+
+62
+00:03:08,690 --> 00:03:11,500
+I want to use this plum color
+63
+
+63
+00:03:11,500 --> 00:03:15,610
+which I used for the background of my input container.
+64
+
+64
+00:03:15,610 --> 00:03:18,380
+So I will grab this as a first color here,
+65
+
+65
+00:03:18,380 --> 00:03:21,440
+separate these items with a comma,
+66
+
+66
+00:03:21,440 --> 00:03:24,200
+and with that, if you save this,
+67
+
+67
+00:03:24,200 --> 00:03:27,860
+you have this nice gradient here in the background.
+68
+
+68
+00:03:27,860 --> 00:03:29,580
+Of course, with that added,
+69
+
+69
+00:03:29,580 --> 00:03:33,060
+to make sure that there is a higher contrast
+70
+
+70
+00:03:33,060 --> 00:03:35,320
+between the background and this container,
+71
+
+71
+00:03:35,320 --> 00:03:37,170
+this input container,
+72
+
+72
+00:03:37,170 --> 00:03:39,270
+we could go back to this container
+73
+
+73
+00:03:39,270 --> 00:03:44,267
+and pick a even darker plum color here, like 3b021f.
+74
+
+74
+00:03:47,190 --> 00:03:49,560
+And with that now this is darker
+75
+
+75
+00:03:49,560 --> 00:03:52,690
+and stands out more from the background.
+76
+
+76
+00:03:52,690 --> 00:03:55,430
+But this is how we can add a gradient.
+77
+
+77
+00:03:55,430 --> 00:03:58,340
+And thanks to this extra expo package,
+78
+
+78
+00:03:58,340 --> 00:04:00,203
+it's really not difficult.

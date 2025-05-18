@@ -1,0 +1,813 @@
+1
+00:00:02,010 --> 00:00:03,720
+Now, speaking of those buttons,
+2
+
+2
+00:00:03,720 --> 00:00:06,360
+I think this is a great next step,
+3
+
+3
+00:00:06,360 --> 00:00:08,400
+building those custom buttons,
+4
+
+4
+00:00:08,400 --> 00:00:10,050
+because this is something
+5
+
+5
+00:00:10,050 --> 00:00:12,670
+we haven't really done up to this point,
+6
+
+6
+00:00:12,670 --> 00:00:14,990
+or at least not in great detail,
+7
+
+7
+00:00:14,990 --> 00:00:19,260
+and it is something that's definitely interesting to do.
+8
+
+8
+00:00:19,260 --> 00:00:21,750
+So let's add custom buttons.
+9
+
+9
+00:00:21,750 --> 00:00:24,870
+And for this, I will add a custom button component
+10
+
+10
+00:00:24,870 --> 00:00:26,310
+which I'll name PrimaryButton.
+11
+
+11
+00:00:26,310 --> 00:00:29,480
+The name of course is up to you though.
+12
+
+12
+00:00:29,480 --> 00:00:33,030
+It's just the main button I will use in this course section
+13
+
+13
+00:00:33,030 --> 00:00:35,810
+and therefore I name it PrimaryButton,
+14
+
+14
+00:00:35,810 --> 00:00:37,370
+like this.
+15
+
+15
+00:00:37,370 --> 00:00:38,203
+And of course,
+16
+
+16
+00:00:38,203 --> 00:00:40,930
+we also exported this PrimaryButton component
+17
+
+17
+00:00:40,930 --> 00:00:44,060
+so that it can be used in our files.
+18
+
+18
+00:00:44,060 --> 00:00:44,893
+And this, of course,
+19
+
+19
+00:00:44,893 --> 00:00:47,330
+is just standard React here.
+20
+
+20
+00:00:47,330 --> 00:00:48,670
+We build a component,
+21
+
+21
+00:00:48,670 --> 00:00:51,010
+we make it available outside of this file
+22
+
+22
+00:00:51,010 --> 00:00:53,573
+so that it can be used in our files.
+23
+
+23
+00:00:54,570 --> 00:00:57,060
+Now, when it comes to building this button here,
+24
+
+24
+00:00:57,060 --> 00:00:58,730
+it is important to understand,
+25
+
+25
+00:00:58,730 --> 00:00:59,563
+that again,
+26
+
+26
+00:00:59,563 --> 00:01:03,300
+we're just going to combine core components
+27
+
+27
+00:01:03,300 --> 00:01:05,490
+exposed by React Native.
+28
+
+28
+00:01:05,490 --> 00:01:10,100
+And I think what could be quite interesting related to that
+29
+
+29
+00:01:10,100 --> 00:01:12,890
+is if you search for GitHub React Native.
+30
+
+30
+00:01:12,890 --> 00:01:16,690
+Here, you will find the official React Native source code,
+31
+
+31
+00:01:16,690 --> 00:01:19,340
+which is free to access for everyone.
+32
+
+32
+00:01:19,340 --> 00:01:22,370
+You can dive into it and have a look at it.
+33
+
+33
+00:01:22,370 --> 00:01:24,750
+Now in this GitHub repository
+34
+
+34
+00:01:24,750 --> 00:01:27,260
+if you dive into Libraries
+35
+
+35
+00:01:27,260 --> 00:01:29,330
+and then into Components,
+36
+
+36
+00:01:29,330 --> 00:01:31,500
+you will find the Button.js file
+37
+
+37
+00:01:31,500 --> 00:01:33,950
+which holds the source code for this button
+38
+
+38
+00:01:33,950 --> 00:01:36,583
+which we can import from React Native.
+39
+
+39
+00:01:37,660 --> 00:01:40,480
+And it can be interesting to dive into code like this
+40
+
+40
+00:01:40,480 --> 00:01:44,550
+to see how that button was built by the React Native team.
+41
+
+41
+00:01:44,550 --> 00:01:46,220
+But what you will notice
+42
+
+42
+00:01:46,220 --> 00:01:48,130
+if you dive into the source code
+43
+
+43
+00:01:48,130 --> 00:01:50,770
+is that in the end it's also just a combination
+44
+
+44
+00:01:50,770 --> 00:01:52,600
+of other core components,
+45
+
+45
+00:01:52,600 --> 00:01:56,593
+to be precise of View and Text in its core.
+46
+
+46
+00:01:57,600 --> 00:01:58,930
+And then we got a style sheet
+47
+
+47
+00:01:58,930 --> 00:02:00,750
+and a bunch of logic.
+48
+
+48
+00:02:00,750 --> 00:02:01,720
+And therefore here,
+49
+
+49
+00:02:01,720 --> 00:02:03,470
+where I build my own button,
+50
+
+50
+00:02:03,470 --> 00:02:06,163
+I will also use these core components.
+51
+
+51
+00:02:07,040 --> 00:02:12,040
+For this, we simply import View and Text from react-native.
+52
+
+52
+00:02:13,570 --> 00:02:16,940
+and now we can build a button with those components.
+53
+
+53
+00:02:16,940 --> 00:02:19,710
+Of course, you don't need to use View and Text.
+54
+
+54
+00:02:19,710 --> 00:02:21,100
+Maybe you have a simple button
+55
+
+55
+00:02:21,100 --> 00:02:23,125
+that is just some clickable Text,
+56
+
+56
+00:02:23,125 --> 00:02:25,520
+but I also bring in the View
+57
+
+57
+00:02:25,520 --> 00:02:28,800
+so that I can build a nicely styled container
+58
+
+58
+00:02:28,800 --> 00:02:30,190
+around this button
+59
+
+59
+00:02:30,190 --> 00:02:33,300
+because not all style properties can be applied
+60
+
+60
+00:02:33,300 --> 00:02:36,490
+to Text and vice versa.
+61
+
+61
+00:02:36,490 --> 00:02:37,700
+Therefore, here for me,
+62
+
+62
+00:02:37,700 --> 00:02:41,310
+a button is in the end a View with a Text let's say
+63
+
+63
+00:02:42,320 --> 00:02:45,690
+and the Text should of course be provided from outside.
+64
+
+64
+00:02:45,690 --> 00:02:49,470
+So in the component where I use the PrimaryButton,
+65
+
+65
+00:02:49,470 --> 00:02:52,810
+I want to be able to provide the Text for the button
+66
+
+66
+00:02:52,810 --> 00:02:56,193
+between the PrimaryButton opening and closing tags.
+67
+
+67
+00:02:57,210 --> 00:02:59,380
+So we wanna accept props
+68
+
+68
+00:02:59,380 --> 00:03:02,570
+and then the content between the opening and closing tags
+69
+
+69
+00:03:02,570 --> 00:03:04,880
+in React is made available
+70
+
+70
+00:03:04,880 --> 00:03:07,720
+through the special children prop.
+71
+
+71
+00:03:07,720 --> 00:03:09,510
+And this is standard React,
+72
+
+72
+00:03:09,510 --> 00:03:12,293
+has nothing to do with React Native.
+73
+
+73
+00:03:12,293 --> 00:03:13,870
+Now what you can do,
+74
+
+74
+00:03:13,870 --> 00:03:15,010
+it's not mandatory,
+75
+
+75
+00:03:15,010 --> 00:03:16,410
+but what you can do
+76
+
+76
+00:03:16,410 --> 00:03:19,610
+is you can use object destructuring here
+77
+
+77
+00:03:19,610 --> 00:03:21,380
+in that parameter place,
+78
+
+78
+00:03:21,380 --> 00:03:23,040
+in that argument list.
+79
+
+79
+00:03:23,040 --> 00:03:26,560
+And simply destructure the children prop like this.
+80
+
+80
+00:03:26,560 --> 00:03:28,470
+This saves you the hassle
+81
+
+81
+00:03:28,470 --> 00:03:32,220
+of having to access props.children down here
+82
+
+82
+00:03:32,220 --> 00:03:35,120
+and you directly pull out that children property
+83
+
+83
+00:03:35,120 --> 00:03:37,430
+from that incoming props object
+84
+
+84
+00:03:37,430 --> 00:03:40,340
+with that object destructuring syntax.
+85
+
+85
+00:03:40,340 --> 00:03:41,180
+It's optional,
+86
+
+86
+00:03:41,180 --> 00:03:42,800
+but I will do it here.
+87
+
+87
+00:03:42,800 --> 00:03:43,720
+Now with this,
+88
+
+88
+00:03:43,720 --> 00:03:45,700
+we have a simple custom component
+89
+
+89
+00:03:45,700 --> 00:03:47,560
+that renders a View and a Text
+90
+
+90
+00:03:47,560 --> 00:03:52,040
+with some text between those Text tags.
+91
+
+91
+00:03:52,040 --> 00:03:54,070
+At the moment, this button has no styling
+92
+
+92
+00:03:54,070 --> 00:03:56,800
+but we can already use this component.
+93
+
+93
+00:03:56,800 --> 00:03:58,930
+So back in the StartGameScreen,
+94
+
+94
+00:03:58,930 --> 00:04:03,710
+we could now display two buttons below that TextInput.
+95
+
+95
+00:04:03,710 --> 00:04:06,730
+So therefore, here we can now access PrimaryButton
+96
+
+96
+00:04:07,890 --> 00:04:10,390
+and make sure to add this import
+97
+
+97
+00:04:10,390 --> 00:04:12,280
+that imports primary button
+98
+
+98
+00:04:12,280 --> 00:04:14,270
+from the components folder
+99
+
+99
+00:04:14,270 --> 00:04:17,360
+and that PrimaryButton.js file.
+100
+
+100
+00:04:17,360 --> 00:04:18,900
+And then on the first button,
+101
+
+101
+00:04:18,900 --> 00:04:20,310
+we could say Reset
+102
+
+102
+00:04:20,310 --> 00:04:24,760
+by passing the text Reset between opening and closing tags.
+103
+
+103
+00:04:24,760 --> 00:04:26,850
+And then we add another primary button
+104
+
+104
+00:04:26,850 --> 00:04:29,240
+where we maybe say Confirm,
+105
+
+105
+00:04:29,240 --> 00:04:30,680
+to confirm our choice
+106
+
+106
+00:04:30,680 --> 00:04:32,490
+which we will be able to make here
+107
+
+107
+00:04:32,490 --> 00:04:33,433
+in the future.
+108
+
+108
+00:04:34,640 --> 00:04:37,500
+And with this, we won't have any styling at all
+109
+
+109
+00:04:37,500 --> 00:04:40,840
+but we should have a functional first View here,
+110
+
+110
+00:04:40,840 --> 00:04:43,130
+a first component.
+111
+
+111
+00:04:43,130 --> 00:04:45,800
+Now I wanna use this Screen component
+112
+
+112
+00:04:45,800 --> 00:04:48,670
+and for this, we have to go to App.js
+113
+
+113
+00:04:48,670 --> 00:04:51,140
+because as explained earlier in the course,
+114
+
+114
+00:04:51,140 --> 00:04:53,900
+the App.js file is the first file
+115
+
+115
+00:04:53,900 --> 00:04:56,140
+that will be loaded by React Native,
+116
+
+116
+00:04:56,140 --> 00:04:59,260
+and the component exported in that file
+117
+
+117
+00:04:59,260 --> 00:05:02,030
+is the main component that will be rendered
+118
+
+118
+00:05:02,030 --> 00:05:03,213
+by React Native.
+119
+
+119
+00:05:04,060 --> 00:05:06,940
+So if I wanna display the StartGameScreen,
+120
+
+120
+00:05:06,940 --> 00:05:10,050
+I have to use this StartGameScreen component
+121
+
+121
+00:05:10,050 --> 00:05:11,260
+in my App component,
+122
+
+122
+00:05:11,260 --> 00:05:12,663
+I have to use it there.
+123
+
+123
+00:05:13,670 --> 00:05:15,040
+So therefore, what I'll do
+124
+
+124
+00:05:15,040 --> 00:05:18,130
+is I'll import StartGameScreen,
+125
+
+125
+00:05:18,130 --> 00:05:21,330
+from ./screens/StartGameScreen.
+126
+
+126
+00:05:21,330 --> 00:05:23,230
+So from that file,
+127
+
+127
+00:05:23,230 --> 00:05:24,860
+and with that imported
+128
+
+128
+00:05:24,860 --> 00:05:28,940
+we can simply render this as a standard component.
+129
+
+129
+00:05:28,940 --> 00:05:32,130
+And I will get rid of the styles down there.
+130
+
+130
+00:05:32,130 --> 00:05:33,500
+I'll keep the style sheet
+131
+
+131
+00:05:33,500 --> 00:05:36,020
+because we might need it eventually,
+132
+
+132
+00:05:36,020 --> 00:05:38,050
+but I will get rid of all the styles
+133
+
+133
+00:05:38,050 --> 00:05:41,610
+and we can get rid of that extra import here
+134
+
+134
+00:05:41,610 --> 00:05:45,070
+and get rid of the StatusBar import.
+135
+
+135
+00:05:45,070 --> 00:05:46,630
+Now with all of of that,
+136
+
+136
+00:05:46,630 --> 00:05:49,350
+this should be an app that works.
+137
+
+137
+00:05:49,350 --> 00:05:50,940
+So what we could do now,
+138
+
+138
+00:05:50,940 --> 00:05:52,950
+is run npm start
+139
+
+139
+00:05:52,950 --> 00:05:55,570
+to start this expo build process
+140
+
+140
+00:05:55,570 --> 00:05:57,040
+that watches our code
+141
+
+141
+00:05:57,040 --> 00:05:58,870
+and then previews the app
+142
+
+142
+00:05:58,870 --> 00:06:00,540
+on our emulators
+143
+
+143
+00:06:01,570 --> 00:06:04,230
+and start our emulators.
+144
+
+144
+00:06:04,230 --> 00:06:07,250
+And as soon as you started your emulators,
+145
+
+145
+00:06:07,250 --> 00:06:12,250
+you can press A in this terminal to start the app on Android
+146
+
+146
+00:06:12,690 --> 00:06:14,770
+and I to start it on iOS,
+147
+
+147
+00:06:14,770 --> 00:06:17,343
+if you also have an iOS simulator.
+148
+
+148
+00:06:18,370 --> 00:06:20,060
+So this will now ensure that
+149
+
+149
+00:06:20,060 --> 00:06:24,360
+the expo app starts on those simulators and emulators
+150
+
+150
+00:06:24,360 --> 00:06:27,330
+and that our application will then be started
+151
+
+151
+00:06:27,330 --> 00:06:28,723
+on those devices.
+152
+
+152
+00:06:30,750 --> 00:06:31,583
+So here we go.
+153
+
+153
+00:06:31,583 --> 00:06:35,810
+Now the app is up and running on both virtual devices.
+154
+
+154
+00:06:35,810 --> 00:06:36,760
+Of course, at the moment,
+155
+
+155
+00:06:36,760 --> 00:06:38,020
+it's not pretty,
+156
+
+156
+00:06:38,020 --> 00:06:39,880
+it's pretty ugly, indeed.
+157
+
+157
+00:06:39,880 --> 00:06:43,070
+But we have something up and running.
+158
+
+158
+00:06:43,070 --> 00:06:44,170
+As a next step,
+159
+
+159
+00:06:44,170 --> 00:06:46,320
+we can start styling these buttons
+160
+
+160
+00:06:46,320 --> 00:06:49,630
+and styling the overall app creating a layout.
+161
+
+161
+00:06:49,630 --> 00:06:51,460
+We can work on these things
+162
+
+162
+00:06:51,460 --> 00:06:54,060
+to make sure that we slowly get closer
+163
+
+163
+00:06:54,060 --> 00:06:56,493
+to the final state that we wanna achieve.

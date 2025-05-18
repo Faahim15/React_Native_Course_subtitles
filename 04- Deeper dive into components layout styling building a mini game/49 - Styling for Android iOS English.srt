@@ -1,0 +1,1168 @@
+1
+00:00:02,040 --> 00:00:05,590
+So what would be a good next step?
+2
+
+2
+00:00:05,590 --> 00:00:08,170
+Well, I would say a good next step
+3
+
+3
+00:00:08,170 --> 00:00:11,390
+would be to ensure that the buttons here
+4
+
+4
+00:00:11,390 --> 00:00:14,480
+and the text input, which we can't really see,
+5
+
+5
+00:00:14,480 --> 00:00:15,505
+but which is there,
+6
+
+6
+00:00:15,505 --> 00:00:19,240
+that these elements are a bit more centered
+7
+
+7
+00:00:19,240 --> 00:00:21,692
+and not sitting directly on those edges
+8
+
+8
+00:00:21,692 --> 00:00:23,970
+where we can't really use them.
+9
+
+9
+00:00:23,970 --> 00:00:25,910
+That would be very useful.
+10
+
+10
+00:00:25,910 --> 00:00:26,810
+And to achieve this,
+11
+
+11
+00:00:26,810 --> 00:00:29,300
+we can go back to the StartGameScreen
+12
+
+12
+00:00:29,300 --> 00:00:32,960
+because that is where we have this View
+13
+
+13
+00:00:32,960 --> 00:00:36,070
+with the input element and the buttons.
+14
+
+14
+00:00:36,070 --> 00:00:38,700
+And of course, we can now position this View
+15
+
+15
+00:00:38,700 --> 00:00:42,270
+and we can change how it's positioned and laid out.
+16
+
+16
+00:00:42,270 --> 00:00:44,360
+And for this, you learnt that we do that
+17
+
+17
+00:00:44,360 --> 00:00:47,470
+with help of the StyleSheet object
+18
+
+18
+00:00:47,470 --> 00:00:49,690
+that is exposed by React Native
+19
+
+19
+00:00:49,690 --> 00:00:53,470
+because this allows us to create a style sheet object,
+20
+
+20
+00:00:53,470 --> 00:00:55,620
+which allows us to set up styles
+21
+
+21
+00:00:55,620 --> 00:00:57,150
+that can then be attached
+22
+
+22
+00:00:57,150 --> 00:00:59,603
+to our different Components and elements.
+23
+
+23
+00:01:00,460 --> 00:01:05,400
+So here, I'll add a styles constant with StyleSheet.create,
+24
+
+24
+00:01:05,400 --> 00:01:07,060
+like this.
+25
+
+25
+00:01:07,060 --> 00:01:08,770
+Now, in here, the question is,
+26
+
+26
+00:01:08,770 --> 00:01:11,050
+which kind of styles do we want?
+27
+
+27
+00:01:11,050 --> 00:01:13,990
+And I wanna start with a basic style for the main View
+28
+
+28
+00:01:13,990 --> 00:01:15,274
+that wraps these elements,
+29
+
+29
+00:01:15,274 --> 00:01:18,680
+which ensures that this View is a bit more away
+30
+
+30
+00:01:18,680 --> 00:01:21,260
+from the edges of the device.
+31
+
+31
+00:01:21,260 --> 00:01:25,160
+So we'll name this style object inputContainer.
+32
+
+32
+00:01:25,160 --> 00:01:27,430
+The name is up to you though,
+33
+
+33
+00:01:27,430 --> 00:01:29,640
+and it will add flex one.
+34
+
+34
+00:01:29,640 --> 00:01:31,270
+Flex one, as you learnt before,
+35
+
+35
+00:01:31,270 --> 00:01:35,738
+ensures that the element on which we add this styling object
+36
+
+36
+00:01:35,738 --> 00:01:39,120
+takes up as much space as it can.
+37
+
+37
+00:01:39,120 --> 00:01:41,990
+So that could be the entire space on the screen
+38
+
+38
+00:01:41,990 --> 00:01:45,630
+or if there is another sibling element somewhere,
+39
+
+39
+00:01:45,630 --> 00:01:48,220
+they would split the available space
+40
+
+40
+00:01:48,220 --> 00:01:52,840
+depending on the flex options set on that sibling container.
+41
+
+41
+00:01:52,840 --> 00:01:54,390
+Here, it will be the only container
+42
+
+42
+00:01:54,390 --> 00:01:58,380
+and therefore it should take up the entire available space.
+43
+
+43
+00:01:58,380 --> 00:02:01,700
+Now, in addition, I will also add some padding here
+44
+
+44
+00:02:01,700 --> 00:02:05,110
+so that we have some distance to the edges.
+45
+
+45
+00:02:05,110 --> 00:02:08,520
+And I will add 16 pixels of padding,
+46
+
+46
+00:02:08,520 --> 00:02:10,520
+though you can, of course, play around with that
+47
+
+47
+00:02:10,520 --> 00:02:13,303
+to find the right amount for your requirements.
+48
+
+48
+00:02:14,160 --> 00:02:17,070
+I will also add some extra margin to the top,
+49
+
+49
+00:02:17,070 --> 00:02:21,320
+so some extra distance to the top, outside of the box.
+50
+
+50
+00:02:21,320 --> 00:02:23,050
+Though it won't matter too much right now
+51
+
+51
+00:02:23,050 --> 00:02:26,100
+because we have no background or border anyways.
+52
+
+52
+00:02:26,100 --> 00:02:30,020
+So we don't really see where the View box ends and starts.
+53
+
+53
+00:02:30,020 --> 00:02:32,680
+But still, I'll use marginTop here.
+54
+
+54
+00:02:32,680 --> 00:02:35,110
+Instead of marginTop of 100 pixels,
+55
+
+55
+00:02:35,110 --> 00:02:38,720
+to push this View to which I'll add my styling,
+56
+
+56
+00:02:38,720 --> 00:02:41,583
+away from the top edge of the device.
+57
+
+57
+00:02:42,760 --> 00:02:43,960
+And speaking of that,
+58
+
+58
+00:02:43,960 --> 00:02:46,082
+we can now add the style prop to this View
+59
+
+59
+00:02:46,082 --> 00:02:47,820
+that holds the text input
+60
+
+60
+00:02:47,820 --> 00:02:50,930
+and add styles.inputContainer to it
+61
+
+61
+00:02:50,930 --> 00:02:54,823
+so that these styles are applied to this View.
+62
+
+62
+00:02:55,670 --> 00:02:57,610
+And if you do that and save everything,
+63
+
+63
+00:02:57,610 --> 00:03:01,430
+it should automatically refresh your applications here
+64
+
+64
+00:03:01,430 --> 00:03:02,910
+on your devices.
+65
+
+65
+00:03:02,910 --> 00:03:04,771
+And now the content is a bit further away
+66
+
+66
+00:03:04,771 --> 00:03:06,690
+from the device edges,
+67
+
+67
+00:03:06,690 --> 00:03:08,490
+which is nice.
+68
+
+68
+00:03:08,490 --> 00:03:10,550
+Of course, that's not all we wanna do
+69
+
+69
+00:03:10,550 --> 00:03:12,030
+when it comes to layouting.
+70
+
+70
+00:03:12,030 --> 00:03:14,090
+It's just a first step.
+71
+
+71
+00:03:14,090 --> 00:03:17,373
+As a next step, it would be nice to have some background
+72
+
+72
+00:03:17,373 --> 00:03:20,190
+behind this entire input area.
+73
+
+73
+00:03:20,190 --> 00:03:22,686
+So behind the input element and the buttons,
+74
+
+74
+00:03:22,686 --> 00:03:27,060
+which separates the input area from the rest of the screen.
+75
+
+75
+00:03:27,060 --> 00:03:29,210
+At the moment, everything is white here.
+76
+
+76
+00:03:29,210 --> 00:03:31,560
+Later, we will add a background image.
+77
+
+77
+00:03:31,560 --> 00:03:35,510
+But either way, I wanna visually separate the input area
+78
+
+78
+00:03:35,510 --> 00:03:38,770
+from the background of this screen.
+79
+
+79
+00:03:38,770 --> 00:03:40,822
+And therefore, what I'll do as a next step,
+80
+
+80
+00:03:40,822 --> 00:03:43,693
+is I'll add a backgroundColor
+81
+
+81
+00:03:45,220 --> 00:03:47,530
+to this inputContainer,
+82
+
+82
+00:03:47,530 --> 00:03:51,240
+which is the element that holds my input element
+83
+
+83
+00:03:51,240 --> 00:03:52,653
+and the primary button.
+84
+
+84
+00:03:54,400 --> 00:03:57,010
+And I'll add a background color,
+85
+
+85
+00:03:57,010 --> 00:03:59,290
+which I prepared in advance,
+86
+
+86
+00:03:59,290 --> 00:04:02,013
+which has a hex code of 27063c,
+87
+
+87
+00:04:05,580 --> 00:04:08,103
+which is this plum color here.
+88
+
+88
+00:04:09,070 --> 00:04:12,080
+If I save this, we got this background color here.
+89
+
+89
+00:04:12,080 --> 00:04:13,940
+And because of flex one,
+90
+
+90
+00:04:13,940 --> 00:04:16,760
+it's basically taking up the entire screen.
+91
+
+91
+00:04:16,760 --> 00:04:19,340
+We just have some white space up here
+92
+
+92
+00:04:19,340 --> 00:04:21,710
+because we have marginTop 100.
+93
+
+93
+00:04:21,710 --> 00:04:25,697
+So the entire container does take up all the space it can
+94
+
+94
+00:04:25,697 --> 00:04:29,500
+but it is pushed away from the top by 100 pixels.
+95
+
+95
+00:04:29,500 --> 00:04:31,610
+And that's this white area.
+96
+
+96
+00:04:31,610 --> 00:04:33,920
+But the rest now has this color.
+97
+
+97
+00:04:33,920 --> 00:04:37,000
+Now, this is actually not the look I want though.
+98
+
+98
+00:04:37,000 --> 00:04:38,996
+Instead I just want to have a tiny box
+99
+
+99
+00:04:38,996 --> 00:04:41,000
+around the input and the buttons.
+100
+
+100
+00:04:41,000 --> 00:04:43,953
+I don't wanna add a background to the entire screen.
+101
+
+101
+00:04:44,860 --> 00:04:48,504
+Now this could be achieved by actually removing flex one.
+102
+
+102
+00:04:48,504 --> 00:04:52,240
+If we do that, it only takes up the space it needs
+103
+
+103
+00:04:52,240 --> 00:04:54,430
+to squeeze the elements,
+104
+
+104
+00:04:54,430 --> 00:04:57,820
+the content off this box into itself.
+105
+
+105
+00:04:57,820 --> 00:05:00,229
+So now it only takes up as much space as needed
+106
+
+106
+00:05:00,229 --> 00:05:02,387
+by the text input and the buttons
+107
+
+107
+00:05:02,387 --> 00:05:05,000
+and the padding added here.
+108
+
+108
+00:05:05,000 --> 00:05:07,209
+And for the moment, that's closer to what I want,
+109
+
+109
+00:05:07,209 --> 00:05:10,280
+even though we will fine tune this again later.
+110
+
+110
+00:05:10,280 --> 00:05:12,863
+But for the moment, we have this input area here.
+111
+
+111
+00:05:13,720 --> 00:05:16,993
+As a second step, I will now also add a marginHorizontal,
+112
+
+112
+00:05:18,470 --> 00:05:23,000
+so left and right of 24 pixels,
+113
+
+113
+00:05:23,000 --> 00:05:26,170
+so that we also have some space into the left and right.
+114
+
+114
+00:05:26,170 --> 00:05:29,800
+And I wanna add rounded corners to this input area.
+115
+
+115
+00:05:29,800 --> 00:05:32,397
+So therefore, I'll also add borderRadius
+116
+
+116
+00:05:32,397 --> 00:05:37,397
+and give this a border radius of let's say, eight pixels.
+117
+
+117
+00:05:39,310 --> 00:05:42,973
+So if we save this, we now have these nice rounded corners.
+118
+
+118
+00:05:43,990 --> 00:05:45,880
+In addition, I think it would be nice
+119
+
+119
+00:05:45,880 --> 00:05:48,980
+to have a little bit of a shadow behind this box.
+120
+
+120
+00:05:48,980 --> 00:05:52,090
+And that's also something we haven't done before.
+121
+
+121
+00:05:52,090 --> 00:05:54,380
+And adding shadows is different
+122
+
+122
+00:05:54,380 --> 00:05:57,600
+from what you know from web development.
+123
+
+123
+00:05:57,600 --> 00:06:00,470
+Because in web development, if you would add a shadow,
+124
+
+124
+00:06:00,470 --> 00:06:04,530
+you could do this by adding the boxShadow CSS property.
+125
+
+125
+00:06:04,530 --> 00:06:07,750
+But this does not exist in React Native.
+126
+
+126
+00:06:07,750 --> 00:06:09,750
+Instead, if you wanna add a shadow,
+127
+
+127
+00:06:09,750 --> 00:06:11,140
+there are two main ways
+128
+
+128
+00:06:11,140 --> 00:06:13,283
+which differ between Android and iOS.
+129
+
+129
+00:06:14,390 --> 00:06:17,870
+On Android, you can add a elevation property
+130
+
+130
+00:06:17,870 --> 00:06:21,327
+here to your styling, which does not exist in CSS,
+131
+
+131
+00:06:21,327 --> 00:06:24,490
+but which instead is React Native specific.
+132
+
+132
+00:06:24,490 --> 00:06:28,460
+And elevation takes a value like zero, one, two, three
+133
+
+133
+00:06:28,460 --> 00:06:29,420
+and so on.
+134
+
+134
+00:06:29,420 --> 00:06:32,450
+So we have different levels of elevation.
+135
+
+135
+00:06:32,450 --> 00:06:36,280
+And the higher the level, the more shadow will be added.
+136
+
+136
+00:06:36,280 --> 00:06:39,340
+If I add four, for example, what you will see
+137
+
+137
+00:06:40,200 --> 00:06:42,210
+is that on the Android device,
+138
+
+138
+00:06:42,210 --> 00:06:46,330
+we now have a tiny shadow behind this box.
+139
+
+139
+00:06:46,330 --> 00:06:50,500
+It might be clearer if you pick a higher number like eight.
+140
+
+140
+00:06:50,500 --> 00:06:53,450
+If you set eight, now we can see it a bit more clearly
+141
+
+141
+00:06:53,450 --> 00:06:54,613
+that there is a shadow.
+142
+
+142
+00:06:56,180 --> 00:06:58,860
+Now I will go back to four, though.
+143
+
+143
+00:06:58,860 --> 00:07:01,270
+So we have a little bit of a background shadow
+144
+
+144
+00:07:01,270 --> 00:07:02,630
+on Android now,
+145
+
+145
+00:07:02,630 --> 00:07:06,300
+but we have absolutely no shadow on iOS.
+146
+
+146
+00:07:06,300 --> 00:07:07,250
+And the reason for that,
+147
+
+147
+00:07:07,250 --> 00:07:11,560
+is that elevation indeed is a Android-only property.
+148
+
+148
+00:07:11,560 --> 00:07:13,300
+It has no effect on iOS
+149
+
+149
+00:07:13,300 --> 00:07:16,000
+because you can't add shadows with elevation.
+150
+
+150
+00:07:16,000 --> 00:07:18,400
+It's a Android-specific concept.
+151
+
+151
+00:07:18,400 --> 00:07:19,880
+And here, it's really important
+152
+
+152
+00:07:19,880 --> 00:07:22,930
+to keep in mind that all these Views,
+153
+
+153
+00:07:22,930 --> 00:07:25,143
+all these core Components which we're using,
+154
+
+154
+00:07:25,143 --> 00:07:28,020
+are compiled to native Components
+155
+
+155
+00:07:28,020 --> 00:07:29,830
+for the different platforms.
+156
+
+156
+00:07:29,830 --> 00:07:34,280
+And we have different native Components for Android and iOS.
+157
+
+157
+00:07:34,280 --> 00:07:35,940
+And these native Components
+158
+
+158
+00:07:35,940 --> 00:07:38,520
+support different style properties
+159
+
+159
+00:07:38,520 --> 00:07:40,850
+in their native languages.
+160
+
+160
+00:07:40,850 --> 00:07:43,340
+And the style properties we said here,
+161
+
+161
+00:07:43,340 --> 00:07:45,240
+are in the end also translated
+162
+
+162
+00:07:45,240 --> 00:07:49,030
+to native style instructions by a React Native
+163
+
+163
+00:07:49,030 --> 00:07:52,290
+and many style properties can be translated
+164
+
+164
+00:07:52,290 --> 00:07:55,820
+into fitting instructions for both operating systems,
+165
+
+165
+00:07:55,820 --> 00:07:57,374
+iOS and Android.
+166
+
+166
+00:07:57,374 --> 00:08:01,310
+But the elevation property is an exception.
+167
+
+167
+00:08:01,310 --> 00:08:04,580
+It can be translated into an appropriate instruction
+168
+
+168
+00:08:04,580 --> 00:08:07,370
+on Android, but there is no equivalent
+169
+
+169
+00:08:07,370 --> 00:08:10,460
+to this elevation concept in iOS.
+170
+
+170
+00:08:10,460 --> 00:08:13,330
+And that's why we have no shadow there.
+171
+
+171
+00:08:13,330 --> 00:08:16,307
+If we wanna add a shadow for iOS, we can do that.
+172
+
+172
+00:08:16,307 --> 00:08:19,650
+But we do it with a different set of properties
+173
+
+173
+00:08:19,650 --> 00:08:23,675
+with the shadow properties, shadowColour, shadowOffset,
+174
+
+174
+00:08:23,675 --> 00:08:27,130
+shadowOpacity and shadowRadius.
+175
+
+175
+00:08:27,130 --> 00:08:29,100
+These four properties together
+176
+
+176
+00:08:29,100 --> 00:08:31,400
+allow us to add a shadow on iOS
+177
+
+177
+00:08:31,400 --> 00:08:34,853
+in addition to adding a shadow on Android with elevation.
+178
+
+178
+00:08:35,830 --> 00:08:39,530
+Now, shadowColor allows you to pick the color of the shadow.
+179
+
+179
+00:08:39,530 --> 00:08:42,000
+You could create a reddish shadow,
+180
+
+180
+00:08:42,000 --> 00:08:44,698
+but here I'll use black as a shadowColor.
+181
+
+181
+00:08:44,698 --> 00:08:47,048
+But of course, you can pick any color you want.
+182
+
+182
+00:08:48,130 --> 00:08:51,530
+ShadowOffset then wants an object
+183
+
+183
+00:08:51,530 --> 00:08:55,510
+where you control how much the shadow should be offset
+184
+
+184
+00:08:55,510 --> 00:08:58,155
+from the original object to which it belongs
+185
+
+185
+00:08:58,155 --> 00:09:00,351
+to the left and to the right.
+186
+
+186
+00:09:00,351 --> 00:09:04,680
+Therefore, you have a width and a height property here
+187
+
+187
+00:09:04,680 --> 00:09:07,850
+which you can set and you set a number here,
+188
+
+188
+00:09:07,850 --> 00:09:10,130
+which will be treated as pixels
+189
+
+189
+00:09:10,130 --> 00:09:13,420
+by which the shadow will be offset.
+190
+
+190
+00:09:13,420 --> 00:09:16,005
+For example, if I choose zero for the width
+191
+
+191
+00:09:16,005 --> 00:09:17,967
+and two for the height,
+192
+
+192
+00:09:17,967 --> 00:09:22,120
+the shadow will not be offset to the left or right
+193
+
+193
+00:09:22,120 --> 00:09:26,010
+but it will be pushed down a little bit by two pixels.
+194
+
+194
+00:09:26,010 --> 00:09:28,002
+And you can play around with these values
+195
+
+195
+00:09:28,002 --> 00:09:31,520
+to find the shadow positioning you want.
+196
+
+196
+00:09:31,520 --> 00:09:34,780
+Now, what you also need to set is the shadowRadius.
+197
+
+197
+00:09:34,780 --> 00:09:39,050
+This basically controls how much the shadow expands,
+198
+
+198
+00:09:39,050 --> 00:09:40,490
+so to say.
+199
+
+199
+00:09:40,490 --> 00:09:43,280
+And here I'll choose six because again here,
+200
+
+200
+00:09:43,280 --> 00:09:46,110
+you provide a value which is a number
+201
+
+201
+00:09:46,110 --> 00:09:48,090
+and you can play around with that value
+202
+
+202
+00:09:48,090 --> 00:09:51,410
+to see the impact of different numbers on the shadow
+203
+
+203
+00:09:51,410 --> 00:09:52,593
+that is created.
+204
+
+204
+00:09:53,900 --> 00:09:56,540
+Last but not least, you can add a shadowOpacity
+205
+
+205
+00:09:56,540 --> 00:10:00,200
+to control how transparent a shadow is.
+206
+
+206
+00:10:00,200 --> 00:10:04,320
+For example, here, I'll set this to 0.25.
+207
+
+207
+00:10:04,320 --> 00:10:06,700
+But you can play around with this value as well
+208
+
+208
+00:10:06,700 --> 00:10:10,460
+to see how that influences the effect of a shadow
+209
+
+209
+00:10:10,460 --> 00:10:12,213
+and how strong a shadow is.
+210
+
+210
+00:10:13,610 --> 00:10:16,520
+Now, with those settings here, if we save everything,
+211
+
+211
+00:10:16,520 --> 00:10:18,410
+we now have a nice little shadow
+212
+
+212
+00:10:18,410 --> 00:10:21,320
+behind the box on iOS as well.
+213
+
+213
+00:10:21,320 --> 00:10:25,480
+And we have the elevation-related shadow on Android.
+214
+
+214
+00:10:25,480 --> 00:10:26,710
+Now, if I would, for example,
+215
+
+215
+00:10:26,710 --> 00:10:28,952
+crank up the shadowOpacity to one,
+216
+
+216
+00:10:28,952 --> 00:10:33,150
+you would see that the shadow is much stronger on iOS now.
+217
+
+217
+00:10:33,150 --> 00:10:33,983
+So that's what I meant.
+218
+
+218
+00:10:33,983 --> 00:10:35,181
+You can play around with that
+219
+
+219
+00:10:35,181 --> 00:10:38,550
+to get a feeling for how this shadow works.
+220
+
+220
+00:10:38,550 --> 00:10:40,890
+Here, I just wanna have a little bit of a shadow
+221
+
+221
+00:10:40,890 --> 00:10:43,850
+and therefore, I'll set it up like this.
+222
+
+222
+00:10:43,850 --> 00:10:46,310
+And that's another major step.
+223
+
+223
+00:10:46,310 --> 00:10:48,130
+The app still doesn't work.
+224
+
+224
+00:10:48,130 --> 00:10:49,420
+The buttons don't work,
+225
+
+225
+00:10:49,420 --> 00:10:51,250
+the text input does nothing.
+226
+
+226
+00:10:51,250 --> 00:10:54,030
+But we learnt something new about styling.
+227
+
+227
+00:10:54,030 --> 00:10:55,631
+We learnt how to add shadows
+228
+
+228
+00:10:55,631 --> 00:10:59,380
+and we gained more practice on how to set up styling
+229
+
+229
+00:10:59,380 --> 00:11:01,010
+on our own Components
+230
+
+230
+00:11:01,010 --> 00:11:03,986
+combined with those core React Native Components.
+231
+
+231
+00:11:03,986 --> 00:11:07,830
+And since this is something you will do all the time
+232
+
+232
+00:11:07,830 --> 00:11:09,360
+when building React Native apps,
+233
+
+233
+00:11:09,360 --> 00:11:12,230
+this is, of course, crucial to understand.
+234
+
+234
+00:11:12,230 --> 00:11:15,043
+And now you also know how you can add shadows.

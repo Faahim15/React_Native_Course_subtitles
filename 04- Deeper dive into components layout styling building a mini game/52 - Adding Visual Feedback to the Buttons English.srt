@@ -1,0 +1,1618 @@
+1
+00:00:02,080 --> 00:00:04,200
+So let's get back to this button.
+2
+
+2
+00:00:04,200 --> 00:00:06,100
+At the moment, it isn't really a button.
+3
+
+3
+00:00:06,100 --> 00:00:08,990
+It's just a View with Text inside of it.
+4
+
+4
+00:00:08,990 --> 00:00:10,330
+Now, to make it a button,
+5
+
+5
+00:00:10,330 --> 00:00:12,560
+we need to add a component that allows us
+6
+
+6
+00:00:12,560 --> 00:00:15,630
+to react to presses, to taps.
+7
+
+7
+00:00:15,630 --> 00:00:18,750
+And react-native has a couple of components that do that.
+8
+
+8
+00:00:18,750 --> 00:00:21,470
+For example, the touchable components.
+9
+
+9
+00:00:21,470 --> 00:00:23,500
+I briefly mentioned them before,
+10
+
+10
+00:00:23,500 --> 00:00:26,920
+in the past, these were the main components you would use
+11
+
+11
+00:00:26,920 --> 00:00:30,210
+for adding touch support to elements.
+12
+
+12
+00:00:30,210 --> 00:00:34,490
+But nowadays, the Pressable component is recommended.
+13
+
+13
+00:00:34,490 --> 00:00:36,710
+Therefore, I will use Pressable here.
+14
+
+14
+00:00:36,710 --> 00:00:41,710
+And we can wrap Pressable around our View and Text here.
+15
+
+15
+00:00:42,050 --> 00:00:45,290
+So, we can create a Pressable component here.
+16
+
+16
+00:00:45,290 --> 00:00:46,870
+Use it in JSX like this,
+17
+
+17
+00:00:46,870 --> 00:00:49,710
+and wrap it around the View and Text.
+18
+
+18
+00:00:49,710 --> 00:00:52,890
+And Pressable has a onPress prop,
+19
+
+19
+00:00:52,890 --> 00:00:55,270
+which takes a function as a value,
+20
+
+20
+00:00:55,270 --> 00:00:58,890
+which ensures that this function that we pass to onPress
+21
+
+21
+00:00:58,890 --> 00:01:02,770
+will be executed whenever the button is pressed in the end.
+22
+
+22
+00:01:02,770 --> 00:01:06,720
+Whenever anything inside of Pressable is tapped.
+23
+
+23
+00:01:06,720 --> 00:01:07,950
+Now to show you how this works,
+24
+
+24
+00:01:07,950 --> 00:01:11,710
+I'll add a little dummy function here, pressHandler.
+25
+
+25
+00:01:13,660 --> 00:01:18,660
+And in there, I will just console.log, Pressed!, like this.
+26
+
+26
+00:01:19,240 --> 00:01:21,210
+And I wanna connect this pressHandler
+27
+
+27
+00:01:21,210 --> 00:01:25,610
+to this button by pointing at pressHandler like this.
+28
+
+28
+00:01:25,610 --> 00:01:26,750
+As you learned before,
+29
+
+29
+00:01:26,750 --> 00:01:28,770
+we're not executing this function here,
+30
+
+30
+00:01:28,770 --> 00:01:30,060
+we're just pointing at it.
+31
+
+31
+00:01:30,060 --> 00:01:32,370
+So that it will be executed for us,
+32
+
+32
+00:01:32,370 --> 00:01:34,163
+when such a press occurs.
+33
+
+33
+00:01:35,160 --> 00:01:37,770
+With that, if we save this,
+34
+
+34
+00:01:37,770 --> 00:01:40,140
+we cannot press these texts.
+35
+
+35
+00:01:40,140 --> 00:01:41,960
+And we don't get any feedback.
+36
+
+36
+00:01:41,960 --> 00:01:43,440
+At least, not right now.
+37
+
+37
+00:01:43,440 --> 00:01:46,250
+We will add some feedback soon.
+38
+
+38
+00:01:46,250 --> 00:01:49,570
+But in the console, we can see that indeed,
+39
+
+39
+00:01:49,570 --> 00:01:52,150
+we did press these buttons successfully,
+40
+
+40
+00:01:52,150 --> 00:01:54,700
+And that we listened to those events,
+41
+
+41
+00:01:54,700 --> 00:01:57,403
+which is another big step forward.
+42
+
+42
+00:01:58,410 --> 00:01:59,440
+But of course,
+43
+
+43
+00:01:59,440 --> 00:02:02,250
+having some styling and some feedback,
+44
+
+44
+00:02:02,250 --> 00:02:03,940
+would be nice as well.
+45
+
+45
+00:02:03,940 --> 00:02:06,640
+And there, for that's what I wanna work on next.
+46
+
+46
+00:02:06,640 --> 00:02:07,950
+Now, for adding styling,
+47
+
+47
+00:02:07,950 --> 00:02:10,260
+I again, will import the style sheet
+48
+
+48
+00:02:10,260 --> 00:02:12,850
+because that is how we do define our styles,
+49
+
+49
+00:02:12,850 --> 00:02:15,233
+typically, when working with react-native.
+50
+
+50
+00:02:16,260 --> 00:02:19,170
+And we can add such a styles constant,
+51
+
+51
+00:02:19,170 --> 00:02:21,040
+which is a style sheet created
+52
+
+52
+00:02:21,040 --> 00:02:23,223
+with this style sheet create method.
+53
+
+53
+00:02:24,110 --> 00:02:26,450
+And now, in this method here,
+54
+
+54
+00:02:26,450 --> 00:02:29,380
+we can define our different styles.
+55
+
+55
+00:02:29,380 --> 00:02:33,020
+Now, I want to have a couple of different button styles,
+56
+
+56
+00:02:33,020 --> 00:02:35,960
+but I wanna start with the main style
+57
+
+57
+00:02:35,960 --> 00:02:39,490
+for this container that I have around my text.
+58
+
+58
+00:02:39,490 --> 00:02:42,540
+So my main style for this View.
+59
+
+59
+00:02:42,540 --> 00:02:44,770
+So I'll name this, container.
+60
+
+60
+00:02:44,770 --> 00:02:49,260
+And in here, I wanna set a backgroundColor.
+61
+
+61
+00:02:49,260 --> 00:02:51,510
+And the backgroundColor I wanna set,
+62
+
+62
+00:02:51,510 --> 00:02:54,323
+is the same color I have here.
+63
+
+63
+00:02:55,690 --> 00:02:58,500
+So I will actually copy this color
+64
+
+64
+00:02:58,500 --> 00:03:03,470
+from the StartGameScreen, and use this here, for my button.
+65
+
+65
+00:03:03,470 --> 00:03:04,303
+Now, of course,
+66
+
+66
+00:03:04,303 --> 00:03:06,320
+if I use the same color as I have it here
+67
+
+67
+00:03:06,320 --> 00:03:09,770
+for the background, it won't be visible.
+68
+
+68
+00:03:09,770 --> 00:03:11,310
+Therefore, to work around that,
+69
+
+69
+00:03:11,310 --> 00:03:13,078
+I'll change that backgroundColor
+70
+
+70
+00:03:13,078 --> 00:03:15,640
+in the StartGameScreen a little bit.
+71
+
+71
+00:03:15,640 --> 00:03:20,070
+And simply make it darker, let's say.
+72
+
+72
+00:03:20,070 --> 00:03:24,843
+By switching to this hex code, 4e0329.
+73
+
+73
+00:03:26,080 --> 00:03:29,610
+Now, we have a different backgroundColor for the button.
+74
+
+74
+00:03:29,610 --> 00:03:33,240
+And I also wanna make sure that I have rounded corners.
+75
+
+75
+00:03:33,240 --> 00:03:35,330
+And not just some rounded corners,
+76
+
+76
+00:03:35,330 --> 00:03:37,630
+but, essentially, no corners.
+77
+
+77
+00:03:37,630 --> 00:03:41,330
+But instead, a nice little half circle
+78
+
+78
+00:03:41,330 --> 00:03:43,263
+on the left and right of the button.
+79
+
+79
+00:03:44,200 --> 00:03:46,030
+This can be achieved by giving this button
+80
+
+80
+00:03:46,030 --> 00:03:47,940
+a huge borderRadius.
+81
+
+81
+00:03:47,940 --> 00:03:51,810
+For example, with a value of 28.
+82
+
+82
+00:03:51,810 --> 00:03:54,140
+I also wanna have some padding in there.
+83
+
+83
+00:03:54,140 --> 00:03:56,920
+And I wanna have different padding to the top, and bottom,
+84
+
+84
+00:03:56,920 --> 00:03:58,290
+and left, and right.
+85
+
+85
+00:03:58,290 --> 00:04:01,810
+So I will set paddingVertical, let's say, to eight.
+86
+
+86
+00:04:01,810 --> 00:04:04,260
+And that's the padding, the distance inside
+87
+
+87
+00:04:04,260 --> 00:04:06,633
+of the container to the top and to the bottom.
+88
+
+88
+00:04:07,730 --> 00:04:10,040
+And I will add paddingHorizontal.
+89
+
+89
+00:04:10,040 --> 00:04:12,280
+So to the left and right, of 16.
+90
+
+90
+00:04:12,280 --> 00:04:15,250
+So that we have more padding to the left, and to the right
+91
+
+91
+00:04:15,250 --> 00:04:17,203
+than to the top, and to the bottom.
+92
+
+92
+00:04:18,220 --> 00:04:20,910
+In addition on Android, I want to add a shadow.
+93
+
+93
+00:04:20,910 --> 00:04:23,070
+Only on Android, not on iOS.
+94
+
+94
+00:04:23,070 --> 00:04:25,320
+You could also add an iOS shadow.
+95
+
+95
+00:04:25,320 --> 00:04:27,830
+You learned how that works a few minutes ago.
+96
+
+96
+00:04:27,830 --> 00:04:31,420
+But here I want to add a shadow only on Android
+97
+
+97
+00:04:31,420 --> 00:04:33,803
+by setting the elevation to two.
+98
+
+98
+00:04:34,700 --> 00:04:37,200
+If we save all of this,
+99
+
+99
+00:04:37,200 --> 00:04:38,470
+we don't see anything
+100
+
+100
+00:04:38,470 --> 00:04:41,230
+because we need to apply this styling.
+101
+
+101
+00:04:41,230 --> 00:04:43,870
+So, we can go to this View,
+102
+
+102
+00:04:43,870 --> 00:04:47,333
+add the style prop and point at styles.container.
+103
+
+103
+00:04:48,460 --> 00:04:50,130
+And with that, if we save this.
+104
+
+104
+00:04:50,130 --> 00:04:52,353
+Now, we got these buttons here.
+105
+
+105
+00:04:53,360 --> 00:04:55,870
+Of course, they're still not super pretty
+106
+
+106
+00:04:55,870 --> 00:04:57,037
+but we're getting here.
+107
+
+107
+00:04:57,037 --> 00:04:59,420
+But we also need to style the text now
+108
+
+108
+00:04:59,420 --> 00:05:02,020
+because the text doesn't look good.
+109
+
+109
+00:05:02,020 --> 00:05:03,330
+We also might want to add
+110
+
+110
+00:05:03,330 --> 00:05:05,580
+a little bit of margin around the button,
+111
+
+111
+00:05:05,580 --> 00:05:08,143
+so that there is some spacing between the buttons.
+112
+
+112
+00:05:09,440 --> 00:05:12,040
+Hence, I will start with that,
+113
+
+113
+00:05:12,040 --> 00:05:14,110
+and actually add a margin
+114
+
+114
+00:05:14,110 --> 00:05:16,533
+in all directions of four pixels.
+115
+
+115
+00:05:17,770 --> 00:05:20,650
+And I will define a second style object,
+116
+
+116
+00:05:20,650 --> 00:05:22,783
+which I'll name, buttonText.
+117
+
+117
+00:05:24,521 --> 00:05:25,400
+And therefore, actually,
+118
+
+118
+00:05:25,400 --> 00:05:29,533
+I'll name this here, buttonContainer, to be consistent.
+119
+
+119
+00:05:30,550 --> 00:05:34,260
+And my button text will receive a color of white,
+120
+
+120
+00:05:34,260 --> 00:05:36,610
+so that the text is white.
+121
+
+121
+00:05:36,610 --> 00:05:38,130
+And I wanna center the text,
+122
+
+122
+00:05:38,130 --> 00:05:43,130
+which can be achieved by using textAlign center, like this.
+123
+
+123
+00:05:44,010 --> 00:05:45,430
+And what's very important,
+124
+
+124
+00:05:45,430 --> 00:05:49,670
+you have to define those styles on a style object
+125
+
+125
+00:05:49,670 --> 00:05:52,900
+that's directly applied to this text component
+126
+
+126
+00:05:52,900 --> 00:05:55,970
+because as you learned before in this course,
+127
+
+127
+00:05:55,970 --> 00:05:58,730
+if you would add textAlign center,
+128
+
+128
+00:05:58,730 --> 00:06:01,760
+and this color prop on the button container,
+129
+
+129
+00:06:01,760 --> 00:06:05,020
+it would not affect the text inside of the container.
+130
+
+130
+00:06:05,020 --> 00:06:07,270
+Because there is no inheritance
+131
+
+131
+00:06:07,270 --> 00:06:10,100
+in this react-native styling approach.
+132
+
+132
+00:06:10,100 --> 00:06:12,823
+It looks like CSS, but it isn't CSS.
+133
+
+133
+00:06:13,950 --> 00:06:16,840
+So therefore, now, we can add this new style,
+134
+
+134
+00:06:16,840 --> 00:06:20,850
+the buttonText style to this text component.
+135
+
+135
+00:06:20,850 --> 00:06:23,400
+And since I changed the name of the container,
+136
+
+136
+00:06:23,400 --> 00:06:25,800
+we also should update the name up here,
+137
+
+137
+00:06:25,800 --> 00:06:28,783
+and point at the buttonContainer style object here.
+138
+
+138
+00:06:30,120 --> 00:06:33,150
+With that, If we save this,
+139
+
+139
+00:06:33,150 --> 00:06:36,110
+and we go back, this is centered and already
+140
+
+140
+00:06:36,110 --> 00:06:38,190
+looks a bit nicer.
+141
+
+141
+00:06:38,190 --> 00:06:41,540
+We can also see that there is a slight shadow on Android,
+142
+
+142
+00:06:41,540 --> 00:06:44,053
+whereas, there is none on iOS.
+143
+
+143
+00:06:45,000 --> 00:06:48,470
+Now, what we don't have at all is any feedback,
+144
+
+144
+00:06:48,470 --> 00:06:50,840
+when a button is pressed.
+145
+
+145
+00:06:50,840 --> 00:06:53,140
+And that would be nice to have.
+146
+
+146
+00:06:53,140 --> 00:06:57,690
+Now, I did show you how you can add such feedback before.
+147
+
+147
+00:06:57,690 --> 00:07:02,270
+You can add feedback on Android add a nice ripple effect
+148
+
+148
+00:07:02,270 --> 00:07:05,133
+by adding the android_ripple prop.
+149
+
+149
+00:07:06,470 --> 00:07:07,890
+And as the name suggests,
+150
+
+150
+00:07:07,890 --> 00:07:10,490
+this only has an effect on Android.
+151
+
+151
+00:07:10,490 --> 00:07:13,780
+But there, you can pass an object to android_ripple.
+152
+
+152
+00:07:13,780 --> 00:07:16,440
+And then on this object, you can set the color
+153
+
+153
+00:07:16,440 --> 00:07:20,180
+that should be applied when this button is pressed.
+154
+
+154
+00:07:20,180 --> 00:07:22,540
+So the ripple color that will be used.
+155
+
+155
+00:07:22,540 --> 00:07:25,160
+And ripple is this little wave effect,
+156
+
+156
+00:07:25,160 --> 00:07:27,883
+which you get when pressing a button on Android.
+157
+
+157
+00:07:28,750 --> 00:07:30,380
+So here I'll set this to a color,
+158
+
+158
+00:07:30,380 --> 00:07:34,420
+and I'll use the main button color here.
+159
+
+159
+00:07:34,420 --> 00:07:39,420
+But of course I'll use a slightly darker tint here.
+160
+
+160
+00:07:39,560 --> 00:07:43,540
+Maybe, like this switching to the hex code, 640233.
+161
+
+161
+00:07:47,140 --> 00:07:49,300
+With that, if we save that.
+162
+
+162
+00:07:49,300 --> 00:07:53,560
+On Android, we should have a nice little ripple effect.
+163
+
+163
+00:07:53,560 --> 00:07:55,650
+But actually, if you press the button,
+164
+
+164
+00:07:55,650 --> 00:07:59,670
+you will see a slight effect outside of the button.
+165
+
+165
+00:07:59,670 --> 00:08:01,550
+But not inside of it.
+166
+
+166
+00:08:01,550 --> 00:08:04,430
+So that is not working as intended.
+167
+
+167
+00:08:04,430 --> 00:08:06,810
+And I'm showing this on purpose because this can be
+168
+
+168
+00:08:06,810 --> 00:08:10,670
+a common problem when building custom buttons on Android,
+169
+
+169
+00:08:10,670 --> 00:08:14,150
+or with react-native in general.
+170
+
+170
+00:08:14,150 --> 00:08:16,440
+This is a common problem to run into,
+171
+
+171
+00:08:16,440 --> 00:08:18,200
+that the ripple effect.
+172
+
+172
+00:08:18,200 --> 00:08:20,480
+This outside of the button, for example.
+173
+
+173
+00:08:20,480 --> 00:08:22,230
+And therefore I'm showing this here,
+174
+
+174
+00:08:22,230 --> 00:08:25,650
+so that you have a solution for this common problem.
+175
+
+175
+00:08:25,650 --> 00:08:30,420
+Because the solution is to restructure this JSX code.
+176
+
+176
+00:08:30,420 --> 00:08:31,870
+What you should do,
+177
+
+177
+00:08:31,870 --> 00:08:36,550
+is move your View outside of the Pressable element.
+178
+
+178
+00:08:36,550 --> 00:08:40,030
+So that Pressable is inside of View.
+179
+
+179
+00:08:40,030 --> 00:08:43,090
+And then we also need to add a new styling object
+180
+
+180
+00:08:43,090 --> 00:08:46,750
+and restructure our styling objects a little bit.
+181
+
+181
+00:08:46,750 --> 00:08:51,750
+I will actually add a buttonOuterContainer here, like this.
+182
+
+182
+00:08:53,520 --> 00:08:56,210
+And rename this to buttonInnerContainer.
+183
+
+183
+00:08:56,210 --> 00:08:58,990
+Because we will work with two containers now.
+184
+
+184
+00:08:58,990 --> 00:09:02,420
+One container will be that View that holds the Pressable,
+185
+
+185
+00:09:02,420 --> 00:09:04,770
+and the Pressable will be the inner container
+186
+
+186
+00:09:04,770 --> 00:09:06,050
+that holds the text.
+187
+
+187
+00:09:06,050 --> 00:09:08,610
+And we need to distribute our styles across
+188
+
+188
+00:09:08,610 --> 00:09:09,817
+these two containers to make sure
+189
+
+189
+00:09:09,817 --> 00:09:12,273
+that they work together correctly.
+190
+
+190
+00:09:13,170 --> 00:09:17,490
+And what you should do now is that on the outer container,
+191
+
+191
+00:09:17,490 --> 00:09:19,770
+you add this borderRadius.
+192
+
+192
+00:09:19,770 --> 00:09:21,880
+You don't add it on the inner container.
+193
+
+193
+00:09:21,880 --> 00:09:24,780
+You add it on the outer container instead.
+194
+
+194
+00:09:24,780 --> 00:09:27,180
+In addition, it's that outer container
+195
+
+195
+00:09:27,180 --> 00:09:30,530
+that receives the margin, like this,
+196
+
+196
+00:09:30,530 --> 00:09:32,880
+which should make sense because it will be
+197
+
+197
+00:09:32,880 --> 00:09:36,710
+the outer container that will be closest to our elements
+198
+
+198
+00:09:36,710 --> 00:09:40,040
+that are used side by side or close to the button
+199
+
+199
+00:09:40,040 --> 00:09:43,273
+when you're using this button component in other components.
+200
+
+200
+00:09:44,170 --> 00:09:46,730
+Now in addition, on this outer container,
+201
+
+201
+00:09:46,730 --> 00:09:49,390
+you should add overflow hidden,
+202
+
+202
+00:09:49,390 --> 00:09:51,420
+which is a property you might also know
+203
+
+203
+00:09:51,420 --> 00:09:53,620
+from web development.
+204
+
+204
+00:09:53,620 --> 00:09:57,530
+What this will do is it will ensure that if any effect
+205
+
+205
+00:09:57,530 --> 00:10:00,470
+or any styling from inside that container
+206
+
+206
+00:10:00,470 --> 00:10:04,500
+would go outside of that container, it's clipped,
+207
+
+207
+00:10:04,500 --> 00:10:06,530
+it's not shown.
+208
+
+208
+00:10:06,530 --> 00:10:07,363
+So for example,
+209
+
+209
+00:10:07,363 --> 00:10:10,080
+if the ripple effect would go outside of this container,
+210
+
+210
+00:10:10,080 --> 00:10:12,810
+it will be clipped and it will not be visible.
+211
+
+211
+00:10:12,810 --> 00:10:14,380
+Now on the inner container,
+212
+
+212
+00:10:14,380 --> 00:10:17,073
+we want to have the backgroundColor.
+213
+
+213
+00:10:17,073 --> 00:10:21,060
+And we wanna have padding and the elevation.
+214
+
+214
+00:10:21,060 --> 00:10:26,030
+Now, we can add this OuterContainer class here,
+215
+
+215
+00:10:26,030 --> 00:10:29,920
+to this View, which is our outer container.
+216
+
+216
+00:10:29,920 --> 00:10:34,000
+And on this Pressable element, we can also add a style prop.
+217
+
+217
+00:10:34,000 --> 00:10:38,173
+And here we wanna add the buttonInnerContainer style.
+218
+
+218
+00:10:39,500 --> 00:10:41,630
+When we do that and save everything,
+219
+
+219
+00:10:41,630 --> 00:10:44,190
+the buttons look as they did before,
+220
+
+220
+00:10:44,190 --> 00:10:46,920
+but now, you will see that the ripple effect
+221
+
+221
+00:10:46,920 --> 00:10:49,630
+is inside of these buttons.
+222
+
+222
+00:10:49,630 --> 00:10:52,630
+You have to watch really closely and you can,
+223
+
+223
+00:10:52,630 --> 00:10:54,050
+of course, temporarily switch
+224
+
+224
+00:10:54,050 --> 00:10:56,110
+to a totally different color
+225
+
+225
+00:10:56,110 --> 00:10:58,990
+to make it a bit easier to spot this effect.
+226
+
+226
+00:10:58,990 --> 00:11:02,913
+Now, you see the ripple effect is inside of the button.
+227
+
+227
+00:11:03,750 --> 00:11:06,070
+And I'll switch back to the other color now,
+228
+
+228
+00:11:06,070 --> 00:11:08,950
+because I just wanted to show you that this works.
+229
+
+229
+00:11:08,950 --> 00:11:12,600
+So working with such combined containers is something
+230
+
+230
+00:11:12,600 --> 00:11:16,330
+you often need to do when building custom buttons.
+231
+
+231
+00:11:16,330 --> 00:11:19,300
+And now, here you see one example approach of building
+232
+
+232
+00:11:19,300 --> 00:11:22,070
+a clean button combining such a outer
+233
+
+233
+00:11:22,070 --> 00:11:24,300
+and such a inner container.
+234
+
+234
+00:11:24,300 --> 00:11:26,210
+Now, of course at the moment though,
+235
+
+235
+00:11:26,210 --> 00:11:29,870
+this is nice on Android, but it has no effect on iOS.
+236
+
+236
+00:11:29,870 --> 00:11:33,173
+Because this ripple effect is only available on Android.
+237
+
+237
+00:11:34,070 --> 00:11:37,830
+So if you wanna provide some visual feedback on iOS as well,
+238
+
+238
+00:11:37,830 --> 00:11:39,800
+which we typically want to.
+239
+
+239
+00:11:39,800 --> 00:11:43,203
+We have to set up a dedicated style for iOS.
+240
+
+240
+00:11:44,090 --> 00:11:46,160
+And for this dedicated style,
+241
+
+241
+00:11:46,160 --> 00:11:48,510
+I'll add another styling object
+242
+
+242
+00:11:48,510 --> 00:11:50,823
+in the primary button component file.
+243
+
+243
+00:11:51,680 --> 00:11:53,390
+And I'll name it, pressed,
+244
+
+244
+00:11:53,390 --> 00:11:54,850
+because this should become active
+245
+
+245
+00:11:54,850 --> 00:11:56,790
+when the button is pressed.
+246
+
+246
+00:11:56,790 --> 00:11:59,710
+And what I wanna do in that case is I wanna set
+247
+
+247
+00:11:59,710 --> 00:12:02,733
+an opacity of 0.75.
+248
+
+248
+00:12:03,620 --> 00:12:05,320
+Opacity makes the element,
+249
+
+249
+00:12:05,320 --> 00:12:07,990
+on which you apply this style transparent.
+250
+
+250
+00:12:07,990 --> 00:12:12,990
+And here, I will make it 75% opaque, so 25% transparent.
+251
+
+251
+00:12:14,930 --> 00:12:18,070
+Opacity wants a value between zero and one,
+252
+
+252
+00:12:18,070 --> 00:12:20,410
+which then is translated into percentage.
+253
+
+253
+00:12:20,410 --> 00:12:25,410
+So one is 100%, zero is 0%.
+254
+
+254
+00:12:25,470 --> 00:12:27,390
+Now this pressed style here,
+255
+
+255
+00:12:27,390 --> 00:12:30,990
+this object should be applied to Pressable
+256
+
+256
+00:12:30,990 --> 00:12:33,500
+when the button is pressed.
+257
+
+257
+00:12:33,500 --> 00:12:36,870
+And for this, we can changed this style prop a little bit.
+258
+
+258
+00:12:36,870 --> 00:12:39,330
+Because as I as I mentioned before,
+259
+
+259
+00:12:39,330 --> 00:12:42,880
+the style prop for this Pressable component
+260
+
+260
+00:12:42,880 --> 00:12:45,330
+takes either a styling object
+261
+
+261
+00:12:45,330 --> 00:12:48,010
+as we're currently passing it in,
+262
+
+262
+00:12:48,010 --> 00:12:52,400
+or it takes a function, for example, an arrow function here,
+263
+
+263
+00:12:52,400 --> 00:12:55,480
+which will be called automatically by react-native,
+264
+
+264
+00:12:55,480 --> 00:12:58,550
+whenever the Pressable is pressed.
+265
+
+265
+00:12:58,550 --> 00:13:00,943
+So whenever the press event occurs.
+266
+
+266
+00:13:01,900 --> 00:13:05,220
+And then, this style object receives some data
+267
+
+267
+00:13:05,220 --> 00:13:06,960
+about the press event,
+268
+
+268
+00:13:06,960 --> 00:13:10,270
+which is an object with essentially one property.
+269
+
+269
+00:13:10,270 --> 00:13:13,400
+And therefore, we can also use object destructuring here
+270
+
+270
+00:13:13,400 --> 00:13:16,000
+to pull out that one property.
+271
+
+271
+00:13:16,000 --> 00:13:20,033
+And that one property is a pressed property.
+272
+
+272
+00:13:20,950 --> 00:13:22,560
+And this name is not up to you.
+273
+
+273
+00:13:22,560 --> 00:13:24,700
+This is a property named pressed,
+274
+
+274
+00:13:24,700 --> 00:13:26,340
+which is part of that object
+275
+
+275
+00:13:26,340 --> 00:13:29,000
+which is automatically passed into this function
+276
+
+276
+00:13:29,000 --> 00:13:32,263
+by react-native for this Pressable component.
+277
+
+277
+00:13:33,230 --> 00:13:35,530
+And pressed is a Boolean which is true,
+278
+
+278
+00:13:35,530 --> 00:13:38,550
+if we currently are pressing the button
+279
+
+279
+00:13:38,550 --> 00:13:42,690
+or the element in general, and false otherwise.
+280
+
+280
+00:13:42,690 --> 00:13:44,970
+So now, pressed can be used here
+281
+
+281
+00:13:44,970 --> 00:13:47,120
+in the body of this arrow function
+282
+
+282
+00:13:47,120 --> 00:13:51,500
+to determine which style objects should be applied.
+283
+
+283
+00:13:51,500 --> 00:13:52,630
+And for this I'll check,
+284
+
+284
+00:13:52,630 --> 00:13:54,640
+if press is truthy,
+285
+
+285
+00:13:54,640 --> 00:13:57,950
+in which case I wanna apply different styles
+286
+
+286
+00:13:57,950 --> 00:13:59,840
+than it's not true.
+287
+
+287
+00:13:59,840 --> 00:14:01,130
+If it's not true,
+288
+
+288
+00:14:01,130 --> 00:14:02,530
+after the colon here,
+289
+
+289
+00:14:02,530 --> 00:14:06,650
+I wanna apply the default button in our container style.
+290
+
+290
+00:14:06,650 --> 00:14:11,530
+But if it is true, then I wanna apply multiple styles.
+291
+
+291
+00:14:11,530 --> 00:14:14,640
+I do wanna apply the default button styles,
+292
+
+292
+00:14:14,640 --> 00:14:18,850
+but I also want to add my pressed style object here.
+293
+
+293
+00:14:18,850 --> 00:14:22,410
+And this can be achieved by passing an array of styles.
+294
+
+294
+00:14:22,410 --> 00:14:27,270
+And in general, in any place where you use the style prop,
+295
+
+295
+00:14:27,270 --> 00:14:29,960
+even if it's not Pressable component.
+296
+
+296
+00:14:29,960 --> 00:14:33,030
+You can pass style objects like this.
+297
+
+297
+00:14:33,030 --> 00:14:36,270
+But you can also pass arrays of style objects.
+298
+
+298
+00:14:36,270 --> 00:14:37,170
+And in that case,
+299
+
+299
+00:14:37,170 --> 00:14:39,200
+all the style objects in that array
+300
+
+300
+00:14:39,200 --> 00:14:41,373
+would be considered by react-native.
+301
+
+301
+00:14:42,510 --> 00:14:44,120
+So here, I then want to add
+302
+
+302
+00:14:44,120 --> 00:14:48,520
+my buttonInnerContainer style here.
+303
+
+303
+00:14:48,520 --> 00:14:52,023
+But I also want to add the press style.
+304
+
+304
+00:14:53,300 --> 00:14:55,020
+So, if pressed is true,
+305
+
+305
+00:14:55,020 --> 00:14:56,900
+then this array of style objects
+306
+
+306
+00:14:56,900 --> 00:14:58,550
+will be applied to the button.
+307
+
+307
+00:14:58,550 --> 00:15:02,683
+If it's false, this single style object will be applied.
+308
+
+308
+00:15:04,220 --> 00:15:06,460
+And with that, if we save this.
+309
+
+309
+00:15:06,460 --> 00:15:08,550
+We now got this feedback here as well.
+310
+
+310
+00:15:08,550 --> 00:15:10,760
+Because we got some transparency going on,
+311
+
+311
+00:15:10,760 --> 00:15:12,470
+when we click this
+312
+
+312
+00:15:12,470 --> 00:15:14,870
+On Android, we now also have this effect.
+313
+
+313
+00:15:14,870 --> 00:15:17,600
+And for the moment that is fine for me here,
+314
+
+314
+00:15:17,600 --> 00:15:19,710
+you will learn in the next section,
+315
+
+315
+00:15:19,710 --> 00:15:22,860
+how you can differentiate between platforms
+316
+
+316
+00:15:22,860 --> 00:15:27,090
+and how you can write or execute different code
+317
+
+317
+00:15:27,090 --> 00:15:29,170
+for different platforms.
+318
+
+318
+00:15:29,170 --> 00:15:30,190
+So in the next section,
+319
+
+319
+00:15:30,190 --> 00:15:32,610
+you will learn how you can disable
+320
+
+320
+00:15:32,610 --> 00:15:35,000
+this styling behavior for Android,
+321
+
+321
+00:15:35,000 --> 00:15:37,020
+and only use it for iOS.
+322
+
+322
+00:15:37,020 --> 00:15:39,360
+For the moment, we will use the same effect
+323
+
+323
+00:15:39,360 --> 00:15:41,020
+for both platforms.
+324
+
+324
+00:15:41,020 --> 00:15:44,653
+So we will add this opacity, when the button is tapped.

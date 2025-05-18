@@ -1,0 +1,1093 @@
+1
+00:00:02,282 --> 00:00:04,560
+[Maximilian Schwarzmuller] Now with this logic added
+2
+
+2
+00:00:04,560 --> 00:00:08,050
+we're able to give instructions to the phone
+3
+
+3
+00:00:08,050 --> 00:00:11,033
+on whether it should guess lower or greater.
+4
+
+4
+00:00:11,960 --> 00:00:15,110
+Now, the kind of logic that is still missing, though,
+5
+
+5
+00:00:15,110 --> 00:00:19,200
+Is some logic that checks if the game is over.
+6
+
+6
+00:00:19,200 --> 00:00:23,510
+And the game is over once the device guessed the number
+7
+
+7
+00:00:23,510 --> 00:00:26,010
+we chose on this starting screen.
+8
+
+8
+00:00:26,010 --> 00:00:29,010
+So once the device guessed 31 in this case,
+9
+
+9
+00:00:29,010 --> 00:00:30,870
+then the game should end.
+10
+
+10
+00:00:30,870 --> 00:00:34,510
+And at the moment, this is not happening.
+11
+
+11
+00:00:34,510 --> 00:00:37,030
+It just crashes when we reach that number
+12
+
+12
+00:00:37,030 --> 00:00:40,000
+because we then again, enter some infinite loop
+13
+
+13
+00:00:40,000 --> 00:00:42,980
+because of how our code is configured.
+14
+
+14
+00:00:42,980 --> 00:00:47,520
+Now, how could we check whether the game is over or not?
+15
+
+15
+00:00:47,520 --> 00:00:50,700
+Well, there might be different ways of implementing this
+16
+
+16
+00:00:50,700 --> 00:00:52,290
+but I would say that we need
+17
+
+17
+00:00:52,290 --> 00:00:56,190
+to check the current random number
+18
+
+18
+00:00:56,190 --> 00:00:59,550
+and compare it to this number defined by the user.
+19
+
+19
+00:00:59,550 --> 00:01:01,210
+We need to make this comparison
+20
+
+20
+00:01:01,210 --> 00:01:03,920
+between current guess and userNumber.
+21
+
+21
+00:01:03,920 --> 00:01:06,320
+And if these numbers are equal,
+22
+
+22
+00:01:06,320 --> 00:01:08,800
+we wanna let the app component know
+23
+
+23
+00:01:08,800 --> 00:01:11,520
+because in that component, we then wanna switch
+24
+
+24
+00:01:11,520 --> 00:01:14,740
+from the game screen to the game over screen,
+25
+
+25
+00:01:14,740 --> 00:01:16,273
+which we have yet to add.
+26
+
+26
+00:01:17,380 --> 00:01:21,180
+So therefore there are a couple of things we wanna do.
+27
+
+27
+00:01:21,180 --> 00:01:25,250
+In the game screen, we wanna check and we wanna compare
+28
+
+28
+00:01:25,250 --> 00:01:27,450
+the guess to the userNumber
+29
+
+29
+00:01:27,450 --> 00:01:30,713
+and this should be done whenever the current guest changes.
+30
+
+30
+00:01:31,690 --> 00:01:33,960
+Now, how do you do this with React?
+31
+
+31
+00:01:33,960 --> 00:01:36,840
+Well, typically you use useEffect
+32
+
+32
+00:01:36,840 --> 00:01:38,850
+because this allows you to run logic
+33
+
+33
+00:01:38,850 --> 00:01:42,833
+whenever some dependencies some state, for example, change.
+34
+
+34
+00:01:43,690 --> 00:01:47,460
+And therefore we can import the useEffect hook from React
+35
+
+35
+00:01:48,390 --> 00:01:50,670
+and use that in this game screen component.
+36
+
+36
+00:01:50,670 --> 00:01:52,500
+Maybe here.
+37
+
+37
+00:01:52,500 --> 00:01:55,550
+We can use useEffect and add a function here,
+38
+
+38
+00:01:55,550 --> 00:01:57,263
+maybe an arrow function.
+39
+
+39
+00:01:58,130 --> 00:02:00,050
+And in this function here,
+40
+
+40
+00:02:00,050 --> 00:02:04,090
+we wanna check if the current guess, which is this state
+41
+
+41
+00:02:04,090 --> 00:02:07,060
+which we change with the next guess handler,
+42
+
+42
+00:02:07,060 --> 00:02:09,440
+if that is equal to the userNumber.
+43
+
+43
+00:02:11,070 --> 00:02:16,070
+And if that is the case, then we wanna call a function
+44
+
+44
+00:02:16,260 --> 00:02:19,360
+that is defined in app JS, in the app component
+45
+
+45
+00:02:19,360 --> 00:02:23,890
+that changes the state there to basically tell React
+46
+
+46
+00:02:23,890 --> 00:02:26,090
+that the game is over and that a different screen
+47
+
+47
+00:02:26,090 --> 00:02:27,700
+should be rendered.
+48
+
+48
+00:02:27,700 --> 00:02:29,980
+And for this, in this app component,
+49
+
+49
+00:02:29,980 --> 00:02:34,670
+we also wanna find a way of changing that state.
+50
+
+50
+00:02:34,670 --> 00:02:37,840
+And we could do this by registering a new state here
+51
+
+51
+00:02:37,840 --> 00:02:42,840
+in this app component which is our game is over state,
+52
+
+52
+00:02:44,360 --> 00:02:48,410
+setGameIsOver, like this.
+53
+
+53
+00:02:48,410 --> 00:02:51,350
+And initially, this is actually true
+54
+
+54
+00:02:51,350 --> 00:02:53,640
+because actually the game hasn't started yet,
+55
+
+55
+00:02:53,640 --> 00:02:56,210
+so it's kind of over.
+56
+
+56
+00:02:56,210 --> 00:03:01,210
+And we wanna check if game is over is true.
+57
+
+57
+00:03:01,270 --> 00:03:03,650
+If this is truthy, and in that case
+58
+
+58
+00:03:03,650 --> 00:03:08,630
+we wanna set the screen variable to the game over screen
+59
+
+59
+00:03:08,630 --> 00:03:11,650
+JSX element to this component.
+60
+
+60
+00:03:11,650 --> 00:03:13,370
+Of course, for this, we first of all,
+61
+
+61
+00:03:13,370 --> 00:03:17,430
+need to add some logic in the game over screen JS file.
+62
+
+62
+00:03:17,430 --> 00:03:20,770
+So here I'll add a game over screen component
+63
+
+63
+00:03:20,770 --> 00:03:23,163
+by exporting this here as a default.
+64
+
+64
+00:03:24,220 --> 00:03:25,300
+And then here for the moment
+65
+
+65
+00:03:25,300 --> 00:03:28,830
+I'll just output some text, where it will say game is over.
+66
+
+66
+00:03:28,830 --> 00:03:31,780
+And of course we're going to tweak this component later.
+67
+
+67
+00:03:31,780 --> 00:03:34,340
+For the moment I'm just going to import this text
+68
+
+68
+00:03:34,340 --> 00:03:37,070
+from React native like this.
+69
+
+69
+00:03:37,070 --> 00:03:40,330
+And then, in the game screen, sorry, in the app component,
+70
+
+70
+00:03:40,330 --> 00:03:43,340
+I mean, we now can render game over screen.
+71
+
+71
+00:03:43,340 --> 00:03:46,050
+We just also need to import it, of course,
+72
+
+72
+00:03:46,050 --> 00:03:48,350
+we need to import the game over screen
+73
+
+73
+00:03:48,350 --> 00:03:50,543
+from screens, game over screen.
+74
+
+74
+00:03:51,730 --> 00:03:54,360
+And now we need to change this game over state,
+75
+
+75
+00:03:54,360 --> 00:03:56,060
+whenever the game is over.
+76
+
+76
+00:03:56,060 --> 00:03:58,290
+And for this, we should add a function here
+77
+
+77
+00:03:58,290 --> 00:03:59,770
+in this app, component
+78
+
+78
+00:03:59,770 --> 00:04:03,893
+the gameOverHandler function, for example.
+79
+
+79
+00:04:04,970 --> 00:04:08,203
+And there I wanna set game is over to true.
+80
+
+80
+00:04:09,270 --> 00:04:11,450
+And this function should now be passed
+81
+
+81
+00:04:11,450 --> 00:04:14,560
+to the game screen component here,
+82
+
+82
+00:04:14,560 --> 00:04:17,860
+so that from inside that game screen component,
+83
+
+83
+00:04:17,860 --> 00:04:19,670
+from inside that useEffect call
+84
+
+84
+00:04:19,670 --> 00:04:21,670
+we can trigger this function.
+85
+
+85
+00:04:21,670 --> 00:04:24,930
+Now, to achieve this, I will actually define this function
+86
+
+86
+00:04:24,930 --> 00:04:29,110
+before I render this JSX code here.
+87
+
+87
+00:04:29,110 --> 00:04:31,680
+And then we can add a prop to the game screen component
+88
+
+88
+00:04:31,680 --> 00:04:34,330
+like onGameOver, for example,
+89
+
+89
+00:04:34,330 --> 00:04:37,693
+where we point at the gameOverHandler, like this.
+90
+
+90
+00:04:38,790 --> 00:04:40,170
+Now, inside the game screen
+91
+
+91
+00:04:40,170 --> 00:04:42,740
+we can use this onGameOver prop.
+92
+
+92
+00:04:42,740 --> 00:04:46,290
+So here in game screen, we now don't just get userNumber,
+93
+
+93
+00:04:46,290 --> 00:04:49,630
+we also get the onGameOver prop
+94
+
+94
+00:04:49,630 --> 00:04:52,830
+which holds a pointer to this function.
+95
+
+95
+00:04:52,830 --> 00:04:55,500
+And then there in useEffect,
+96
+
+96
+00:04:55,500 --> 00:04:57,280
+if we know that the game is over
+97
+
+97
+00:04:57,280 --> 00:05:00,200
+because the guess is equal to the number we chose,
+98
+
+98
+00:05:00,200 --> 00:05:02,043
+we can simply execute onGameOver.
+99
+
+99
+00:05:03,160 --> 00:05:05,420
+This function, which we receive here.
+100
+
+100
+00:05:05,420 --> 00:05:07,280
+And that will therefore trigger
+101
+
+101
+00:05:07,280 --> 00:05:10,733
+this gameOverHandler function in the app component.
+102
+
+102
+00:05:12,160 --> 00:05:13,370
+So that's that.
+103
+
+103
+00:05:13,370 --> 00:05:15,330
+Now we need to add some dependencies
+104
+
+104
+00:05:15,330 --> 00:05:17,450
+to this useEffect hook to control
+105
+
+105
+00:05:17,450 --> 00:05:20,083
+when this effect function should be executed.
+106
+
+106
+00:05:20,920 --> 00:05:24,820
+And here, the simple rule is that all the variables,
+107
+
+107
+00:05:24,820 --> 00:05:27,380
+all the values that you use in this function
+108
+
+108
+00:05:27,380 --> 00:05:30,380
+should added as dependencies.
+109
+
+109
+00:05:30,380 --> 00:05:32,080
+So therefore here our dependencies
+110
+
+110
+00:05:32,080 --> 00:05:35,203
+are the current guess, of course,
+111
+
+111
+00:05:36,040 --> 00:05:40,493
+but also the userNumber and the onGameOver function.
+112
+
+112
+00:05:41,490 --> 00:05:44,530
+So now with that, whenever the current guess,
+113
+
+113
+00:05:44,530 --> 00:05:48,580
+or the entered number, or this onGameOver function changes,
+114
+
+114
+00:05:48,580 --> 00:05:50,670
+this effect will be re-executed
+115
+
+115
+00:05:50,670 --> 00:05:52,910
+and we will check if the game is over.
+116
+
+116
+00:05:52,910 --> 00:05:56,230
+In which case onGameOver will be called.
+117
+
+117
+00:05:56,230 --> 00:06:00,920
+So therefore now with that, if we save everything
+118
+
+118
+00:06:00,920 --> 00:06:05,920
+and we force a reload, I start on this game is over screen.
+119
+
+119
+00:06:07,920 --> 00:06:12,830
+And I start on this screen because this is set to true,
+120
+
+120
+00:06:12,830 --> 00:06:17,280
+and yeah, of course, I show this screen if the game is over.
+121
+
+121
+00:06:17,280 --> 00:06:18,960
+What we will wanna do is we wanna check
+122
+
+122
+00:06:18,960 --> 00:06:22,050
+if a number has been chosen and that the game is over.
+123
+
+123
+00:06:22,050 --> 00:06:26,440
+So if the game has been played or if it just hasn't started.
+124
+
+124
+00:06:26,440 --> 00:06:29,570
+If it just hasn't started, we don't wanna show this screen.
+125
+
+125
+00:06:29,570 --> 00:06:31,470
+So we will check if the game is over,
+126
+
+126
+00:06:31,470 --> 00:06:34,880
+and if userNumber is truthy.
+127
+
+127
+00:06:34,880 --> 00:06:36,970
+So if a userNumber has been chosen,
+128
+
+128
+00:06:36,970 --> 00:06:38,993
+which will not be the case initially.
+129
+
+129
+00:06:39,860 --> 00:06:44,300
+So now with this, we start on the starting screen again.
+130
+
+130
+00:06:44,300 --> 00:06:47,000
+And now we instantly go to this screen,
+131
+
+131
+00:06:47,000 --> 00:06:48,700
+if I start a game though.
+132
+
+132
+00:06:48,700 --> 00:06:50,250
+This, however, makes sense
+133
+
+133
+00:06:50,250 --> 00:06:52,660
+because as soon as we set a userNumber,
+134
+
+134
+00:06:52,660 --> 00:06:55,560
+we have game is over, which is true.
+135
+
+135
+00:06:55,560 --> 00:06:57,880
+And we have a userNumber which is truthy.
+136
+
+136
+00:06:57,880 --> 00:07:00,640
+And therefor, we show the over screen.
+137
+
+137
+00:07:00,640 --> 00:07:02,970
+To avoid this, we must make sure
+138
+
+138
+00:07:02,970 --> 00:07:07,680
+that we also set game is over to false once we start a game.
+139
+
+139
+00:07:07,680 --> 00:07:10,650
+So here, when we pick a number, we also wanna set
+140
+
+140
+00:07:10,650 --> 00:07:14,940
+game is over to false to indicate that the game started now
+141
+
+141
+00:07:14,940 --> 00:07:17,033
+and that it's, therefore, not over.
+142
+
+142
+00:07:17,033 --> 00:07:18,530
+This is important.
+143
+
+143
+00:07:18,530 --> 00:07:21,120
+And these two state updates will be batched
+144
+
+144
+00:07:21,120 --> 00:07:23,710
+together by React, so that the component
+145
+
+145
+00:07:23,710 --> 00:07:26,370
+is not rerendered twice, but only once.
+146
+
+146
+00:07:26,370 --> 00:07:29,200
+That's just a side note and that's just React specific,
+147
+
+147
+00:07:29,200 --> 00:07:33,350
+has nothing to do with React native, but is nice to know.
+148
+
+148
+00:07:33,350 --> 00:07:35,063
+So now finally with that,
+149
+
+149
+00:07:35,960 --> 00:07:38,240
+we should be able to enter a number.
+150
+
+150
+00:07:38,240 --> 00:07:40,500
+Now the game is starting.
+151
+
+151
+00:07:40,500 --> 00:07:44,210
+And now we can and try to guess this number,
+152
+
+152
+00:07:44,210 --> 00:07:47,210
+or let the phone guess this number.
+153
+
+153
+00:07:47,210 --> 00:07:48,620
+And we still get this
+154
+
+154
+00:07:48,620 --> 00:07:51,500
+maximum call stack size exceeded error,
+155
+
+155
+00:07:51,500 --> 00:07:54,570
+as soon as we reach the final number.
+156
+
+156
+00:07:54,570 --> 00:07:57,300
+So let's see why this is happening now.
+157
+
+157
+00:07:57,300 --> 00:08:01,210
+This error is occurring because of this code here
+158
+
+158
+00:08:01,210 --> 00:08:02,910
+in the game screen component
+159
+
+159
+00:08:02,910 --> 00:08:05,213
+where we generate our initial guess.
+160
+
+160
+00:08:06,180 --> 00:08:09,040
+What's important to understand about this code snippet
+161
+
+161
+00:08:09,040 --> 00:08:12,270
+is that this function will be executed
+162
+
+162
+00:08:12,270 --> 00:08:16,070
+whenever the game screen component is executed.
+163
+
+163
+00:08:16,070 --> 00:08:19,480
+So whenever it is reevaluated, which will be the case
+164
+
+164
+00:08:19,480 --> 00:08:21,533
+whenever a new guess is set.
+165
+
+165
+00:08:22,400 --> 00:08:24,360
+So therefore regenerate it a new random number
+166
+
+166
+00:08:24,360 --> 00:08:25,580
+whenever that happens
+167
+
+167
+00:08:25,580 --> 00:08:28,790
+and we take our current min and max boundaries
+168
+
+168
+00:08:28,790 --> 00:08:30,470
+into account here.
+169
+
+169
+00:08:30,470 --> 00:08:35,470
+The problem with that just is that if we do it like this,
+170
+
+170
+00:08:35,680 --> 00:08:39,220
+we execute this function, even at the point of time
+171
+
+171
+00:08:39,220 --> 00:08:42,850
+where min boundary and max boundary are the same
+172
+
+172
+00:08:42,850 --> 00:08:45,283
+because we derived our final result.
+173
+
+173
+00:08:46,120 --> 00:08:48,620
+Now we don't do this in the next guess handler
+174
+
+174
+00:08:48,620 --> 00:08:51,550
+because this handler can't be executed anymore
+175
+
+175
+00:08:51,550 --> 00:08:53,660
+as soon as we have the final result
+176
+
+176
+00:08:53,660 --> 00:08:56,050
+because the buttons won't be shown anymore
+177
+
+177
+00:08:56,050 --> 00:08:58,840
+because we move to that game over screen.
+178
+
+178
+00:08:58,840 --> 00:09:03,290
+But the problem is that this component function
+179
+
+179
+00:09:03,290 --> 00:09:06,780
+is rerendered one time where the current guess
+180
+
+180
+00:09:06,780 --> 00:09:08,965
+is equal to the userNumber.
+181
+
+181
+00:09:08,965 --> 00:09:12,650
+Now useEffect runs after this rerendered cycle.
+182
+
+182
+00:09:12,650 --> 00:09:14,740
+Hence we only trigger this function
+183
+
+183
+00:09:14,740 --> 00:09:16,780
+that moves to the game over screen
+184
+
+184
+00:09:16,780 --> 00:09:19,493
+after this component has been executed once.
+185
+
+185
+00:09:20,360 --> 00:09:23,170
+Now, this is early enough to avoid
+186
+
+186
+00:09:23,170 --> 00:09:26,150
+that the user is able to press these buttons again
+187
+
+187
+00:09:26,150 --> 00:09:29,420
+because the latest buttons won't have rendered yet.
+188
+
+188
+00:09:29,420 --> 00:09:32,830
+The buttons with the updated state won't have rendered yet.
+189
+
+189
+00:09:32,830 --> 00:09:35,200
+But this function here,
+190
+
+190
+00:09:35,200 --> 00:09:38,720
+this will execute before useEffect is evaluated,
+191
+
+191
+00:09:38,720 --> 00:09:41,663
+so before we can move on to the game over state.
+192
+
+192
+00:09:42,700 --> 00:09:45,360
+The work around is to hard code
+193
+
+193
+00:09:45,360 --> 00:09:48,840
+our default min and max values here.
+194
+
+194
+00:09:48,840 --> 00:09:51,200
+Because we only need this once, anyways,
+195
+
+195
+00:09:51,200 --> 00:09:53,470
+we only need this initially, anyways,
+196
+
+196
+00:09:53,470 --> 00:09:56,350
+and thereafter, we don't care about this.
+197
+
+197
+00:09:56,350 --> 00:10:00,130
+An alternative solution could be to use the useMemo hook
+198
+
+198
+00:10:00,130 --> 00:10:04,930
+provided by React to avoid that this gets executed again.
+199
+
+199
+00:10:04,930 --> 00:10:07,020
+This might be a great alternative,
+200
+
+200
+00:10:07,020 --> 00:10:09,520
+but this is a quick and simple workaround
+201
+
+201
+00:10:09,520 --> 00:10:11,023
+that also does the trick.
+202
+
+202
+00:10:12,170 --> 00:10:15,633
+And with that changed, if we now reload,
+203
+
+203
+00:10:16,620 --> 00:10:21,620
+we are able to play this game again, but now you will notice
+204
+
+204
+00:10:22,830 --> 00:10:24,490
+that we move to the game over screen
+205
+
+205
+00:10:24,490 --> 00:10:28,950
+as soon as we reach that number, 31 in this case.
+206
+
+206
+00:10:28,950 --> 00:10:31,450
+So now we got rid of this problem
+207
+
+207
+00:10:31,450 --> 00:10:34,270
+by hard coding these values.
+208
+
+208
+00:10:34,270 --> 00:10:36,010
+And it's really important to understand
+209
+
+209
+00:10:36,010 --> 00:10:39,800
+that we had this problem because useEffect technically
+210
+
+210
+00:10:39,800 --> 00:10:43,720
+runs after the component function has been executed.
+211
+
+211
+00:10:43,720 --> 00:10:47,290
+And, therefore, this executed with the equal min and max
+212
+
+212
+00:10:47,290 --> 00:10:49,460
+boundaries at a point of time
+213
+
+213
+00:10:49,460 --> 00:10:52,140
+where it shouldn't have executed again.
+214
+
+214
+00:10:52,140 --> 00:10:56,190
+Now this works, and now we can come back to styling
+215
+
+215
+00:10:56,190 --> 00:10:58,150
+and work on this game over screen.
+216
+
+216
+00:10:58,150 --> 00:11:01,570
+But also, of course, optimize is all these other screens.
+217
+
+217
+00:11:01,570 --> 00:11:05,090
+And as always, definitely feel free to do this on your own.
+218
+
+218
+00:11:05,090 --> 00:11:07,460
+Come up with your own layout and your own styling.
+219
+
+219
+00:11:07,460 --> 00:11:10,343
+And then see what I will do in the next lectures.
