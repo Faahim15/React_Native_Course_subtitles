@@ -1,0 +1,623 @@
+1
+00:00:02,100 --> 00:00:03,680
+So min and max width
+2
+
+2
+00:00:03,680 --> 00:00:07,200
+and min and max height are useful.
+3
+
+3
+00:00:07,200 --> 00:00:10,140
+But sometimes you have problems that can't be solved
+4
+
+4
+00:00:10,140 --> 00:00:12,940
+with these properties alone.
+5
+
+5
+00:00:12,940 --> 00:00:15,460
+And for this, let's get back here.
+6
+
+6
+00:00:15,460 --> 00:00:19,670
+This overall UI on a small screen is okay,
+7
+
+7
+00:00:19,670 --> 00:00:23,600
+but everything is a little bit too big.
+8
+
+8
+00:00:23,600 --> 00:00:27,190
+We might wanna choose a smaller font size.
+9
+
+9
+00:00:27,190 --> 00:00:29,810
+We might wanna choose less margin
+10
+
+10
+00:00:29,810 --> 00:00:34,090
+between this number container and this input box.
+11
+
+11
+00:00:34,090 --> 00:00:37,130
+We might want to make everything a little bit smaller
+12
+
+12
+00:00:37,130 --> 00:00:41,010
+because we know they we're on a smaller device.
+13
+
+13
+00:00:41,010 --> 00:00:43,093
+Now, how can we do that?
+14
+
+14
+00:00:44,020 --> 00:00:45,980
+There might be different ways of achieving this,
+15
+
+15
+00:00:45,980 --> 00:00:48,570
+but a great way of solving this
+16
+
+16
+00:00:48,570 --> 00:00:52,790
+is to use the built-in dimensions API.
+17
+
+17
+00:00:52,790 --> 00:00:55,450
+Now for that, I'll go to this number container
+18
+
+18
+00:00:55,450 --> 00:00:58,630
+as an example, and there I wanna reduce the padding
+19
+
+19
+00:00:58,630 --> 00:01:01,730
+and the margin if we're on a smaller screen,
+20
+
+20
+00:01:01,730 --> 00:01:03,740
+and I wanna reduce that font size
+21
+
+21
+00:01:03,740 --> 00:01:05,970
+if we're on a smaller screen.
+22
+
+22
+00:01:05,970 --> 00:01:08,730
+And for this we can use this dimensions API.
+23
+
+23
+00:01:08,730 --> 00:01:10,910
+And we use this dimensions API
+24
+
+24
+00:01:10,910 --> 00:01:14,010
+by importing it from react-native,
+25
+
+25
+00:01:14,010 --> 00:01:17,590
+because it is an API built into react-native.
+26
+
+26
+00:01:17,590 --> 00:01:21,160
+But it's not a component we would use in our JSX code,
+27
+
+27
+00:01:21,160 --> 00:01:23,220
+instead it's a JavaScript object
+28
+
+28
+00:01:23,220 --> 00:01:26,400
+which we can use anywhere in our JavaScript code,
+29
+
+29
+00:01:26,400 --> 00:01:30,910
+including our styles to get information out of it.
+30
+
+30
+00:01:30,910 --> 00:01:32,420
+Now which kind of information
+31
+
+31
+00:01:32,420 --> 00:01:35,850
+can we get out of the dimensions API?
+32
+
+32
+00:01:35,850 --> 00:01:40,183
+Well, for example, we can get the device width or height.
+33
+
+33
+00:01:41,190 --> 00:01:46,190
+So here we could get the device width by using dimensions,
+34
+
+34
+00:01:46,950 --> 00:01:50,070
+and then there is a get method which you can call.
+35
+
+35
+00:01:50,070 --> 00:01:53,460
+And the get method takes an argument, which is a string,
+36
+
+36
+00:01:53,460 --> 00:01:58,300
+which holds either a value of screen or window.
+37
+
+37
+00:01:58,300 --> 00:02:00,400
+On iOS there is no difference.
+38
+
+38
+00:02:00,400 --> 00:02:05,260
+On Android, screen is the entire available width and height,
+39
+
+39
+00:02:05,260 --> 00:02:07,430
+including the status bar.
+40
+
+40
+00:02:07,430 --> 00:02:10,030
+Window is excluding the status bar.
+41
+
+41
+00:02:10,030 --> 00:02:12,110
+So the actual part of the screen
+42
+
+42
+00:02:12,110 --> 00:02:16,330
+where the UI should be painted and usable.
+43
+
+43
+00:02:16,330 --> 00:02:21,320
+So I will use window here to get that available device size.
+44
+
+44
+00:02:21,320 --> 00:02:24,900
+And then on this object, which we get from this get method,
+45
+
+45
+00:02:24,900 --> 00:02:28,170
+we can access various properties.
+46
+
+46
+00:02:28,170 --> 00:02:29,640
+We can access font scale
+47
+
+47
+00:02:29,640 --> 00:02:33,460
+to find out which kind of scaling a user wants in the app.
+48
+
+48
+00:02:33,460 --> 00:02:35,490
+And you could then take this into account
+49
+
+49
+00:02:35,490 --> 00:02:39,320
+and multiply your font sizes by that factor.
+50
+
+50
+00:02:39,320 --> 00:02:42,500
+But here I'm interested in height and width.
+51
+
+51
+00:02:42,500 --> 00:02:45,970
+And we can, for example, get the width here,
+52
+
+52
+00:02:45,970 --> 00:02:48,340
+and then use that in our styles.
+53
+
+53
+00:02:48,340 --> 00:02:49,723
+But how can we use it?
+54
+
+54
+00:02:50,620 --> 00:02:54,270
+Well for one, you could use it in mathematical calculations
+55
+
+55
+00:02:54,270 --> 00:02:56,750
+and say that the padding should be something like
+56
+
+56
+00:02:56,750 --> 00:02:58,923
+device width divided by 10.
+57
+
+57
+00:02:59,770 --> 00:03:02,270
+But what's probably more useful here
+58
+
+58
+00:03:02,270 --> 00:03:04,580
+is that you can use it in if conditions
+59
+
+59
+00:03:04,580 --> 00:03:06,653
+or ternary expressions.
+60
+
+60
+00:03:07,510 --> 00:03:11,310
+We could say if the device width here is let's say
+61
+
+61
+00:03:11,310 --> 00:03:15,410
+smaller than 450 pixels,
+62
+
+62
+00:03:15,410 --> 00:03:20,410
+then we wanna use a padding of let's say 12,
+63
+
+63
+00:03:21,020 --> 00:03:24,630
+and we wanna use 24 if it's bigger than that.
+64
+
+64
+00:03:24,630 --> 00:03:28,250
+So on smaller screens we take a padding of 12 pixels
+65
+
+65
+00:03:28,250 --> 00:03:30,793
+on bigger screens we take 24.
+66
+
+66
+00:03:31,870 --> 00:03:36,440
+If we save that you see the padding is reduced now,
+67
+
+67
+00:03:36,440 --> 00:03:38,033
+it's now less here.
+68
+
+68
+00:03:38,890 --> 00:03:40,040
+But it looks like here
+69
+
+69
+00:03:40,040 --> 00:03:42,170
+I actually chose the wrong break point,
+70
+
+70
+00:03:42,170 --> 00:03:45,020
+because now on both devices, including the iPhone,
+71
+
+71
+00:03:45,020 --> 00:03:46,773
+we have very little padding.
+72
+
+72
+00:03:47,830 --> 00:03:50,350
+But if we find a better break point,
+73
+
+73
+00:03:50,350 --> 00:03:53,570
+like 380 in my case here,
+74
+
+74
+00:03:53,570 --> 00:03:56,150
+then I have less padding on the left device
+75
+
+75
+00:03:56,150 --> 00:03:58,610
+and more padding on the right.
+76
+
+76
+00:03:58,610 --> 00:04:01,230
+We can also use this for the margin of course.
+77
+
+77
+00:04:01,230 --> 00:04:06,230
+So here then use the same formula or a different condition
+78
+
+78
+00:04:06,630 --> 00:04:10,240
+with different values for the margin,
+79
+
+79
+00:04:10,240 --> 00:04:13,860
+so that also the margin around this number container
+80
+
+80
+00:04:13,860 --> 00:04:16,040
+is affected by that.
+81
+
+81
+00:04:16,040 --> 00:04:19,397
+Now this gap here is not just the margin we set here,
+82
+
+82
+00:04:19,397 --> 00:04:21,360
+therefore it's still pretty big,
+83
+
+83
+00:04:21,360 --> 00:04:23,693
+but will work on this gap soon as well.
+84
+
+84
+00:04:24,620 --> 00:04:29,430
+So that could be a useful tool for controlling some sizes.
+85
+
+85
+00:04:29,430 --> 00:04:30,540
+And you could, for example now,
+86
+
+86
+00:04:30,540 --> 00:04:32,520
+also use it here for the font size
+87
+
+87
+00:04:32,520 --> 00:04:36,330
+and stick to 36 on bigger devices,
+88
+
+88
+00:04:36,330 --> 00:04:40,640
+but reduce this to 28 on slightly smaller devices,
+89
+
+89
+00:04:40,640 --> 00:04:44,000
+so that the font is a little bit smaller
+90
+
+90
+00:04:44,000 --> 00:04:48,780
+compared to the device size than it is on bigger devices.
+91
+
+91
+00:04:48,780 --> 00:04:52,200
+Now, this is absolutely something you can play around with
+92
+
+92
+00:04:52,200 --> 00:04:55,960
+and you can adjust to your requirements and what you want,
+93
+
+93
+00:04:55,960 --> 00:04:58,830
+but you should be aware of this dimensions API,
+94
+
+94
+00:04:58,830 --> 00:05:01,210
+which can help with finding out
+95
+
+95
+00:05:01,210 --> 00:05:03,530
+which available space you have
+96
+
+96
+00:05:03,530 --> 00:05:06,750
+to then adjust certain settings based on it.
+97
+
+97
+00:05:06,750 --> 00:05:08,640
+And it's up to you, whether you adjust
+98
+
+98
+00:05:08,640 --> 00:05:11,590
+based on some if statement as we do it here,
+99
+
+99
+00:05:11,590 --> 00:05:14,470
+or if you have some dynamic calculation
+100
+
+100
+00:05:14,470 --> 00:05:17,913
+where the width or height is used as part of a formula.
+101
+
+101
+00:05:19,040 --> 00:05:20,090
+Now what I'll do here,
+102
+
+102
+00:05:20,090 --> 00:05:23,250
+is I also wanna reduce this gap here a little bit
+103
+
+103
+00:05:23,250 --> 00:05:24,120
+as I mentioned.
+104
+
+104
+00:05:24,120 --> 00:05:27,283
+And therefore what we can do is go back to the GameScreen,
+105
+
+105
+00:05:28,230 --> 00:05:30,360
+and there it's the gap between the card
+106
+
+106
+00:05:30,360 --> 00:05:31,823
+and the number container.
+107
+
+107
+00:05:33,780 --> 00:05:37,770
+And here it's that margin to the top on the card
+108
+
+108
+00:05:37,770 --> 00:05:39,790
+which I wanna change.
+109
+
+109
+00:05:39,790 --> 00:05:42,110
+And therefore in this card component
+110
+
+110
+00:05:42,110 --> 00:05:45,730
+we can also include the dimensions API,
+111
+
+111
+00:05:45,730 --> 00:05:49,520
+and then get our device with just as we did before,
+112
+
+112
+00:05:49,520 --> 00:05:54,420
+with dimensions get window, and then the width.
+113
+
+113
+00:05:54,420 --> 00:05:56,470
+And then we can use this here for the margin top
+114
+
+114
+00:05:56,470 --> 00:05:59,550
+and check if this is smaller than 380,
+115
+
+115
+00:05:59,550 --> 00:06:04,390
+in which case the margin top maybe should just be 18 pixels
+116
+
+116
+00:06:04,390 --> 00:06:08,020
+and otherwise it's 36 pixels.
+117
+
+117
+00:06:08,020 --> 00:06:12,630
+So now on smaller devices there's less margin to the top.
+118
+
+118
+00:06:12,630 --> 00:06:16,330
+And with that, we indeed did reduce this gap a little bit
+119
+
+119
+00:06:16,330 --> 00:06:17,710
+on the smaller device,
+120
+
+120
+00:06:17,710 --> 00:06:21,280
+and we still have the bigger gap on the bigger device.
+121
+
+121
+00:06:21,280 --> 00:06:25,740
+Now, again, play around with it, find your favorite settings
+122
+
+122
+00:06:25,740 --> 00:06:29,720
+and maybe adjust other components as well if you want to.
+123
+
+123
+00:06:29,720 --> 00:06:33,340
+I just wanted to introduce you to that dimensions API
+124
+
+124
+00:06:33,340 --> 00:06:35,530
+because it can be a useful tool
+125
+
+125
+00:06:35,530 --> 00:06:37,593
+for situations like this here.
