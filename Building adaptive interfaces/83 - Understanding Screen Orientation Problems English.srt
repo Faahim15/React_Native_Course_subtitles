@@ -1,0 +1,333 @@
+1
+00:00:02,070 --> 00:00:04,710
+So that was the Dimensions API.
+2
+
+2
+00:00:04,710 --> 00:00:07,370
+Very useful, as you can tell.
+3
+
+3
+00:00:07,370 --> 00:00:09,800
+Now, there's one thing we can't do with it
+4
+
+4
+00:00:09,800 --> 00:00:12,620
+and with our app at the moment, though,
+5
+
+5
+00:00:12,620 --> 00:00:15,930
+and that is rotate our screen.
+6
+
+6
+00:00:15,930 --> 00:00:18,010
+I mean, we can rotate it.
+7
+
+7
+00:00:18,010 --> 00:00:19,520
+Here I'm using a shortcut
+8
+
+8
+00:00:19,520 --> 00:00:21,440
+but you can also do this here
+9
+
+9
+00:00:22,280 --> 00:00:24,940
+with the menu on iOS
+10
+
+10
+00:00:24,940 --> 00:00:27,080
+and rotate your device.
+11
+
+11
+00:00:27,080 --> 00:00:30,213
+And on Android, you can use these buttons to rotate it.
+12
+
+12
+00:00:31,120 --> 00:00:34,490
+But as you can tell, the screen doesn't adjust to that.
+13
+
+13
+00:00:34,490 --> 00:00:35,763
+It doesn't flip.
+14
+
+14
+00:00:36,730 --> 00:00:39,300
+The reason for that is that this app here
+15
+
+15
+00:00:39,300 --> 00:00:42,653
+by default has the orientation locked to portrait.
+16
+
+16
+00:00:43,490 --> 00:00:45,410
+You can set this in app.json,
+17
+
+17
+00:00:45,410 --> 00:00:48,020
+which is a conflict file picked up by Expo
+18
+
+18
+00:00:48,020 --> 00:00:51,680
+and this locks the orientation of the app
+19
+
+19
+00:00:51,680 --> 00:00:54,673
+to a certain aspect, in this case to portrait.
+20
+
+20
+00:00:55,620 --> 00:00:57,270
+Now, this is maybe what you want.
+21
+
+21
+00:00:57,270 --> 00:01:00,350
+And to be honest for this kind of app, for this game,
+22
+
+22
+00:01:00,350 --> 00:01:02,040
+it would probably make sense
+23
+
+23
+00:01:02,040 --> 00:01:04,483
+to lock it to that orientation.
+24
+
+24
+00:01:05,420 --> 00:01:07,260
+But of course you could also be building apps
+25
+
+25
+00:01:07,260 --> 00:01:09,540
+where this is not locked in place,
+26
+
+26
+00:01:09,540 --> 00:01:12,500
+and you can also unlock it with Expo
+27
+
+27
+00:01:12,500 --> 00:01:16,180
+by setting this to default, instead of portrait.
+28
+
+28
+00:01:16,180 --> 00:01:18,650
+As a side note, you can also set it to landscape
+29
+
+29
+00:01:18,650 --> 00:01:20,180
+to lock it to that mode,
+30
+
+30
+00:01:20,180 --> 00:01:22,750
+but here I'll go to default.
+31
+
+31
+00:01:22,750 --> 00:01:25,210
+Now it's not locked anymore.
+32
+
+32
+00:01:25,210 --> 00:01:28,230
+And if we now flip this, it still doesn't adjust
+33
+
+33
+00:01:28,230 --> 00:01:30,730
+because typically you need to restart your app
+34
+
+34
+00:01:30,730 --> 00:01:32,163
+for this to have an effect.
+35
+
+35
+00:01:33,000 --> 00:01:36,174
+Here I pressed R in the terminal to force a reload
+36
+
+36
+00:01:36,174 --> 00:01:39,753
+and thereafter it's now flipping on iOS.
+37
+
+37
+00:01:40,820 --> 00:01:44,350
+On Android, it might still not be adjusting.
+38
+
+38
+00:01:44,350 --> 00:01:47,150
+For me it is, but it might not be adjusting.
+39
+
+39
+00:01:47,150 --> 00:01:49,807
+In that case open this menu here
+40
+
+40
+00:01:49,807 --> 00:01:53,113
+and make sure that auto-rotate is on.
+41
+
+41
+00:01:54,120 --> 00:01:56,786
+And once this is on, you should be able
+42
+
+42
+00:01:56,786 --> 00:02:00,573
+to flip this screen on Android as well.
+43
+
+43
+00:02:01,620 --> 00:02:03,930
+Now, what you can see is that
+44
+
+44
+00:02:03,930 --> 00:02:06,131
+if you do change the orientation
+45
+
+45
+00:02:06,131 --> 00:02:09,200
+the app might get broken.
+46
+
+46
+00:02:09,200 --> 00:02:12,420
+Here on Android, we can barely use it still
+47
+
+47
+00:02:12,420 --> 00:02:13,933
+but it doesn't look good.
+48
+
+48
+00:02:15,080 --> 00:02:17,440
+And here on iOS, it looks better
+49
+
+49
+00:02:17,440 --> 00:02:19,370
+but still not perfect.
+50
+
+50
+00:02:19,370 --> 00:02:21,600
+There's too much space to the top now.
+51
+
+51
+00:02:21,600 --> 00:02:25,330
+And if we open that keyboard on iOS
+52
+
+52
+00:02:25,330 --> 00:02:26,770
+and by default it's not open
+53
+
+53
+00:02:26,770 --> 00:02:28,830
+because you can type with the keyboard,
+54
+
+54
+00:02:28,830 --> 00:02:32,800
+with your regular keyboard, into the simulator.
+55
+
+55
+00:02:32,800 --> 00:02:37,800
+But if you do force that keyboard by going to IO, Keyboard
+56
+
+56
+00:02:38,344 --> 00:02:42,626
+and then you use that, you toggle that software keyboard
+57
+
+57
+00:02:42,626 --> 00:02:45,060
+then you see that that keyboard actually
+58
+
+58
+00:02:45,060 --> 00:02:48,230
+overlaps the input and you can't actually
+59
+
+59
+00:02:48,230 --> 00:02:50,770
+close it by tapping anywhere else.
+60
+
+60
+00:02:50,770 --> 00:02:53,670
+So now the app is not usable anymore here.
+61
+
+61
+00:02:53,670 --> 00:02:55,980
+I can only close it here in the simulator
+62
+
+62
+00:02:55,980 --> 00:02:58,370
+by using this toggle shortcut again.
+63
+
+63
+00:02:58,370 --> 00:03:01,493
+But of course the real users of your app won't have that.
+64
+
+64
+00:03:03,240 --> 00:03:05,497
+So therefore this is not working this well
+65
+
+65
+00:03:05,497 --> 00:03:09,170
+in different orientations, as you can tell.
+66
+
+66
+00:03:09,170 --> 00:03:11,470
+And that is what we will work on next
+67
+
+67
+00:03:11,470 --> 00:03:14,913
+to improve this app for different orientations.

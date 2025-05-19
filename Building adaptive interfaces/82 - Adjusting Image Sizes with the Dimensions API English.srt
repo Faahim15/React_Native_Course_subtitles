@@ -1,0 +1,428 @@
+1
+00:00:02,180 --> 00:00:03,470
+Now, as a next step,
+2
+
+2
+00:00:03,470 --> 00:00:04,660
+I wanna solve this game
+3
+
+3
+00:00:04,660 --> 00:00:06,450
+and come back to this "game over" screen,
+4
+
+4
+00:00:06,450 --> 00:00:09,620
+because here, things are also a bit too big.
+5
+
+5
+00:00:09,620 --> 00:00:13,430
+And it's mostly this image, which is too big.
+6
+
+6
+00:00:13,430 --> 00:00:15,290
+The rest could be adjusted as well,
+7
+
+7
+00:00:15,290 --> 00:00:17,970
+but the image is definitely too big.
+8
+
+8
+00:00:17,970 --> 00:00:19,770
+Now with our newly-gained knowledge
+9
+
+9
+00:00:19,770 --> 00:00:21,740
+about the dimensions API,
+10
+
+10
+00:00:21,740 --> 00:00:23,363
+we can improve this as well.
+11
+
+11
+00:00:24,310 --> 00:00:26,080
+In the "game over" screen component,
+12
+
+12
+00:00:26,080 --> 00:00:27,180
+we got this image,
+13
+
+13
+00:00:27,180 --> 00:00:31,030
+and this image has the Styles image style object,
+14
+
+14
+00:00:31,030 --> 00:00:33,140
+so, this one here.
+15
+
+15
+00:00:33,140 --> 00:00:36,120
+And there we set the width and height to 100%,
+16
+
+16
+00:00:36,120 --> 00:00:38,820
+which, as you learned, refers to the container,
+17
+
+17
+00:00:38,820 --> 00:00:41,340
+and the container around the image is this view
+18
+
+18
+00:00:41,340 --> 00:00:45,010
+with that imageContainer style applied to it.
+19
+
+19
+00:00:45,010 --> 00:00:46,990
+If we have a look at this imageContainer style,
+20
+
+20
+00:00:46,990 --> 00:00:49,640
+we see that the width and height is hard coded
+21
+
+21
+00:00:49,640 --> 00:00:51,890
+to 300 pixels,
+22
+
+22
+00:00:51,890 --> 00:00:55,670
+and hard coding values like this is very often
+23
+
+23
+00:00:55,670 --> 00:00:56,720
+not a good idea
+24
+
+24
+00:00:56,720 --> 00:00:59,120
+because you don't know on which device size
+25
+
+25
+00:00:59,120 --> 00:01:00,863
+your app will run in the end.
+26
+
+26
+00:01:01,950 --> 00:01:06,330
+So, again, we can solve this with the dimensions API.
+27
+
+27
+00:01:06,330 --> 00:01:08,750
+And the dimensions API might be better
+28
+
+28
+00:01:08,750 --> 00:01:12,210
+than using an alternative like percentage values,
+29
+
+29
+00:01:12,210 --> 00:01:14,290
+which are also relative,
+30
+
+30
+00:01:14,290 --> 00:01:16,560
+because we wanna ensure that width and height
+31
+
+31
+00:01:16,560 --> 00:01:18,730
+do have the same value
+32
+
+32
+00:01:18,730 --> 00:01:22,000
+so that we create a square with rounded corners,
+33
+
+33
+00:01:22,000 --> 00:01:24,263
+to ultimately create that circle.
+34
+
+34
+00:01:25,160 --> 00:01:29,340
+If I would say that width and height should maybe be 50%,
+35
+
+35
+00:01:29,340 --> 00:01:33,090
+then you could think that you also get a relative size
+36
+
+36
+00:01:33,090 --> 00:01:35,960
+relative to the available width and height,
+37
+
+37
+00:01:35,960 --> 00:01:39,840
+but the problem is that these values are now not the same.
+38
+
+38
+00:01:39,840 --> 00:01:42,080
+Yes, they are both 50%,
+39
+
+39
+00:01:42,080 --> 00:01:46,000
+but 50% of different values.
+40
+
+40
+00:01:46,000 --> 00:01:47,550
+The width of the container
+41
+
+41
+00:01:47,550 --> 00:01:49,530
+will not be the same as the height,
+42
+
+42
+00:01:49,530 --> 00:01:52,080
+so 50% of the available width,
+43
+
+43
+00:01:52,080 --> 00:01:56,393
+will be a different number than 50% of the available height.
+44
+
+44
+00:01:57,300 --> 00:02:00,983
+And, therefore, percentage values are not helpful here.
+45
+
+45
+00:02:01,850 --> 00:02:05,480
+Instead, this is a great scenario for the dimensions API,
+46
+
+46
+00:02:05,480 --> 00:02:08,410
+because we wanna have a hard coded value,
+47
+
+47
+00:02:08,410 --> 00:02:11,130
+but the hard coded value should be different
+48
+
+48
+00:02:11,130 --> 00:02:13,193
+for different device sizes.
+49
+
+49
+00:02:14,220 --> 00:02:15,430
+So, therefore, here again,
+50
+
+50
+00:02:15,430 --> 00:02:19,053
+we can import the dimensions API from React Native,
+51
+
+51
+00:02:20,230 --> 00:02:21,890
+and then, as many times before,
+52
+
+52
+00:02:21,890 --> 00:02:25,250
+we can get the device width, and, by the way,
+53
+
+53
+00:02:25,250 --> 00:02:27,300
+you could, of course, also get the device height
+54
+
+54
+00:02:27,300 --> 00:02:28,970
+if that would be more important
+55
+
+55
+00:02:28,970 --> 00:02:31,740
+than the available width for you.
+56
+
+56
+00:02:31,740 --> 00:02:35,030
+The dimensions API gives you both width and height,
+57
+
+57
+00:02:35,030 --> 00:02:37,023
+and it's up to you what you wanna use.
+58
+
+58
+00:02:37,970 --> 00:02:40,380
+But, here, I'll get the available width,
+59
+
+59
+00:02:40,380 --> 00:02:44,660
+and then here, I want to actually, again,
+60
+
+60
+00:02:44,660 --> 00:02:48,600
+check if we're smaller than 380 pixels,
+61
+
+61
+00:02:48,600 --> 00:02:51,770
+in which case I only wanna use 150 pixels
+62
+
+62
+00:02:51,770 --> 00:02:53,960
+as width for this image,
+63
+
+63
+00:02:53,960 --> 00:02:57,223
+and 300 pixels only if we are on a bigger screen.
+64
+
+64
+00:02:58,170 --> 00:03:01,940
+And now we use the same formula that uses the device width,
+65
+
+65
+00:03:01,940 --> 00:03:03,200
+for the height,
+66
+
+66
+00:03:03,200 --> 00:03:05,570
+because I wanna use a height of 150,
+67
+
+67
+00:03:05,570 --> 00:03:08,880
+if we're on a small device that has a width
+68
+
+68
+00:03:08,880 --> 00:03:11,840
+less than 380 pixels available,
+69
+
+69
+00:03:11,840 --> 00:03:15,360
+and 300 pixels as a height for the image,
+70
+
+70
+00:03:15,360 --> 00:03:16,733
+in other cases.
+71
+
+71
+00:03:17,580 --> 00:03:19,710
+The border radius should also be adjusted
+72
+
+72
+00:03:19,710 --> 00:03:22,040
+because the border radius should be half
+73
+
+73
+00:03:22,040 --> 00:03:23,610
+the image width and height,
+74
+
+74
+00:03:23,610 --> 00:03:25,810
+and therefore, here, we have the same check,
+75
+
+75
+00:03:25,810 --> 00:03:29,450
+but then we use 75 for the small screen case
+76
+
+76
+00:03:29,450 --> 00:03:32,283
+and 150 for the big screen case.
+77
+
+77
+00:03:33,600 --> 00:03:37,090
+And, now, with that, this image is much smaller
+78
+
+78
+00:03:37,090 --> 00:03:39,560
+and this screen looks much better
+79
+
+79
+00:03:39,560 --> 00:03:41,583
+on smaller devices.
+80
+
+80
+00:03:42,490 --> 00:03:45,330
+On bigger devices, we have a bigger image,
+81
+
+81
+00:03:45,330 --> 00:03:47,620
+which also looks good there.
+82
+
+82
+00:03:47,620 --> 00:03:50,940
+So, again, that's the dimensions API in action,
+83
+
+83
+00:03:50,940 --> 00:03:54,220
+and, as you see, it can be a very useful API.
+84
+
+84
+00:03:54,220 --> 00:03:57,410
+And also keep in mind, it's not limited to just the width,
+85
+
+85
+00:03:57,410 --> 00:03:59,690
+even though I just used the width here,
+86
+
+86
+00:03:59,690 --> 00:04:02,593
+you could also use it for working with the height.
