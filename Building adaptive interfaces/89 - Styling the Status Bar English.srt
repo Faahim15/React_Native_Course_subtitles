@@ -1,0 +1,208 @@
+1
+00:00:02,100 --> 00:00:05,450
+Now to come to an end in this course section
+2
+
+2
+00:00:05,450 --> 00:00:08,700
+there is one last component I wanna talk about.
+3
+
+3
+00:00:08,700 --> 00:00:10,690
+And that's the status bar.
+4
+
+4
+00:00:10,690 --> 00:00:13,800
+We actually did see this early in the course already
+5
+
+5
+00:00:13,800 --> 00:00:16,620
+and I wanna reintroduce it here.
+6
+
+6
+00:00:16,620 --> 00:00:20,300
+The status bar component is a component exposed by Expo
+7
+
+7
+00:00:20,300 --> 00:00:23,883
+which allows us to control how the status bar looks like.
+8
+
+8
+00:00:24,830 --> 00:00:26,250
+And typically you want to include
+9
+
+9
+00:00:26,250 --> 00:00:28,240
+that in your app JS file
+10
+
+10
+00:00:28,240 --> 00:00:31,840
+though you can include it in specific component files
+11
+
+11
+00:00:31,840 --> 00:00:34,930
+specifically components that take up the entire screen
+12
+
+12
+00:00:34,930 --> 00:00:37,640
+to style the status bar differently
+13
+
+13
+00:00:37,640 --> 00:00:39,593
+inside of different components.
+14
+
+14
+00:00:40,510 --> 00:00:45,430
+Now, for this, we need to import from expo-status-bar
+15
+
+15
+00:00:46,560 --> 00:00:47,820
+and this is a package
+16
+
+16
+00:00:47,820 --> 00:00:51,510
+that should already be installed by default.
+17
+
+17
+00:00:51,510 --> 00:00:55,010
+And what we import from there is the StatusBar
+18
+
+18
+00:00:55,010 --> 00:00:56,683
+between curly braces like this.
+19
+
+19
+00:00:57,710 --> 00:01:01,860
+Now we can use this here in my app component in this case.
+20
+
+20
+00:01:01,860 --> 00:01:03,940
+Next to my root component here
+21
+
+21
+00:01:03,940 --> 00:01:05,960
+which in this case is the linear gradient.
+22
+
+22
+00:01:05,960 --> 00:01:08,280
+There I will render my StatusBar.
+23
+
+23
+00:01:08,280 --> 00:01:11,420
+And now since I have two sibling root components
+24
+
+24
+00:01:11,420 --> 00:01:15,280
+I will wrap this with this fragment component here.
+25
+
+25
+00:01:15,280 --> 00:01:17,280
+Otherwise this wouldn't be allowed.
+26
+
+26
+00:01:17,280 --> 00:01:18,830
+And on StatusBar,
+27
+
+27
+00:01:18,830 --> 00:01:23,830
+you can now set the style to light, like this
+28
+
+28
+00:01:24,400 --> 00:01:26,480
+and you get a white status bar.
+29
+
+29
+00:01:26,480 --> 00:01:29,883
+Now all on iOS where it was gone before.
+30
+
+30
+00:01:31,090 --> 00:01:33,900
+Alternatively, you could set this to dark
+31
+
+31
+00:01:33,900 --> 00:01:35,810
+to get a dark status bar.
+32
+
+32
+00:01:35,810 --> 00:01:38,000
+Now here, I'd say light looks a little bit better.
+33
+
+33
+00:01:38,000 --> 00:01:40,740
+So I'll go for a style light, but as always
+34
+
+34
+00:01:40,740 --> 00:01:44,770
+you can choose the style you prefer, but it is worth noting
+35
+
+35
+00:01:44,770 --> 00:01:48,200
+that this status bar component is a key component
+36
+
+36
+00:01:48,200 --> 00:01:52,140
+that allows you to control whenever a status bar is shown
+37
+
+37
+00:01:52,140 --> 00:01:55,680
+as you saw it was missing before and how it looks like.
+38
+
+38
+00:01:55,680 --> 00:01:57,620
+And therefore, typically you wanna add it
+39
+
+39
+00:01:57,620 --> 00:01:59,860
+because you want a status bar
+40
+
+40
+00:01:59,860 --> 00:02:02,600
+and you want the dead status bar to look good.
+41
+
+41
+00:02:02,600 --> 00:02:03,590
+So here you go.
+42
+
+42
+00:02:03,590 --> 00:02:06,263
+The status bar component has got you covered.
