@@ -1,0 +1,363 @@
+1
+00:00:02,100 --> 00:00:04,580
+This course section will build
+2
+
+2
+00:00:04,580 --> 00:00:07,140
+up on the previous course section.
+3
+
+3
+00:00:07,140 --> 00:00:09,100
+Now, in that previous section,
+4
+
+4
+00:00:09,100 --> 00:00:13,020
+we learned a lot about building real React Native apps,
+5
+
+5
+00:00:13,020 --> 00:00:15,370
+how we can build nice layouts and styles
+6
+
+6
+00:00:15,370 --> 00:00:19,290
+and combine multiple components, custom components
+7
+
+7
+00:00:19,290 --> 00:00:23,600
+and built-in components to build real mobile apps
+8
+
+8
+00:00:23,600 --> 00:00:24,943
+with React Native.
+9
+
+9
+00:00:25,790 --> 00:00:28,570
+In this course section, we're going to learn
+10
+
+10
+00:00:28,570 --> 00:00:30,850
+how we can make our mobile apps
+11
+
+11
+00:00:30,850 --> 00:00:35,850
+and our mobile user interfaces more adaptive and responsive,
+12
+
+12
+00:00:36,430 --> 00:00:40,380
+how we can build apps that adapt to different platforms
+13
+
+13
+00:00:40,380 --> 00:00:43,090
+and different device sizes
+14
+
+14
+00:00:43,090 --> 00:00:47,360
+and how we can, for example, write platform-specific code
+15
+
+15
+00:00:47,360 --> 00:00:50,450
+which means that we generally have one code based
+16
+
+16
+00:00:50,450 --> 00:00:53,280
+for both iOS and Android, of course,
+17
+
+17
+00:00:53,280 --> 00:00:56,760
+but that in some cases we can differentiate
+18
+
+18
+00:00:56,760 --> 00:01:00,900
+between those platforms and execute slightly different code
+19
+
+19
+00:01:00,900 --> 00:01:03,770
+based on which platform we're running.
+20
+
+20
+00:01:03,770 --> 00:01:06,240
+In addition, we're going to learn how we can adjust
+21
+
+21
+00:01:06,240 --> 00:01:08,250
+to different device sizes
+22
+
+22
+00:01:08,250 --> 00:01:10,920
+and for example, update our styling
+23
+
+23
+00:01:10,920 --> 00:01:14,990
+or our layout based on the available width and height.
+24
+
+24
+00:01:14,990 --> 00:01:17,670
+And we're going to learn how we can also React
+25
+
+25
+00:01:17,670 --> 00:01:20,780
+to the screen orientation chosen by the user.
+26
+
+26
+00:01:20,780 --> 00:01:24,730
+In general, the idea behind this course section is,
+27
+
+27
+00:01:24,730 --> 00:01:27,860
+to teach you a broad variety of tools
+28
+
+28
+00:01:27,860 --> 00:01:31,050
+that you have to adjust your interface as needed
+29
+
+29
+00:01:31,050 --> 00:01:34,780
+and to teach you how you can build adaptive components
+30
+
+30
+00:01:34,780 --> 00:01:37,510
+which live in one and the same code base
+31
+
+31
+00:01:37,510 --> 00:01:41,123
+and still can adapt to different environments.
+32
+
+32
+00:01:42,450 --> 00:01:44,530
+Now, for this course section,
+33
+
+33
+00:01:44,530 --> 00:01:46,550
+I wanna build up on the app we built
+34
+
+34
+00:01:46,550 --> 00:01:48,400
+in the previous course section
+35
+
+35
+00:01:48,400 --> 00:01:51,940
+and therefore you find the code of that finished app
+36
+
+36
+00:01:51,940 --> 00:01:54,800
+which we built in the previous section attached
+37
+
+37
+00:01:54,800 --> 00:01:57,650
+to this lecture so that we can all start
+38
+
+38
+00:01:57,650 --> 00:01:59,363
+with the same code base.
+39
+
+39
+00:02:00,270 --> 00:02:03,200
+Now, here is the app running on iOS and Android.
+40
+
+40
+00:02:03,200 --> 00:02:07,390
+And I would say the look and the layout is quite good.
+41
+
+41
+00:02:07,390 --> 00:02:11,053
+There isn't anything obvious that I would want to change.
+42
+
+42
+00:02:11,970 --> 00:02:16,920
+But, of course, not all our users are going to use one
+43
+
+43
+00:02:16,920 --> 00:02:19,910
+of the latest iPhones or Android devices,
+44
+
+44
+00:02:19,910 --> 00:02:24,470
+instead they might be using older or smaller devices.
+45
+
+45
+00:02:24,470 --> 00:02:28,487
+And our app typically should be able to adjust to that.
+46
+
+46
+00:02:28,487 --> 00:02:31,780
+And we wanna adjust our look and feel.
+47
+
+47
+00:02:31,780 --> 00:02:35,660
+For example, here I also started an Android emulator
+48
+
+48
+00:02:35,660 --> 00:02:38,860
+based on the Nexus 5 image.
+49
+
+49
+00:02:38,860 --> 00:02:43,610
+And I'll close the more recent pixel three device emulator.
+50
+
+50
+00:02:43,610 --> 00:02:46,120
+Now this is a fine Android device
+51
+
+51
+00:02:46,120 --> 00:02:49,630
+but as you can clearly tell, it is a bit smaller.
+52
+
+52
+00:02:49,630 --> 00:02:52,700
+If I resize this, it just gets bigger here on the screen,
+53
+
+53
+00:02:52,700 --> 00:02:57,130
+but if we talk about available pixels, it is smaller.
+54
+
+54
+00:02:57,130 --> 00:02:59,530
+It has less space available.
+55
+
+55
+00:02:59,530 --> 00:03:01,470
+And if that would be a real device,
+56
+
+56
+00:03:01,470 --> 00:03:03,280
+the screen would be smaller.
+57
+
+57
+00:03:03,280 --> 00:03:05,600
+We can tell that everything is smaller
+58
+
+58
+00:03:05,600 --> 00:03:08,363
+because everything is bigger here on the UI.
+59
+
+59
+00:03:09,300 --> 00:03:12,270
+And the starting screen still looks all right,
+60
+
+60
+00:03:12,270 --> 00:03:16,900
+but if we dive into the game, we notice some differences.
+61
+
+61
+00:03:16,900 --> 00:03:20,010
+For example, the title is right at the top here.
+62
+
+62
+00:03:20,010 --> 00:03:23,230
+It's really at the edge of this screen
+63
+
+63
+00:03:23,230 --> 00:03:26,750
+because this device is smaller.
+64
+
+64
+00:03:26,750 --> 00:03:31,290
+Now, if we play this game here until it's over,
+65
+
+65
+00:03:31,290 --> 00:03:34,410
+then we see that also on this game over screen.
+66
+
+66
+00:03:34,410 --> 00:03:36,840
+Yeah, it fits on one screen
+67
+
+67
+00:03:36,840 --> 00:03:40,260
+but the title is really already a little bit below
+68
+
+68
+00:03:40,260 --> 00:03:43,450
+the status bar and everything probably
+69
+
+69
+00:03:43,450 --> 00:03:47,673
+is a little bit too big for this small of a device.
+70
+
+70
+00:03:48,710 --> 00:03:51,260
+So therefore we might wanna adjust some
+71
+
+71
+00:03:51,260 --> 00:03:55,160
+of our style settings, some of our layout styles,
+72
+
+72
+00:03:55,160 --> 00:04:00,160
+such that the app looks a bit better on smaller devices.
+73
+
+73
+00:04:00,200 --> 00:04:03,100
+And that's what we're going to start with in this section.
