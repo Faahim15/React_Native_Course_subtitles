@@ -1,0 +1,408 @@
+1
+00:00:02,120 --> 00:00:05,680
+So how can we make everything a bit smaller?
+2
+
+2
+00:00:05,680 --> 00:00:08,290
+Let's maybe start with this game screen.
+3
+
+3
+00:00:08,290 --> 00:00:10,163
+This game screen is okay
+4
+
+4
+00:00:10,163 --> 00:00:14,260
+but some things are a little bit too big.
+5
+
+5
+00:00:14,260 --> 00:00:17,445
+For example, besides the position of that title, which,
+6
+
+6
+00:00:17,445 --> 00:00:21,790
+in my opinion, is a little bit too far at the top,
+7
+
+7
+00:00:21,790 --> 00:00:26,080
+we might wanna decrease the width of this a little bit.
+8
+
+8
+00:00:26,080 --> 00:00:29,610
+And if we have a look at our game screen, JS file,
+9
+
+9
+00:00:29,610 --> 00:00:32,220
+there, we have various styles.
+10
+
+10
+00:00:32,220 --> 00:00:34,360
+But of course, for this title
+11
+
+11
+00:00:34,360 --> 00:00:36,100
+we don't have any specific styles
+12
+
+12
+00:00:36,100 --> 00:00:38,770
+because data is a custom component stored
+13
+
+13
+00:00:38,770 --> 00:00:41,220
+in the components UI folder.
+14
+
+14
+00:00:41,220 --> 00:00:45,510
+And if we go there, we see that in the end
+15
+
+15
+00:00:45,510 --> 00:00:48,840
+we have no real settings regarding the width
+16
+
+16
+00:00:48,840 --> 00:00:51,480
+that should be taken up by this title.
+17
+
+17
+00:00:51,480 --> 00:00:54,640
+Instead, we basically take all the width we can get
+18
+
+18
+00:00:54,640 --> 00:00:57,360
+and the only spacing around it, this title, therefore
+19
+
+19
+00:00:57,360 --> 00:01:00,400
+is margin or padding applied to this title
+20
+
+20
+00:01:00,400 --> 00:01:03,460
+or to the container holding this title.
+21
+
+21
+00:01:03,460 --> 00:01:04,980
+And that might be fine,
+22
+
+22
+00:01:04,980 --> 00:01:09,830
+but what we could do here, is we could give this a max width
+23
+
+23
+00:01:09,830 --> 00:01:13,240
+of let's say, 80%.
+24
+
+24
+00:01:13,240 --> 00:01:14,710
+And that then should be a string,
+25
+
+25
+00:01:14,710 --> 00:01:16,533
+so we should wrap it between quotes.
+26
+
+26
+00:01:18,090 --> 00:01:21,870
+If we do this, then this title gets a bit smaller.
+27
+
+27
+00:01:21,870 --> 00:01:25,470
+It's also not centered anymore because the parent container
+28
+
+28
+00:01:25,470 --> 00:01:29,640
+which uses Flexbox, because all views use Flexbox
+29
+
+29
+00:01:29,640 --> 00:01:33,870
+in React Native doesn't center, its child items.
+30
+
+30
+00:01:33,870 --> 00:01:36,420
+So we would have to go to the game screen,
+31
+
+31
+00:01:36,420 --> 00:01:41,420
+and then in there go to this view, this screen view
+32
+
+32
+00:01:42,130 --> 00:01:45,410
+and make sure that all the children in there are centered
+33
+
+33
+00:01:45,410 --> 00:01:49,593
+by adding align items center here like this.
+34
+
+34
+00:01:51,450 --> 00:01:54,360
+And now that is all centered again.
+35
+
+35
+00:01:54,360 --> 00:01:56,940
+Now it is up to you whether you like this or not.
+36
+
+36
+00:01:56,940 --> 00:02:00,480
+But what I wanna show you and emphasize is
+37
+
+37
+00:02:00,480 --> 00:02:03,340
+that you can use relative units like this,
+38
+
+38
+00:02:03,340 --> 00:02:06,960
+and we have used them before, to control widths and heights
+39
+
+39
+00:02:06,960 --> 00:02:10,380
+and that you can not just set the width and height itself
+40
+
+40
+00:02:10,380 --> 00:02:14,470
+but that you can also set max width or min width
+41
+
+41
+00:02:14,470 --> 00:02:19,443
+besides the regular width to create more responsive sizes.
+42
+
+42
+00:02:20,370 --> 00:02:24,340
+Because when you set the width, then it's always that width.
+43
+
+43
+00:02:24,340 --> 00:02:27,320
+It's now always 80%.
+44
+
+44
+00:02:27,320 --> 00:02:31,000
+With max width, it's up to 80%,
+45
+
+45
+00:02:31,000 --> 00:02:35,050
+but it could be less if less space is needed.
+46
+
+46
+00:02:35,050 --> 00:02:37,373
+We could, for example, also set a width of,
+47
+
+47
+00:02:38,676 --> 00:02:41,060
+let's say, 300 pixels, which would be the default,
+48
+
+48
+00:02:41,060 --> 00:02:44,692
+but we could then also at max width 80% to make sure
+49
+
+49
+00:02:44,692 --> 00:02:49,692
+that 300 pixels is taken, unless that would be more than 80%
+50
+
+50
+00:02:50,270 --> 00:02:53,240
+of the parent container, in which case the 80%
+51
+
+51
+00:02:53,240 --> 00:02:54,183
+become active.
+52
+
+52
+00:02:55,290 --> 00:02:57,770
+So with this on bigger screens
+53
+
+53
+00:02:57,770 --> 00:03:00,770
+we can take a little bit more space, as you can tell by
+54
+
+54
+00:03:00,770 --> 00:03:03,100
+the available space to the left and the right of
+55
+
+55
+00:03:03,100 --> 00:03:03,933
+the text.
+56
+
+56
+00:03:03,933 --> 00:03:07,400
+There is less space available here on the smaller screen.
+57
+
+57
+00:03:07,400 --> 00:03:10,340
+On the bigger screen, this gap is wider.
+58
+
+58
+00:03:10,340 --> 00:03:13,920
+But we only take the 300 pixels, which we seem to take here,
+59
+
+59
+00:03:13,920 --> 00:03:16,130
+if there is enough space.
+60
+
+60
+00:03:16,130 --> 00:03:18,830
+Here on the smaller screen, 300 pixels
+61
+
+61
+00:03:18,830 --> 00:03:22,236
+would be more than 80% of the available width,
+62
+
+62
+00:03:22,236 --> 00:03:24,570
+and therefor the 80% are taken instead since
+63
+
+63
+00:03:24,570 --> 00:03:25,760
+that is our max width,
+64
+
+64
+00:03:25,760 --> 00:03:28,230
+and therefor the upper boundary of the width
+65
+
+65
+00:03:28,230 --> 00:03:29,333
+of this container.
+66
+
+66
+00:03:30,290 --> 00:03:32,610
+And what's really important to note is
+67
+
+67
+00:03:32,610 --> 00:03:35,810
+that percentage settings like this always refer to
+68
+
+68
+00:03:35,810 --> 00:03:39,140
+the parent container that holds an element.
+69
+
+69
+00:03:39,140 --> 00:03:44,003
+So, if I say at the title to a max width of 80%, those 80%
+70
+
+70
+00:03:44,003 --> 00:03:48,040
+refer to the parent container that holds the title.
+71
+
+71
+00:03:48,040 --> 00:03:53,040
+So, in this case to this view, because of this title,
+72
+
+72
+00:03:53,430 --> 00:03:56,123
+this view is the parent container.
+73
+
+73
+00:03:56,990 --> 00:04:00,891
+So, it's the width of this view of which 80% are taken by
+74
+
+74
+00:04:00,891 --> 00:04:04,900
+the title because of this setting.
+75
+
+75
+00:04:04,900 --> 00:04:08,870
+So, percentage units and min and max width combined
+76
+
+76
+00:04:08,870 --> 00:04:12,140
+with the regular width can be very helpful.
+77
+
+77
+00:04:12,140 --> 00:04:14,040
+And of course, it's not just about the width.
+78
+
+78
+00:04:14,040 --> 00:04:17,070
+You also have min at max height, in case you have
+79
+
+79
+00:04:17,070 --> 00:04:19,450
+similar scenarios where you want to set a
+80
+
+80
+00:04:19,450 --> 00:04:21,263
+minimum or maximum height.
+81
+
+81
+00:04:22,460 --> 00:04:25,960
+So, these extra style properties are properties
+82
+
+82
+00:04:25,960 --> 00:04:27,123
+you should be aware of.
