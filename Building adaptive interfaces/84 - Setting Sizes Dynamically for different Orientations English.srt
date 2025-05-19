@@ -1,0 +1,778 @@
+1
+00:00:02,040 --> 00:00:02,873
+Now, what can we do
+2
+
+2
+00:00:02,873 --> 00:00:04,760
+about different orientations
+3
+
+3
+00:00:04,760 --> 00:00:06,970
+and this app looking better?
+4
+
+4
+00:00:06,970 --> 00:00:10,757
+Well, for one, we can again, use the dimensions API.
+5
+
+5
+00:00:10,757 --> 00:00:12,740
+And we could, for example, take a look
+6
+
+6
+00:00:12,740 --> 00:00:17,740
+at the available height to base this margin to the top here,
+7
+
+7
+00:00:18,350 --> 00:00:20,610
+on that available height,
+8
+
+8
+00:00:20,610 --> 00:00:23,990
+so that we don't have as much of a margin to the top
+9
+
+9
+00:00:23,990 --> 00:00:27,833
+if we have less height available on our device here.
+10
+
+10
+00:00:28,698 --> 00:00:32,810
+Now for this, we can go to the start game screen
+11
+
+11
+00:00:32,810 --> 00:00:35,240
+where we have this margin to the top here
+12
+
+12
+00:00:35,240 --> 00:00:38,570
+on this view with the root container style,
+13
+
+13
+00:00:38,570 --> 00:00:41,400
+there, we have this hard-coded value.
+14
+
+14
+00:00:41,400 --> 00:00:44,120
+And as you learn with the image on the game over screen,
+15
+
+15
+00:00:44,120 --> 00:00:46,803
+hard-coded values aren't that great.
+16
+
+16
+00:00:47,790 --> 00:00:49,490
+And therefore, in start game screen,
+17
+
+17
+00:00:49,490 --> 00:00:52,340
+we can of course, import the dimensions API
+18
+
+18
+00:00:52,340 --> 00:00:54,435
+from React Native.
+19
+
+19
+00:00:54,435 --> 00:00:58,023
+And then use that to change that margin to the top.
+20
+
+20
+00:00:58,890 --> 00:01:01,680
+So now we could get the device height here,
+21
+
+21
+00:01:01,680 --> 00:01:06,670
+instead of the device width by using dimensions get window
+22
+
+22
+00:01:06,670 --> 00:01:08,173
+and now the height.
+23
+
+23
+00:01:09,050 --> 00:01:10,530
+And then here we could, again, check
+24
+
+24
+00:01:10,530 --> 00:01:11,760
+if the (indistinct) height
+25
+
+25
+00:01:11,760 --> 00:01:16,357
+is maybe, let's say, smaller than 400.
+26
+
+26
+00:01:18,220 --> 00:01:22,540
+And in that case, we want to set a margin to the top of 30
+27
+
+27
+00:01:22,540 --> 00:01:24,880
+and otherwise 100.
+28
+
+28
+00:01:24,880 --> 00:01:27,100
+And you will have to play around with that value
+29
+
+29
+00:01:27,100 --> 00:01:30,570
+to find out what looks good and what works well.
+30
+
+30
+00:01:30,570 --> 00:01:33,780
+But if we save this, now we have less margin to the top
+31
+
+31
+00:01:33,780 --> 00:01:35,550
+if we are in landscape mode.
+32
+
+32
+00:01:35,550 --> 00:01:37,706
+on both iOS and Android.
+33
+
+33
+00:01:37,706 --> 00:01:42,478
+And we could go for 380, since that was our width before.
+34
+
+34
+00:01:42,478 --> 00:01:46,190
+If we rotate the device, that is our height break point
+35
+
+35
+00:01:46,190 --> 00:01:48,231
+that sets these two devices apart
+36
+
+36
+00:01:48,231 --> 00:01:51,410
+to still have the bigger margin here on iOS
+37
+
+37
+00:01:51,410 --> 00:01:53,991
+and the smaller margin on Android.
+38
+
+38
+00:01:53,991 --> 00:01:58,530
+Now, it is totally up to you how much margin you wanna have,
+39
+
+39
+00:01:58,530 --> 00:02:00,493
+but this would be one way of doing it.
+40
+
+40
+00:02:01,430 --> 00:02:05,210
+But even with that solution, it's still not perfect.
+41
+
+41
+00:02:05,210 --> 00:02:08,190
+What if a user changes the orientation
+42
+
+42
+00:02:08,190 --> 00:02:11,080
+whilst he or she is using this app?
+43
+
+43
+00:02:11,080 --> 00:02:12,790
+If we switch back to portrait,
+44
+
+44
+00:02:12,790 --> 00:02:15,610
+now we have that smaller margin still.
+45
+
+45
+00:02:15,610 --> 00:02:18,070
+And the same, of course, on iOS,
+46
+
+46
+00:02:18,070 --> 00:02:20,380
+it just left my screen for a second.
+47
+
+47
+00:02:20,380 --> 00:02:21,990
+And the same would be true for iOS
+48
+
+48
+00:02:21,990 --> 00:02:24,420
+if you would switch back, but there, of course,
+49
+
+49
+00:02:24,420 --> 00:02:25,910
+thanks to this break point,
+50
+
+50
+00:02:25,910 --> 00:02:28,143
+the margin was bigger anyways.
+51
+
+51
+00:02:29,190 --> 00:02:30,700
+But you can see it on Android.
+52
+
+52
+00:02:30,700 --> 00:02:32,430
+If we have that smaller margin
+53
+
+53
+00:02:32,430 --> 00:02:34,510
+because we start in landscape mode,
+54
+
+54
+00:02:34,510 --> 00:02:37,720
+then we keep it even if we rotate back.
+55
+
+55
+00:02:37,720 --> 00:02:40,180
+Because that is important.
+56
+
+56
+00:02:40,180 --> 00:02:45,040
+This code here, where we get the device height and so on,
+57
+
+57
+00:02:45,040 --> 00:02:47,310
+is only executed once
+58
+
+58
+00:02:47,310 --> 00:02:50,890
+when this component code, this entire file code
+59
+
+59
+00:02:50,890 --> 00:02:54,223
+is parsed and executed for the first time.
+60
+
+60
+00:02:55,110 --> 00:02:57,692
+So if we adjust the screen orientation
+61
+
+61
+00:02:57,692 --> 00:03:00,010
+after starting this game,
+62
+
+62
+00:03:00,010 --> 00:03:03,122
+this code down here will not get executed again.
+63
+
+63
+00:03:03,122 --> 00:03:07,650
+Yes, the component file, this file will execute again
+64
+
+64
+00:03:07,650 --> 00:03:08,670
+from time to time.
+65
+
+65
+00:03:08,670 --> 00:03:11,530
+For example, when our estate changes.
+66
+
+66
+00:03:11,530 --> 00:03:14,560
+But the code outside of this component function
+67
+
+67
+00:03:14,560 --> 00:03:17,430
+will not be executed again.
+68
+
+68
+00:03:17,430 --> 00:03:20,800
+So therefore, if it's possible to switch the orientation
+69
+
+69
+00:03:20,800 --> 00:03:24,158
+whilst using this game or this app in general,
+70
+
+70
+00:03:24,158 --> 00:03:28,260
+then you might not wanna use the dimensions API like this.
+71
+
+71
+00:03:28,260 --> 00:03:31,910
+You could, but you then might be locking in values
+72
+
+72
+00:03:31,910 --> 00:03:34,163
+that you don't really want thereafter.
+73
+
+73
+00:03:35,350 --> 00:03:38,300
+What you should do instead, is you should write this
+74
+
+74
+00:03:38,300 --> 00:03:40,270
+in a more responsive way,
+75
+
+75
+00:03:40,270 --> 00:03:44,280
+which adjusts to changing device orientations.
+76
+
+76
+00:03:44,280 --> 00:03:48,420
+And thankfully, this is all the very simple and easy to do
+77
+
+77
+00:03:48,420 --> 00:03:50,370
+with React Native.
+78
+
+78
+00:03:50,370 --> 00:03:53,400
+Instead of locking in the device height here
+79
+
+79
+00:03:53,400 --> 00:03:56,204
+and instead of setting the margin top here,
+80
+
+80
+00:03:56,204 --> 00:03:59,230
+what you should do, is move that code
+81
+
+81
+00:03:59,230 --> 00:04:01,150
+into your component function.
+82
+
+82
+00:04:01,150 --> 00:04:04,420
+So any code that should react to device orientation
+83
+
+83
+00:04:04,420 --> 00:04:08,040
+or size changes, should go into the component function
+84
+
+84
+00:04:08,040 --> 00:04:11,810
+because this function, unlike the overall file code,
+85
+
+85
+00:04:11,810 --> 00:04:14,103
+will get executed multiple times.
+86
+
+86
+00:04:15,155 --> 00:04:18,960
+Now, React Native gives you an alternative way
+87
+
+87
+00:04:18,960 --> 00:04:22,810
+of accessing the dimensions API, which allows you
+88
+
+88
+00:04:22,810 --> 00:04:26,700
+to then react to device size or dimension changes
+89
+
+89
+00:04:26,700 --> 00:04:28,563
+inside of component functions.
+90
+
+90
+00:04:29,440 --> 00:04:32,120
+React Native gives you a hook,
+91
+
+91
+00:04:32,120 --> 00:04:35,793
+the use Window dimensions hook, which you can use.
+92
+
+92
+00:04:37,040 --> 00:04:39,500
+Now, like all React hooks, you have to use it
+93
+
+93
+00:04:39,500 --> 00:04:44,380
+inside of a component function or inside another hook.
+94
+
+94
+00:04:44,380 --> 00:04:46,431
+And you then simply call this,
+95
+
+95
+00:04:46,431 --> 00:04:48,830
+to get back an object,
+96
+
+96
+00:04:48,830 --> 00:04:51,400
+on which you can use object de-structuring
+97
+
+97
+00:04:51,400 --> 00:04:53,823
+to get the width and height Of the device.
+98
+
+98
+00:04:55,280 --> 00:04:56,930
+So now here, we get width and height,
+99
+
+99
+00:04:56,930 --> 00:05:01,930
+but internally, this hook will watch the device dimensions.
+100
+
+100
+00:05:02,610 --> 00:05:04,580
+And whenever they change, for example,
+101
+
+101
+00:05:04,580 --> 00:05:07,350
+because the device ice gets rotated,
+102
+
+102
+00:05:07,350 --> 00:05:10,460
+this component function will get executed again,
+103
+
+103
+00:05:10,460 --> 00:05:13,473
+and we will get an updated width and height.
+104
+
+104
+00:05:14,310 --> 00:05:16,510
+And that means that now we can derive
+105
+
+105
+00:05:16,510 --> 00:05:20,100
+our margin top dynamically inside of this component function
+106
+
+106
+00:05:20,100 --> 00:05:22,640
+based on this dynamic height or width,
+107
+
+107
+00:05:22,640 --> 00:05:25,023
+and then use this in our JSX code.
+108
+
+108
+00:05:25,970 --> 00:05:29,350
+So maybe here, right before returning JSX,
+109
+
+109
+00:05:29,350 --> 00:05:31,577
+we could get our margin top
+110
+
+110
+00:05:31,577 --> 00:05:34,254
+by simply using height.
+111
+
+111
+00:05:34,254 --> 00:05:37,402
+And then the same logic as before,
+112
+
+112
+00:05:37,402 --> 00:05:40,770
+where we have this check here,
+113
+
+113
+00:05:40,770 --> 00:05:44,279
+to then set a margin top of 30 or 100.
+114
+
+114
+00:05:44,279 --> 00:05:46,161
+But we now do this here,
+115
+
+115
+00:05:46,161 --> 00:05:51,058
+in our component function, right before we return JSX code.
+116
+
+116
+00:05:51,058 --> 00:05:54,050
+And now we just need to make sure that this value
+117
+
+117
+00:05:54,050 --> 00:05:55,980
+gets applied.
+118
+
+118
+00:05:55,980 --> 00:05:58,020
+So here I'll name it, margin top distance,
+119
+
+119
+00:05:58,020 --> 00:05:59,370
+but this name is up to you.
+120
+
+120
+00:06:00,430 --> 00:06:03,890
+So that means that we now wanna merge this dynamic style
+121
+
+121
+00:06:03,890 --> 00:06:06,560
+into our style sheet object that we're setting here
+122
+
+122
+00:06:06,560 --> 00:06:08,130
+on the view.
+123
+
+123
+00:06:08,130 --> 00:06:09,950
+And thankfully, as you learned before,
+124
+
+124
+00:06:09,950 --> 00:06:11,930
+merging styles is simple.
+125
+
+125
+00:06:11,930 --> 00:06:14,750
+You could, for example, turn this into an array
+126
+
+126
+00:06:14,750 --> 00:06:17,560
+and then add another style object like this,
+127
+
+127
+00:06:17,560 --> 00:06:22,030
+where you set margin top equal to the margin top distance
+128
+
+128
+00:06:22,030 --> 00:06:23,293
+that is derived here.
+129
+
+129
+00:06:24,320 --> 00:06:27,140
+And since this component function will now re-execute
+130
+
+130
+00:06:27,140 --> 00:06:28,980
+whenever the dimensions change,
+131
+
+131
+00:06:28,980 --> 00:06:32,793
+this will adjust whenever the device orientation changes.
+132
+
+132
+00:06:34,360 --> 00:06:36,510
+So now with that, if we save that
+133
+
+133
+00:06:36,510 --> 00:06:39,040
+and we force a reload on all devices,
+134
+
+134
+00:06:39,040 --> 00:06:42,840
+Here, we start with a lot of margin to the top.
+135
+
+135
+00:06:42,840 --> 00:06:45,710
+But if I rotate this, you see?
+136
+
+136
+00:06:45,710 --> 00:06:47,650
+It gets lessened margin to the top,
+137
+
+137
+00:06:47,650 --> 00:06:50,070
+it's less margin to the top now.
+138
+
+138
+00:06:50,070 --> 00:06:54,445
+But if I rotate back, it's more margin again.
+139
+
+139
+00:06:54,445 --> 00:06:59,445
+Because of this dynamic usage of the dimensions API.
+140
+
+140
+00:07:00,330 --> 00:07:02,740
+Now you don't always have to use it like this,
+141
+
+141
+00:07:02,740 --> 00:07:05,270
+but it makes sense to use this hook
+142
+
+142
+00:07:05,270 --> 00:07:08,846
+instead of the other way of using the dimensions API,
+143
+
+143
+00:07:08,846 --> 00:07:12,354
+if you need dynamic dimensions.
+144
+
+144
+00:07:12,354 --> 00:07:17,080
+If you are fine with locking in certain values initially,
+145
+
+145
+00:07:17,080 --> 00:07:18,993
+then you don't need that.
+146
+
+146
+00:07:18,993 --> 00:07:23,100
+But if you do want to adjust dynamically to changing sizes,
+147
+
+147
+00:07:23,100 --> 00:07:24,610
+you should use this hook
+148
+
+148
+00:07:24,610 --> 00:07:29,053
+instead Of the other way of using it, which we saw before.
+149
+
+149
+00:07:29,940 --> 00:07:32,900
+Now, I will not adjust the other components here,
+150
+
+150
+00:07:32,900 --> 00:07:34,950
+simply to save some time for now.
+151
+
+151
+00:07:34,950 --> 00:07:38,450
+But feel free to experiment with that hook here,
+152
+
+152
+00:07:38,450 --> 00:07:42,220
+to see which other parts of this app could be adjusted
+153
+
+153
+00:07:42,220 --> 00:07:46,100
+to different device orientations.
+154
+
+154
+00:07:46,100 --> 00:07:47,610
+Here, I'll keep it like this,
+155
+
+155
+00:07:47,610 --> 00:07:50,250
+but again, definitely feel free to experiment
+156
+
+156
+00:07:50,250 --> 00:07:53,823
+and find different areas where you could optimize that.

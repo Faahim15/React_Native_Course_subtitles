@@ -1,0 +1,583 @@
+1
+00:00:02,220 --> 00:00:04,490
+Now for the rest of this section,
+2
+
+2
+00:00:04,490 --> 00:00:07,390
+we will work ourselves through the different screens
+3
+
+3
+00:00:07,390 --> 00:00:09,040
+and make sure that they look good
+4
+
+4
+00:00:09,040 --> 00:00:11,790
+on different sizes and orientations.
+5
+
+5
+00:00:11,790 --> 00:00:12,623
+But for the moment,
+6
+
+6
+00:00:12,623 --> 00:00:15,660
+I wanna stay on this starting screen here.
+7
+
+7
+00:00:15,660 --> 00:00:18,230
+And here, we have a problem with the keyboard.
+8
+
+8
+00:00:18,230 --> 00:00:19,520
+Now on Android,
+9
+
+9
+00:00:19,520 --> 00:00:22,970
+we might get that full-size overlay keyboard,
+10
+
+10
+00:00:22,970 --> 00:00:27,920
+which we can close ourselves, which looks and works okay.
+11
+
+11
+00:00:27,920 --> 00:00:30,150
+But on iOS, we have a problem.
+12
+
+12
+00:00:30,150 --> 00:00:32,970
+There, if I toggle this built-in keyboard,
+13
+
+13
+00:00:32,970 --> 00:00:36,550
+which our actual app users would be getting,
+14
+
+14
+00:00:36,550 --> 00:00:39,970
+we see that we can't close it, there is no button here,
+15
+
+15
+00:00:39,970 --> 00:00:43,740
+and tapping on the background doesn't do anything.
+16
+
+16
+00:00:43,740 --> 00:00:46,160
+And I also can't get to the input anymore,
+17
+
+17
+00:00:46,160 --> 00:00:48,690
+so I basically broke the app now.
+18
+
+18
+00:00:48,690 --> 00:00:51,383
+And that, of course, is totally unacceptable.
+19
+
+19
+00:00:52,280 --> 00:00:53,755
+The solution for this problem
+20
+
+20
+00:00:53,755 --> 00:00:57,190
+is thankfully built into React Native, though.
+21
+
+21
+00:00:57,190 --> 00:01:01,150
+We can use a specific component that helps us with that.
+22
+
+22
+00:01:01,150 --> 00:01:03,253
+The KeyboardAvoidingView,
+23
+
+23
+00:01:04,380 --> 00:01:06,390
+which in the StartGameScreen,
+24
+
+24
+00:01:06,390 --> 00:01:08,823
+can be imported from React Native.
+25
+
+25
+00:01:09,740 --> 00:01:13,190
+This is a component which you can use in your JSX code
+26
+
+26
+00:01:13,190 --> 00:01:16,310
+to wrap other content with it,
+27
+
+27
+00:01:16,310 --> 00:01:20,890
+other content that involves or contains an input field,
+28
+
+28
+00:01:20,890 --> 00:01:24,190
+and whenever the keyboard that opens up that content
+29
+
+29
+00:01:24,190 --> 00:01:28,660
+that holds your input element and other elements
+30
+
+30
+00:01:28,660 --> 00:01:32,680
+can be moved up so that you can still access it,
+31
+
+31
+00:01:32,680 --> 00:01:34,603
+even though the keyboard is open.
+32
+
+32
+00:01:35,830 --> 00:01:37,420
+For this, all you have to do
+33
+
+33
+00:01:37,420 --> 00:01:41,760
+is wrap this view here in StartGameScreen,
+34
+
+34
+00:01:41,760 --> 00:01:44,080
+with this KeyboardAvoidingView.
+35
+
+35
+00:01:44,080 --> 00:01:47,493
+You wrap this around your view here.
+36
+
+36
+00:01:48,330 --> 00:01:50,200
+The View with rootContainer
+37
+
+37
+00:01:50,200 --> 00:01:53,700
+now is wrapped by the KeyboardAvoidingView.
+38
+
+38
+00:01:53,700 --> 00:01:57,050
+Now, since this will now be our rootView,
+39
+
+39
+00:01:57,050 --> 00:02:00,170
+the top-most View in this component,
+40
+
+40
+00:02:00,170 --> 00:02:02,460
+this would break our style.
+41
+
+41
+00:02:02,460 --> 00:02:05,520
+If we save this, everything would be broken.
+42
+
+42
+00:02:05,520 --> 00:02:06,573
+The reason for that is
+43
+
+43
+00:02:06,573 --> 00:02:10,130
+that we no longer get as much space as we can,
+44
+
+44
+00:02:10,130 --> 00:02:12,750
+but we need to get as much space as we can
+45
+
+45
+00:02:12,750 --> 00:02:16,110
+on this root element, for the rest of the elements
+46
+
+46
+00:02:16,110 --> 00:02:19,403
+to get their appropriate slices and to look good.
+47
+
+47
+00:02:20,550 --> 00:02:22,300
+Now, we can add the style prop here,
+48
+
+48
+00:02:22,300 --> 00:02:24,010
+to add a style that makes sure
+49
+
+49
+00:02:24,010 --> 00:02:26,250
+that we take all the available space,
+50
+
+50
+00:02:26,250 --> 00:02:29,560
+and for this I already added a new style object
+51
+
+51
+00:02:29,560 --> 00:02:31,840
+in the StyleSheet, which I named screen,
+52
+
+52
+00:02:31,840 --> 00:02:33,260
+which sets flex to one.
+53
+
+53
+00:02:33,260 --> 00:02:34,653
+That's all I do here.
+54
+
+54
+00:02:35,980 --> 00:02:38,551
+And this screen style object,
+55
+
+55
+00:02:38,551 --> 00:02:42,520
+can now be added to this KeyboardAvoidingView
+56
+
+56
+00:02:42,520 --> 00:02:45,023
+with styles screen like this.
+57
+
+57
+00:02:46,040 --> 00:02:48,573
+With that, it looks better again.
+58
+
+58
+00:02:49,890 --> 00:02:53,430
+Now, if you tap in there, nothing changes though;
+59
+
+59
+00:02:53,430 --> 00:02:55,750
+it still is not accessible,
+60
+
+60
+00:02:55,750 --> 00:03:00,110
+because you cannot also configure the KeyboardAvoidingView.
+61
+
+61
+00:03:00,110 --> 00:03:03,570
+You can add a behavior, which either wants height,
+62
+
+62
+00:03:03,570 --> 00:03:06,330
+padding, or position as a value.
+63
+
+63
+00:03:06,330 --> 00:03:08,720
+Now, I do recommend that you play around
+64
+
+64
+00:03:08,720 --> 00:03:11,910
+with those values to see the differences.
+65
+
+65
+00:03:11,910 --> 00:03:15,253
+Very often, in my experience, position works best.
+66
+
+66
+00:03:16,550 --> 00:03:18,120
+Now, if we save that, however,
+67
+
+67
+00:03:18,120 --> 00:03:20,280
+we notice that everything is broken again,
+68
+
+68
+00:03:20,280 --> 00:03:25,120
+because what position will do, is it will try to move this,
+69
+
+69
+00:03:25,120 --> 00:03:27,839
+as you can see if you tap in there, that is working now,
+70
+
+70
+00:03:27,839 --> 00:03:32,283
+out of the way so that we can still see it whilst typing.
+71
+
+71
+00:03:33,180 --> 00:03:36,150
+But for this to move effectively,
+72
+
+72
+00:03:36,150 --> 00:03:38,824
+this needs to be in a scrollable container,
+73
+
+73
+00:03:38,824 --> 00:03:41,330
+which at the moment isn't.
+74
+
+74
+00:03:41,330 --> 00:03:45,070
+Therefore, to make position work great in this case here,
+75
+
+75
+00:03:45,070 --> 00:03:49,580
+we should wrap the KeyboardAvoidingView, with a scroll view.
+76
+
+76
+00:03:49,580 --> 00:03:52,150
+Because we learned before that we can use a scroll view
+77
+
+77
+00:03:52,150 --> 00:03:54,100
+to add scrolling.
+78
+
+78
+00:03:54,100 --> 00:03:55,960
+We don't want flat list here,
+79
+
+79
+00:03:55,960 --> 00:03:58,120
+because we don't have a dynamic list
+80
+
+80
+00:03:58,120 --> 00:04:00,980
+with possibly an infinite amount of items,
+81
+
+81
+00:04:00,980 --> 00:04:03,810
+instead we have a clearly defined user interface,
+82
+
+82
+00:04:03,810 --> 00:04:07,970
+which should be scrollable in case we run out of space.
+83
+
+83
+00:04:07,970 --> 00:04:10,370
+Therefore, we simply wrap ScrollView,
+84
+
+84
+00:04:10,370 --> 00:04:13,223
+around the KeyboardAvoidingView, like this,
+85
+
+85
+00:04:14,370 --> 00:04:17,860
+and on the scroll view, we should also add the style again
+86
+
+86
+00:04:17,860 --> 00:04:19,640
+and set this to styles screen
+87
+
+87
+00:04:19,640 --> 00:04:21,240
+to make sure that the scroll view
+88
+
+88
+00:04:21,240 --> 00:04:23,880
+occupies all the space it can get,
+89
+
+89
+00:04:23,880 --> 00:04:27,120
+because screen sets flex to one,
+90
+
+90
+00:04:27,120 --> 00:04:29,600
+so that we still get all the space we can get here,
+91
+
+91
+00:04:29,600 --> 00:04:32,290
+and then here, and then all our other styles
+92
+
+92
+00:04:32,290 --> 00:04:35,490
+can style themselves and lay themselves out
+93
+
+93
+00:04:35,490 --> 00:04:37,693
+based on that available space.
+94
+
+94
+00:04:38,890 --> 00:04:40,700
+Now with that scroll view
+95
+
+95
+00:04:40,700 --> 00:04:44,160
+wrapped around KeyboardAvoidingView if you save this,
+96
+
+96
+00:04:44,160 --> 00:04:45,740
+this looks good again,
+97
+
+97
+00:04:45,740 --> 00:04:49,320
+and now you see this moves up as I start typing.
+98
+
+98
+00:04:49,320 --> 00:04:50,410
+And I can scroll this
+99
+
+99
+00:04:50,410 --> 00:04:52,850
+to reach the different parts of this UI.
+100
+
+100
+00:04:53,850 --> 00:04:56,850
+Here on Android, we don't really see this, but that's okay,
+101
+
+101
+00:04:56,850 --> 00:04:59,573
+because we just needed it here on iOS.
+102
+
+102
+00:05:00,890 --> 00:05:04,140
+Now with that, we can also tap somewhere else
+103
+
+103
+00:05:04,140 --> 00:05:05,870
+to close this keyboard.
+104
+
+104
+00:05:05,870 --> 00:05:09,203
+That's a nice side effect of KeyboardAvoidingView.
+105
+
+105
+00:05:10,309 --> 00:05:14,469
+If you now tap this card here, the keyboard closes.
+106
+
+106
+00:05:14,469 --> 00:05:17,250
+Now, if I tap here, it does not really close,
+107
+
+107
+00:05:17,250 --> 00:05:21,470
+at least not always, but we do have this main area covered,
+108
+
+108
+00:05:21,470 --> 00:05:22,730
+and therefore we now of course,
+109
+
+109
+00:05:22,730 --> 00:05:26,070
+allow our users to always reach all these buttons,
+110
+
+110
+00:05:26,070 --> 00:05:28,623
+and they can also close the keyboard.
+111
+
+111
+00:05:29,690 --> 00:05:32,320
+So that's the KeyboardAvoidingView in action,
+112
+
+112
+00:05:32,320 --> 00:05:34,720
+which is another super important component
+113
+
+113
+00:05:34,720 --> 00:05:36,560
+exposed by React Native,
+114
+
+114
+00:05:36,560 --> 00:05:39,370
+has nothing to do with expo as you see,
+115
+
+115
+00:05:39,370 --> 00:05:41,580
+but instead it's built into React Native,
+116
+
+116
+00:05:41,580 --> 00:05:44,740
+and it can help a lot with building accessible
+117
+
+117
+00:05:44,740 --> 00:05:47,493
+and usable user input areas.
